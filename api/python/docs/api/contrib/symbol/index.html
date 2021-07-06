@@ -3081,7 +3081,7 @@ This function support variable length of positional input.</p>
 <blockquote>
 <div><p>out = data / sqrt(data.shape[-1])</p>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L840</p>
+<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L844</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3526,7 +3526,7 @@ queries and keys in multihead attention use as encoder-decoder.</p>
 <span class="n">output</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">batch_dot</span><span class="p">(</span><span class="n">q_proj</span><span class="p">,</span> <span class="n">k_proj</span><span class="p">,</span> <span class="n">transpose_b</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L760</p>
+<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L763</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3565,7 +3565,7 @@ keys and values following the layout:
 <span class="n">output</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L807</p>
+<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L811</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3602,7 +3602,7 @@ of queries, keys and values following the layout:
 <span class="n">output</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">batch_dot</span><span class="p">(</span><span class="n">q_proj</span><span class="p">,</span> <span class="n">k_proj</span><span class="p">,</span> <span class="n">transpose_b</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L668</p>
+<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L669</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3640,7 +3640,7 @@ of queries, keys and values following the layout:
 <span class="n">output</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L714</p>
+<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L716</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -4392,7 +4392,7 @@ otherwise each token attends to <em>w</em> tokens on each side.</p>
 </ul>
 <p>The shape of the output is:
 - <em>context_vec</em> : (batch_size, seq_length, num_heads, num_head_units)</p>
-<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L995</p>
+<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L999</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -4436,7 +4436,7 @@ otherwise each token attends to <em>w</em> tokens on each side.</p>
 </ul>
 <p>The shape of the output is:
 - <em>mask</em> : same as the shape of <em>score</em></p>
-<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L869</p>
+<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L873</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -4477,7 +4477,7 @@ otherwise each token attends to <em>w</em> tokens on each side.</p>
 <li><p>(batch_size, seq_length, num_heads, w + 1) otherwise.</p></li>
 </ul>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L924</p>
+<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L928</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
