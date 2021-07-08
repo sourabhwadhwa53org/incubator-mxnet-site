@@ -520,7 +520,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Sets the hints flag for the CPU ISA. See <a class="el" href="group__dnnl__api__service.html#gaf356412d94e35579bd509ed1fa174f5d" title="CPU ISA hints flags.">dnnl_cpu_isa_hints_t</a> and #dnnl::cpu_isa_hints for the list of the values accepted by the C and C++ API functions respectively.</p>
-<p>This function has effect only before the first JIT kernel is generated and will return an error afterwards.</p>
+<p>This function has effect only once, and returns an error on subsequent calls. It should also be invoked before any other oneDNN API call, otherwise it may return an error.</p>
 <p>This function overrides the DNNL_CPU_ISA_HINTS environment variable. </p><dl class="section see"><dt>See also</dt><dd>dev_guide_cpu_isa_hints for more details</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -644,7 +644,7 @@ The directory is accessed only when the first JIT kernel is being created. JIT p
       </table>
 </div><div class="memdoc">
 <p>Sets the maximal ISA the library can dispatch to on the CPU. See <a class="el" href="group__dnnl__api__service.html#ga303bab5d2e7b371bb44495864df21dd2" title="CPU instruction set flags.">dnnl_cpu_isa_t</a> and #dnnl::cpu_isa for the list of the values accepted by the C and C++ API functions respectively.</p>
-<p>This function has effect only before the first JIT kernel is generated and will return an error afterwards.</p>
+<p>This function has effect only once, and returns an error on subsequent calls. It should also be invoked before any other oneDNN API call, otherwise it may return an error.</p>
 <p>This function overrides the DNNL_MAX_CPU_ISA environment variable. The environment variable can be set to the desired maximal ISA name in upper case and with dnnl_cpu_isa prefix removed. For example: <code>DNNL_MAX_CPU_ISA=AVX2</code>.</p>
 <dl class="section note"><dt>Note</dt><dd>The ISAs are only partially ordered:<ul>
 <li>SSE41 &lt; AVX &lt; AVX2,</li>
@@ -726,7 +726,7 @@ The directory is accessed only when the first JIT kernel is being created. JIT p
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 7 2021 20:30:09 for mxnet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jul 8 2021 02:36:31 for mxnet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
