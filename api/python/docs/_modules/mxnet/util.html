@@ -2227,7 +2227,7 @@ Edit on Github
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Expecting a gpu context to get cuda compute capability, &#39;</span>
                          <span class="s1">&#39;while received ctx </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ctx</span><span class="p">)))</span>
 
-    <span class="n">libnames</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;libcuda.so&#39;</span><span class="p">,</span> <span class="s1">&#39;libcuda.dylib&#39;</span><span class="p">,</span> <span class="s1">&#39;cuda.dll&#39;</span><span class="p">)</span>
+    <span class="n">libnames</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;libcuda.so&#39;</span><span class="p">,</span> <span class="s1">&#39;libcuda.dylib&#39;</span><span class="p">,</span> <span class="s1">&#39;nvcuda.dll&#39;</span><span class="p">,</span> <span class="s1">&#39;cuda.dll&#39;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">libname</span> <span class="ow">in</span> <span class="n">libnames</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">cuda</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">CDLL</span><span class="p">(</span><span class="n">libname</span><span class="p">)</span>
@@ -2528,6 +2528,30 @@ Edit on Github
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">passed_value</span> <span class="o">=</span> <span class="kc">None</span> <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">c_str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
     <span class="n">check_call</span><span class="p">(</span><span class="n">_LIB</span><span class="o">.</span><span class="n">MXSetEnv</span><span class="p">(</span><span class="n">c_str</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="n">passed_value</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">get_max_supported_compute_capability</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Get the maximum compute capability (SM arch) supported by the nvrtc compiler</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">max_supported_cc</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">()</span>
+    <span class="n">check_call</span><span class="p">(</span><span class="n">_LIB</span><span class="o">.</span><span class="n">MXGetMaxSupportedArch</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="n">max_supported_cc</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">max_supported_cc</span><span class="o">.</span><span class="n">value</span>
+
+
+<span class="k">def</span> <span class="nf">get_rtc_compile_opts</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get the compile ops suitable for the context, given the toolkit/driver config</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">device_cc</span> <span class="o">=</span> <span class="n">get_cuda_compute_capability</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+    <span class="n">max_supported_cc</span> <span class="o">=</span> <span class="n">get_max_supported_compute_capability</span><span class="p">()</span>
+
+    <span class="c1"># CUDA toolkits starting with 11.1 (first to support arch 86) can compile directly to SASS</span>
+    <span class="n">can_compile_to_SASS</span> <span class="o">=</span> <span class="n">max_supported_cc</span> <span class="o">&gt;=</span> <span class="mi">86</span>
+    <span class="n">should_compile_to_SASS</span> <span class="o">=</span> <span class="n">can_compile_to_SASS</span> <span class="ow">and</span> \
+                             <span class="n">device_cc</span> <span class="o">&lt;=</span> <span class="n">max_supported_cc</span>
+    <span class="n">device_cc_as_used</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">device_cc</span><span class="p">,</span> <span class="n">max_supported_cc</span><span class="p">)</span>
+    <span class="n">arch_opt</span> <span class="o">=</span> <span class="s2">&quot;--gpu-architecture=</span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;sm&quot;</span> <span class="k">if</span> <span class="n">should_compile_to_SASS</span> <span class="k">else</span> <span class="s2">&quot;compute&quot;</span><span class="p">,</span>
+                                                 <span class="n">device_cc_as_used</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">arch_opt</span><span class="p">]</span>
 </pre></div>
 
         <hr class="feedback-hr-top" />

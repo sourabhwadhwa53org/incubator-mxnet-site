@@ -1366,6 +1366,12 @@ Edit on Github
 <tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.get_cuda_compute_capability" title="mxnet.util.get_cuda_compute_capability"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cuda_compute_capability</span></code></a>(ctx)</p></td>
 <td><p>Returns the cuda compute capability of the input <cite>ctx</cite>.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.get_max_supported_compute_capability" title="mxnet.util.get_max_supported_compute_capability"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_max_supported_compute_capability</span></code></a>()</p></td>
+<td><p>Get the maximum compute capability (SM arch) supported by the nvrtc compiler</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.get_rtc_compile_opts" title="mxnet.util.get_rtc_compile_opts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_rtc_compile_opts</span></code></a>(ctx)</p></td>
+<td><p>Get the compile ops suitable for the context, given the toolkit/driver config</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.getenv" title="mxnet.util.getenv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getenv</span></code></a>(name)</p></td>
 <td><p>Get the setting of an environment variable from the C Runtime.</p></td>
 </tr>
@@ -1471,6 +1477,18 @@ if <cite>source_array</cite> is an <cite>NDArray</cite>, <cite>float32</cite> ot
 </dl>
 <p class="rubric">References</p>
 <p><a class="reference external" href="https://gist.github.com/f0k/63a664160d016a491b2cbea15913d549#file-cuda_check-py">https://gist.github.com/f0k/63a664160d016a491b2cbea15913d549#file-cuda_check-py</a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mxnet.util.get_max_supported_compute_capability">
+<code class="sig-name descname">get_max_supported_compute_capability</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/util.html#get_max_supported_compute_capability"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.util.get_max_supported_compute_capability" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the maximum compute capability (SM arch) supported by the nvrtc compiler</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mxnet.util.get_rtc_compile_opts">
+<code class="sig-name descname">get_rtc_compile_opts</code><span class="sig-paren">(</span><em class="sig-param">ctx</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/util.html#get_rtc_compile_opts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.util.get_rtc_compile_opts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the compile ops suitable for the context, given the toolkit/driver config</p>
 </dd></dl>
 
 <dl class="function">

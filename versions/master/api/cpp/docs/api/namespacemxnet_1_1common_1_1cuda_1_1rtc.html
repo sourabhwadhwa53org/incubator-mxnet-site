@@ -85,6 +85,8 @@ Functions</h2></td></tr>
 <tr class="memitem:af55f617654efc870d5cd468dd4cf98fd"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemxnet_1_1common_1_1cuda_1_1rtc.html#af55f617654efc870d5cd468dd4cf98fd">VectorizedKernelRTCLauncher</a> (const std::string &amp;parameters, const std::string &amp;kernel_name, const std::string &amp;code, int nvec, const <a class="el" href="namespacemxnet.html#abadedc1b42ee3e5b8852e63783b982ef">index_t</a> lead_dim, const <a class="el" href="namespacemxnet.html#abadedc1b42ee3e5b8852e63783b982ef">index_t</a> other_dim, <a class="el" href="structmshadow_1_1Stream.html">mshadow::Stream</a>&lt; <a class="el" href="namespacemxnet.html#a31ef33571a4f6ba8847eeee1f4907141">gpu</a> &gt; *s, const Params params, const std::vector&lt; <a class="el" href="classmxnet_1_1TBlob.html">TBlob</a> &gt; &amp;inputs, const std::vector&lt; <a class="el" href="classmxnet_1_1TBlob.html">TBlob</a> &gt; &amp;outputs, const int dev_id, const int lead_input_num=0, const <a class="el" href="namespacemxnet.html#abadedc1b42ee3e5b8852e63783b982ef">index_t</a> blocks=0)</td></tr>
 <tr class="memdesc:af55f617654efc870d5cd468dd4cf98fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Launcher helper for the kernels using vectorization.  <a href="namespacemxnet_1_1common_1_1cuda_1_1rtc.html#af55f617654efc870d5cd468dd4cf98fd">More...</a><br /></td></tr>
 <tr class="separator:af55f617654efc870d5cd468dd4cf98fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e2afffb9b744b04aa64c8ceafd51aae"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemxnet_1_1common_1_1cuda_1_1rtc.html#a6e2afffb9b744b04aa64c8ceafd51aae">GetMaxSupportedArch</a> ()</td></tr>
+<tr class="separator:a6e2afffb9b744b04aa64c8ceafd51aae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa376584cbd919b0c3cf23f22bbe948fd"><td class="memItemLeft" align="right" valign="top">CUfunction&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemxnet_1_1common_1_1cuda_1_1rtc.html#aa376584cbd919b0c3cf23f22bbe948fd">get_function</a> (const std::string &amp;parameters, const std::string &amp;kernel_name, const std::string &amp;code, int dev_id)</td></tr>
 <tr class="memdesc:aa376584cbd919b0c3cf23f22bbe948fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile and get the GPU kernel. Uses cache in order to eliminate the overhead of compilation.  <a href="namespacemxnet_1_1common_1_1cuda_1_1rtc.html#aa376584cbd919b0c3cf23f22bbe948fd">More...</a><br /></td></tr>
 <tr class="separator:aa376584cbd919b0c3cf23f22bbe948fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -172,6 +174,23 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a6e2afffb9b744b04aa64c8ceafd51aae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e2afffb9b744b04aa64c8ceafd51aae">&#9670;&nbsp;</a></span>GetMaxSupportedArch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int mxnet::common::cuda::rtc::GetMaxSupportedArch </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -555,7 +574,7 @@ template&lt;typename Params &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 13 2021 20:31:18 for mxnet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jul 14 2021 02:36:49 for mxnet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
