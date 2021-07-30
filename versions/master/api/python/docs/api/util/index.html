@@ -1402,37 +1402,40 @@ Edit on Github
 <tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.reset_np" title="mxnet.util.reset_np"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_np</span></code></a>()</p></td>
 <td><p>Deactivate NumPy shape and array and deafult dtype semantics at the same time.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.set_module" title="mxnet.util.set_module"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_module</span></code></a>(module)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.set_flush_denorms" title="mxnet.util.set_flush_denorms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_flush_denorms</span></code></a>(value)</p></td>
+<td><p>Change floating-point calculations on CPU when dealing with denormalized values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.set_module" title="mxnet.util.set_module"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_module</span></code></a>(module)</p></td>
 <td><p>Decorator for overriding __module__ on a function or class.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.set_np" title="mxnet.util.set_np"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_np</span></code></a>([shape, array, dtype])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.set_np" title="mxnet.util.set_np"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_np</span></code></a>([shape, array, dtype])</p></td>
 <td><p>Setting NumPy shape and array semantics at the same time.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.set_np_default_dtype" title="mxnet.util.set_np_default_dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_np_default_dtype</span></code></a>([is_np_default_dtype])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.set_np_default_dtype" title="mxnet.util.set_np_default_dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_np_default_dtype</span></code></a>([is_np_default_dtype])</p></td>
 <td><p>Turns on/off NumPy default dtype semantics, because mxnet.numpy.ndarray use 32 bit data storage as default (e.g.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.set_np_shape" title="mxnet.util.set_np_shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_np_shape</span></code></a>(active)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.set_np_shape" title="mxnet.util.set_np_shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_np_shape</span></code></a>(active)</p></td>
 <td><p>Turns on/off NumPy shape semantics, in which <cite>()</cite> represents the shape of scalar tensors, and tuples with <cite>0</cite> elements, for example, <cite>(0,)</cite>, <cite>(1, 0, 2)</cite>, represent the shapes of zero-size tensors.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.setenv" title="mxnet.util.setenv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setenv</span></code></a>(name, value)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.setenv" title="mxnet.util.setenv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setenv</span></code></a>(name, value)</p></td>
 <td><p>Set an environment variable in the C Runtime.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.use_np" title="mxnet.util.use_np"><code class="xref py py-obj docutils literal notranslate"><span class="pre">use_np</span></code></a>(func)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.use_np" title="mxnet.util.use_np"><code class="xref py py-obj docutils literal notranslate"><span class="pre">use_np</span></code></a>(func)</p></td>
 <td><p>A convenience decorator for wrapping user provided functions and classes in the scope of both NumPy-shape and NumPy-array semantics, which means that <code class="docutils literal notranslate"><span class="pre">(1)</span></code> empty tuples <code class="docutils literal notranslate"><span class="pre">()</span></code> and tuples with zeros, such as <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">1)</span></code>, <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">0,</span> <span class="pre">2)</span></code>, will be treated as scalar tensors’ shapes and zero-size tensors’ shapes in shape inference functions of operators, instead of as unknown in legacy mode; (2) ndarrays of type <code class="xref py py-class docutils literal notranslate"><span class="pre">mxnet.numpy.ndarray</span></code> should be created instead of <code class="xref py py-class docutils literal notranslate"><span class="pre">mx.nd.NDArray</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.use_np_array" title="mxnet.util.use_np_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">use_np_array</span></code></a>(func)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.use_np_array" title="mxnet.util.use_np_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">use_np_array</span></code></a>(func)</p></td>
 <td><p>A decorator wrapping Gluon <cite>Block`s and all its methods, properties, and static functions with the semantics of NumPy-array, which means that where ndarrays are created, `mxnet.numpy.ndarray`s should be created, instead of legacy ndarrays of type `mx.nd.NDArray</cite>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.use_np_default_dtype" title="mxnet.util.use_np_default_dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">use_np_default_dtype</span></code></a>(func)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.use_np_default_dtype" title="mxnet.util.use_np_default_dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">use_np_default_dtype</span></code></a>(func)</p></td>
 <td><p>A decorator wrapping a function or class with activated NumPy-default_dtype semantics.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.use_np_shape" title="mxnet.util.use_np_shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">use_np_shape</span></code></a>(func)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.use_np_shape" title="mxnet.util.use_np_shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">use_np_shape</span></code></a>(func)</p></td>
 <td><p>A decorator wrapping a function or class with activated NumPy-shape semantics.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.wrap_np_binary_func" title="mxnet.util.wrap_np_binary_func"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wrap_np_binary_func</span></code></a>(func)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.wrap_np_binary_func" title="mxnet.util.wrap_np_binary_func"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wrap_np_binary_func</span></code></a>(func)</p></td>
 <td><p>A convenience decorator for wrapping numpy-compatible binary ufuncs to provide uniform error handling.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.wrap_np_unary_func" title="mxnet.util.wrap_np_unary_func"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wrap_np_unary_func</span></code></a>(func)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.wrap_np_unary_func" title="mxnet.util.wrap_np_unary_func"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wrap_np_unary_func</span></code></a>(func)</p></td>
 <td><p>A convenience decorator for wrapping numpy-compatible unary ufuncs to provide uniform error handling.</p></td>
 </tr>
 </tbody>
@@ -1762,6 +1765,31 @@ arugments or the value is not an allowed value even when the key is a legal one.
 <dt id="mxnet.util.reset_np">
 <code class="sig-name descname">reset_np</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/util.html#reset_np"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.util.reset_np" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deactivate NumPy shape and array and deafult dtype semantics at the same time.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mxnet.util.set_flush_denorms">
+<code class="sig-name descname">set_flush_denorms</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/util.html#set_flush_denorms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.util.set_flush_denorms" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Change floating-point calculations on CPU when dealing with denormalized values.</dt><dd><p>This is only applicable to architectures which supports flush-to-zero.
+Denormalized values are positive and negative values that are very close to 0
+(exponent is the smallest possible value).
+Flushing denormalized values to 0 can speedup calculations if such values occurs,
+but if fulfilling whole IEEE 754 standard is required this option should be disabled.
+Flushing denormalized values is enabled in MXNet by default.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>bool</em>) – State of flush-to-zero and denormals-are-zero in MXCSR register</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>prev_state</strong> – Previous state of flush-to-zero in MXCSR register</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">

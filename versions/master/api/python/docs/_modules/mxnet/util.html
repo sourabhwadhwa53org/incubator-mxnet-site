@@ -2552,6 +2552,30 @@ Edit on Github
     <span class="n">arch_opt</span> <span class="o">=</span> <span class="s2">&quot;--gpu-architecture=</span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;sm&quot;</span> <span class="k">if</span> <span class="n">should_compile_to_SASS</span> <span class="k">else</span> <span class="s2">&quot;compute&quot;</span><span class="p">,</span>
                                                  <span class="n">device_cc_as_used</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">arch_opt</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">set_flush_denorms</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Change floating-point calculations on CPU when dealing with denormalized values.</span>
+<span class="sd">       This is only applicable to architectures which supports flush-to-zero.</span>
+<span class="sd">       Denormalized values are positive and negative values that are very close to 0</span>
+<span class="sd">       (exponent is the smallest possible value).</span>
+<span class="sd">       Flushing denormalized values to 0 can speedup calculations if such values occurs,</span>
+<span class="sd">       but if fulfilling whole IEEE 754 standard is required this option should be disabled.</span>
+<span class="sd">       Flushing denormalized values is enabled in MXNet by default.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    value : bool</span>
+<span class="sd">        State of flush-to-zero and denormals-are-zero in MXCSR register</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    prev_state : bool</span>
+<span class="sd">        Previous state of flush-to-zero in MXCSR register</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_bool</span><span class="p">()</span>
+    <span class="n">passed_value</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_bool</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="n">check_call</span><span class="p">(</span><span class="n">_LIB</span><span class="o">.</span><span class="n">MXSetFlushDenorms</span><span class="p">(</span><span class="n">passed_value</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="n">ret</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">ret</span><span class="o">.</span><span class="n">value</span>
 </pre></div>
 
         <hr class="feedback-hr-top" />

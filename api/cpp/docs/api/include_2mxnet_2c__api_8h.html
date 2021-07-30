@@ -286,6 +286,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a146217b1db0d73614debf333665e16f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2mxnet_2c__api_8h.html#a5b0e47dde55f9b2f58b99fab92d1e0ac">MXNET_DLL</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2mxnet_2c__api_8h.html#a146217b1db0d73614debf333665e16f1">MXRandomSeedContext</a> (int seed, int dev_type, int dev_id)</td></tr>
 <tr class="memdesc:a146217b1db0d73614debf333665e16f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seed the global random number generator of the given device.  <a href="include_2mxnet_2c__api_8h.html#a146217b1db0d73614debf333665e16f1">More...</a><br /></td></tr>
 <tr class="separator:a146217b1db0d73614debf333665e16f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa469c21490f08b4b53ec5925e69a7d5d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2mxnet_2c__api_8h.html#a5b0e47dde55f9b2f58b99fab92d1e0ac">MXNET_DLL</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2mxnet_2c__api_8h.html#aa469c21490f08b4b53ec5925e69a7d5d">MXSetFlushDenorms</a> (bool value, bool *prev_state)</td></tr>
+<tr class="memdesc:aa469c21490f08b4b53ec5925e69a7d5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change floating-point calculations when dealing with denormalized values. Currently this option is only supported in CPU backend. Flushing denormalized values to zero is enabled by default.  <a href="include_2mxnet_2c__api_8h.html#aa469c21490f08b4b53ec5925e69a7d5d">More...</a><br /></td></tr>
+<tr class="separator:aa469c21490f08b4b53ec5925e69a7d5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa837df9930bbb46d0ca1674523f63e1c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2mxnet_2c__api_8h.html#a5b0e47dde55f9b2f58b99fab92d1e0ac">MXNET_DLL</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2mxnet_2c__api_8h.html#aa837df9930bbb46d0ca1674523f63e1c">MXNotifyShutdown</a> ()</td></tr>
 <tr class="memdesc:aa837df9930bbb46d0ca1674523f63e1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notify the engine about a shutdown, This can help engine to print less messages into display.  <a href="include_2mxnet_2c__api_8h.html#aa837df9930bbb46d0ca1674523f63e1c">More...</a><br /></td></tr>
 <tr class="separator:aa837df9930bbb46d0ca1674523f63e1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -10721,6 +10724,44 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="aa469c21490f08b4b53ec5925e69a7d5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa469c21490f08b4b53ec5925e69a7d5d">&#9670;&nbsp;</a></span>MXSetFlushDenorms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2mxnet_2c__api_8h.html#a5b0e47dde55f9b2f58b99fab92d1e0ac">MXNET_DLL</a> int MXSetFlushDenorms </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool *&#160;</td>
+          <td class="paramname"><em>prev_state</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Change floating-point calculations when dealing with denormalized values. Currently this option is only supported in CPU backend. Flushing denormalized values to zero is enabled by default. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>state of flush-to-zero and denormals-are-zero to set. </td></tr>
+    <tr><td class="paramname">prev_state</td><td>state of flush-to-zero and denormals-are-zero before setting new state. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 when success, -1 when failure happens. </dd></dl>
+
+</div>
+</div>
 <a id="aa197d57b54e180f50a9d9244dfb9aa52"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa197d57b54e180f50a9d9244dfb9aa52">&#9670;&nbsp;</a></span>MXSetIsNumpyDefaultDtype()</h2>
 
@@ -13273,7 +13314,7 @@ Variables</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 30 2021 08:42:48 for mxnet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jul 30 2021 14:42:30 for mxnet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
