@@ -275,9 +275,9 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a19e42fdb34a0c54b343e85668cb7acd2"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; <a class="el" href="classmxnet_1_1BatchifyFunction.html">BatchifyFunction</a> *(const std::vector&lt; std::pair&lt; std::string, std::string &gt; &gt; &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemxnet.html#a19e42fdb34a0c54b343e85668cb7acd2">BatchifyFunctionFactory</a></td></tr>
 <tr class="memdesc:a19e42fdb34a0c54b343e85668cb7acd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">typedef the factory function of data sampler  <a href="namespacemxnet.html#a19e42fdb34a0c54b343e85668cb7acd2">More...</a><br /></td></tr>
 <tr class="separator:a19e42fdb34a0c54b343e85668cb7acd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0d55b0edf98cf8f3caeb050662ae9ec"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(<a class="el" href="classmxnet_1_1NDArray.html">NDArray</a> **used_vars, <a class="el" href="namespacemxnet.html#a4421326e33f2a848cb2fa3e70ab24ff4">real_t</a> *scalars, <a class="el" href="classmxnet_1_1NDArray.html">NDArray</a> **mutate_vars, int num_params, char **param_keys, char **param_vals)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemxnet.html#ab0d55b0edf98cf8f3caeb050662ae9ec">NDArrayAPIFunction</a></td></tr>
-<tr class="memdesc:ab0d55b0edf98cf8f3caeb050662ae9ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">definition of <a class="el" href="classmxnet_1_1NDArray.html" title="ndarray interface">NDArray</a> function  <a href="namespacemxnet.html#ab0d55b0edf98cf8f3caeb050662ae9ec">More...</a><br /></td></tr>
-<tr class="separator:ab0d55b0edf98cf8f3caeb050662ae9ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0782774ef482f7135bc9d627dda520a1"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(<a class="el" href="classmxnet_1_1NDArray.html">NDArray</a> **used_vars, <a class="el" href="namespacemxnet.html#a4421326e33f2a848cb2fa3e70ab24ff4">real_t</a> *scalars, <a class="el" href="classmxnet_1_1NDArray.html">NDArray</a> **mutate_vars, int num_params, char **param_keys, char **param_vals)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemxnet.html#a0782774ef482f7135bc9d627dda520a1">NDArrayAPIFunction</a></td></tr>
+<tr class="memdesc:a0782774ef482f7135bc9d627dda520a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">definition of <a class="el" href="classmxnet_1_1NDArray.html" title="ndarray interface">NDArray</a> function  <a href="namespacemxnet.html#a0782774ef482f7135bc9d627dda520a1">More...</a><br /></td></tr>
+<tr class="separator:a0782774ef482f7135bc9d627dda520a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7ea5e68a319e4f7d7c0b4ee91c2d20f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemxnet.html#ac7ea5e68a319e4f7d7c0b4ee91c2d20f">FCreateOpState</a> = std::function&lt; <a class="el" href="classmxnet_1_1OpStatePtr.html">OpStatePtr</a>(const <a class="el" href="structnnvm_1_1NodeAttrs.html">NodeAttrs</a> &amp;attrs, <a class="el" href="structmxnet_1_1Context.html">Context</a> ctx, const <a class="el" href="namespacemxnet.html#a87e1c30aafac389774c6f4d905c0e5ea">mxnet::ShapeVector</a> &amp;in_shape, const std::vector&lt; int &gt; &amp;in_type)&gt;</td></tr>
 <tr class="memdesc:ac7ea5e68a319e4f7d7c0b4ee91c2d20f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a Layer style, forward/backward operator. This is easy to write code that contains state. <a class="el" href="classmxnet_1_1OpStatePtr.html" title="Operator state. This is a pointer type, its content is mutable even if OpStatePtr is const.">OpStatePtr</a> is a pointer type, it's content is mutable even if <a class="el" href="classmxnet_1_1OpStatePtr.html" title="Operator state. This is a pointer type, its content is mutable even if OpStatePtr is const.">OpStatePtr</a> is constant.  <a href="namespacemxnet.html#ac7ea5e68a319e4f7d7c0b4ee91c2d20f">More...</a><br /></td></tr>
 <tr class="separator:ac7ea5e68a319e4f7d7c0b4ee91c2d20f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1011,14 +1011,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ab0d55b0edf98cf8f3caeb050662ae9ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0d55b0edf98cf8f3caeb050662ae9ec">&#9670;&nbsp;</a></span>NDArrayAPIFunction</h2>
+<a id="a0782774ef482f7135bc9d627dda520a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0782774ef482f7135bc9d627dda520a1">&#9670;&nbsp;</a></span>NDArrayAPIFunction</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef std::function&lt;void (<a class="el" href="classmxnet_1_1NDArray.html">NDArray</a> **used_vars, <a class="el" href="namespacemxnet.html#a4421326e33f2a848cb2fa3e70ab24ff4">real_t</a> *scalars, <a class="el" href="classmxnet_1_1NDArray.html">NDArray</a> **mutate_vars, int num_params, char **param_keys, char **param_vals)&gt; <a class="el" href="namespacemxnet.html#ab0d55b0edf98cf8f3caeb050662ae9ec">mxnet::NDArrayAPIFunction</a></td>
+          <td class="memname">typedef std::function&lt;void(<a class="el" href="classmxnet_1_1NDArray.html">NDArray</a>** used_vars, <a class="el" href="namespacemxnet.html#a4421326e33f2a848cb2fa3e70ab24ff4">real_t</a>* scalars, <a class="el" href="classmxnet_1_1NDArray.html">NDArray</a>** mutate_vars, int num_params, char** param_keys, char** param_vals)&gt; <a class="el" href="namespacemxnet.html#a0782774ef482f7135bc9d627dda520a1">mxnet::NDArrayAPIFunction</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2739,7 +2739,7 @@ template&lt;typename SrcIter , typename DstIter &gt; </div>
 <div class="ttc" id="anamespacemxnet_html_a87e1c30aafac389774c6f4d905c0e5ea"><div class="ttname"><a href="namespacemxnet.html#a87e1c30aafac389774c6f4d905c0e5ea">mxnet::ShapeVector</a></div><div class="ttdeci">std::vector&lt; mxnet::TShape &gt; ShapeVector</div><div class="ttdoc">The result holder of shape of each NodeEntry in the graph.</div><div class="ttdef"><b>Definition:</b> tuple.h:820</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Aug 9 2021 02:41:45 for mxnet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 9 2021 08:41:20 for mxnet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
