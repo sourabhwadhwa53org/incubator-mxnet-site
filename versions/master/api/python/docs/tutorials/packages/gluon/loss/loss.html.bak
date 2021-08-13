@@ -1831,7 +1831,7 @@ MXNet Gluon provides a number of the most commonly used loss functions, and you�
 <div class="section" id="CTC-Loss">
 <h3><a class="reference internal" href="../../../../api/gluon/loss/index.html#mxnet.gluon.loss.CTCLoss"><span class="std std-ref">CTC Loss</span></a><a class="headerlink" href="#CTC-Loss" title="Permalink to this headline">¶</a></h3>
 <p>CTC Loss is the <a class="reference external" href="https://distill.pub/2017/ctc/">connectionist temporal classification loss</a> . It is used to train recurrent neural networks with variable time dimension. It learns the alignment and labelling of input sequences. It takes a sequence as input and gives probabilities for each timestep. For instance, in the following image the word is not well aligned with the 5 timesteps because of the different sizes of characters. CTC Loss finds for each timestep the highest probability
-e.g. <code class="docutils literal notranslate"><span class="pre">t1</span></code> presents with high probability a <code class="docutils literal notranslate"><span class="pre">C</span></code>. It combines the highest probapilities and returns the best path decoding. For an in-depth tutorial on how to use CTC-Loss in MXNet, check out this <a class="reference external" href="https://github.com/apache/incubator-mxnet/tree/master/example/ctc">example</a>.</p>
+e.g. <code class="docutils literal notranslate"><span class="pre">t1</span></code> presents with high probability a <code class="docutils literal notranslate"><span class="pre">C</span></code>. It combines the highest probapilities and returns the best path decoding.</p>
 <p><img alt="ctc_loss" src="../../../../_images/ctc_loss.png" /></p>
 </div>
 <div class="section" id="Cosine-Embedding-Loss">

@@ -1799,7 +1799,7 @@ gradients for the part inside the block.</p>
 <p>In this notebook, we have shown how to train a GNMT model on IWSLT 2015
 English-Vietnamese using Gluon NLP toolkit. The complete training script
 can be found
-<a class="reference external" href="https://github.com/dmlc/gluon-nlp/blob/master/scripts/nmt/train_gnmt.py">here</a>.
+<a class="reference external" href="https://github.com/dmlc/gluon-nlp/blob/v0.x/scripts/machine_translation/train_gnmt.py">here</a>.
 The command to reproduce the result can be seen in the <a class="reference external" href="http://gluon-nlp.mxnet.io/scripts/index.html#machine-translation">nmt scripts
 page</a>.</p>
 </div>
