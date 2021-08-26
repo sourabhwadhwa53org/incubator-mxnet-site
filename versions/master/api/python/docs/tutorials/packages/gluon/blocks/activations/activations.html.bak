@@ -1616,7 +1616,7 @@ you may want to try hand-designed activations like SELU, SiLU, or GELU. This gui
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[10:00:34] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
+[16:01:07] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
