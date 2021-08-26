@@ -1557,7 +1557,7 @@ div.rendered_html tbody tr:hover {
 <h1>Differences between NP on MXNet and NumPy<a class="headerlink" href="#Differences-between-NP-on-MXNet-and-NumPy" title="Permalink to this headline">¶</a></h1>
 <p>This topic lists known differences between <code class="docutils literal notranslate"><span class="pre">mxnet.np</span></code> and <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. With this quick reference, NumPy users can more easily adopt the MXNet NumPy-like API.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1575,8 +1575,8 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Extra-functionalities">
 <h2>Extra functionalities<a class="headerlink" href="#Extra-functionalities" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">mxnet.np</span></code> module aims to mimic NumPy. Most extra functionalities that enhance NumPy for deep learning use are available on other modules, such as <code class="docutils literal notranslate"><span class="pre">npx</span></code> for operators used in deep learning and <code class="docutils literal notranslate"><span class="pre">autograd</span></code> for automatic differentiation. The <code class="docutils literal notranslate"><span class="pre">np</span></code> module API is not complete. One notable change is GPU support. Creating routines accepts a <code class="docutils literal notranslate"><span class="pre">ctx</span></code> argument:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1587,9 +1587,26 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+[10:10:50] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for GPU
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>(array(1., ctx=gpu(0)), gpu(0))
+</pre></div>
+</div>
+</div>
 <p>Methods to move data across devices.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1597,12 +1614,29 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+[10:10:52] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>(array(1.), array(0.74021935))
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="Default-data-types">
 <h2>Default data types<a class="headerlink" href="#Default-data-types" title="Permalink to this headline">¶</a></h2>
 <p>NumPy uses 64-bit floating numbers or 64-bit integers by default.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1610,9 +1644,18 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>(dtype(&#39;int64&#39;), dtype(&#39;float64&#39;))
+</pre></div>
+</div>
+</div>
 <p>MXNet uses 32-bit floating points as the default date type. It’s the default data type for deep learning.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1620,12 +1663,21 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>(dtype(&#39;float32&#39;), dtype(&#39;float32&#39;))
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="Scalars">
 <h2>Scalars<a class="headerlink" href="#Scalars" title="Permalink to this headline">¶</a></h2>
 <p>NumPy has classes for scalars, whose base class is ‘numpy.generic’. The return values of selecting an element and reduce operators are scalars.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1634,9 +1686,18 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>(numpy.int64, numpy.int64)
+</pre></div>
+</div>
+</div>
 <p>A scalar is almost identical to a 0-rank tensor (TODO, there may be subtle difference), but it has a different class. You can check the data type with <code class="docutils literal notranslate"><span class="pre">isinstance</span></code></p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1646,9 +1707,18 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>(0, 1, True, True, True, False)
+</pre></div>
+</div>
+</div>
 <p>MXNet returns 0-rank <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> for scalars. (TODO, may consider to add scalar classes later.)</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1657,8 +1727,17 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>(mxnet.numpy.ndarray, mxnet.numpy.ndarray)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1667,12 +1746,21 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>(0, 1, True)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="Save-and-load">
 <h2>Save and load<a class="headerlink" href="#Save-and-load" title="Permalink to this headline">¶</a></h2>
 <p>Users can use the <code class="docutils literal notranslate"><span class="pre">npx.save</span></code>, <code class="docutils literal notranslate"><span class="pre">npx.savez</span></code> and <code class="docutils literal notranslate"><span class="pre">npx.load</span></code> methods respectively to save and load arrays. <code class="docutils literal notranslate"><span class="pre">npx.save</span></code> saves single, dense arrays to the <code class="docutils literal notranslate"><span class="pre">.npy</span></code> format, whereas <code class="docutils literal notranslate"><span class="pre">npx.savez</span></code> can save a collection of both dense and sparse arrays to the <code class="docutils literal notranslate"><span class="pre">.npz</span></code> format.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1684,12 +1772,21 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>{&#39;a&#39;: array(1.), &#39;b&#39;: array(2.)}
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="Matplotlib">
 <h2>Matplotlib<a class="headerlink" href="#Matplotlib" title="Permalink to this headline">¶</a></h2>
 <p>Sometimes the MXNet ndarray cannot used by other libraries that accept NumPy input, for example matplotlib. The best practice is converting to NumPy with <code class="docutils literal notranslate"><span class="pre">asnumpy()</span></code>.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1698,6 +1795,13 @@ div.rendered_html tbody tr:hover {
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">());</span>
 </pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/tutorials_packages_np_np-vs-numpy_20_0.png" src="../../../_images/tutorials_packages_np_np-vs-numpy_20_0.png" />
 </div>
 </div>
 </div>

@@ -1560,7 +1560,7 @@ div.rendered_html tbody tr:hover {
 <h2>Basic use<a class="headerlink" href="#Basic-use" title="Permalink to this headline">¶</a></h2>
 <p>To get started, import the <code class="docutils literal notranslate"><span class="pre">autograd</span></code> package with the following code.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1571,8 +1571,8 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <p>As an example, you could differentiate a function <span class="math notranslate nohighlight">\(f(x) = 2 x^2\)</span> with respect to parameter <span class="math notranslate nohighlight">\(x\)</span>. For Autograd, you can start by assigning an initial value of <span class="math notranslate nohighlight">\(x\)</span>, as follows:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1581,9 +1581,27 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+[09:03:20] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([[1., 2.],
+       [3., 4.]])
+</pre></div>
+</div>
+</div>
 <p>After you compute the gradient of <span class="math notranslate nohighlight">\(f(x)\)</span> with respect to <span class="math notranslate nohighlight">\(x\)</span>, you need a place to store it. In MXNet, you can tell a ndarray that you plan to store a gradient by invoking its <code class="docutils literal notranslate"><span class="pre">attach_grad</span></code> method, as shown in the following example.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1593,7 +1611,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>Next, define the function <span class="math notranslate nohighlight">\(y=f(x)\)</span>. To let MXNet store <span class="math notranslate nohighlight">\(y\)</span>, so that you can compute gradients later, use the following code to put the definition inside an <code class="docutils literal notranslate"><span class="pre">autograd.record()</span></code> scope.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1604,7 +1622,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>You can invoke back propagation (backprop) by calling <code class="docutils literal notranslate"><span class="pre">y.backward()</span></code>. When <span class="math notranslate nohighlight">\(y\)</span> has more than one entry, <code class="docutils literal notranslate"><span class="pre">y.backward()</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">y.sum().backward()</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1613,8 +1631,8 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <p>Next, verify whether this is the expected output. Note that <span class="math notranslate nohighlight">\(y=2x^2\)</span> and <span class="math notranslate nohighlight">\(\frac{dy}{dx} = 4x\)</span>, which should be <code class="docutils literal notranslate"><span class="pre">[[4,</span> <span class="pre">8],[12,</span> <span class="pre">16]]</span></code>. Check the automatically computed results.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1622,9 +1640,19 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([[ 4.,  8.],
+       [12., 16.]])
+</pre></div>
+</div>
+</div>
 <p>Now you get to dive into <code class="docutils literal notranslate"><span class="pre">y.backward()</span></code> by first discussing a bit on gradients. As alluded to earlier <code class="docutils literal notranslate"><span class="pre">y.backward()</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">y.sum().backward()</span></code>.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1635,9 +1663,19 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([[ 4.,  8.],
+       [12., 16.]])
+</pre></div>
+</div>
+</div>
 <p>Additionally, you can only run backward once. Unless you use the flag <code class="docutils literal notranslate"><span class="pre">retain_graph</span></code> to be <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1656,13 +1694,26 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[ 4.  8.]
+ [12. 16.]]
+Since you have retained your previous graph you can run backward again
+[[ 4.  8.]
+ [12. 16.]]
+However, you can&#39;t do backward twice unless you retain the graph.
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="Custom-MXNet-ndarray-operations">
 <h2>Custom MXNet ndarray operations<a class="headerlink" href="#Custom-MXNet-ndarray-operations" title="Permalink to this headline">¶</a></h2>
 <p>In order to understand the <code class="docutils literal notranslate"><span class="pre">backward()</span></code> method it is beneficial to first understand how you can create custom operations. MXNet operators are classes with a forward and backward method. Where the number of args in <code class="docutils literal notranslate"><span class="pre">backward()</span></code> must equal the number of items returned in the <code class="docutils literal notranslate"><span class="pre">forward()</span></code> method. Additionally, the number of arguments in the <code class="docutils literal notranslate"><span class="pre">forward()</span></code> method must match the number of output arguments from <code class="docutils literal notranslate"><span class="pre">backward()</span></code>. You can modify the gradients in backward to return custom gradients.
 For instance, below you can return a different gradient then the actual derivative.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1683,8 +1734,8 @@ For instance, below you can return a different gradient then the actual derivati
 </div>
 </div>
 <p>Now you can use the first custom operation you have built.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1702,9 +1753,18 @@ For instance, below you can return a different gradient then the actual derivati
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+True
+</pre></div></div>
+</div>
 <p>Alternatively, you may want to have a function which is different depending on if you are training or not.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1716,8 +1776,8 @@ For instance, below you can return a different gradient then the actual derivati
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1734,9 +1794,21 @@ For instance, below you can return a different gradient then the actual derivati
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+[[1. 1. 1.]
+ [1. 1. 1.]]
+[[4. 4. 4.]
+ [4. 4. 4.]]
+</pre></div></div>
+</div>
 <p>You could create functions with <code class="docutils literal notranslate"><span class="pre">autograd.record()</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1746,8 +1818,8 @@ For instance, below you can return a different gradient then the actual derivati
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1757,9 +1829,18 @@ For instance, below you can return a different gradient then the actual derivati
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[2. 2. 2.]
+ [2. 2. 2.]]
+</pre></div></div>
+</div>
 <p>You can also combine multiple functions.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1771,9 +1852,18 @@ For instance, below you can return a different gradient then the actual derivati
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[4. 4. 4.]
+ [4. 4. 4.]]
+</pre></div></div>
+</div>
 <p>Additionally, MXNet records the execution trace and computes the gradient accordingly. The following function <code class="docutils literal notranslate"><span class="pre">f</span></code> doubles the inputs until its <code class="docutils literal notranslate"><span class="pre">norm</span></code> reaches 1000. Then it selects one element depending on the sum of its elements.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1791,7 +1881,7 @@ For instance, below you can return a different gradient then the actual derivati
 </div>
 <p>In this example, you record the trace and feed in a random value.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1804,12 +1894,21 @@ For instance, below you can return a different gradient then the actual derivati
 </div>
 </div>
 <p>You can see that <code class="docutils literal notranslate"><span class="pre">b</span></code> is a linear function of <code class="docutils literal notranslate"><span class="pre">a</span></code>, and <code class="docutils literal notranslate"><span class="pre">c</span></code> is chosen from <code class="docutils literal notranslate"><span class="pre">b</span></code>. The gradient with respect to <code class="docutils literal notranslate"><span class="pre">a</span></code> be will be either <code class="docutils literal notranslate"><span class="pre">[c/a[0],</span> <span class="pre">0]</span></code> or <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">c/a[1]]</span></code>, depending on which element from <code class="docutils literal notranslate"><span class="pre">b</span></code> is picked. You see the results of this example with this code:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="n">a</span><span class="o">.</span><span class="n">grad</span> <span class="o">==</span> <span class="n">c</span> <span class="o">/</span> <span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([ True, False])
 </pre></div>
 </div>
 </div>
@@ -1818,8 +1917,8 @@ For instance, below you can return a different gradient then the actual derivati
 <div class="section" id="Advanced-MXNet-ndarray-operations-with-Autograd">
 <h2>Advanced MXNet ndarray operations with Autograd<a class="headerlink" href="#Advanced-MXNet-ndarray-operations-with-Autograd" title="Permalink to this headline">¶</a></h2>
 <p>You can control gradients for different ndarray operations. For instance, perhaps you want to check that the gradients are propagating properly? the <code class="docutils literal notranslate"><span class="pre">attach_grad()</span></code> method automatically detaches itself from the gradient. Therefore, the input up until y will no longer look like it has <code class="docutils literal notranslate"><span class="pre">x</span></code>. To illustrate this notice that <code class="docutils literal notranslate"><span class="pre">x.grad</span></code> and <code class="docutils literal notranslate"><span class="pre">y.grad</span></code> is not the same in the second example.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1833,9 +1932,20 @@ For instance, below you can return a different gradient then the actual derivati
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[2. 2. 2.]
+ [2. 2. 2.]]
+[[4. 4. 4.]
+ [4. 4. 4.]]
+</pre></div></div>
+</div>
 <p>Is not the same as:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1847,6 +1957,16 @@ For instance, below you can return a different gradient then the actual derivati
 <span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">grad</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[14. 14. 14.]
+ [14. 14. 14.]]
+None
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Next-steps">

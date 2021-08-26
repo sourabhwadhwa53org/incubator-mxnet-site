@@ -1559,8 +1559,8 @@ div.rendered_html tbody tr:hover {
 <!-- adapted from diveintodeeplearning --><div class="section" id="A-Hybrid-of-Imperative-and-Symbolic-Programming">
 <h2>A Hybrid of Imperative and Symbolic Programming<a class="headerlink" href="#A-Hybrid-of-Imperative-and-Symbolic-Programming" title="Permalink to this headline">¶</a></h2>
 <p>Imperative programming makes use of programming statements to change a program’s state. Consider the following example of simple imperative programming code.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1577,6 +1577,15 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>10
+</pre></div>
+</div>
+</div>
 <p>As expected, Python will perform an addition when running the statement <code class="docutils literal notranslate"><span class="pre">e</span> <span class="pre">=</span> <span class="pre">add(a,</span> <span class="pre">b)</span></code>, and will store the result as the variable <code class="docutils literal notranslate"><span class="pre">e</span></code>, thereby changing the program’s state. The next two statements <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">=</span> <span class="pre">add(c,</span> <span class="pre">d)</span></code> and <code class="docutils literal notranslate"><span class="pre">g</span> <span class="pre">=</span> <span class="pre">add(e,</span> <span class="pre">f)</span></code> will similarly perform additions and store the results as variables.</p>
 <p>Although imperative programming is convenient, it may be inefficient. On the one hand, even if the <code class="docutils literal notranslate"><span class="pre">add</span></code> function is repeatedly called throughout the <code class="docutils literal notranslate"><span class="pre">fancy_func</span></code> function, Python will execute the three function calling statements individually, one after the other. On the other hand, we need to save the variable values of <code class="docutils literal notranslate"><span class="pre">e</span></code> and <code class="docutils literal notranslate"><span class="pre">f</span></code> until all the statements in <code class="docutils literal notranslate"><span class="pre">fancy_func</span></code> have been executed. This is because we do not know whether the variables <code class="docutils literal notranslate"><span class="pre">e</span></code> and <code class="docutils literal notranslate"><span class="pre">f</span></code> will be used by other
 parts of the program after the statements <code class="docutils literal notranslate"><span class="pre">e</span> <span class="pre">=</span> <span class="pre">add(a,</span> <span class="pre">b)</span></code> and <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">=</span> <span class="pre">add(c,</span> <span class="pre">d)</span></code> have been executed.</p>
@@ -1587,8 +1596,8 @@ parts of the program after the statements <code class="docutils literal notransl
 <li><p>Provide the required inputs and call on the compiled program for execution.</p></li>
 </ol>
 <p>In the example below, we utilize symbolic programming to re-implement the imperative programming code provided at the beginning of this section.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1619,6 +1628,26 @@ parts of the program after the statements <code class="docutils literal notransl
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+def add(a, b):
+    return a + b
+
+def fancy_func(a, b, c, d):
+    e = add(a, b)
+    f = add(c, d)
+    g = add(e, f)
+    return g
+
+print(fancy_func(1, 2, 3, 4))
+
+10
+</pre></div></div>
+</div>
 <p>The three functions defined above will only return the results of the computation process as a string. Finally, the complete computation process is compiled and run using the <code class="docutils literal notranslate"><span class="pre">compile</span></code> function. This leaves more room to optimize computation, since the system is able to view the entire program during its compilation. For example, during compilation, the program can be rewritten as <code class="docutils literal notranslate"><span class="pre">print((1</span> <span class="pre">+</span> <span class="pre">2)</span> <span class="pre">+</span> <span class="pre">(3</span> <span class="pre">+</span> <span class="pre">4))</span></code> or even directly rewritten as <code class="docutils literal notranslate"><span class="pre">print(10)</span></code>. Apart from reducing the amount of
 function calls, this process also saves memory.</p>
 <p>A comparison of these two programming methods shows that</p>
@@ -1637,12 +1666,12 @@ while having the ability to convert most programs into symbolic programming to b
 <div class="section" id="Constructing-Models-Using-the-HybridSequential-Class">
 <h2>Constructing Models Using the HybridSequential Class<a class="headerlink" href="#Constructing-Models-Using-the-HybridSequential-Class" title="Permalink to this headline">¶</a></h2>
 <p>Previously, we learned how to use the Sequential class to concatenate multiple layers. Next, we will replace the Sequential class with the HybridSequential class in order to make use of hybrid programming.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">mxnet</span> <span class="kn">import</span> <span class="n">np</span><span class="p">,</span> <span class="n">npx</span>
+<span></span><span class="kn">from</span> <span class="nn">mxnet</span> <span class="kn">import</span> <span class="n">np</span><span class="p">,</span> <span class="n">npx</span><span class="p">,</span> <span class="n">sym</span>
 <span class="kn">from</span> <span class="nn">mxnet.gluon</span> <span class="kn">import</span> <span class="n">nn</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
@@ -1660,9 +1689,26 @@ while having the ability to convert most programs into symbolic programming to b
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+[10:00:43] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([[ 0.16526175, -0.14005634]])
+</pre></div>
+</div>
+</div>
 <p>By calling the <code class="docutils literal notranslate"><span class="pre">hybridize</span></code> function, we are able to compile and optimize the computation of the concatenation layer in the HybridSequential instance. The model’s computation result remains unchanged.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1671,12 +1717,21 @@ while having the ability to convert most programs into symbolic programming to b
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([[ 0.16526175, -0.14005634]])
+</pre></div>
+</div>
+</div>
 <p>It should be noted that only the layers inheriting the HybridBlock class will be optimized during computation. For example, the HybridSequential and <code class="docutils literal notranslate"><span class="pre">Dense</span></code> classes provided by Gluon are all subclasses of HybridBlock class, meaning they will both be optimized during computation. A layer will not be optimized if it inherits from the Block class rather than the HybridBlock class.</p>
 <div class="section" id="Computing-Performance">
 <h3>Computing Performance<a class="headerlink" href="#Computing-Performance" title="Permalink to this headline">¶</a></h3>
 <p>To demonstrate the performance improvement gained by the use of symbolic programming, we will compare the computation time before and after calling the <code class="docutils literal notranslate"><span class="pre">hybridize</span></code> function. Here we time 1000 <code class="docutils literal notranslate"><span class="pre">net</span></code> model computations. The model computations are based on imperative and symbolic programming, respectively, before and after <code class="docutils literal notranslate"><span class="pre">net</span></code> has called the <code class="docutils literal notranslate"><span class="pre">hybridize</span></code> function.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1694,13 +1749,22 @@ while having the ability to convert most programs into symbolic programming to b
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+before hybridizing: 0.3265 sec
+after hybridizing: 0.1711 sec
+</pre></div></div>
+</div>
 <p>As is observed in the above results, after a HybridSequential instance calls the <code class="docutils literal notranslate"><span class="pre">hybridize</span></code> function, computing performance is improved through the use of symbolic programming.</p>
 </div>
 <div class="section" id="Achieving-Symbolic-Programming">
 <h3>Achieving Symbolic Programming<a class="headerlink" href="#Achieving-Symbolic-Programming" title="Permalink to this headline">¶</a></h3>
 <p>We can save the symbolic program and model parameters to the hard disk through the use of the <code class="docutils literal notranslate"><span class="pre">export</span></code> function after the <code class="docutils literal notranslate"><span class="pre">net</span></code> model has finished computing the output based on the input, such as in the case of <code class="docutils literal notranslate"><span class="pre">net(x)</span></code> in the <code class="docutils literal notranslate"><span class="pre">benchmark</span></code> function.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1708,17 +1772,20 @@ while having the ability to convert most programs into symbolic programming to b
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>(&#39;my_mlp-symbol.json&#39;, &#39;my_mlp-0000.params&#39;)
+</pre></div>
+</div>
+</div>
 <p>The .json and .params files generated during this process are a symbolic program and a model parameter, respectively. They can be read by other front-end languages supported by Python or MXNet, such as C++, R, Scala, and Perl. This allows us to deploy trained models to other devices and easily use other front-end programming languages. At the same time, because symbolic programming was used during deployment, the computing performance is often superior to that based on imperative programming.</p>
 <p>In MXNet, a symbolic program refers to a program that makes use of the Symbol type. We know that, when the NDArray input <code class="docutils literal notranslate"><span class="pre">x</span></code> is provided to <code class="docutils literal notranslate"><span class="pre">net</span></code>, <code class="docutils literal notranslate"><span class="pre">net(x)</span></code> will directly calculate the model output and return a result based on <code class="docutils literal notranslate"><span class="pre">x</span></code>. For models that have called the <code class="docutils literal notranslate"><span class="pre">hybridize</span></code> function, we can also provide a Symbol-type input variable, and <code class="docutils literal notranslate"><span class="pre">net(x)</span></code> will return Symbol type results.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
 <span class="n">net</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -1727,7 +1794,7 @@ while having the ability to convert most programs into symbolic programming to b
 <p>Similar to the correlation between the Sequential Block classes, the HybridSequential class is a HybridBlock subclass.</p>
 <p>Earlier, we demonstrated that, after calling the <code class="docutils literal notranslate"><span class="pre">hybridize</span></code> function, the model is able to achieve superior computing performance and portability. In addition, model flexibility can be affected after calling the <code class="docutils literal notranslate"><span class="pre">hybridize</span></code> function. We will demonstrate this by constructing a model using the HybridBlock class.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1745,8 +1812,8 @@ while having the ability to convert most programs into symbolic programming to b
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1757,9 +1824,28 @@ while having the ability to convert most programs into symbolic programming to b
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+x:  [[-0.6338663   0.40156594  0.46456942  0.46472842]]
+hidden:  [[0.0241944  0.00421739 0.03040398 0.         0.05913268 0.05234822
+  0.         0.04036672 0.         0.        ]]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([[-0.00105458, -0.00382642]])
+</pre></div>
+</div>
+</div>
 <p>Repeating the forward computation will achieve the same results.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1767,9 +1853,28 @@ while having the ability to convert most programs into symbolic programming to b
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+x:  [[-0.6338663   0.40156594  0.46456942  0.46472842]]
+hidden:  [[0.0241944  0.00421739 0.03040398 0.         0.05913268 0.05234822
+  0.         0.04036672 0.         0.        ]]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([[-0.00105458, -0.00382642]])
+</pre></div>
+</div>
+</div>
 <p>Next, we will see what happens after we call the <code class="docutils literal notranslate"><span class="pre">hybridize</span></code> function.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1778,13 +1883,41 @@ while having the ability to convert most programs into symbolic programming to b
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+x:  [[-0.6338663   0.40156594  0.46456942  0.46472842]]
+hidden:  [[0.0241944  0.00421739 0.03040398 0.         0.05913268 0.05234822
+  0.         0.04036672 0.         0.        ]]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([[-0.00105458, -0.00382642]])
+</pre></div>
+</div>
+</div>
 <p>Now, we repeat the forward computation.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="n">net</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([[-0.00105458, -0.00382642]])
 </pre></div>
 </div>
 </div>
@@ -1796,7 +1929,7 @@ while having the ability to convert most programs into symbolic programming to b
 <h2>Disabling Hybridization<a class="headerlink" href="#Disabling-Hybridization" title="Permalink to this headline">¶</a></h2>
 <p>If we want to disable the <code class="docutils literal notranslate"><span class="pre">hybridize</span></code> function, we can do that by using the following code:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>

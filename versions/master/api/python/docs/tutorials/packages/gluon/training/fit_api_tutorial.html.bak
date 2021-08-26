@@ -1692,12 +1692,12 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="n">train_acc</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">metric</span><span class="o">.</span><span class="n">Accuracy</span><span class="p">()</span> <span class="c1"># Metric to monitor</span>
+<span></span><span class="n">train_acc</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">gluon</span><span class="o">.</span><span class="n">metric</span><span class="o">.</span><span class="n">Accuracy</span><span class="p">()</span> <span class="c1"># Metric to monitor</span>
 
 <span class="c1"># Define the estimator, by passing to it the model, loss function, metrics, trainer object and context</span>
 <span class="n">est</span> <span class="o">=</span> <span class="n">estimator</span><span class="o">.</span><span class="n">Estimator</span><span class="p">(</span><span class="n">net</span><span class="o">=</span><span class="n">resnet_18_v1</span><span class="p">,</span>
                           <span class="n">loss</span><span class="o">=</span><span class="n">loss_fn</span><span class="p">,</span>
-                          <span class="n">metrics</span><span class="o">=</span><span class="n">train_acc</span><span class="p">,</span>
+                          <span class="n">train_metrics</span><span class="o">=</span><span class="n">train_acc</span><span class="p">,</span>
                           <span class="n">trainer</span><span class="o">=</span><span class="n">trainer</span><span class="p">,</span>
                           <span class="n">context</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
 
@@ -1756,7 +1756,7 @@ handlers</a> including: <code class="docutils literal notranslate"><span class="
         <span class="k">for</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">estimator</span><span class="o">.</span><span class="n">train_metrics</span><span class="p">:</span>
             <span class="c1"># look for train Loss in training metrics</span>
             <span class="c1"># we wrapped loss value as a metric to record it</span>
-            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">metric</span><span class="p">,</span> <span class="n">mx</span><span class="o">.</span><span class="n">metric</span><span class="o">.</span><span class="n">Loss</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">metric</span><span class="p">,</span> <span class="n">mx</span><span class="o">.</span><span class="n">gluon</span><span class="o">.</span><span class="n">metric</span><span class="o">.</span><span class="n">Loss</span><span class="p">):</span>
                 <span class="n">loss_name</span><span class="p">,</span> <span class="n">loss_val</span> <span class="o">=</span> <span class="n">metric</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
                 <span class="c1"># append loss value for this epoch</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">loss_history</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">loss_name</span><span class="p">,</span> <span class="p">[])</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss_val</span><span class="p">)</span>
@@ -1773,7 +1773,7 @@ handlers</a> including: <code class="docutils literal notranslate"><span class="
 <span class="n">resnet_18_v1</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">force_reinit</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">init</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">Xavier</span><span class="p">(),</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
 <span class="n">trainer</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">Trainer</span><span class="p">(</span><span class="n">resnet_18_v1</span><span class="o">.</span><span class="n">collect_params</span><span class="p">(),</span>
                         <span class="s1">&#39;sgd&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="n">learning_rate</span><span class="p">})</span>
-<span class="n">train_acc</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">metric</span><span class="o">.</span><span class="n">Accuracy</span><span class="p">()</span>
+<span class="n">train_acc</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">gluon</span><span class="o">.</span><span class="n">metric</span><span class="o">.</span><span class="n">Accuracy</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1785,7 +1785,7 @@ handlers</a> including: <code class="docutils literal notranslate"><span class="
 <span></span><span class="c1"># Define the estimator, by passing to it the model, loss function, metrics, trainer object and context</span>
 <span class="n">est</span> <span class="o">=</span> <span class="n">estimator</span><span class="o">.</span><span class="n">Estimator</span><span class="p">(</span><span class="n">net</span><span class="o">=</span><span class="n">resnet_18_v1</span><span class="p">,</span>
                           <span class="n">loss</span><span class="o">=</span><span class="n">loss_fn</span><span class="p">,</span>
-                          <span class="n">metrics</span><span class="o">=</span><span class="n">train_acc</span><span class="p">,</span>
+                          <span class="n">train_metrics</span><span class="o">=</span><span class="n">train_acc</span><span class="p">,</span>
                           <span class="n">trainer</span><span class="o">=</span><span class="n">trainer</span><span class="p">,</span>
                           <span class="n">context</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
 

@@ -1389,7 +1389,7 @@ Edit on Github
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;zeros&#39;</span><span class="p">,</span> <span class="s1">&#39;empty&#39;</span><span class="p">,</span> <span class="s1">&#39;array&#39;</span><span class="p">,</span> <span class="s1">&#39;load&#39;</span><span class="p">,</span> <span class="s1">&#39;load_frombuffer&#39;</span><span class="p">,</span> <span class="s1">&#39;save&#39;</span><span class="p">]</span>
 
 
-<div class="viewcode-block" id="zeros"><a class="viewcode-back" href="../../../api/legacy/ndarray/ndarray.html#mxnet.ndarray.zeros">[docs]</a><span class="k">def</span> <span class="nf">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="zeros"><a class="viewcode-back" href="../../../api/legacy/ndarray/utils/index.html#mxnet.ndarray.utils.zeros">[docs]</a><span class="k">def</span> <span class="nf">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Return a new array of given shape and type, filled with zeros.</span>
 
 <span class="sd">    Parameters</span>
@@ -1421,7 +1421,7 @@ Edit on Github
         <span class="k">return</span> <span class="n">_zeros_sparse_ndarray</span><span class="p">(</span><span class="n">stype</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="empty"><a class="viewcode-back" href="../../../api/legacy/ndarray/ndarray.html#mxnet.ndarray.empty">[docs]</a><span class="k">def</span> <span class="nf">empty</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="empty"><a class="viewcode-back" href="../../../api/legacy/ndarray/utils/index.html#mxnet.ndarray.utils.empty">[docs]</a><span class="k">def</span> <span class="nf">empty</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Returns a new array of given shape and type, without initializing entries.</span>
 
 <span class="sd">    Parameters</span>
@@ -1457,7 +1457,7 @@ Edit on Github
         <span class="k">return</span> <span class="n">_empty_sparse_ndarray</span><span class="p">(</span><span class="n">stype</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="array"><a class="viewcode-back" href="../../../api/legacy/ndarray/ndarray.html#mxnet.ndarray.array">[docs]</a><span class="k">def</span> <span class="nf">array</span><span class="p">(</span><span class="n">source_array</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="array"><a class="viewcode-back" href="../../../api/legacy/ndarray/utils/index.html#mxnet.ndarray.utils.array">[docs]</a><span class="k">def</span> <span class="nf">array</span><span class="p">(</span><span class="n">source_array</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Creates an array from any object exposing the array interface.</span>
 
 <span class="sd">    Parameters</span>
@@ -1498,7 +1498,7 @@ Edit on Github
         <span class="k">return</span> <span class="n">_array</span><span class="p">(</span><span class="n">source_array</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="load"><a class="viewcode-back" href="../../../api/legacy/ndarray/ndarray.html#mxnet.ndarray.load">[docs]</a><span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
+<div class="viewcode-block" id="load"><a class="viewcode-back" href="../../../api/legacy/ndarray/utils/index.html#mxnet.ndarray.utils.load">[docs]</a><span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Loads an array from file.</span>
 
 <span class="sd">    See more details in ``save``.</span>
@@ -1534,7 +1534,7 @@ Edit on Github
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">out_size</span><span class="o">.</span><span class="n">value</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="load_frombuffer"><a class="viewcode-back" href="../../../api/legacy/ndarray/ndarray.html#mxnet.ndarray.load_frombuffer">[docs]</a><span class="k">def</span> <span class="nf">load_frombuffer</span><span class="p">(</span><span class="n">buf</span><span class="p">):</span>
+<div class="viewcode-block" id="load_frombuffer"><a class="viewcode-back" href="../../../api/legacy/ndarray/utils/index.html#mxnet.ndarray.utils.load_frombuffer">[docs]</a><span class="k">def</span> <span class="nf">load_frombuffer</span><span class="p">(</span><span class="n">buf</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Loads an array dictionary or list from a buffer</span>
 
 <span class="sd">    See more details in ``save``.</span>
@@ -1571,7 +1571,7 @@ Edit on Github
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">out_size</span><span class="o">.</span><span class="n">value</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="save"><a class="viewcode-back" href="../../../api/legacy/ndarray/ndarray.html#mxnet.ndarray.save">[docs]</a><span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="save"><a class="viewcode-back" href="../../../api/legacy/ndarray/utils/index.html#mxnet.ndarray.utils.save">[docs]</a><span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Saves a list of arrays or a dict of str-&gt;array to file.</span>
 
 <span class="sd">    Parameters</span>

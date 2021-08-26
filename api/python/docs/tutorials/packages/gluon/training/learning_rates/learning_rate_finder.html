@@ -1576,14 +1576,14 @@ Schedules’</span></a> tutorial.</p>
 <p>Usually, our unit of work is an epoch (a full pass through the dataset) and the learning rate would typically be held constant throughout the epoch. With the Learning Rate Finder (and cyclical learning rate schedules) we are required to vary the learning rate every iteration. As such we structure our training code so that a single iteration can be run with a given learning rate. You can implement Learner as you wish. Just initialize the network, define the loss and trainer in <code class="docutils literal notranslate"><span class="pre">__init__</span></code> and
 keep your training logic for a single batch in <code class="docutils literal notranslate"><span class="pre">iteration</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">mxnet</span> <span class="kn">as</span> <span class="nn">mx</span>
 
 <span class="c1"># Set seed for reproducibility</span>
-<span class="n">mx</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">mx</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 
 <span class="k">class</span> <span class="nc">Learner</span><span class="p">():</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">net</span><span class="p">,</span> <span class="n">data_loader</span><span class="p">,</span> <span class="n">ctx</span><span class="p">):</span>
@@ -1623,7 +1623,7 @@ keep your training logic for a single batch in <code class="docutils literal not
         <span class="c1"># Update parameters</span>
         <span class="k">if</span> <span class="n">take_step</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
         <span class="c1"># Set and return loss.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">iteration_loss</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span><span class="o">.</span><span class="n">asscalar</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">iteration_loss</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">iteration_loss</span>
 
     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1633,8 +1633,8 @@ keep your training logic for a single batch in <code class="docutils literal not
 </div>
 </div>
 <p>We also adjust our <code class="docutils literal notranslate"><span class="pre">DataLoader</span></code> so that it continuously provides batches of data and doesn’t stop after a single epoch. We can then call <code class="docutils literal notranslate"><span class="pre">iteration</span></code> as many times as required for the loss to diverge as part of the Learning Rate Finder process. We implement a custom <code class="docutils literal notranslate"><span class="pre">BatchSampler</span></code> for this, that keeps returning random indices of samples to be included in the next batch. We use the CIFAR-10 dataset for image classification to test our Learning Rate Finder.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1670,13 +1670,21 @@ keep your training logic for a single batch in <code class="docutils literal not
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+[10:07:18] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="Implementation">
 <h2>Implementation<a class="headerlink" href="#Implementation" title="Permalink to this headline">¶</a></h2>
 <p>With preparation complete, we’re ready to write our Learning Rate Finder that wraps the <code class="docutils literal notranslate"><span class="pre">Learner</span></code> we defined above. We implement a <code class="docutils literal notranslate"><span class="pre">find</span></code> method for the procedure, and <code class="docutils literal notranslate"><span class="pre">plot</span></code> for the visualization. Starting with a very low learning rate as defined by <code class="docutils literal notranslate"><span class="pre">lr_start</span></code> we train one iteration at a time and keep multiplying the learning rate by <code class="docutils literal notranslate"><span class="pre">lr_multiplier</span></code>. We analyse the loss and continue until it diverges according to <code class="docutils literal notranslate"><span class="pre">LRFinderStoppingCriteria</span></code> (which is defined later on). You may also
 notice that we save the parameters and state of the optimizer before the process and restore afterwards. This is so the Learning Rate Finder process doesn’t impact the state of the model, and can be used at any point during training.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1742,7 +1750,7 @@ notice that we save the parameters and state of the optimizer before the process
 </div>
 <p>You can define the <code class="docutils literal notranslate"><span class="pre">LRFinderStoppingCriteria</span></code> as you wish, but empirical testing suggests using a smoothed average gives a more consistent stopping rule (see <code class="docutils literal notranslate"><span class="pre">smoothing</span></code>). We stop when the smoothed average of the loss exceeds twice the initial loss, assuming there have been a minimum number of iterations (see <code class="docutils literal notranslate"><span class="pre">min_iter</span></code>).</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1778,8 +1786,8 @@ notice that we save the parameters and state of the optimizer before the process
 <div class="section" id="Usage">
 <h2>Usage<a class="headerlink" href="#Usage" title="Permalink to this headline">¶</a></h2>
 <p>Using a Pre-activation ResNet-18 from the Gluon model zoo, we instantiate our Learner and fire up our Learning Rate Finder!</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1792,11 +1800,27 @@ notice that we save the parameters and state of the optimizer before the process
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+[10:07:21] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for GPU
+[10:07:23] /work/mxnet/src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:97: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../../_images/tutorials_packages_gluon_training_learning_rates_learning_rate_finder_9_1.png" src="../../../../../_images/tutorials_packages_gluon_training_learning_rates_learning_rate_finder_9_1.png" />
+</div>
+</div>
 <p><img alt="png" src="https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/doc/tutorials/lr_finder/finder_plot.png" /></p>
 <p>As discussed before, we should select a learning rate where the loss is falling (i.e. from 0.001 to 0.05) but before the loss starts to diverge (i.e. 0.1). We prefer higher learning rates where possible, so we select an initial learning rate of 0.05. Just as a test, we will run 500 epochs using this learning rate and evaluate the loss on the final batch. As we’re working with a single batch of 128 samples, the variance of the loss estimates will be reasonably high, but it will give us a general
 idea. We save the initialized parameters for a later comparison with other learning rates.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1811,14 +1835,25 @@ idea. We save the initialized parameters for a later comparison with other learn
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Iteration: 0, Loss: 2.7735
+Iteration: 100, Loss: 1.4871
+Iteration: 200, Loss: 1.2801
+Final Loss: 1.2102
+</pre></div></div>
+</div>
 <p>Iteration: 0, Loss: 2.785</p>
 <p>Iteration: 100, Loss: 1.6653</p>
 <p>Iteration: 200, Loss: 1.4891</p>
 <p>Final Loss: 1.1812</p>
 <p>We see a sizable drop in the loss from approx. 2.7 to 1.2.</p>
 <p>And now we have a baseline, let’s see what happens when we train with a learning rate that’s higher than advisable at 0.5.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1835,14 +1870,25 @@ idea. We save the initialized parameters for a later comparison with other learn
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Iteration: 0, Loss: 2.6316
+Iteration: 100, Loss: 1.9111
+Iteration: 200, Loss: 1.5312
+Final Loss: 1.475
+</pre></div></div>
+</div>
 <p>Iteration: 0, Loss: 2.6469</p>
 <p>Iteration: 100, Loss: 1.9666</p>
 <p>Iteration: 200, Loss: 1.6919</p>
 <p>Final Loss: 1.366</p>
 <p>We still observe a fall in the loss but aren’t able to reach as low as before.</p>
 <p>And lastly, we see how the model trains with a more conservative learning rate of 0.005.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1858,6 +1904,17 @@ idea. We save the initialized parameters for a later comparison with other learn
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Final Loss: {:.5g}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">learner</span><span class="o">.</span><span class="n">iteration_loss</span><span class="p">))</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Iteration: 0, Loss: 2.7346
+Iteration: 100, Loss: 1.743
+Iteration: 200, Loss: 1.6427
+Final Loss: 1.6676
+</pre></div></div>
 </div>
 <p>Iteration: 0, Loss: 2.605</p>
 <p>Iteration: 100, Loss: 1.8621</p>

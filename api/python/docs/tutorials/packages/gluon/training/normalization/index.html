@@ -1570,20 +1570,44 @@ towards a distribution with a mean of 0 (i.e. zero-centered) and a standard dis
 <p>Tip: A <code class="docutils literal notranslate"><span class="pre">BatchNorm</span></code> layer at the start of your network can have a similar effect (see ‘Beta and Gamma’ section for details on how this can be achieved). You won’t need to manually calculate and keep track of the normalization statistics.</p>
 <p>Warning: You should calculate the normalization means and standard deviations using the training dataset only. Any leakage of information from you testing dataset will effect the reliability of your testing metrics.</p>
 <p>When using pre-trained models from the <a class="reference external" href="https://mxnet.apache.org/versions/master/api/python/docs/api/gluon/model_zoo/index.html">Gluon Model Zoo</a> you’ll usually see the normalization statistics used for training (i.e. statistics from step 1). You’ll want to use these statistics to normalize your own input data for fine-tuning or inference with these models. Using <code class="docutils literal notranslate"><span class="pre">transforms.Normalize</span></code> is one way of applying the normalization, and this should be used in the <code class="docutils literal notranslate"><span class="pre">Dataset</span></code>.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">mxnet</span> <span class="kn">as</span> <span class="nn">mx</span>
 <span class="kn">from</span> <span class="nn">mxnet.gluon.data.vision.transforms</span> <span class="kn">import</span> <span class="n">Normalize</span>
 
-<span class="n">image_int</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">image_int</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 <span class="n">image_float</span> <span class="o">=</span> <span class="n">image_int</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span><span class="o">/</span><span class="mi">255</span>
 <span class="c1"># the following normalization statistics are taken from gluon model zoo</span>
 <span class="n">normalizer</span> <span class="o">=</span> <span class="n">Normalize</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="p">[</span><span class="mf">0.485</span><span class="p">,</span> <span class="mf">0.456</span><span class="p">,</span> <span class="mf">0.406</span><span class="p">],</span> <span class="n">std</span><span class="o">=</span><span class="p">[</span><span class="mf">0.229</span><span class="p">,</span> <span class="mf">0.224</span><span class="p">,</span> <span class="mf">0.225</span><span class="p">])</span>
 <span class="n">image</span> <span class="o">=</span> <span class="n">normalizer</span><span class="p">(</span><span class="n">image_float</span><span class="p">)</span>
 <span class="n">image</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+[10:10:29] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([[[[-1.3130406 ,  1.1700488 ],
+         [ 2.1804092 , -0.35405433]],
+
+        [[ 1.6582633 ,  2.2009804 ],
+         [-0.512605  ,  1.7457983 ]],
+
+        [[ 0.6356429 ,  1.5593902 ],
+         [-1.1247058 ,  1.2282355 ]]]])
 </pre></div>
 </div>
 </div>
@@ -1620,19 +1644,38 @@ towards a distribution with a mean of 0 (i.e. zero-centered) and a standard dis
 <p>Warning: the estimates for the batch mean and variance can themselves have high variance when the batch size is small (or when the spatial dimensions of samples are small). This can lead to instability during training, and unreliable estimates for the global statistics.</p>
 <p>Warning: it seems that <code class="docutils literal notranslate"><span class="pre">BatchNorm</span></code> is better suited to convolutional networks (CNNs) than recurrent networks (RNNs). We expect the input distribution to the recurrent cell to change over time, so normalization over time doesn’t work well. <code class="docutils literal notranslate"><span class="pre">LayerNorm</span></code> is better suited for this case. When you do <em>need</em> to use <code class="docutils literal notranslate"><span class="pre">BatchNorm</span></code> on sequential data, make sure the <code class="docutils literal notranslate"><span class="pre">axis</span></code> parameter is set correctly. With data in NTC format you should set <code class="docutils literal notranslate"><span class="pre">axis=2</span></code> (or <code class="docutils literal notranslate"><span class="pre">axis=-1</span></code> equivalently). See Figure 2.</p>
 <p>As an example, we’ll apply <code class="docutils literal notranslate"><span class="pre">BatchNorm</span></code> to a batch of 2 samples, each with 2 channels, and both height and width of 2 (in NCHW format).</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="n">data</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span></span><span class="n">data</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[[[ 0.  1.]
+   [ 2.  3.]]
+
+  [[ 4.  5.]
+   [ 6.  7.]]]
+
+
+ [[[ 8.  9.]
+   [10. 11.]]
+
+  [[12. 13.]
+   [14. 15.]]]]
+</pre></div></div>
+</div>
 <p>With MXNet Gluon we can apply batch normalization with the <code class="docutils literal notranslate"><span class="pre">mx.gluon.nn.BatchNorm</span></code> block. It can be created and used just like any other MXNet Gluon block (such as <code class="docutils literal notranslate"><span class="pre">Conv2D</span></code>). Its input will typically be unnormalized activations from the previous layer, and the output will be the normalized activations ready for the next layer. Since we’re using data in NCHW format we can use the default axis.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1642,7 +1685,7 @@ towards a distribution with a mean of 0 (i.e. zero-centered) and a standard dis
 </div>
 <p>We still need to initialize the block because it has a number of trainable parameters, as we’ll see later on.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1653,49 +1696,91 @@ towards a distribution with a mean of 0 (i.e. zero-centered) and a standard dis
 <p>We can now run the network as we would during training (under <code class="docutils literal notranslate"><span class="pre">autograd.record</span></code> context scope).</p>
 <p>Remember: <code class="docutils literal notranslate"><span class="pre">BatchNorm</span></code> runs differently during training and inference. When training, the batch statistics are used for normalization. During inference, a exponentially smoothed average of the batch statistics that have been observed during training is used instead.</p>
 <p>Warning: <code class="docutils literal notranslate"><span class="pre">BatchNorm</span></code> assumes the channel dimension is the 2nd in order (i.e. <code class="docutils literal notranslate"><span class="pre">axis=1</span></code>). You need to ensure your data has a channel dimension, and change the <code class="docutils literal notranslate"><span class="pre">axis</span></code> parameter of <code class="docutils literal notranslate"><span class="pre">BatchNorm</span></code> if it’s not the 2nd dimension. A batch of greyscale images of shape <code class="docutils literal notranslate"><span class="pre">(100,32,32)</span></code> would not work, since the 2nd dimension is height and not channel. You’d need to add a channel dimension using <code class="docutils literal notranslate"><span class="pre">data.expand_dims(1)</span></code> in this case to give shape <code class="docutils literal notranslate"><span class="pre">(100,1,32,32)</span></code>.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="k">with</span> <span class="n">mx</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">record</span><span class="p">():</span>
     <span class="n">output</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-    <span class="n">loss</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
 <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
 <span class="k">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[[[-1.324244   -1.0834724 ]
+   [-0.8427007  -0.60192907]]
+
+  [[-1.324244   -1.0834724 ]
+   [-0.8427007  -0.60192907]]]
+
+
+ [[[ 0.60192907  0.8427007 ]
+   [ 1.0834724   1.324244  ]]
+
+  [[ 0.60192907  0.8427007 ]
+   [ 1.0834724   1.324244  ]]]]
+</pre></div></div>
+</div>
 <p>We can immediately see the activations have been scaled down and centered around zero. Activations are the same for each channel, because each channel was normalized independently. We can do a quick sanity check on these results, by manually calculating the batch mean and variance for each channel.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="n">batch_means</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="n">batch_vars</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span> <span class="o">-</span> <span class="n">batch_means</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">square</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span></span><span class="n">axes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span><span class="p">))</span>
+<span class="k">del</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">batch_means</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axes</span><span class="p">)</span>
+<span class="n">batch_square</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">data</span> <span class="o">-</span> <span class="n">batch_means</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">batch_square</span><span class="o">.</span><span class="n">ndim</span><span class="p">))</span>
+<span class="k">del</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">batch_vars</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">batch_square</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axes</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;batch_means:&#39;</span><span class="p">,</span> <span class="n">batch_means</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">())</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;batch_vars:&#39;</span><span class="p">,</span> <span class="n">batch_vars</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+batch_means: [5.5 9.5]
+batch_vars: [17.25 17.25]
+</pre></div></div>
+</div>
 <p>And use these to scale the first entry in <code class="docutils literal notranslate"><span class="pre">data</span></code>, to confirm the <code class="docutils literal notranslate"><span class="pre">BatchNorm</span></code> calculation of <code class="docutils literal notranslate"><span class="pre">-1.324</span></code> was correct.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;manually calculated:&quot;</span><span class="p">,</span> <span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">batch_means</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="n">batch_vars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">sqrt</span><span class="p">())</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">())</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;manually calculated:&quot;</span><span class="p">,</span> <span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">batch_means</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="n">mx</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">batch_vars</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">())</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;automatically calculated:&quot;</span><span class="p">,</span> <span class="n">output</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">())</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+manually calculated: -1.3242445
+automatically calculated: -1.324244
+</pre></div></div>
 </div>
 <p>As mentioned before, <code class="docutils literal notranslate"><span class="pre">BatchNorm</span></code> has a number of parameters that update throughout training. 2 of the parameters are not updated in the typical fashion (using gradients), but instead are updated deterministically using exponential smoothing. We need to keep track of the average mean and variance of batches during training, so that we can use these values for normalization during inference.</p>
 <p>Why are global statistics needed? Often during inference, we have a batch size of 1 so batch variance would be impossible to calculate. We can just use global statistics instead. And we might get a data distribution shift between training and inference data, which shouldn’t just be normalized away.</p>
 <p>Advanced: when using a pre-trained model inside another model (e.g. a pre-trained ResNet as a image feature extractor inside an instance segmentation model) you might want to use global statistics of the pre-trained model <em>during training</em>. Setting <code class="docutils literal notranslate"><span class="pre">use_global_stats=True</span></code> is a method of using the global running statistics during training, and preventing the global statistics from updating. It has no effect on inference mode.</p>
 <p>After a single step (specifically after the <code class="docutils literal notranslate"><span class="pre">backward</span></code> call) we can see the <code class="docutils literal notranslate"><span class="pre">running_mean</span></code> and <code class="docutils literal notranslate"><span class="pre">running_var</span></code> have been updated.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1704,30 +1789,48 @@ towards a distribution with a mean of 0 (i.e. zero-centered) and a standard dis
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+running_mean: [0.55000013 0.9500002 ]
+running_var: [2.6250005 2.6250005]
+</pre></div></div>
+</div>
 <p>You should notice though that these running statistics do not match the batch statistics we just calculated. And instead they are just 10% of the value we’d expect. We see this because of the exponential average process, and because the <code class="docutils literal notranslate"><span class="pre">momentum</span></code> parameter of <code class="docutils literal notranslate"><span class="pre">BatchNorm</span></code> is equal to 0.9 : i.e. 10% of the new value, 90% of the old value (which was initialized to 0). Over time the running statistics will converge to the statistics of the input distribution, while still being flexible enough
 to adjust to shifts in the input distribution. Using the same batch another 100 times (which wouldn’t happen in practice), we can see the running statistics converge to the batch statsitics calculated before.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
     <span class="k">with</span> <span class="n">mx</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">record</span><span class="p">():</span>
         <span class="n">output</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-        <span class="n">loss</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
     <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;running_means:&#39;</span><span class="p">,</span> <span class="n">net</span><span class="o">.</span><span class="n">running_mean</span><span class="o">.</span><span class="n">data</span><span class="p">()</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">())</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;running_vars:&#39;</span><span class="p">,</span> <span class="n">net</span><span class="o">.</span><span class="n">running_var</span><span class="o">.</span><span class="n">data</span><span class="p">()</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+running_means: [5.49987  9.499768]
+running_vars: [17.249609 17.249609]
+</pre></div></div>
+</div>
 <div class="section" id="Beta-and-Gamma">
 <h4>Beta and Gamma<a class="headerlink" href="#Beta-and-Gamma" title="Permalink to this headline">¶</a></h4>
 <p>As mentioned previously, there are two additional parameters in <code class="docutils literal notranslate"><span class="pre">BatchNorm</span></code> which are trainable in the typical fashion (with gradients). <code class="docutils literal notranslate"><span class="pre">beta</span></code> is used to shift and <code class="docutils literal notranslate"><span class="pre">gamma</span></code> is used to scale the normalized distribution, which allows the network to ‘undo’ the effects of normalization if required.</p>
 <p>Advanced: Sometimes used for input normalization, you can prevent <code class="docutils literal notranslate"><span class="pre">beta</span></code> shifting and <code class="docutils literal notranslate"><span class="pre">gamma</span></code> scaling by setting the learning rate multipler (i.e. <code class="docutils literal notranslate"><span class="pre">lr_mult</span></code>) of these parameters to 0. Zero centering and scaling to unit variance will still occur, only post normalization shifting and scaling will prevented. See <a class="reference external" href="https://discuss.mxnet.io/t/mxnet-use-batch-norm-for-input-scaling/3581/3">this discussion post</a> for details.</p>
 <p>We haven’t updated these parameters yet, so they should still be as initialized. You can see the default for <code class="docutils literal notranslate"><span class="pre">beta</span></code> is 0 (i.e. not shift) and <code class="docutils literal notranslate"><span class="pre">gamma</span></code> is 1 (i.e. not scale), so the initial behaviour is to keep the distribution unit normalized.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1736,9 +1839,18 @@ to adjust to shifts in the input distribution. Using the same batch another 100 
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+beta: [0. 0.]
+gamma: [1. 1.]
+</pre></div></div>
+</div>
 <p>We can also check the gradient on these parameters. Since we were finding the gradient of the sum of absolute values, we would expect the gradient of <code class="docutils literal notranslate"><span class="pre">gamma</span></code> to be equal to the number of points in the data (i.e. 16). So to minimize the loss we’d decrease the value of <code class="docutils literal notranslate"><span class="pre">gamma</span></code>, which would happen as part of a <code class="docutils literal notranslate"><span class="pre">trainer.step</span></code>.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1747,12 +1859,21 @@ to adjust to shifts in the input distribution. Using the same batch another 100 
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+beta gradient: [0. 0.]
+gamma gradient: [7.7046924 7.7046924]
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="Inference-Mode">
 <h4>Inference Mode<a class="headerlink" href="#Inference-Mode" title="Permalink to this headline">¶</a></h4>
 <p>When it comes to inference, <code class="docutils literal notranslate"><span class="pre">BatchNorm</span></code> uses the global statistics that were calculated during training. Since we’re using the same batch of data over and over again (and our global running statistics have converged), we get a very similar result to using training mode. <code class="docutils literal notranslate"><span class="pre">beta</span></code> and <code class="docutils literal notranslate"><span class="pre">gamma</span></code> are also applied by default (unless explicitly removed).</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1760,6 +1881,25 @@ to adjust to shifts in the input distribution. Using the same batch another 100 
 <span class="k">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[[[-1.3242277  -1.0834534 ]
+   [-0.84267896 -0.60190463]]
+
+  [[-1.3242033  -1.0834289 ]
+   [-0.8426545  -0.60188013]]]
+
+
+ [[[ 0.6019673   0.84274167]
+   [ 1.083516    1.3242904 ]]
+
+  [[ 0.6019918   0.8427661 ]
+   [ 1.0835406   1.3243148 ]]]]
+</pre></div></div>
 </div>
 </div>
 </div>
@@ -1790,19 +1930,35 @@ to adjust to shifts in the input distribution. Using the same batch another 100 
 </tbody>
 </table>
 <p>As an example, we’ll apply <code class="docutils literal notranslate"><span class="pre">LayerNorm</span></code> to a batch of 2 samples, each with 4 time steps and 2 channels (in NTC format).</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="n">data</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span></span><span class="n">data</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[[ 0.  1.]
+  [ 2.  3.]
+  [ 4.  5.]
+  [ 6.  7.]]
+
+ [[ 8.  9.]
+  [10. 11.]
+  [12. 13.]
+  [14. 15.]]]
+</pre></div></div>
+</div>
 <p>With MXNet Gluon we can apply layer normalization with the <code class="docutils literal notranslate"><span class="pre">mx.gluon.nn.LayerNorm</span></code> block. We need to call <code class="docutils literal notranslate"><span class="pre">initialize</span></code> because <code class="docutils literal notranslate"><span class="pre">LayerNorm</span></code> has two learnable parameters by default: <code class="docutils literal notranslate"><span class="pre">beta</span></code> and <code class="docutils literal notranslate"><span class="pre">gamma</span></code> that are used for post normalization shifting and scaling of each channel.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1813,10 +1969,26 @@ to adjust to shifts in the input distribution. Using the same batch another 100 
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[[-0.99998  0.99998]
+  [-0.99998  0.99998]
+  [-0.99998  0.99998]
+  [-0.99998  0.99998]]
+
+ [[-0.99998  0.99998]
+  [-0.99998  0.99998]
+  [-0.99998  0.99998]
+  [-0.99998  0.99998]]]
+</pre></div></div>
+</div>
 <p>We can see that normalization has been applied across all channels for each time step and each sample.</p>
 <p>We can also check the parameters <code class="docutils literal notranslate"><span class="pre">beta</span></code> and <code class="docutils literal notranslate"><span class="pre">gamma</span></code> and see that they are per channel (i.e. 2 of each in this example).</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1824,6 +1996,15 @@ to adjust to shifts in the input distribution. Using the same batch another 100 
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;gamma:&#39;</span><span class="p">,</span> <span class="n">net</span><span class="o">.</span><span class="n">gamma</span><span class="o">.</span><span class="n">data</span><span class="p">()</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">())</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+beta: [0. 0.]
+gamma: [1. 1.]
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Instance-Normalization">
@@ -1850,19 +2031,38 @@ to adjust to shifts in the input distribution. Using the same batch another 100 
 </tbody>
 </table>
 <p>As an example, we’ll apply <code class="docutils literal notranslate"><span class="pre">InstanceNorm</span></code> to a batch of 2 samples, each with 2 channels, and both height and width of 2 (in NCHW format).</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="n">data</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span></span><span class="n">data</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[[[ 0.  1.]
+   [ 2.  3.]]
+
+  [[ 4.  5.]
+   [ 6.  7.]]]
+
+
+ [[[ 8.  9.]
+   [10. 11.]]
+
+  [[12. 13.]
+   [14. 15.]]]]
+</pre></div></div>
+</div>
 <p>With MXNet Gluon we can apply instance normalization with the <code class="docutils literal notranslate"><span class="pre">mx.gluon.nn.InstanceNorm</span></code> block. We need to call <code class="docutils literal notranslate"><span class="pre">initialize</span></code> because InstanceNorm has two learnable parameters by default: <code class="docutils literal notranslate"><span class="pre">beta</span></code> and <code class="docutils literal notranslate"><span class="pre">gamma</span></code> that are used for post normalization shifting and scaling of each channel.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1873,9 +2073,28 @@ to adjust to shifts in the input distribution. Using the same batch another 100 
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[[[-1.3416355  -0.44721183]
+   [ 0.44721183  1.3416355 ]]
+
+  [[-1.3416355  -0.44721183]
+   [ 0.44721183  1.3416355 ]]]
+
+
+ [[[-1.3416355  -0.44721183]
+   [ 0.44721183  1.3416355 ]]
+
+  [[-1.3416355  -0.44721183]
+   [ 0.44721183  1.3416355 ]]]]
+</pre></div></div>
+</div>
 <p>We can also check the parameters <code class="docutils literal notranslate"><span class="pre">beta</span></code> and <code class="docutils literal notranslate"><span class="pre">gamma</span></code> and see that they are per channel (i.e. 2 of each in this example).</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1883,6 +2102,15 @@ to adjust to shifts in the input distribution. Using the same batch another 100 
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;gamma:&#39;</span><span class="p">,</span> <span class="n">net</span><span class="o">.</span><span class="n">gamma</span><span class="o">.</span><span class="n">data</span><span class="p">()</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">())</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+beta: [0. 0.]
+gamma: [1. 1.]
+</pre></div></div>
 </div>
 </div>
 </div>

@@ -1566,7 +1566,7 @@ outperforms PyTorch by ~77% on training ResNet-50: 10,925 images per second vs.Â
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># !conda install pytorch-cpu -c pytorch</span>
+<span></span><span class="c1"># !conda install pytorch-cpu -c pytorch, torchvision</span>
 </pre></div>
 </div>
 </div>
@@ -1580,13 +1580,13 @@ outperforms PyTorch by ~77% on training ResNet-50: 10,925 images per second vs.Â
 </pre></div>
 </div>
 </div>
-<p>To install Apache MXNet with GPU support, you need to specify CUDA version. For example, the snippet below will install Apache MXNet with CUDA 9.2 support:</p>
+<p>To install Apache MXNet with GPU support, you need to specify CUDA version. For example, the snippet below will install Apache MXNet with CUDA 10.2 support:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># !pip install mxnet-cuda92</span>
+<span></span><span class="c1"># !pip install mxnet-cu102</span>
 </pre></div>
 </div>
 </div>
@@ -1615,9 +1615,9 @@ outperforms PyTorch by ~77% on training ResNet-50: 10,925 images per second vs.Â
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">mxnet</span> <span class="kn">import</span> <span class="n">nd</span>
+<span></span><span class="kn">from</span> <span class="nn">mxnet</span> <span class="kn">import</span> <span class="n">np</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">nd</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="n">y</span>
 </pre></div>
@@ -1778,7 +1778,7 @@ outperforms PyTorch by ~77% on training ResNet-50: 10,925 images per second vs.Â
             <span class="n">loss</span> <span class="o">=</span> <span class="n">mx_loss_fn</span><span class="p">(</span><span class="n">mx_net</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">y</span><span class="p">)</span>
         <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
         <span class="n">mx_trainer</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
-        <span class="n">total_loss</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">asscalar</span><span class="p">()</span>
+        <span class="n">total_loss</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;epoch </span><span class="si">%d</span><span class="s1">, avg loss </span><span class="si">%.4f</span><span class="s1">, time </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span>
         <span class="n">epoch</span><span class="p">,</span> <span class="n">total_loss</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">mx_train_data</span><span class="p">),</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">tic</span><span class="p">))</span>
 </pre></div>
@@ -1790,7 +1790,7 @@ outperforms PyTorch by ~77% on training ResNet-50: 10,925 images per second vs.Â
 <li><p>In Apache MXNet, you need to perform the calculation within the <a class="reference internal" href="../../../api/autograd/index.html#mxnet.autograd.record"><span class="std std-ref">autograd.record()</span></a> scope so that it can be automatically differentiated in the backward pass.</p></li>
 <li><p>It is not necessary to clear the gradient every time as with PyTorchâ€™s <code class="docutils literal notranslate"><span class="pre">trainer.zero_grad()</span></code> because by default the new gradient is written in, not accumulated.</p></li>
 <li><p>You need to specify the update step size (usually batch size) when performing <a class="reference internal" href="../../../api/gluon/trainer.html#mxnet.gluon.Trainer.step"><span class="std std-ref">step()</span></a> on the trainer.</p></li>
-<li><p>You need to call <a class="reference internal" href="../../../api/legacy/ndarray/ndarray.html#mxnet.ndarray.NDArray.asscalar"><span class="std std-ref">.asscalar()</span></a> to turn a multidimensional array into a scalar.</p></li>
+<li><p>You need to call <a class="reference internal" href="../../../api/np/arrays.ndarray.html#the-n-dimensional-array-ndarray"><span class="std std-ref">.item()</span></a> to turn a multidimensional array into a scalar.</p></li>
 <li><p>In this sample, Apache MXNet is twice as fast as PyTorch. Though you need to be cautious with such toy comparisons.</p></li>
 </ul>
 </div>

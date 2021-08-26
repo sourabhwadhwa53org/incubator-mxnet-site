@@ -1569,37 +1569,40 @@ Edit on Github
 <tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.intgemm_take_weight" title="mxnet.ndarray.contrib.intgemm_take_weight"><code class="xref py py-obj docutils literal notranslate"><span class="pre">intgemm_take_weight</span></code></a>([weight, indices, out, name])</p></td>
 <td><p>Index a weight matrix stored in intgemm’s weight format.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.quadratic" title="mxnet.ndarray.contrib.quadratic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quadratic</span></code></a>([data, a, b, c, out, name])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.mrcnn_mask_target" title="mxnet.ndarray.contrib.mrcnn_mask_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mrcnn_mask_target</span></code></a>([rois, gt_masks, matches, …])</p></td>
+<td><p>Generate mask targets for Mask-RCNN.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.quadratic" title="mxnet.ndarray.contrib.quadratic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quadratic</span></code></a>([data, a, b, c, out, name])</p></td>
 <td><p>This operators implements the quadratic function.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.quantize" title="mxnet.ndarray.contrib.quantize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantize</span></code></a>([data, min_range, max_range, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.quantize" title="mxnet.ndarray.contrib.quantize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantize</span></code></a>([data, min_range, max_range, …])</p></td>
 <td><p>Quantize a input tensor from float to <cite>out_type</cite>, with user-specified <cite>min_range</cite> and <cite>max_range</cite>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.quantize_v2" title="mxnet.ndarray.contrib.quantize_v2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantize_v2</span></code></a>([data, out_type, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.quantize_v2" title="mxnet.ndarray.contrib.quantize_v2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantize_v2</span></code></a>([data, out_type, …])</p></td>
 <td><p>Quantize a input tensor from float to <cite>out_type</cite>, with user-specified <cite>min_calib_range</cite> and <cite>max_calib_range</cite> or the input range collected at runtime.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.quantized_act" title="mxnet.ndarray.contrib.quantized_act"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantized_act</span></code></a>([data, min_data, max_data, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.quantized_act" title="mxnet.ndarray.contrib.quantized_act"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantized_act</span></code></a>([data, min_data, max_data, …])</p></td>
 <td><p>Activation operator for input and output data type of int8.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.quantized_batch_norm" title="mxnet.ndarray.contrib.quantized_batch_norm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantized_batch_norm</span></code></a>([data, gamma, beta, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.quantized_batch_norm" title="mxnet.ndarray.contrib.quantized_batch_norm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantized_batch_norm</span></code></a>([data, gamma, beta, …])</p></td>
 <td><p>BatchNorm operator for input and output data type of int8.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.quantized_concat" title="mxnet.ndarray.contrib.quantized_concat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantized_concat</span></code></a>(*data, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.quantized_concat" title="mxnet.ndarray.contrib.quantized_concat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantized_concat</span></code></a>(*data, **kwargs)</p></td>
 <td><p>Joins input arrays along a given axis.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.quantized_conv" title="mxnet.ndarray.contrib.quantized_conv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantized_conv</span></code></a>([data, weight, bias, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.quantized_conv" title="mxnet.ndarray.contrib.quantized_conv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantized_conv</span></code></a>([data, weight, bias, …])</p></td>
 <td><p>Convolution operator for input, weight and bias data type of int8, and accumulates in type int32 for the output.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.quantized_elemwise_add" title="mxnet.ndarray.contrib.quantized_elemwise_add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantized_elemwise_add</span></code></a>([lhs, rhs, lhs_min, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.quantized_elemwise_add" title="mxnet.ndarray.contrib.quantized_elemwise_add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantized_elemwise_add</span></code></a>([lhs, rhs, lhs_min, …])</p></td>
 <td><p>elemwise_add operator for input dataA and input dataB data type of int8,</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.quantized_elemwise_mul" title="mxnet.ndarray.contrib.quantized_elemwise_mul"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantized_elemwise_mul</span></code></a>([lhs, rhs, lhs_min, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.quantized_elemwise_mul" title="mxnet.ndarray.contrib.quantized_elemwise_mul"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantized_elemwise_mul</span></code></a>([lhs, rhs, lhs_min, …])</p></td>
 <td><p>Multiplies arguments int8 element-wise.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.quantized_embedding" title="mxnet.ndarray.contrib.quantized_embedding"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantized_embedding</span></code></a>([data, weight, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.quantized_embedding" title="mxnet.ndarray.contrib.quantized_embedding"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantized_embedding</span></code></a>([data, weight, …])</p></td>
 <td><p>Maps integer indices to int8 vector representations (embeddings).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.quantized_flatten" title="mxnet.ndarray.contrib.quantized_flatten"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantized_flatten</span></code></a>([data, min_data, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.quantized_flatten" title="mxnet.ndarray.contrib.quantized_flatten"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantized_flatten</span></code></a>([data, min_data, …])</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">param data</dt>
 <dd class="field-odd"><p>A ndarray/symbol of type <cite>float32</cite></p>
@@ -1607,53 +1610,29 @@ Edit on Github
 </dl>
 </p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.quantized_fully_connected" title="mxnet.ndarray.contrib.quantized_fully_connected"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantized_fully_connected</span></code></a>([data, weight, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.quantized_fully_connected" title="mxnet.ndarray.contrib.quantized_fully_connected"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantized_fully_connected</span></code></a>([data, weight, …])</p></td>
 <td><p>Fully Connected operator for input, weight and bias data type of int8, and accumulates in type int32 for the output.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.quantized_pooling" title="mxnet.ndarray.contrib.quantized_pooling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantized_pooling</span></code></a>([data, min_data, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.quantized_pooling" title="mxnet.ndarray.contrib.quantized_pooling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantized_pooling</span></code></a>([data, min_data, …])</p></td>
 <td><p>Pooling operator for input and output data type of int8.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.requantize" title="mxnet.ndarray.contrib.requantize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">requantize</span></code></a>([data, min_range, max_range, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.requantize" title="mxnet.ndarray.contrib.requantize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">requantize</span></code></a>([data, min_range, max_range, …])</p></td>
 <td><p>Given data that is quantized in int32 and the corresponding thresholds, requantize the data into int8 using min and max thresholds either calculated at runtime or from calibration.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.round_ste" title="mxnet.ndarray.contrib.round_ste"><code class="xref py py-obj docutils literal notranslate"><span class="pre">round_ste</span></code></a>([data, out, name])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.round_ste" title="mxnet.ndarray.contrib.round_ste"><code class="xref py py-obj docutils literal notranslate"><span class="pre">round_ste</span></code></a>([data, out, name])</p></td>
 <td><p>Straight-through-estimator of <cite>round()</cite>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.sign_ste" title="mxnet.ndarray.contrib.sign_ste"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sign_ste</span></code></a>([data, out, name])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.sign_ste" title="mxnet.ndarray.contrib.sign_ste"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sign_ste</span></code></a>([data, out, name])</p></td>
 <td><p>Straight-through-estimator of <cite>sign()</cite>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.sldwin_atten_context" title="mxnet.ndarray.contrib.sldwin_atten_context"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sldwin_atten_context</span></code></a>([score, value, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.sldwin_atten_context" title="mxnet.ndarray.contrib.sldwin_atten_context"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sldwin_atten_context</span></code></a>([score, value, …])</p></td>
 <td><p>Compute the context vector for sliding window attention, used in Longformer (<a class="reference external" href="https://arxiv.org/pdf/2004.05150.pdf">https://arxiv.org/pdf/2004.05150.pdf</a>).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.sldwin_atten_mask_like" title="mxnet.ndarray.contrib.sldwin_atten_mask_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sldwin_atten_mask_like</span></code></a>([score, dilation, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.sldwin_atten_mask_like" title="mxnet.ndarray.contrib.sldwin_atten_mask_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sldwin_atten_mask_like</span></code></a>([score, dilation, …])</p></td>
 <td><p>Compute the mask for the sliding window attention score, used in Longformer (<a class="reference external" href="https://arxiv.org/pdf/2004.05150.pdf">https://arxiv.org/pdf/2004.05150.pdf</a>).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.sldwin_atten_score" title="mxnet.ndarray.contrib.sldwin_atten_score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sldwin_atten_score</span></code></a>([query, key, dilation, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.sldwin_atten_score" title="mxnet.ndarray.contrib.sldwin_atten_score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sldwin_atten_score</span></code></a>([query, key, dilation, …])</p></td>
 <td><p>Compute the sliding window attention score, which is used in Longformer (<a class="reference external" href="https://arxiv.org/pdf/2004.05150.pdf">https://arxiv.org/pdf/2004.05150.pdf</a>).</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.tvm_dot" title="mxnet.ndarray.contrib.tvm_dot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tvm_dot</span></code></a>([a, b, out, name])</p></td>
-<td><p><dl class="field-list simple">
-<dt class="field-odd">param a</dt>
-<dd class="field-odd"><p>first input</p>
-</dd>
-</dl>
-</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.tvm_dot_fallback" title="mxnet.ndarray.contrib.tvm_dot_fallback"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tvm_dot_fallback</span></code></a>([a, b, out, name])</p></td>
-<td><p><dl class="field-list simple">
-<dt class="field-odd">param a</dt>
-<dd class="field-odd"><p>first input</p>
-</dd>
-</dl>
-</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.contrib.tvm_vadd" title="mxnet.ndarray.contrib.tvm_vadd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tvm_vadd</span></code></a>([a, b, out, name])</p></td>
-<td><p><dl class="field-list simple">
-<dt class="field-odd">param a</dt>
-<dd class="field-odd"><p>first input</p>
-</dd>
-</dl>
-</p></td>
 </tr>
 </tbody>
 </table>
@@ -4122,6 +4101,34 @@ The indices select the outputs of matrix multiplication, not the inner dot produ
 </dd></dl>
 
 <dl class="function">
+<dt id="mxnet.ndarray.contrib.mrcnn_mask_target">
+<code class="sig-name descname">mrcnn_mask_target</code><span class="sig-paren">(</span><em class="sig-param">rois=None</em>, <em class="sig-param">gt_masks=None</em>, <em class="sig-param">matches=None</em>, <em class="sig-param">cls_targets=None</em>, <em class="sig-param">num_rois=_Null</em>, <em class="sig-param">num_classes=_Null</em>, <em class="sig-param">mask_size=_Null</em>, <em class="sig-param">sample_ratio=_Null</em>, <em class="sig-param">aligned=_Null</em>, <em class="sig-param">out=None</em>, <em class="sig-param">name=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.ndarray.contrib.mrcnn_mask_target" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate mask targets for Mask-RCNN.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rois</strong> (<a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a>) – Bounding box coordinates, a 3D array</p></li>
+<li><p><strong>gt_masks</strong> (<a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a>) – Input masks of full image size, a 4D array</p></li>
+<li><p><strong>matches</strong> (<a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a>) – Index to a gt_mask, a 2D array</p></li>
+<li><p><strong>cls_targets</strong> (<a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a>) – Value [0, num_class), excluding background class, a 2D array</p></li>
+<li><p><strong>num_rois</strong> (<em>int</em><em>, </em><em>required</em>) – Number of sampled RoIs.</p></li>
+<li><p><strong>num_classes</strong> (<em>int</em><em>, </em><em>required</em>) – Number of classes.</p></li>
+<li><p><strong>mask_size</strong> (<em>Shape</em><em>(</em><em>tuple</em><em>)</em><em>, </em><em>required</em>) – Size of the pooled masks height and width: (h, w).</p></li>
+<li><p><strong>sample_ratio</strong> (<em>int</em><em>, </em><em>optional</em><em>, </em><em>default='2'</em>) – Sampling ratio of ROI align. Set to -1 to use adaptative size.</p></li>
+<li><p><strong>aligned</strong> (<em>boolean</em><em>, </em><em>optional</em><em>, </em><em>default=0</em>) – Center-aligned ROIAlign introduced in Detectron2. To enable, set aligned to True.</p></li>
+<li><p><strong>out</strong> (<a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a><em>, </em><em>optional</em>) – The output NDArray to hold the result.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>out</strong> – The output of this function.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray">NDArray</a> or list of NDArrays</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
 <dt id="mxnet.ndarray.contrib.quadratic">
 <code class="sig-name descname">quadratic</code><span class="sig-paren">(</span><em class="sig-param">data=None</em>, <em class="sig-param">a=_Null</em>, <em class="sig-param">b=_Null</em>, <em class="sig-param">c=_Null</em>, <em class="sig-param">out=None</em>, <em class="sig-param">name=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.ndarray.contrib.quadratic" title="Permalink to this definition">¶</a></dt>
 <dd><p>This operators implements the quadratic function.</p>
@@ -4815,66 +4822,6 @@ otherwise each token attends to <em>w</em> tokens on each side.</p>
 <li><p><strong>dilation</strong> (<a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a>) – dilation</p></li>
 <li><p><strong>w</strong> (<em>int</em><em>, </em><em>required</em>) – The one-sided window length</p></li>
 <li><p><strong>symmetric</strong> (<em>boolean</em><em>, </em><em>required</em>) – If false, each token will only attend to itself and the previous tokens.</p></li>
-<li><p><strong>out</strong> (<a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a><em>, </em><em>optional</em>) – The output NDArray to hold the result.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>out</strong> – The output of this function.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray">NDArray</a> or list of NDArrays</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="mxnet.ndarray.contrib.tvm_dot">
-<code class="sig-name descname">tvm_dot</code><span class="sig-paren">(</span><em class="sig-param">a=None</em>, <em class="sig-param">b=None</em>, <em class="sig-param">out=None</em>, <em class="sig-param">name=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.ndarray.contrib.tvm_dot" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>a</strong> (<a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a>) – first input</p></li>
-<li><p><strong>b</strong> (<a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a>) – second input</p></li>
-<li><p><strong>out</strong> (<a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a><em>, </em><em>optional</em>) – The output NDArray to hold the result.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>out</strong> – The output of this function.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray">NDArray</a> or list of NDArrays</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="mxnet.ndarray.contrib.tvm_dot_fallback">
-<code class="sig-name descname">tvm_dot_fallback</code><span class="sig-paren">(</span><em class="sig-param">a=None</em>, <em class="sig-param">b=None</em>, <em class="sig-param">out=None</em>, <em class="sig-param">name=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.ndarray.contrib.tvm_dot_fallback" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>a</strong> (<a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a>) – first input</p></li>
-<li><p><strong>b</strong> (<a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a>) – second input</p></li>
-<li><p><strong>out</strong> (<a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a><em>, </em><em>optional</em>) – The output NDArray to hold the result.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>out</strong> – The output of this function.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray">NDArray</a> or list of NDArrays</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="mxnet.ndarray.contrib.tvm_vadd">
-<code class="sig-name descname">tvm_vadd</code><span class="sig-paren">(</span><em class="sig-param">a=None</em>, <em class="sig-param">b=None</em>, <em class="sig-param">out=None</em>, <em class="sig-param">name=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.ndarray.contrib.tvm_vadd" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>a</strong> (<a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a>) – first input</p></li>
-<li><p><strong>b</strong> (<a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a>) – second input</p></li>
 <li><p><strong>out</strong> (<a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a><em>, </em><em>optional</em>) – The output NDArray to hold the result.</p></li>
 </ul>
 </dd>

@@ -1564,12 +1564,12 @@ div.rendered_html tbody tr:hover {
 <li><p>We will show how this knowledge can be used to build networks that share some parameters.</p></li>
 </ul>
 <p>As always, we start with a Multilayer Perceptron with a single hidden layer. We will use it to demonstrate the aspects mentioned above.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">mxnet</span> <span class="kn">import</span> <span class="n">init</span><span class="p">,</span> <span class="n">nd</span>
+<span></span><span class="kn">from</span> <span class="nn">mxnet</span> <span class="kn">import</span> <span class="n">init</span><span class="p">,</span> <span class="n">np</span>
 <span class="kn">from</span> <span class="nn">mxnet.gluon</span> <span class="kn">import</span> <span class="n">nn</span>
 
 
@@ -1578,30 +1578,57 @@ div.rendered_html tbody tr:hover {
 <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">net</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>  <span class="c1"># Use the default initialization method</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">nd</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
 <span class="n">net</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>            <span class="c1"># Forward computation</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+[10:00:56] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([[ 0.06240272, -0.03268593,  0.02582653,  0.02254182, -0.03728798,
+        -0.04253786,  0.00540613, -0.01364186, -0.09915452, -0.02272738],
+       [ 0.02816677, -0.03341204,  0.03565666,  0.02506382, -0.04136416,
+        -0.04941845,  0.01738528,  0.01081961, -0.09932579, -0.01176298]])
 </pre></div>
 </div>
 </div>
 <div class="section" id="Parameter-Access">
 <h2>Parameter Access<a class="headerlink" href="#Parameter-Access" title="Permalink to this headline">¶</a></h2>
 <p>In case of a Sequential class we can access the parameters simply by indexing each layer of the network. The <code class="docutils literal notranslate"><span class="pre">params</span></code> variable contains the required data. Let’s try this out in practice by inspecting the parameters of the first layer.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">net</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">net</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">collect_params</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
-<p>From the output we can see that the layer consists of two sets of parameters: <code class="docutils literal notranslate"><span class="pre">dense0_weight</span></code> and <code class="docutils literal notranslate"><span class="pre">dense0_bias</span></code>. They are both single precision and they have the necessary shapes that we would expect from the first layer, given that the input dimension is 20 and the output dimension 256. The names of the parameters are very useful, because they allow us to identify parameters <em>uniquely</em> even in a network of hundreds of layers and with nontrivial structure. The second layer is structured in a
-similar way.</p>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;0.weight&#39;: Parameter (shape=(256, 20), dtype=float32), &#39;0.bias&#39;: Parameter (shape=(256,), dtype=float32), &#39;1.weight&#39;: Parameter (shape=(10, 256), dtype=float32), &#39;1.bias&#39;: Parameter (shape=(10,), dtype=float32)}
+</pre></div></div>
+</div>
+<p>From the output we can see that the layer consists of two sets of parameters: <code class="docutils literal notranslate"><span class="pre">0.weight</span></code> and <code class="docutils literal notranslate"><span class="pre">0.bias</span></code>. They are both single precision and they have the necessary shapes that we would expect from the first layer, given that the input dimension is 20 and the output dimension 256. The names of the parameters are very useful, because they allow us to identify parameters <em>uniquely</em> even in a network of hundreds of layers and with nontrivial structure. The second layer is structured in a similar
+way.</p>
 <div class="section" id="Targeted-Parameters">
 <h3>Targeted Parameters<a class="headerlink" href="#Targeted-Parameters" title="Permalink to this headline">¶</a></h3>
 <p>In order to do something useful with the parameters we need to access them. There are several ways to do this, ranging from simple to general. Let’s look at some of them.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
@@ -1611,21 +1638,51 @@ similar way.</p>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Parameter (shape=(10,), dtype=float32)
+[0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+</pre></div></div>
+</div>
 <p>The first line returns the bias of the second layer. Since this is an object containing data, gradients, and additional information, we need to request the data explicitly. To request the data, we call <code class="docutils literal notranslate"><span class="pre">data</span></code> method on the parameter on the second line. Note that the bias is all 0 since we initialized the bias to contain all zeros.</p>
-<p>We can also access the parameter by name, such as <code class="docutils literal notranslate"><span class="pre">dense0_weight</span></code>. This is possible since each layer comes with its own parameter dictionary that can be accessed directly. Both methods are entirely equivalent, but the first method leads to more readable code.</p>
-<div class="nbinput nblast docutils container">
+<p>We can also access the parameter by name, such as <code class="docutils literal notranslate"><span class="pre">0.weight</span></code>. This is possible since each layer comes with its own parameter dictionary that can be accessed directly. Both methods are entirely equivalent, but the first method leads to more readable code.</p>
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">net</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;dense0_weight&#39;</span><span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="n">net</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;dense0_weight&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">())</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">net</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">net</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Parameter (shape=(256, 20), dtype=float32)
+[[ 0.06700657 -0.00369488  0.0418822  ... -0.05517294 -0.01194733
+  -0.00369594]
+ [-0.03296221 -0.04391347  0.03839272 ...  0.05636378  0.02545484
+  -0.007007  ]
+ [-0.0196689   0.01582889 -0.00881553 ...  0.01509629 -0.01908049
+  -0.02449339]
+ ...
+ [-0.02055008 -0.02618652  0.06762936 ... -0.02315108 -0.06794678
+  -0.04618235]
+ [ 0.02802853  0.06672969  0.05018687 ... -0.02206502 -0.01315478
+  -0.03791244]
+ [-0.00638592  0.00914261  0.06667828 ... -0.00800052  0.03406764
+  -0.03954004]]
+</pre></div></div>
+</div>
 <p>Note that the weights are nonzero as they were randomly initialized when we constructed the network.</p>
 <p><a class="reference internal" href="../../../../api/gluon/parameter.html#mxnet.gluon.Parameter.data"><span class="std std-ref">data</span></a> is not the only method that we can invoke. For instance, we can compute the gradient with respect to the parameters. It has the same shape as the weight. However, since we did not invoke backpropagation yet, the values are all 0.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
@@ -1634,12 +1691,27 @@ similar way.</p>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([[0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.],
+       ...,
+       [0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.]])
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="All-Parameters-at-Once">
 <h3>All Parameters at Once<a class="headerlink" href="#All-Parameters-at-Once" title="Permalink to this headline">¶</a></h3>
 <p>Accessing parameters as described above can be a bit tedious, in particular if we have more complex blocks, or blocks of blocks (or even blocks of blocks of blocks), since we need to walk through the entire tree in reverse order to learn how the blocks were constructed. To avoid this, blocks come with a method <a class="reference internal" href="../../../../api/gluon/block.html#mxnet.gluon.Block.collect_params"><span class="std std-ref">collect_params</span></a> which grabs all parameters of a network in one dictionary such that we can traverse it with ease. It
 does so by iterating over all constituents of a block and calls <code class="docutils literal notranslate"><span class="pre">collect_params</span></code> on sub-blocks as needed. To see the difference, consider the following:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
@@ -1651,33 +1723,60 @@ does so by iterating over all constituents of a block and calls <code class="doc
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;weight&#39;: Parameter (shape=(256, 20), dtype=float32), &#39;bias&#39;: Parameter (shape=(256,), dtype=float32)}
+{&#39;0.weight&#39;: Parameter (shape=(256, 20), dtype=float32), &#39;0.bias&#39;: Parameter (shape=(256,), dtype=float32), &#39;1.weight&#39;: Parameter (shape=(10, 256), dtype=float32), &#39;1.bias&#39;: Parameter (shape=(10,), dtype=float32)}
+</pre></div></div>
+</div>
 <p>This provides us with the third way of accessing the parameters of the network. If we want to get the value of the bias term of the second layer we could simply use this:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="n">net</span><span class="o">.</span><span class="n">collect_params</span><span class="p">()[</span><span class="s1">&#39;dense1_bias&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">()</span>
+<span></span><span class="n">net</span><span class="o">.</span><span class="n">collect_params</span><span class="p">()[</span><span class="s1">&#39;1.bias&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])
 </pre></div>
 </div>
 </div>
 <p>By adding a regular expression as an argument to <code class="docutils literal notranslate"><span class="pre">collect_params</span></code> method, we can select only a particular set of parameters whose names are matched by the regular expression.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="k">print</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">collect_params</span><span class="p">(</span><span class="s1">&#39;.*weight&#39;</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">collect_params</span><span class="p">(</span><span class="s1">&#39;dense0.*&#39;</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">collect_params</span><span class="p">(</span><span class="s1">&#39;0.*&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;0.weight&#39;: Parameter (shape=(256, 20), dtype=float32), &#39;1.weight&#39;: Parameter (shape=(10, 256), dtype=float32)}
+{&#39;0.weight&#39;: Parameter (shape=(256, 20), dtype=float32), &#39;0.bias&#39;: Parameter (shape=(256,), dtype=float32)}
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Rube-Goldberg-strikes-again">
 <h3>Rube Goldberg strikes again<a class="headerlink" href="#Rube-Goldberg-strikes-again" title="Permalink to this headline">¶</a></h3>
 <p>Let’s see how the parameter naming conventions work if we nest multiple blocks inside each other. For that we first define a function that produces blocks (a block factory, so to speak) and then we combine these inside yet larger blocks.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1701,9 +1800,23 @@ does so by iterating over all constituents of a block and calls <code class="doc
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([[-4.1923025e-09,  1.9830502e-09,  8.9444063e-10,  6.2912990e-09,
+        -3.3241778e-09,  5.4330038e-09,  1.6013515e-09, -3.7408681e-09,
+         8.5468477e-09, -6.4805539e-09],
+       [-3.7507064e-09,  1.4866974e-09,  6.8314709e-10,  5.6925784e-09,
+        -2.6349172e-09,  4.8626667e-09,  1.4280275e-09, -3.4603027e-09,
+         7.4127922e-09, -5.7896132e-09]])
+</pre></div>
+</div>
+</div>
 <p>Now that we are done designing the network, let’s see how it is organized. <code class="docutils literal notranslate"><span class="pre">collect_params</span></code> provides us with this information, both in terms of naming and in terms of logical structure.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1712,13 +1825,52 @@ does so by iterating over all constituents of a block and calls <code class="doc
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;bound method Block.collect_params of Sequential(
+  (0): Sequential(
+    (0): Sequential(
+      (0): Dense(20 -&gt; 32, Activation(relu))
+      (1): Dense(32 -&gt; 16, Activation(relu))
+    )
+    (1): Sequential(
+      (0): Dense(16 -&gt; 32, Activation(relu))
+      (1): Dense(32 -&gt; 16, Activation(relu))
+    )
+    (2): Sequential(
+      (0): Dense(16 -&gt; 32, Activation(relu))
+      (1): Dense(32 -&gt; 16, Activation(relu))
+    )
+    (3): Sequential(
+      (0): Dense(16 -&gt; 32, Activation(relu))
+      (1): Dense(32 -&gt; 16, Activation(relu))
+    )
+  )
+  (1): Dense(16 -&gt; 10, linear)
+)&gt;
+{&#39;0.0.0.weight&#39;: Parameter (shape=(32, 20), dtype=float32), &#39;0.0.0.bias&#39;: Parameter (shape=(32,), dtype=float32), &#39;0.0.1.weight&#39;: Parameter (shape=(16, 32), dtype=float32), &#39;0.0.1.bias&#39;: Parameter (shape=(16,), dtype=float32), &#39;0.1.0.weight&#39;: Parameter (shape=(32, 16), dtype=float32), &#39;0.1.0.bias&#39;: Parameter (shape=(32,), dtype=float32), &#39;0.1.1.weight&#39;: Parameter (shape=(16, 32), dtype=float32), &#39;0.1.1.bias&#39;: Parameter (shape=(16,), dtype=float32), &#39;0.2.0.weight&#39;: Parameter (shape=(32, 16), dtype=float32), &#39;0.2.0.bias&#39;: Parameter (shape=(32,), dtype=float32), &#39;0.2.1.weight&#39;: Parameter (shape=(16, 32), dtype=float32), &#39;0.2.1.bias&#39;: Parameter (shape=(16,), dtype=float32), &#39;0.3.0.weight&#39;: Parameter (shape=(32, 16), dtype=float32), &#39;0.3.0.bias&#39;: Parameter (shape=(32,), dtype=float32), &#39;0.3.1.weight&#39;: Parameter (shape=(16, 32), dtype=float32), &#39;0.3.1.bias&#39;: Parameter (shape=(16,), dtype=float32), &#39;1.weight&#39;: Parameter (shape=(10, 16), dtype=float32), &#39;1.bias&#39;: Parameter (shape=(10,), dtype=float32)}
+</pre></div></div>
+</div>
 <p>We can access layers following the hierarchy in which they are structured. For instance, if we want to access the bias of the first layer of the second subblock of the first major block, we could perform the following:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="n">rgnet</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bias</span><span class="o">.</span><span class="n">data</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+       0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])
 </pre></div>
 </div>
 </div>
@@ -1727,7 +1879,7 @@ does so by iterating over all constituents of a block and calls <code class="doc
 <h3>Saving and loading parameters<a class="headerlink" href="#Saving-and-loading-parameters" title="Permalink to this headline">¶</a></h3>
 <p>In order to save parameters, we can use <a class="reference internal" href="../../../../api/gluon/block.html#mxnet.gluon.Block.save_parameters"><span class="std std-ref">save_parameters</span></a> method on the whole network or a particular subblock. The only parameter that is needed is the <code class="docutils literal notranslate"><span class="pre">file_name</span></code>. In a similar way, we can load parameters back from the file. We use <a class="reference internal" href="../../../../api/gluon/block.html#mxnet.gluon.Block.load_parameters"><span class="std std-ref">load_parameters</span></a> method for that:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1744,8 +1896,8 @@ does so by iterating over all constituents of a block and calls <code class="doc
 <div class="section" id="Built-in-Initialization">
 <h3>Built-in Initialization<a class="headerlink" href="#Built-in-Initialization" title="Permalink to this headline">¶</a></h3>
 <p>Let’s begin with the built-in initializers. The code below initializes all parameters with Gaussian random variables.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1756,9 +1908,22 @@ does so by iterating over all constituents of a block and calls <code class="doc
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([-9.8788980e-03,  5.3957910e-03, -7.0842835e-03, -7.4317548e-03,
+       -1.4880488e-02,  6.4959102e-03, -8.2659349e-03,  1.8743129e-02,
+        1.6201857e-02,  1.4534278e-03,  2.2331164e-03,  1.5926110e-02,
+       -1.2915777e-02, -8.8592555e-05, -1.7293986e-03, -7.2338698e-03,
+        8.7698260e-03, -4.9947016e-03, -9.6906107e-03,  2.0079101e-03])
+</pre></div>
+</div>
+</div>
 <p>If we wanted to initialize all parameters to 1, we could do this simply by changing the initializer to <a class="reference internal" href="../../../../api/initializer/index.html#mxnet.initializer.Constant"><span class="std std-ref">Constant(1)</span></a>.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1767,9 +1932,19 @@ does so by iterating over all constituents of a block and calls <code class="doc
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
+       1., 1., 1.])
+</pre></div>
+</div>
+</div>
 <p>If we want to initialize only a specific parameter in a different manner, we can simply set the initializer only for the appropriate subblock (or parameter) for that matter. For instance, below we initialize the second layer to a constant value of 42 and we use the <a class="reference internal" href="../../../../api/initializer/index.html#mxnet.initializer.Xavier"><span class="std std-ref">Xavier</span></a> initializer for the weights of the first layer.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1779,6 +1954,18 @@ does so by iterating over all constituents of a block and calls <code class="doc
 <span class="k">print</span><span class="p">(</span><span class="n">net</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+42.0
+[-0.06319056 -0.10960881  0.11757872 -0.07595599 -0.0849717   0.0851637
+  0.08330765  0.04028694 -0.0305525   0.02012795 -0.03856885  0.1375024
+  0.10155623 -0.05016676 -0.02575382 -0.14205234  0.14225402  0.02719662
+ -0.0888046  -0.00962897]
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Custom-Initialization">
@@ -1793,25 +1980,46 @@ point. We draw the coefficients from the following distribution:</p>
         U[-10, -5] &amp; \text{ with probability } \frac{1}{4}
     \end{cases}
 \end{aligned}\end{split}\]</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="k">class</span> <span class="nc">MyInit</span><span class="p">(</span><span class="n">init</span><span class="o">.</span><span class="n">Initializer</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">_init_weight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Init&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-        <span class="n">data</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">nd</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-        <span class="n">data</span> <span class="o">*=</span> <span class="n">data</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">5</span>
+        <span class="n">data</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">5</span>
 
 <span class="n">net</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">MyInit</span><span class="p">(),</span> <span class="n">force_reinit</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">net</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Init weight (256, 20)
+Init weight (10, 256)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([-5.172625 , -7.0209026,  5.1446533, -9.844563 ,  8.545956 ,
+       -0.       ,  0.       , -0.       ,  5.107664 ,  9.658335 ,
+        5.8564453,  7.4483128,  0.       ,  0.       , -0.       ,
+        7.9034443,  0.       ,  5.4223766,  8.5655575,  5.1224785])
+</pre></div>
+</div>
+</div>
 <p>If even this functionality is insufficient, we can set parameters directly. Since <code class="docutils literal notranslate"><span class="pre">data()</span></code> returns an NDArray we can access it just like any other matrix. A note for advanced users - if you want to adjust parameters within an <a class="reference internal" href="../../../../api/autograd/index.html"><span class="doc">autograd</span></a> scope you need to use <a class="reference internal" href="../../../../api/gluon/parameter.html#mxnet.gluon.Parameter.set_data"><span class="std std-ref">set_data</span></a> to avoid confusing the automatic differentiation mechanics.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1821,13 +2029,25 @@ point. We draw the coefficients from the following distribution:</p>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([42.       , -6.0209026,  6.1446533, -8.844563 ,  9.545956 ,
+        1.       ,  1.       ,  1.       ,  6.107664 , 10.658335 ,
+        6.8564453,  8.448313 ,  1.       ,  1.       ,  1.       ,
+        8.903444 ,  1.       ,  6.4223766,  9.5655575,  6.1224785])
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="Tied-Parameters">
 <h2>Tied Parameters<a class="headerlink" href="#Tied-Parameters" title="Permalink to this headline">¶</a></h2>
 <p>In some cases, we want to share model parameters across multiple layers. For instance, when we want to find good word embeddings we may decide to use the same parameters both for encoding and decoding of words. In the code below, we allocate a dense layer and then use its parameters specifically to set those of another layer.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1837,11 +2057,11 @@ point. We draw the coefficients from the following distribution:</p>
 <span class="n">shared</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">)</span>
 <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
         <span class="n">shared</span><span class="p">,</span>
-        <span class="n">nn</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">shared</span><span class="o">.</span><span class="n">params</span><span class="p">),</span>
+        <span class="n">nn</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">share_parameters</span><span class="p">(</span><span class="n">shared</span><span class="o">.</span><span class="n">params</span><span class="p">),</span>
         <span class="n">nn</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">net</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">nd</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
 <span class="n">net</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
 <span class="c1"># Check whether the parameters are the same</span>
@@ -1852,6 +2072,24 @@ point. We draw the coefficients from the following distribution:</p>
 <span class="k">print</span><span class="p">(</span><span class="n">net</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">net</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[ True  True  True  True  True  True  True  True]
+[ True  True  True  True  True  True  True  True]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/work/mxnet/python/mxnet/gluon/block.py:574: UserWarning: Parameter &#39;bias&#39; is already initialized, ignoring. Set force_reinit=True to re-initialize.
+  v.initialize(None, ctx, init, force_reinit=force_reinit)
+</pre></div></div>
 </div>
 <p>The above example shows that the parameters of the second and third layer are tied. They are identical rather than just being equal. That is, by changing one of the parameters the other one changes, too. What happens to the gradients is quite ingenious. Since the model parameters contain gradients, the gradients of the second hidden layer and the third hidden layer are accumulated in the <a class="reference internal" href="../../../../api/gluon/parameter.html#mxnet.gluon.Parameter.grad"><span class="std std-ref">shared.params.grad()</span></a> during
 backpropagation.</p>

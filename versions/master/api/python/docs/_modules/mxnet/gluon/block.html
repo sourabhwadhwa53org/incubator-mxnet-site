@@ -1551,7 +1551,7 @@ Edit on Github
     <span class="k">return</span> <span class="n">_merger</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">fmt</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
 
-<div class="viewcode-block" id="Block"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.Block">[docs]</a><span class="k">class</span> <span class="nc">Block</span><span class="p">:</span>
+<div class="viewcode-block" id="Block"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block">[docs]</a><span class="k">class</span> <span class="nc">Block</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Base class for all neural network layers and models. Your models should</span>
 <span class="sd">    subclass this class.</span>
 
@@ -1648,7 +1648,7 @@ Edit on Github
 <span class="sd">        children&#39;s parameters).&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reg_params</span>
 
-<div class="viewcode-block" id="Block.collect_params"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.Block.collect_params">[docs]</a>    <span class="k">def</span> <span class="nf">collect_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Block.collect_params"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.collect_params">[docs]</a>    <span class="k">def</span> <span class="nf">collect_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns a :py:class:`Dict` containing this :py:class:`Block` and all of its</span>
 <span class="sd">        children&#39;s Parameters(default), also can returns the select :py:class:`Dict`</span>
 <span class="sd">        which match some given regular expressions.</span>
@@ -1689,7 +1689,7 @@ Edit on Github
             <span class="n">ret</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">child</span><span class="p">()</span><span class="o">.</span><span class="n">_collect_params_with_prefix</span><span class="p">(</span><span class="n">prefix</span> <span class="o">+</span> <span class="n">name</span><span class="p">,</span> <span class="n">select</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">ret</span>
 
-<div class="viewcode-block" id="Block.save_parameters"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.Block.save_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">save_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">deduplicate</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="Block.save_parameters"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.save_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">save_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">deduplicate</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Save parameters to file.</span>
 
 <span class="sd">        Saved parameters can only be loaded with `load_parameters`. Note that this</span>
@@ -1727,7 +1727,7 @@ Edit on Github
         <span class="k">else</span><span class="p">:</span>
             <span class="n">ndarray</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">arg_dict</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Block.load_parameters"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.Block.load_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">load_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">allow_missing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<div class="viewcode-block" id="Block.load_parameters"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.load_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">load_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">allow_missing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                         <span class="n">ignore_extra</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cast_dtype</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype_source</span><span class="o">=</span><span class="s1">&#39;current&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Load parameters from file previously saved by `save_parameters`.</span>
 
@@ -1782,7 +1782,7 @@ Edit on Github
         <span class="n">full_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="n">loaded</span><span class="p">,</span> <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="n">filename</span><span class="p">}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">load_dict</span><span class="p">(</span><span class="n">full_dict</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">allow_missing</span><span class="p">,</span> <span class="n">ignore_extra</span><span class="p">,</span> <span class="n">cast_dtype</span><span class="p">,</span> <span class="n">dtype_source</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Block.load_dict"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.Block.load_dict">[docs]</a>    <span class="k">def</span> <span class="nf">load_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param_dict</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">allow_missing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<div class="viewcode-block" id="Block.load_dict"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.load_dict">[docs]</a>    <span class="k">def</span> <span class="nf">load_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param_dict</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">allow_missing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                   <span class="n">ignore_extra</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cast_dtype</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype_source</span><span class="o">=</span><span class="s2">&quot;current&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Load parameters from dict</span>
 
@@ -1841,14 +1841,14 @@ Edit on Github
                     <span class="n">param</span> <span class="o">=</span> <span class="n">_mx_np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">param</span><span class="p">)</span> <span class="k">if</span> <span class="n">is_np_array</span><span class="p">()</span> <span class="k">else</span> <span class="n">nd</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>
                 <span class="n">params</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">_load_init</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">cast_dtype</span><span class="o">=</span><span class="n">cast_dtype</span><span class="p">,</span> <span class="n">dtype_source</span><span class="o">=</span><span class="n">dtype_source</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Block.register_child"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.Block.register_child">[docs]</a>    <span class="k">def</span> <span class="nf">register_child</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Block.register_child"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.register_child">[docs]</a>    <span class="k">def</span> <span class="nf">register_child</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Registers block as a child of self. :py:class:`Block` s assigned to self as</span>
 <span class="sd">        attributes will be registered automatically.&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">weakref</span><span class="o">.</span><span class="n">ref</span><span class="p">(</span><span class="n">block</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Block.register_forward_pre_hook"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.Block.register_forward_pre_hook">[docs]</a>    <span class="k">def</span> <span class="nf">register_forward_pre_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hook</span><span class="p">):</span>
+<div class="viewcode-block" id="Block.register_forward_pre_hook"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.register_forward_pre_hook">[docs]</a>    <span class="k">def</span> <span class="nf">register_forward_pre_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hook</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Registers a forward pre-hook on the block.</span>
 
 <span class="sd">        The hook function is called immediately before :func:`forward`.</span>
@@ -1867,7 +1867,7 @@ Edit on Github
         <span class="n">handle</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_forward_pre_hooks</span><span class="p">,</span> <span class="n">hook</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">handle</span></div>
 
-<div class="viewcode-block" id="Block.register_forward_hook"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.Block.register_forward_hook">[docs]</a>    <span class="k">def</span> <span class="nf">register_forward_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hook</span><span class="p">):</span>
+<div class="viewcode-block" id="Block.register_forward_hook"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.register_forward_hook">[docs]</a>    <span class="k">def</span> <span class="nf">register_forward_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hook</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Registers a forward hook on the block.</span>
 
 <span class="sd">        The hook function is called immediately after :func:`forward`.</span>
@@ -1886,7 +1886,7 @@ Edit on Github
         <span class="n">handle</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_forward_hooks</span><span class="p">,</span> <span class="n">hook</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">handle</span></div>
 
-<div class="viewcode-block" id="Block.apply"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.Block.apply">[docs]</a>    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fn</span><span class="p">):</span>
+<div class="viewcode-block" id="Block.apply"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.apply">[docs]</a>    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fn</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies ``fn`` recursively to every child block as well as self.</span>
 
 <span class="sd">        Parameters</span>
@@ -1903,7 +1903,7 @@ Edit on Github
         <span class="n">fn</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="Block.initialize"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.Block.initialize">[docs]</a>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="n">initializer</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(),</span> <span class="n">ctx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<div class="viewcode-block" id="Block.initialize"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.initialize">[docs]</a>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="n">initializer</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(),</span> <span class="n">ctx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                    <span class="n">force_reinit</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Initializes :py:class:`Parameter` s of this :py:class:`Block` and its children.</span>
 
@@ -1925,7 +1925,7 @@ Edit on Github
         <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
             <span class="n">v</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">init</span><span class="p">,</span> <span class="n">force_reinit</span><span class="o">=</span><span class="n">force_reinit</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Block.save"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.Block.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
+<div class="viewcode-block" id="Block.save"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Save the model architecture and parameters to load again later</span>
 
 <span class="sd">        Saves the model architecture as a nested dictionary where each Block</span>
@@ -1996,7 +1996,7 @@ Edit on Github
         <span class="c1"># save params</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">save_parameters</span><span class="p">(</span><span class="s1">&#39;MyModel-model.params&#39;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Block.load"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.Block.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
+<div class="viewcode-block" id="Block.load"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Load a model saved using the `save` API</span>
 
 <span class="sd">        Reconfigures a model using the saved configuration. This function</span>
@@ -2062,13 +2062,13 @@ Edit on Github
         <span class="c1"># load params</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">load_parameters</span><span class="p">(</span><span class="s1">&#39;MyModel-model.params&#39;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Block.hybridize"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.Block.hybridize">[docs]</a>    <span class="k">def</span> <span class="nf">hybridize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">active</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="Block.hybridize"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.hybridize">[docs]</a>    <span class="k">def</span> <span class="nf">hybridize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">active</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Please refer description of HybridBlock hybridize().</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">cld</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
             <span class="n">cld</span><span class="p">()</span><span class="o">.</span><span class="n">hybridize</span><span class="p">(</span><span class="n">active</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Block.cast"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.Block.cast">[docs]</a>    <span class="k">def</span> <span class="nf">cast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="p">):</span>
+<div class="viewcode-block" id="Block.cast"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.cast">[docs]</a>    <span class="k">def</span> <span class="nf">cast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Cast this Block to use another data type.</span>
 
 <span class="sd">        Parameters</span>
@@ -2081,7 +2081,7 @@ Edit on Github
         <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">param</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="n">param</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Block.zero_grad"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.Block.zero_grad">[docs]</a>    <span class="k">def</span> <span class="nf">zero_grad</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Block.zero_grad"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.zero_grad">[docs]</a>    <span class="k">def</span> <span class="nf">zero_grad</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Sets all Parameters&#39; gradient buffer to 0.&quot;&quot;&quot;</span>
         <span class="c1"># collect gradient arrays for each ctx</span>
         <span class="n">arrays</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
@@ -2104,7 +2104,7 @@ Edit on Github
         <span class="k">for</span> <span class="n">arr</span> <span class="ow">in</span> <span class="n">arrays</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
             <span class="n">ndarray</span><span class="o">.</span><span class="n">reset_arrays</span><span class="p">(</span><span class="o">*</span><span class="n">arr</span><span class="p">,</span> <span class="n">num_arrays</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Block.reset_ctx"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.Block.reset_ctx">[docs]</a>    <span class="k">def</span> <span class="nf">reset_ctx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">):</span>
+<div class="viewcode-block" id="Block.reset_ctx"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.reset_ctx">[docs]</a>    <span class="k">def</span> <span class="nf">reset_ctx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Re-assign all Parameters to other contexts.</span>
 
 <span class="sd">        Parameters</span>
@@ -2117,7 +2117,7 @@ Edit on Github
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
             <span class="n">i</span><span class="o">.</span><span class="n">reset_ctx</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Block.setattr"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.Block.setattr">[docs]</a>    <span class="k">def</span> <span class="nf">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<div class="viewcode-block" id="Block.setattr"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.setattr">[docs]</a>    <span class="k">def</span> <span class="nf">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Set an attribute to a new value for all Parameters.</span>
 
 <span class="sd">        For example, set grad_req to null if you don&#39;t need gradient w.r.t a</span>
@@ -2140,7 +2140,7 @@ Edit on Github
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
             <span class="nb">setattr</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Block.share_parameters"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.Block.share_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">share_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shared</span><span class="p">):</span>
+<div class="viewcode-block" id="Block.share_parameters"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.share_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">share_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shared</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Share parameters recursively inside the model.</span>
 
 <span class="sd">        For example, if you want ``dense1`` to share ``dense0``&#39;s weights, you can do::</span>
@@ -2205,7 +2205,7 @@ Edit on Github
             <span class="n">_check_all_np_ndarrays</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">out</span>
 
-<div class="viewcode-block" id="Block.forward"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.Block.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<div class="viewcode-block" id="Block.forward"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Overrides to implement forward computation using :py:class:`NDArray`. Only</span>
 <span class="sd">        accepts positional arguments.</span>
 
@@ -2217,7 +2217,7 @@ Edit on Github
         <span class="c1"># pylint: disable= invalid-name</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
-<div class="viewcode-block" id="Block.register_op_hook"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.Block.register_op_hook">[docs]</a>    <span class="k">def</span> <span class="nf">register_op_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="n">monitor_all</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="Block.register_op_hook"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.register_op_hook">[docs]</a>    <span class="k">def</span> <span class="nf">register_op_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="n">monitor_all</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Install callback monitor.</span>
 
 <span class="sd">        Parameters</span>
@@ -2234,7 +2234,7 @@ Edit on Github
         <span class="k">for</span> <span class="n">cld</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
             <span class="n">cld</span><span class="p">()</span><span class="o">.</span><span class="n">register_op_hook</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span> <span class="n">monitor_all</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Block.summary"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.Block.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">inputs</span><span class="p">):</span>
+<div class="viewcode-block" id="Block.summary"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">inputs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Print the summary of the model&#39;s output and parameters.</span>
 
 <span class="sd">        The network must have been initialized, and must not have been hybridized.</span>
@@ -2346,7 +2346,7 @@ Edit on Github
                 <span class="n">h</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span></div></div>
 
 
-<div class="viewcode-block" id="HybridBlock"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.HybridBlock">[docs]</a><span class="k">class</span> <span class="nc">HybridBlock</span><span class="p">(</span><span class="n">Block</span><span class="p">):</span>
+<div class="viewcode-block" id="HybridBlock"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.HybridBlock">[docs]</a><span class="k">class</span> <span class="nc">HybridBlock</span><span class="p">(</span><span class="n">Block</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;`HybridBlock` supports forwarding with both Symbol and NDArray.</span>
 
 <span class="sd">    `HybridBlock` is similar to `Block`, with a few differences::</span>
@@ -2621,7 +2621,7 @@ Edit on Github
             <span class="n">out</span> <span class="o">=</span> <span class="p">[</span><span class="n">out</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">_regroup</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_out_format</span><span class="p">)</span>
 
-<div class="viewcode-block" id="HybridBlock.optimize_for"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.HybridBlock.optimize_for">[docs]</a>    <span class="k">def</span> <span class="nf">optimize_for</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<div class="viewcode-block" id="HybridBlock.optimize_for"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.HybridBlock.optimize_for">[docs]</a>    <span class="k">def</span> <span class="nf">optimize_for</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                      <span class="n">partition_if_dynamic</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                      <span class="n">static_alloc</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                      <span class="n">static_shape</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
@@ -2714,7 +2714,7 @@ Edit on Github
         <span class="bp">self</span><span class="o">.</span><span class="n">_cached_op</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_first_forward</span> <span class="o">=</span> <span class="kc">True</span>
 
-<div class="viewcode-block" id="HybridBlock.register_child"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.HybridBlock.register_child">[docs]</a>    <span class="k">def</span> <span class="nf">register_child</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="HybridBlock.register_child"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.HybridBlock.register_child">[docs]</a>    <span class="k">def</span> <span class="nf">register_child</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">block</span><span class="p">,</span> <span class="n">HybridBlock</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                 <span class="s2">&quot;Children of HybridBlock must also be HybridBlock, &quot;</span> \
@@ -2728,7 +2728,7 @@ Edit on Github
             <span class="bp">self</span><span class="o">.</span><span class="n">_active</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_clear_cached_op</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="HybridBlock.hybridize"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.HybridBlock.hybridize">[docs]</a>    <span class="k">def</span> <span class="nf">hybridize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">active</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<div class="viewcode-block" id="HybridBlock.hybridize"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.HybridBlock.hybridize">[docs]</a>    <span class="k">def</span> <span class="nf">hybridize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">active</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                   <span class="n">partition_if_dynamic</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                   <span class="n">static_alloc</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                   <span class="n">static_shape</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
@@ -2778,7 +2778,7 @@ Edit on Github
                                            <span class="n">forward_bulk_size</span><span class="o">=</span><span class="n">forward_bulk_size</span><span class="p">,</span>
                                            <span class="n">backward_bulk_size</span><span class="o">=</span><span class="n">backward_bulk_size</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="HybridBlock.cast"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.HybridBlock.cast">[docs]</a>    <span class="k">def</span> <span class="nf">cast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="p">):</span>
+<div class="viewcode-block" id="HybridBlock.cast"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.HybridBlock.cast">[docs]</a>    <span class="k">def</span> <span class="nf">cast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_active</span><span class="p">:</span>
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Currently the model has been hybridized. Automatically deactivate the hybridization </span><span class="se">\</span>
 <span class="s2">                           when cast the block to use another data type.&quot;</span><span class="p">)</span>
@@ -2802,7 +2802,7 @@ Edit on Github
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">collect_params</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
             <span class="nb">setattr</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">sdict</span><span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">var</span><span class="p">()</span><span class="o">.</span><span class="n">name</span><span class="p">])</span>
 
-<div class="viewcode-block" id="HybridBlock.infer_shape"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.HybridBlock.infer_shape">[docs]</a>    <span class="k">def</span> <span class="nf">infer_shape</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<div class="viewcode-block" id="HybridBlock.infer_shape"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.HybridBlock.infer_shape">[docs]</a>    <span class="k">def</span> <span class="nf">infer_shape</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Infers shape of Parameters from inputs.&quot;&quot;&quot;</span>
         <span class="c1"># pylint: disable=unused-argument</span>
         <span class="c1"># In Gluon 2, users must implement infer_shape, if any deferred</span>
@@ -2816,11 +2816,11 @@ Edit on Github
                 <span class="s2">&quot;based on the first input. Parameters with unknown shapes are </span><span class="si">{params}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                     <span class="n">name</span><span class="o">=</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params_str</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="HybridBlock.infer_type"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.HybridBlock.infer_type">[docs]</a>    <span class="k">def</span> <span class="nf">infer_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<div class="viewcode-block" id="HybridBlock.infer_type"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.HybridBlock.infer_type">[docs]</a>    <span class="k">def</span> <span class="nf">infer_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Infers data type of Parameters from inputs.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_infer_attrs</span><span class="p">(</span><span class="s1">&#39;infer_type&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype&#39;</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="HybridBlock.export"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.HybridBlock.export">[docs]</a>    <span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">remove_amp_cast</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="HybridBlock.export"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.HybridBlock.export">[docs]</a>    <span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">remove_amp_cast</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Export HybridBlock to json format that can be loaded by</span>
 <span class="sd">        `gluon.SymbolBlock.imports` or the C++ interface.</span>
 
@@ -2897,7 +2897,7 @@ Edit on Github
             <span class="n">sym</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">sym</span><span class="p">)(</span><span class="n">handle</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">sym</span><span class="p">,</span> <span class="n">arg_dict</span></div>
 
-<div class="viewcode-block" id="HybridBlock.register_op_hook"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.HybridBlock.register_op_hook">[docs]</a>    <span class="k">def</span> <span class="nf">register_op_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="n">monitor_all</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="HybridBlock.register_op_hook"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.HybridBlock.register_op_hook">[docs]</a>    <span class="k">def</span> <span class="nf">register_op_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="n">monitor_all</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Install op hook for block recursively.</span>
 
 <span class="sd">        Parameters</span>
@@ -2963,13 +2963,13 @@ Edit on Github
         <span class="k">with</span> <span class="n">first_ctx</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_cached_op</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
 
-<div class="viewcode-block" id="HybridBlock.forward"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.HybridBlock.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<div class="viewcode-block" id="HybridBlock.forward"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.HybridBlock.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Overrides the forward computation. Arguments must be</span>
 <span class="sd">        :py:class:`mxnet.numpy.ndarray`.&quot;&quot;&quot;</span>
 
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
-<div class="viewcode-block" id="HybridBlock.reset_ctx"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.nn.HybridBlock.reset_ctx">[docs]</a>    <span class="k">def</span> <span class="nf">reset_ctx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">):</span>
+<div class="viewcode-block" id="HybridBlock.reset_ctx"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.HybridBlock.reset_ctx">[docs]</a>    <span class="k">def</span> <span class="nf">reset_ctx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Re-assign all Parameters to other contexts. If the Block is hybridized, it will reset the _cached_op_args.</span>
 
 <span class="sd">        Parameters</span>
@@ -2987,7 +2987,7 @@ Edit on Github
         <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
             <span class="n">p</span><span class="o">.</span><span class="n">reset_ctx</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span></div></div>
 
-<div class="viewcode-block" id="SymbolBlock"><a class="viewcode-back" href="../../../api/gluon/symbol_block.html#mxnet.gluon.nn.SymbolBlock">[docs]</a><span class="k">class</span> <span class="nc">SymbolBlock</span><span class="p">(</span><span class="n">HybridBlock</span><span class="p">):</span>
+<div class="viewcode-block" id="SymbolBlock"><a class="viewcode-back" href="../../../api/gluon/symbol_block.html#mxnet.gluon.data.vision.transforms.SymbolBlock">[docs]</a><span class="k">class</span> <span class="nc">SymbolBlock</span><span class="p">(</span><span class="n">HybridBlock</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Construct block from symbol. This is useful for using pre-trained models</span>
 <span class="sd">    as feature extractors. For example, you may want to extract the output</span>
 <span class="sd">    from fc2 layer in AlexNet.</span>
@@ -3018,7 +3018,7 @@ Edit on Github
 <span class="sd">    &gt;&gt;&gt; x = mx.nd.random.normal(shape=(16, 3, 224, 224))</span>
 <span class="sd">    &gt;&gt;&gt; print(feat_model(x))</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-<div class="viewcode-block" id="SymbolBlock.imports"><a class="viewcode-back" href="../../../api/gluon/symbol_block.html#mxnet.gluon.nn.SymbolBlock.imports">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="SymbolBlock.imports"><a class="viewcode-back" href="../../../api/gluon/symbol_block.html#mxnet.gluon.data.vision.transforms.SymbolBlock.imports">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">imports</span><span class="p">(</span><span class="n">symbol_file</span><span class="p">,</span> <span class="n">input_names</span><span class="p">,</span> <span class="n">param_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">allow_missing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                 <span class="n">ignore_extra</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Import model previously saved by `gluon.HybridBlock.export`</span>
@@ -3147,7 +3147,7 @@ Edit on Github
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_cached_graph</span> <span class="o">=</span> <span class="n">syms</span><span class="p">,</span> <span class="n">out</span>
 
-<div class="viewcode-block" id="SymbolBlock.infer_shape"><a class="viewcode-back" href="../../../api/gluon/symbol_block.html#mxnet.gluon.nn.SymbolBlock.infer_shape">[docs]</a>    <span class="k">def</span> <span class="nf">infer_shape</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<div class="viewcode-block" id="SymbolBlock.infer_shape"><a class="viewcode-back" href="../../../api/gluon/symbol_block.html#mxnet.gluon.data.vision.transforms.SymbolBlock.infer_shape">[docs]</a>    <span class="k">def</span> <span class="nf">infer_shape</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Infers shape of Parameters from inputs.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_infer_attrs</span><span class="p">(</span><span class="s1">&#39;infer_shape&#39;</span><span class="p">,</span> <span class="s1">&#39;shape&#39;</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span></div>
 
@@ -3164,7 +3164,7 @@ Edit on Github
             <span class="n">_check_all_np_ndarrays</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">out</span>
 
-<div class="viewcode-block" id="SymbolBlock.forward"><a class="viewcode-back" href="../../../api/gluon/symbol_block.html#mxnet.gluon.nn.SymbolBlock.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<div class="viewcode-block" id="SymbolBlock.forward"><a class="viewcode-back" href="../../../api/gluon/symbol_block.html#mxnet.gluon.data.vision.transforms.SymbolBlock.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">dc</span><span class="o">.</span><span class="n">is_deferred_compute</span><span class="p">():</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Calling a SymbolBlock from within HybridBlock &#39;</span>
                                <span class="s1">&#39;is not yet supported in Gluon 2.&#39;</span><span class="p">)</span>
@@ -3187,7 +3187,7 @@ Edit on Github
         <span class="nb">super</span><span class="p">(</span><span class="n">SymbolBlock</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_clear_cached_op</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_cached_graph</span> <span class="o">=</span> <span class="n">tmp</span>
 
-<div class="viewcode-block" id="SymbolBlock.cast"><a class="viewcode-back" href="../../../api/gluon/symbol_block.html#mxnet.gluon.nn.SymbolBlock.cast">[docs]</a>    <span class="k">def</span> <span class="nf">cast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="p">):</span>
+<div class="viewcode-block" id="SymbolBlock.cast"><a class="viewcode-back" href="../../../api/gluon/symbol_block.html#mxnet.gluon.data.vision.transforms.SymbolBlock.cast">[docs]</a>    <span class="k">def</span> <span class="nf">cast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_clear_cached_op</span><span class="p">()</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">SymbolBlock</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;float16&#39;</span><span class="p">:</span>

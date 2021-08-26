@@ -1559,7 +1559,7 @@ div.rendered_html tbody tr:hover {
 <p>In gluon, each Parameter or Block has a name. Parameter names and Block names can be automatically created.</p>
 <p>In this tutorial we talk about the best practices on naming. First, let’s import MXNet and Gluon:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1572,33 +1572,49 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Naming-Blocks">
 <h2>Naming Blocks<a class="headerlink" href="#Naming-Blocks" title="Permalink to this headline">¶</a></h2>
 <p>When creating a block, you can simply do as follows:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="n">mydense</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">mydense</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">mydense</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Dense
+</pre></div></div>
+</div>
 <p>When you create more Blocks of the same kind, they will be named with incrementing suffixes to avoid collision:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="n">dense1</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">dense1</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dense1</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Dense
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Naming-Parameters">
 <h2>Naming Parameters<a class="headerlink" href="#Naming-Parameters" title="Permalink to this headline">¶</a></h2>
 <p>Parameters will be named automatically by a unique name in the format of <code class="docutils literal notranslate"><span class="pre">param_{uuid4}_{name}</span></code>:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1607,23 +1623,39 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+bias
+</pre></div></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">param.name</span></code> is used as the name of a parameter’s symbol representation. And it can not be changed once the parameter is created.</p>
 <p>When getting parameters within a Block, you should use the structure based name as the key:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">dense0</span><span class="o">.</span><span class="n">collect_params</span><span class="p">())</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">dense1</span><span class="o">.</span><span class="n">collect_params</span><span class="p">())</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;weight&#39;: Parameter (shape=(100, -1), dtype=float32), &#39;bias&#39;: Parameter (shape=(100,), dtype=float32)}
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Nested-Blocks">
 <h2>Nested Blocks<a class="headerlink" href="#Nested-Blocks" title="Permalink to this headline">¶</a></h2>
 <p>In MXNet 2, we don’t have to define children blocks within a <code class="docutils literal notranslate"><span class="pre">name_scope</span></code> any more. Let’s demonstrate this by defining and initiating a simple neural net:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1635,20 +1667,38 @@ div.rendered_html tbody tr:hover {
         <span class="bp">self</span><span class="o">.</span><span class="n">mydense</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense0</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mydense</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">npx</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense0</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">npx</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">mx</span><span class="o">.</span><span class="n">npx</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mydense</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
 <span class="n">model0</span> <span class="o">=</span> <span class="n">Model</span><span class="p">()</span>
 <span class="n">model0</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
 <span class="n">model0</span><span class="o">.</span><span class="n">hybridize</span><span class="p">()</span>
-<span class="n">model0</span><span class="p">(</span><span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)))</span>
+<span class="n">model0</span><span class="p">(</span><span class="n">mx</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+[10:00:50] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([[0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0.]])
 </pre></div>
 </div>
 </div>
 <p>The same principle also applies to container blocks like Sequential. We can simply do as follows:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1662,20 +1712,29 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Saving-and-loading">
 <h2>Saving and loading<a class="headerlink" href="#Saving-and-loading" title="Permalink to this headline">¶</a></h2>
 <p>For <code class="docutils literal notranslate"><span class="pre">HybridBlock</span></code>, we use <code class="docutils literal notranslate"><span class="pre">save_parameters</span></code>/<code class="docutils literal notranslate"><span class="pre">load_parameters</span></code>, which uses model structure, instead of parameter name, to match parameters.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="n">model0</span><span class="o">.</span><span class="n">save_parameters</span><span class="p">(</span><span class="s1">&#39;model.params&#39;</span><span class="p">)</span>
+<span></span><span class="n">model1</span> <span class="o">=</span> <span class="n">Model</span><span class="p">()</span>
+<span class="n">model0</span><span class="o">.</span><span class="n">save_parameters</span><span class="p">(</span><span class="s1">&#39;model.params&#39;</span><span class="p">)</span>
 <span class="n">model1</span><span class="o">.</span><span class="n">load_parameters</span><span class="p">(</span><span class="s1">&#39;model.params&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;model.params&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">mx</span><span class="o">.</span><span class="n">npx</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;model.params&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+dict_keys([&#39;dense0.bias&#39;, &#39;dense0.weight&#39;, &#39;dense1.bias&#39;, &#39;dense1.weight&#39;, &#39;mydense.bias&#39;, &#39;mydense.weight&#39;])
+</pre></div></div>
+</div>
 <p>For <code class="docutils literal notranslate"><span class="pre">SymbolBlock.imports</span></code>, we use <code class="docutils literal notranslate"><span class="pre">export</span></code>, which uses parameter name <code class="docutils literal notranslate"><span class="pre">param.name</span></code>, to save parameters.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1684,34 +1743,52 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/work/mxnet/python/mxnet/gluon/block.py:1902: UserWarning: Cannot decide type for the following arguments. Consider providing them as input:
+        data: None
+  input_sym_arg_type = in_param.infer_type()[0]
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="Replacing-Blocks-from-networks-and-fine-tuning">
 <h2>Replacing Blocks from networks and fine-tuning<a class="headerlink" href="#Replacing-Blocks-from-networks-and-fine-tuning" title="Permalink to this headline">¶</a></h2>
 <p>Sometimes you may want to load a pretrained model, and replace certain Blocks in it for fine-tuning.</p>
 <p>For example, the alexnet in model zoo has 1000 output dimensions, but maybe you only have 100 classes in your application.</p>
-<p>To see how to do this, we first load a pretrained AlexNet.</p>
+<p>To see how to do this, we first load a pretrained ResNet.</p>
 <ul class="simple">
 <li><p>In Gluon model zoo, all image classification models follow the format where the feature extraction layers are named <code class="docutils literal notranslate"><span class="pre">features</span></code> while the output layer is named <code class="docutils literal notranslate"><span class="pre">output</span></code>.</p></li>
 <li><p>Note that the output layer is a dense block with 1000 dimension outputs.</p></li>
 </ul>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="n">alexnet</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">model_zoo</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">alexnet</span><span class="p">(</span><span class="n">pretrained</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">alexnet</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+<span></span><span class="n">resnet</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">model_zoo</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">resnet50_v2</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resnet</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Dense(2048 -&gt; 1000, linear)
+</pre></div></div>
 </div>
 <p>To change the output to 100 dimension, we replace it with a new block.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="n">alexnet</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">alexnet</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
+<span></span><span class="n">resnet</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">resnet</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>

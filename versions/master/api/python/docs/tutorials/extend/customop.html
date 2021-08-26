@@ -1557,7 +1557,7 @@ div.rendered_html tbody tr:hover {
 <p>In this tutorial, we will learn how to build custom operators with numpy in python. We will go through two examples: - Custom operator without any <code class="docutils literal notranslate"><span class="pre">Parameter</span></code>s - Custom operator with <code class="docutils literal notranslate"><span class="pre">Parameter</span></code>s</p>
 <p>Custom operator in python is easy to develop and good for prototyping, but may hurt performance. If you find it to be a bottleneck, please consider moving to a C++ based implementation in the backend.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1565,17 +1565,18 @@ div.rendered_html tbody tr:hover {
 <span class="kn">import</span> <span class="nn">mxnet</span> <span class="kn">as</span> <span class="nn">mx</span>
 <span class="kn">from</span> <span class="nn">mxnet</span> <span class="kn">import</span> <span class="n">gluon</span><span class="p">,</span> <span class="n">autograd</span>
 <span class="kn">import</span> <span class="nn">os</span>
+<span class="n">mx</span><span class="o">.</span><span class="n">npx</span><span class="o">.</span><span class="n">reset_np</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="Parameter-less-operators">
 <h2>Parameter-less operators<a class="headerlink" href="#Parameter-less-operators" title="Permalink to this headline">¶</a></h2>
-<p>This operator implements the standard sigmoid activation function. This is only for illustration purposes, in real life you would use the built-in operator <code class="docutils literal notranslate"><span class="pre">mx.nd.relu</span></code>.</p>
+<p>This operator implements the standard sigmoid activation function. This is only for illustration purposes, in real life you would use the built-in operator <code class="docutils literal notranslate"><span class="pre">mx.npx.relu</span></code>.</p>
 <div class="section" id="Forward-&amp;-backward-implementation">
 <h3>Forward &amp; backward implementation<a class="headerlink" href="#Forward-&-backward-implementation" title="Permalink to this headline">¶</a></h3>
 <p>First we implement the forward and backward computation by sub-classing <code class="docutils literal notranslate"><span class="pre">mx.operator.CustomOp</span></code>:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1612,7 +1613,7 @@ div.rendered_html tbody tr:hover {
 <h3>Register custom operator<a class="headerlink" href="#Register-custom-operator" title="Permalink to this headline">¶</a></h3>
 <p>Then we need to register the custom op and describe it’s properties like input and output shapes so that mxnet can recognize it. This is done by sub-classing <code class="docutils literal notranslate"><span class="pre">mx.operator.CustomOpProp</span></code>:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1650,8 +1651,8 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Example-Usage">
 <h3>Example Usage<a class="headerlink" href="#Example-Usage" title="Permalink to this headline">¶</a></h3>
 <p>We can now use this operator by calling <code class="docutils literal notranslate"><span class="pre">mx.nd.Custom</span></code>:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1666,8 +1667,26 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+[0.5        0.7310586  0.880797   0.95257413]
+&lt;NDArray 4 @cpu(0)&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+[09:03:01] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1678,6 +1697,16 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+[0.25       0.19661193 0.10499363 0.04517666]
+&lt;NDArray 4 @cpu(0)&gt;
+</pre></div></div>
+</div>
 </div>
 </div>
 <div class="section" id="Parametrized-Operator">
@@ -1687,7 +1716,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Forward-&amp;-backward-implementation">
 <h3>Forward &amp; backward implementation<a class="headerlink" href="#Forward-&-backward-implementation" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1713,7 +1742,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Registration">
 <h3>Registration<a class="headerlink" href="#Registration" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1751,7 +1780,7 @@ div.rendered_html tbody tr:hover {
 <h3>Use CustomOp together with Block<a class="headerlink" href="#Use-CustomOp-together-with-Block" title="Permalink to this headline">¶</a></h3>
 <p>Parameterized CustomOp are usually used together with Blocks, which holds the parameter.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1770,8 +1799,8 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Example-usage">
 <h3>Example usage<a class="headerlink" href="#Example-usage" title="Permalink to this headline">¶</a></h3>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1783,36 +1812,37 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+[[0.12112768 0.13026096 0.14429082 0.11625069 0.087144  ]
+ [0.13268112 0.16502815 0.117169   0.10357422 0.12653479]
+ [0.12688501 0.17080621 0.12568559 0.11708324 0.10423773]
+ [0.13687247 0.17941296 0.11277165 0.10286704 0.13467033]]
+&lt;NDArray 4x5 @cpu(0)&gt;
+</pre></div></div>
+</div>
 </div>
 </div>
 <div class="section" id="Using-custom-operators-with-fork">
 <h2>Using custom operators with fork<a class="headerlink" href="#Using-custom-operators-with-fork" title="Permalink to this headline">¶</a></h2>
 <p>In Linux systems, the default method in multiprocessing to create process is by using fork. If there are unfinished async custom operations when forking, the program will be blocked because of python GIL. Always use sync calls like <code class="docutils literal notranslate"><span class="pre">wait_to_read</span></code> or <code class="docutils literal notranslate"><span class="pre">waitall</span></code> before calling fork.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">Custom</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">op_type</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">)</span>
 <span class="c1"># unfinished async sigmoid operation will cause blocking</span>
 <span class="n">os</span><span class="o">.</span><span class="n">fork</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
 <p>Correctly handling this will make mxnet depend upon libpython, so the workaround now is to ensure that all custom operations are executed before forking process.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">Custom</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">op_type</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">)</span>
 <span class="c1"># force execution by reading y</span>
 <span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">())</span>
 <span class="n">os</span><span class="o">.</span><span class="n">fork</span><span class="p">()</span>
 </pre></div>
-</div>
 </div>
 </div>
 </div>

@@ -1568,11 +1568,11 @@ than at coding time greatly simplifies the process of doing deep learning.</p>
 <h2>Instantiating a Network<a class="headerlink" href="#Instantiating-a-Network" title="Permalink to this headline">¶</a></h2>
 <p>Let’s see what happens when we instantiate a network. We start by defining a multi-layer perceptron.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">mxnet</span> <span class="kn">import</span> <span class="n">init</span><span class="p">,</span> <span class="n">nd</span>
+<span></span><span class="kn">from</span> <span class="nn">mxnet</span> <span class="kn">import</span> <span class="n">init</span><span class="p">,</span> <span class="n">np</span>
 <span class="kn">from</span> <span class="nn">mxnet.gluon</span> <span class="kn">import</span> <span class="n">nn</span>
 
 
@@ -1587,8 +1587,8 @@ than at coding time greatly simplifies the process of doing deep learning.</p>
 </div>
 </div>
 <p>At this point the network doesn’t really know yet what the dimensionalities of the various parameters should be. All one could tell at this point is that each layer needs weights and bias, albeit of unspecified dimensionality. If we try accessing the parameters, that’s exactly what happens.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1596,11 +1596,19 @@ than at coding time greatly simplifies the process of doing deep learning.</p>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;0.weight&#39;: Parameter (shape=(256, -1), dtype=float32), &#39;0.bias&#39;: Parameter (shape=(256,), dtype=float32), &#39;1.weight&#39;: Parameter (shape=(10, -1), dtype=float32), &#39;1.bias&#39;: Parameter (shape=(10,), dtype=float32)}
+</pre></div></div>
+</div>
 <p>You’ll notice <code class="docutils literal notranslate"><span class="pre">None</span></code> here in each <code class="docutils literal notranslate"><span class="pre">Dense</span></code> layer. This absence of value is how MXNet keeps track of unspecified dimensionality. In particular, trying to access <code class="docutils literal notranslate"><span class="pre">net[0].weight.data()</span></code> at this point would trigger a runtime error stating that the network needs initializing before it can do anything.</p>
 <p>Note that if we did want to specify dimensionality, we could have done so by using the kwarg <code class="docutils literal notranslate"><span class="pre">in_units</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">Dense(256,</span> <span class="pre">activiation='relu',</span> <span class="pre">in_units=20)</span></code>.</p>
 <p>Let’s see whether anything changes after we initialize the parameters:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1609,17 +1617,45 @@ than at coding time greatly simplifies the process of doing deep learning.</p>
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+[10:00:47] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>{&#39;0.weight&#39;: Parameter (shape=(256, -1), dtype=float32),
+ &#39;0.bias&#39;: Parameter (shape=(256,), dtype=float32),
+ &#39;1.weight&#39;: Parameter (shape=(10, -1), dtype=float32),
+ &#39;1.bias&#39;: Parameter (shape=(10,), dtype=float32)}
+</pre></div>
+</div>
+</div>
 <p>As we can see, nothing really changed. Only once we provide the network with some data do we see a difference. Let’s try it out.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">nd</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
 <span class="n">net</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># Forward computation</span>
 <span class="k">print</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">collect_params</span><span class="p">())</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;0.weight&#39;: Parameter (shape=(256, 20), dtype=float32), &#39;0.bias&#39;: Parameter (shape=(256,), dtype=float32), &#39;1.weight&#39;: Parameter (shape=(10, 256), dtype=float32), &#39;1.bias&#39;: Parameter (shape=(10,), dtype=float32)}
+</pre></div></div>
 </div>
 <p>We see all the dimensions have been determined and the parameters initialized. This is because shape inference and parameter initialization have been performed in a lazy manner, so they are performed only when needed. In the above case, they are performed as a prerequisite to the forward computation.</p>
 <p>Dimensional inference works like this: as soon as we knew the input dimensionality, <span class="math notranslate nohighlight">\(\mathbf{x} \in \mathbb{R}^{20}\)</span> it was possible to define the weight matrix for the first layer, i.e. <span class="math notranslate nohighlight">\(\mathbf{W}_1 \in \mathbb{R}^{256 \times 20}\)</span>. With that out of the way, we can progress to the second layer, define its dimensionality to be <span class="math notranslate nohighlight">\(10 \times 256\)</span> and so on through the computational graph and resolve all the dimensions as they become available. Once this is known, we can proceed
@@ -1629,35 +1665,44 @@ by initializing parameters. This is the solution to the three problems outlined 
 <h2>Deferred Initialization in Practice<a class="headerlink" href="#Deferred-Initialization-in-Practice" title="Permalink to this headline">¶</a></h2>
 <p>Now that we know how it works in theory, let’s see when the initialization is actually triggered. In order to do so, we mock up an initializer which does nothing but report a debug message stating when it was invoked and with which parameters.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="k">class</span> <span class="nc">PrintInit</span><span class="p">(</span><span class="n">init</span><span class="o">.</span><span class="n">Initializer</span><span class="p">):</span>
+<span></span><span class="k">class</span> <span class="nc">MyInit</span><span class="p">(</span><span class="n">init</span><span class="o">.</span><span class="n">Initializer</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">_init_weight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Init&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
         <span class="c1"># The actual initialization logic is omitted here.</span>
 
 <span class="n">net</span> <span class="o">=</span> <span class="n">getnet</span><span class="p">()</span>
-<span class="n">net</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="n">PrintInit</span><span class="p">())</span>
+<span class="n">net</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="n">MyInit</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <p>Note that, although <code class="docutils literal notranslate"><span class="pre">MyInit</span></code> will print information about the model parameters when it is called, the above <code class="docutils literal notranslate"><span class="pre">initialize</span></code> function does not print any information after it has been executed. Therefore there is no actual initialization when calling the <code class="docutils literal notranslate"><span class="pre">initialize</span></code> function - this +initialization is deferred until forward is called for the first time. Next, we define the input and perform a forward calculation.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">nd</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Init weight (256, 20)
+Init weight (10, 256)
+</pre></div></div>
+</div>
 <p>At this time, information on the model parameters is printed. When performing a forward calculation based on the input <code class="docutils literal notranslate"><span class="pre">x</span></code>, the system can automatically infer the shape of the weight parameters of all layers based on the shape of the input. Once the system has created these parameters, it calls the <code class="docutils literal notranslate"><span class="pre">MyInit</span></code> instance to initialize them before proceeding to the forward calculation.</p>
 <p>Of course, this initialization will only be called when completing the initial forward calculation. After that, we will not re-initialize when we run the forward calculation <code class="docutils literal notranslate"><span class="pre">net(x)</span></code>, so the output of the <code class="docutils literal notranslate"><span class="pre">MyInit</span></code> instance will not be generated again.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1675,8 +1720,8 @@ by initializing parameters. This is the solution to the three problems outlined 
 <li><p>We specified all input and output dimensions of the network or layer when defining it.</p></li>
 </ul>
 <p>The first case works just fine, as illustrated below.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1684,9 +1729,18 @@ by initializing parameters. This is the solution to the three problems outlined 
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Init weight (256, 20)
+Init weight (10, 256)
+</pre></div></div>
+</div>
 <p>The second case requires us to specify the remaining set of parameters when creating the layer. For instance, for dense layers we also need to specify the <code class="docutils literal notranslate"><span class="pre">in_units</span></code> so that initialization can occur immediately once <code class="docutils literal notranslate"><span class="pre">initialize</span></code> is called.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1698,6 +1752,15 @@ by initializing parameters. This is the solution to the three problems outlined 
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Init weight (256, 20)
+Init weight (10, 256)
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="Parameter-Initialization">
 <h2>Parameter Initialization<a class="headerlink" href="#Parameter-Initialization" title="Permalink to this headline">¶</a></h2>
@@ -1705,8 +1768,8 @@ by initializing parameters. This is the solution to the three problems outlined 
 <div class="section" id="Built-in-Initialization">
 <h3>Built-in Initialization<a class="headerlink" href="#Built-in-Initialization" title="Permalink to this headline">¶</a></h3>
 <p>Let’s begin with the built-in initializers. The code below initializes all parameters with Gaussian random variables.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1717,9 +1780,21 @@ by initializing parameters. This is the solution to the three problems outlined 
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[ 1.5024061e-02  1.1805213e-02 -3.9339243e-03 -2.9196774e-05
+ -4.5043337e-03  9.1485819e-03 -2.3930026e-03  1.0555645e-02
+  9.3946923e-03  2.1863079e-02  1.5005504e-02  7.7676866e-03
+ -1.2193932e-02 -1.8154287e-03 -7.7796442e-04 -2.9604756e-03
+ -1.0500822e-02 -1.1644275e-02 -1.6267406e-02 -2.1939890e-02]
+</pre></div></div>
+</div>
 <p>If we wanted to initialize all parameters to <span class="math notranslate nohighlight">\(1\)</span>, we could do this simply by changing the initializer to <code class="docutils literal notranslate"><span class="pre">Constant(1)</span></code>.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1728,9 +1803,19 @@ by initializing parameters. This is the solution to the three problems outlined 
 </pre></div>
 </div>
 </div>
-<p>If we want to initialize only a specific parameter in a different manner, we can simply set the initializer only for the appropriate subblock (or parameter). For instance, below we initialize the second layer to a constant value of <span class="math notranslate nohighlight">\(42\)</span> and we use the <code class="docutils literal notranslate"><span class="pre">Xavier</span></code> initializer for the weights of the first layer.</p>
-<div class="nbinput nblast docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
+       1., 1., 1.])
+</pre></div>
+</div>
+</div>
+<p>If we want to initialize only a specific parameter in a different manner, we can simply set the initializer only for the appropriate subblock (or parameter). For instance, below we initialize the second layer to a constant value of <span class="math notranslate nohighlight">\(42\)</span> and we use the <code class="docutils literal notranslate"><span class="pre">Xavier</span></code> initializer for the weights of the first layer.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1747,6 +1832,20 @@ by initializing parameters. This is the solution to the three problems outlined 
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[ 0.13426694 -0.07833856  0.11584437  0.12641785  0.12591743 -0.00306879
+  0.08283795 -0.07780113  0.01809397 -0.04690501  0.08131953 -0.01484571
+  0.03521316 -0.01546177 -0.14576276  0.11369342 -0.11315223  0.0551241
+ -0.11513871  0.03969523]
+0.0
+42.0
+0.0
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="Custom-Initialization">
 <h3>Custom Initialization<a class="headerlink" href="#Custom-Initialization" title="Permalink to this headline">¶</a></h3>
@@ -1759,25 +1858,46 @@ by initializing parameters. This is the solution to the three problems outlined 
         U[-10, -5] &amp; \text{ with probability } \frac{1}{4}
     \end{cases}
 \end{aligned}\end{split}\]</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="k">class</span> <span class="nc">MyInit</span><span class="p">(</span><span class="n">init</span><span class="o">.</span><span class="n">Initializer</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">_init_weight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Init&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-        <span class="n">data</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">nd</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-        <span class="n">data</span> <span class="o">*=</span> <span class="n">data</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">5</span>
+        <span class="n">data</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">5</span>
 
 <span class="n">net</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">MyInit</span><span class="p">(),</span> <span class="n">force_reinit</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">net</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
-<p>If this functionality is insufficient, we can even set parameters directly. Since <code class="docutils literal notranslate"><span class="pre">data()</span></code> returns an <code class="docutils literal notranslate"><span class="pre">NDArray</span></code> we can access it just like any other matrix. A note for advanced users - if you want to adjust parameters within an <code class="docutils literal notranslate"><span class="pre">autograd</span></code> scope you need to use <code class="docutils literal notranslate"><span class="pre">set_data</span></code> to avoid confusing the automatic differentiation mechanics.</p>
-<div class="nbinput nblast docutils container">
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Init weight (256, 20)
+Init weight (10, 256)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([-0.       , -0.       ,  0.       , -6.462822 ,  7.197397 ,
+        0.       ,  0.       ,  7.238495 ,  9.973675 , -6.7660313,
+        8.905529 ,  8.79726  ,  6.867174 ,  0.       , -9.164949 ,
+       -5.9279747,  5.095372 , -6.165384 ,  0.       ,  0.       ])
+</pre></div>
+</div>
+</div>
+<p>If this functionality is insufficient, we can even set parameters directly. Since <code class="docutils literal notranslate"><span class="pre">data()</span></code> returns an <code class="docutils literal notranslate"><span class="pre">NDArray</span></code> we can access it just like any other matrix. A note for advanced users - if you want to adjust parameters within an <code class="docutils literal notranslate"><span class="pre">autograd</span></code> scope you need to use <code class="docutils literal notranslate"><span class="pre">set_data</span></code> to avoid confusing the automatic differentiation mechanics.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1787,13 +1907,25 @@ by initializing parameters. This is the solution to the three problems outlined 
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([42.       ,  1.       ,  1.       , -5.462822 ,  8.197397 ,
+        1.       ,  1.       ,  8.238495 , 10.973675 , -5.7660313,
+        9.905529 ,  9.79726  ,  7.867174 ,  1.       , -8.164949 ,
+       -4.9279747,  6.095372 , -5.165384 ,  1.       ,  1.       ])
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="Tied-Parameters">
 <h2>Tied Parameters<a class="headerlink" href="#Tied-Parameters" title="Permalink to this headline">¶</a></h2>
 <p>In some cases, we want to share model parameters across multiple layers. For instance when we want to find good word embeddings we may decide to use the same parameters both for encoding and decoding of words. Let’s see how to do this a bit more elegantly. In the following we construct a dense layer and then use its parameters specifically to set those of another layer.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1803,11 +1935,11 @@ by initializing parameters. This is the solution to the three problems outlined 
 <span class="n">shared</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">)</span>
 <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
         <span class="n">shared</span><span class="p">,</span>
-        <span class="n">nn</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">shared</span><span class="o">.</span><span class="n">params</span><span class="p">),</span>
+        <span class="n">nn</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">share_parameters</span><span class="p">(</span><span class="n">shared</span><span class="o">.</span><span class="n">params</span><span class="p">),</span>
         <span class="n">nn</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">net</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">nd</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
 <span class="n">net</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
 <span class="c1"># Check whether the parameters are the same.</span>
@@ -1818,6 +1950,24 @@ by initializing parameters. This is the solution to the three problems outlined 
 <span class="k">print</span><span class="p">(</span><span class="n">net</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">net</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[ True  True  True  True  True  True  True  True]
+[ True  True  True  True  True  True  True  True]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/work/mxnet/python/mxnet/gluon/block.py:574: UserWarning: Parameter &#39;bias&#39; is already initialized, ignoring. Set force_reinit=True to re-initialize.
+  v.initialize(None, ctx, init, force_reinit=force_reinit)
+</pre></div></div>
 </div>
 <p>The above example shows that the parameters of the second and third layer are tied. As Python objects, they are identical rather than just being equal. That is, by changing one of the parameters the other one changes too. What happens to the gradients is quite ingenious. Since the model parameters contain gradients, the gradients of the second hidden layer and the third hidden layer are accumulated in <code class="docutils literal notranslate"><span class="pre">shared.params.grad</span></code> during backpropagation.</p>
 </div>

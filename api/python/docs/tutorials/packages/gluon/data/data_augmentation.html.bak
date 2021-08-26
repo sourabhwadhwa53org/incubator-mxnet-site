@@ -1567,7 +1567,7 @@ this by randomly shifting the colours of each image slightly and training your n
 <h2>Where can I find the augmentation transforms?<a class="headerlink" href="#Where-can-I-find-the-augmentation-transforms?" title="Permalink to this headline">¶</a></h2>
 <p>You can find them in the <code class="docutils literal notranslate"><span class="pre">mxnet.gluon.data.vision.transforms</span></code> module, alongside the deterministic transforms we’ve seen previously, such as <code class="docutils literal notranslate"><span class="pre">ToTensor</span></code>, <code class="docutils literal notranslate"><span class="pre">Normalize</span></code>, <code class="docutils literal notranslate"><span class="pre">CenterCrop</span></code> and <code class="docutils literal notranslate"><span class="pre">Resize</span></code>. Augmentations involve an element of randomness and all the augmentation transforms are prefixed with <code class="docutils literal notranslate"><span class="pre">Random</span></code>, such as <code class="docutils literal notranslate"><span class="pre">RandomResizedCrop</span></code> and <code class="docutils literal notranslate"><span class="pre">RandomBrightness</span></code>. We’ll start by importing MXNet and the <code class="docutils literal notranslate"><span class="pre">transforms</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1581,8 +1581,8 @@ this by randomly shifting the colours of each image slightly and training your n
 <div class="section" id="Sample-Image">
 <h2>Sample Image<a class="headerlink" href="#Sample-Image" title="Permalink to this headline">¶</a></h2>
 <p>So that we can see the effects of all the vision augmentations, we’ll take a sample image of a giraffe and apply various augmentations to it. We can see what it looks like to begin with.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1593,10 +1593,34 @@ this by randomly shifting the colours of each image slightly and training your n
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+[10:01:29] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>&lt;matplotlib.image.AxesImage at 0x7f2a0c274520&gt;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../_images/tutorials_packages_gluon_data_data_augmentation_3_2.png" src="../../../../_images/tutorials_packages_gluon_data_data_augmentation_3_2.png" />
+</div>
+</div>
 <p><img alt="data augmentation output 5 1" src="https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/doc/tutorials/gluon/transforms/output_5_1.png" /></p>
 <p>Since these augmentations are random, we’ll apply the same augmentation a few times and plot all of the outputs. We define a few utility functions to help with this.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1632,8 +1656,8 @@ this by randomly shifting the colours of each image slightly and training your n
 <li><p>a ratio of width to height between 0.5 and 2</p></li>
 </ul>
 <p>And then we resize this cropped region to 200 by 200 pixels.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1644,13 +1668,20 @@ this by randomly shifting the colours of each image slightly and training your n
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../_images/tutorials_packages_gluon_data_data_augmentation_7_0.png" src="../../../../_images/tutorials_packages_gluon_data_data_augmentation_7_0.png" />
+</div>
+</div>
 <p><img alt="data augmentation output 12 0" src="https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/doc/tutorials/gluon/transforms/output_12_0.png" /></p>
 </div>
 <div class="section" id="RandomFlipLeftRight">
 <h4><code class="docutils literal notranslate"><span class="pre">RandomFlipLeftRight</span></code><a class="headerlink" href="#RandomFlipLeftRight" title="Permalink to this headline">¶</a></h4>
 <p>A simple augmentation technique is flipping. Usually flipping horizontally doesn’t change the category of object and results in an image that’s still plausible in the real world. Using <code class="docutils literal notranslate"><span class="pre">RandomFlipLeftRight</span></code>, we randomly flip the image horizontally 50% of the time.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1658,18 +1689,32 @@ this by randomly shifting the colours of each image slightly and training your n
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../_images/tutorials_packages_gluon_data_data_augmentation_9_0.png" src="../../../../_images/tutorials_packages_gluon_data_data_augmentation_9_0.png" />
+</div>
+</div>
 <p><img alt="data augmentation output 15 0" src="https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/doc/tutorials/gluon/transforms/output_15_0.png" /></p>
 </div>
 <div class="section" id="RandomFlipTopBottom">
 <h4><code class="docutils literal notranslate"><span class="pre">RandomFlipTopBottom</span></code><a class="headerlink" href="#RandomFlipTopBottom" title="Permalink to this headline">¶</a></h4>
 <p>Although it’s not as common as flipping left and right, you can flip the image vertically 50% of the time with <code class="docutils literal notranslate"><span class="pre">RandomFlipTopBottom</span></code>. With our giraffe example, we end up with less plausible samples that horizontal flipping, with the ground above the sky in some cases.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="nb">apply</span><span class="p">(</span><span class="n">example_image</span><span class="p">,</span> <span class="n">transforms</span><span class="o">.</span><span class="n">RandomFlipTopBottom</span><span class="p">())</span>
 </pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../_images/tutorials_packages_gluon_data_data_augmentation_11_0.png" src="../../../../_images/tutorials_packages_gluon_data_data_augmentation_11_0.png" />
 </div>
 </div>
 <p><img alt="data augmentation output 18 0" src="https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/doc/tutorials/gluon/transforms/output_18_0.png" /></p>
@@ -1686,13 +1731,20 @@ this by randomly shifting the colours of each image slightly and training your n
 </pre></div>
 </div>
 <p>So by setting this to 0.5 we randomly change the brightness of the image to a value between 50% (<span class="math notranslate nohighlight">\(1-0.5\)</span>) and 150% (<span class="math notranslate nohighlight">\(1+0.5\)</span>) of the original image.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="nb">apply</span><span class="p">(</span><span class="n">example_image</span><span class="p">,</span> <span class="n">transforms</span><span class="o">.</span><span class="n">RandomBrightness</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
 </pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../_images/tutorials_packages_gluon_data_data_augmentation_15_0.png" src="../../../../_images/tutorials_packages_gluon_data_data_augmentation_15_0.png" />
 </div>
 </div>
 <p><img alt="data augmentation output 23 0" src="https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/doc/tutorials/gluon/transforms/output_23_0.png" /></p>
@@ -1708,13 +1760,20 @@ this by randomly shifting the colours of each image slightly and training your n
 <span class="n">image</span> <span class="o">+=</span> <span class="n">gray</span>
 </pre></div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="nb">apply</span><span class="p">(</span><span class="n">example_image</span><span class="p">,</span> <span class="n">transforms</span><span class="o">.</span><span class="n">RandomContrast</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
 </pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../_images/tutorials_packages_gluon_data_data_augmentation_18_0.png" src="../../../../_images/tutorials_packages_gluon_data_data_augmentation_18_0.png" />
 </div>
 </div>
 <p><img alt="data augmentation output 26 0" src="https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/doc/tutorials/gluon/transforms/output_26_0.png" /></p>
@@ -1723,13 +1782,20 @@ this by randomly shifting the colours of each image slightly and training your n
 <h4><code class="docutils literal notranslate"><span class="pre">RandomSaturation</span></code><a class="headerlink" href="#RandomSaturation" title="Permalink to this headline">¶</a></h4>
 <p>Use <code class="docutils literal notranslate"><span class="pre">RandomSaturation</span></code> to add a random saturation jitter to an image. Saturation can be thought of as the ‘amount’ of color in an image. Use the <code class="docutils literal notranslate"><span class="pre">saturation</span></code> parameter to control the amount of jitter in saturation, with value from 0 (no change) to 1 (potentially large change). <code class="docutils literal notranslate"><span class="pre">saturation</span></code> doesn’t specify whether the saturation of the augmented image will be higher or lower, just the potential strength of the effect. Specifically the augmentation is using the method detailed
 <a class="reference external" href="https://beesbuzz.biz/code/16-hsv-color-transforms">here</a>.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="nb">apply</span><span class="p">(</span><span class="n">example_image</span><span class="p">,</span> <span class="n">transforms</span><span class="o">.</span><span class="n">RandomSaturation</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
 </pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../_images/tutorials_packages_gluon_data_data_augmentation_20_0.png" src="../../../../_images/tutorials_packages_gluon_data_data_augmentation_20_0.png" />
 </div>
 </div>
 <p><img alt="data augmentation output 29 0" src="https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/doc/tutorials/gluon/transforms/output_29_0.png" /></p>
@@ -1738,8 +1804,8 @@ this by randomly shifting the colours of each image slightly and training your n
 <h4><code class="docutils literal notranslate"><span class="pre">RandomHue</span></code><a class="headerlink" href="#RandomHue" title="Permalink to this headline">¶</a></h4>
 <p>Use <code class="docutils literal notranslate"><span class="pre">RandomHue</span></code> to add a random hue jitter to images. Hue can be thought of as the ‘shade’ of the colors in an image. Use the <code class="docutils literal notranslate"><span class="pre">hue</span></code> parameter to control the amount of jitter in hue, with value from 0 (no change) to 1 (potentially large change). <code class="docutils literal notranslate"><span class="pre">hue</span></code> doesn’t specify whether the hue of the augmented image will be shifted one way or the other, just the potential strength of the effect. Specifically the augmentation is using the method detailed
 <a class="reference external" href="https://beesbuzz.biz/code/16-hsv-color-transforms">here</a>.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1747,13 +1813,20 @@ this by randomly shifting the colours of each image slightly and training your n
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../_images/tutorials_packages_gluon_data_data_augmentation_22_0.png" src="../../../../_images/tutorials_packages_gluon_data_data_augmentation_22_0.png" />
+</div>
+</div>
 <p><img alt="data augmentation output 32 0" src="https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/doc/tutorials/gluon/transforms/output_32_0.png" /></p>
 </div>
 <div class="section" id="RandomColorJitter">
 <h4><code class="docutils literal notranslate"><span class="pre">RandomColorJitter</span></code><a class="headerlink" href="#RandomColorJitter" title="Permalink to this headline">¶</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">RandomColorJitter</span></code> is a convenience transform that can be used to perform multiple color augmentations at once. You can set the <code class="docutils literal notranslate"><span class="pre">brightness</span></code>, <code class="docutils literal notranslate"><span class="pre">contrast</span></code>, <code class="docutils literal notranslate"><span class="pre">saturation</span></code> and <code class="docutils literal notranslate"><span class="pre">hue</span></code> jitters, that function the same as above for their individual transforms.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1765,18 +1838,32 @@ this by randomly shifting the colours of each image slightly and training your n
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../_images/tutorials_packages_gluon_data_data_augmentation_24_0.png" src="../../../../_images/tutorials_packages_gluon_data_data_augmentation_24_0.png" />
+</div>
+</div>
 <p><img alt="data augmentation output 35 0" src="https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/doc/tutorials/gluon/transforms/output_35_0.png" /></p>
 </div>
 <div class="section" id="RandomLighting">
 <h4><code class="docutils literal notranslate"><span class="pre">RandomLighting</span></code><a class="headerlink" href="#RandomLighting" title="Permalink to this headline">¶</a></h4>
 <p>Use <code class="docutils literal notranslate"><span class="pre">RandomLighting</span></code> for an AlexNet-style PCA-based noise augmentation.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="nb">apply</span><span class="p">(</span><span class="n">example_image</span><span class="p">,</span> <span class="n">transforms</span><span class="o">.</span><span class="n">RandomLighting</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../_images/tutorials_packages_gluon_data_data_augmentation_26_0.png" src="../../../../_images/tutorials_packages_gluon_data_data_augmentation_26_0.png" />
 </div>
 </div>
 <p><img alt="data augmentation output 38 0" src="https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/doc/tutorials/gluon/transforms/output_38_0.png" /></p>
@@ -1785,8 +1872,8 @@ this by randomly shifting the colours of each image slightly and training your n
 <div class="section" id="Composed-Augmentations">
 <h3>Composed Augmentations<a class="headerlink" href="#Composed-Augmentations" title="Permalink to this headline">¶</a></h3>
 <p>In practice, we apply multiple augmentation techniques to an image to increase the variety of images in the dataset using the <code class="docutils literal notranslate"><span class="pre">Compose</span></code> transform. We can apply 3 of the transforms we previously used above.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1794,6 +1881,13 @@ this by randomly shifting the colours of each image slightly and training your n
     <span class="n">transforms</span><span class="o">.</span><span class="n">RandomFlipLeftRight</span><span class="p">(),</span> <span class="n">color_aug</span><span class="p">,</span> <span class="n">shape_aug</span><span class="p">])</span>
 <span class="nb">apply</span><span class="p">(</span><span class="n">example_image</span><span class="p">,</span> <span class="n">augs</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../_images/tutorials_packages_gluon_data_data_augmentation_28_0.png" src="../../../../_images/tutorials_packages_gluon_data_data_augmentation_28_0.png" />
 </div>
 </div>
 <p><img alt="data augmentation output 41 0" src="https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/doc/tutorials/gluon/transforms/output_41_0.png" /></p>

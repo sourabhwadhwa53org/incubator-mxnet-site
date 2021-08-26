@@ -1565,12 +1565,12 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Network-and-Trainer">
 <h3>Network and Trainer<a class="headerlink" href="#Network-and-Trainer" title="Permalink to this headline">¶</a></h3>
 <p>To illustrate how to use the Gluon <code class="docutils literal notranslate"><span class="pre">Trainer</span></code> we will create a simple perceptron model and create a <code class="docutils literal notranslate"><span class="pre">Trainer</span></code> instance using the perceptron model parameters and a simple optimizer - <code class="docutils literal notranslate"><span class="pre">sgd</span></code> with learning rate as 1.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">mxnet</span> <span class="kn">import</span> <span class="n">nd</span><span class="p">,</span> <span class="n">autograd</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">gluon</span>
+<span></span><span class="kn">from</span> <span class="nn">mxnet</span> <span class="kn">import</span> <span class="n">np</span><span class="p">,</span> <span class="n">autograd</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">gluon</span>
 
 <span class="n">net</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">net</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
@@ -1581,18 +1581,26 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+[10:10:33] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="Forward-and-Backward-Pass">
 <h3>Forward and Backward Pass<a class="headerlink" href="#Forward-and-Backward-Pass" title="Permalink to this headline">¶</a></h3>
 <p>Before we can use the <code class="docutils literal notranslate"><span class="pre">trainer</span></code> to update model parameters, we must first run the forward and backward passes. Here we implement a function to compute the first two steps (forward step and backward step) of training the perceptron on a random dataset.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">nd</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">nd</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,))</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,))</span>
 
 <span class="n">loss</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">loss</span><span class="o">.</span><span class="n">L2Loss</span><span class="p">()</span>
 
@@ -1607,8 +1615,8 @@ div.rendered_html tbody tr:hover {
 </div>
 <p><strong>Warning</strong>: It is extremely important that the gradients of the loss function with respect to your model parameters are computed before running <code class="docutils literal notranslate"><span class="pre">trainer</span> <span class="pre">step</span></code>. A common way to introduce bugs to your model training code is to omit the <code class="docutils literal notranslate"><span class="pre">loss.backward()</span></code>before the update step.</p>
 <p>Before updating, let’s check the current network parameters.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1617,12 +1625,20 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[ 0.06700657 -0.00369488  0.0418822   0.0421275 ]]
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="Trainer-step">
 <h3><code class="docutils literal notranslate"><span class="pre">Trainer</span></code> step<a class="headerlink" href="#Trainer-step" title="Permalink to this headline">¶</a></h3>
 <p>Now we will call the <code class="docutils literal notranslate"><span class="pre">step</span></code> method to perform one update. We provide the <code class="docutils literal notranslate"><span class="pre">batch_size</span></code> as an argument to normalize the size of the gradients and make it independent of the batch size. Otherwise we’d get larger gradients with larger batch sizes. We can see the network parameters have now changed.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1631,16 +1647,32 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[0.31892323 0.21269077 0.34669656 0.29598683]]
+</pre></div></div>
+</div>
 <p>Since we used plain SGD, the update rule is <span class="math notranslate nohighlight">\(w = w - \eta/b \nabla \ell\)</span>, where <span class="math notranslate nohighlight">\(b\)</span> is the batch size and <span class="math notranslate nohighlight">\(\nabla\ell\)</span> is the gradient of the loss function with respect to the weights and <span class="math notranslate nohighlight">\(\eta\)</span> is the learning rate.</p>
 <p>We can verify it by running the following code snippet which is explicitly performing the SGD update.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="k">print</span><span class="p">(</span><span class="n">curr_weight</span> <span class="o">-</span> <span class="n">net</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">grad</span><span class="p">()</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">batch_size</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[0.31892323 0.21269077 0.34669656 0.29598683]]
+</pre></div></div>
 </div>
 </div>
 </div>
@@ -1653,7 +1685,7 @@ div.rendered_html tbody tr:hover {
 <p>However we can also pass an optimizer instance directly to the <code class="docutils literal notranslate"><span class="pre">Trainer</span></code> constructor.</p>
 <p>For example:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1662,14 +1694,23 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="n">forward_backward</span><span class="p">()</span>
 <span class="n">trainer</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)</span>
 <span class="n">net</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([[-0.6810826 , -0.7873151 , -0.65330917, -0.7040191 ]])
 </pre></div>
 </div>
 </div>
@@ -1688,8 +1729,8 @@ div.rendered_html tbody tr:hover {
 <h3>Changing the Learning Rate<a class="headerlink" href="#Changing-the-Learning-Rate" title="Permalink to this headline">¶</a></h3>
 <p>We set the initial learning rate when creating a trainer by passing the learning rate as an <code class="docutils literal notranslate"><span class="pre">optimizer_param</span></code>. However, sometimes we may need to change the learning rate during training, for example when doing an explicit learning rate warmup schedule. The trainer instance provides an easy way to achieve this.</p>
 <p>The current training rate can be accessed through the <code class="docutils literal notranslate"><span class="pre">learning_rate</span></code> attribute.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1697,14 +1738,32 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>1
+</pre></div>
+</div>
+</div>
 <p>We can change it through the <code class="docutils literal notranslate"><span class="pre">set_learning_rate</span></code> method.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="n">trainer</span><span class="o">.</span><span class="n">set_learning_rate</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
 <span class="n">trainer</span><span class="o">.</span><span class="n">learning_rate</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>0.1
 </pre></div>
 </div>
 </div>

@@ -1389,7 +1389,7 @@ Edit on Github
         <span class="n">callback</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">opr_name</span><span class="p">,</span> <span class="n">array</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">callback_handle</span>
 
-<div class="viewcode-block" id="CachedOp"><a class="viewcode-back" href="../../../api/legacy/ndarray/ndarray.html#mxnet.ndarray.CachedOp">[docs]</a><span class="k">class</span> <span class="nc">CachedOp</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="CachedOp"><a class="viewcode-back" href="../../../api/legacy/ndarray/op/index.html#mxnet.ndarray.op.CachedOp">[docs]</a><span class="k">class</span> <span class="nc">CachedOp</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Cached operator handle.&quot;&quot;&quot;</span>
     <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;handle&quot;</span><span class="p">,</span> <span class="s2">&quot;is_np_sym&quot;</span><span class="p">,</span> <span class="s2">&quot;_monitor_callback&quot;</span><span class="p">]</span>
 
@@ -1409,7 +1409,7 @@ Edit on Github
     <span class="k">def</span> <span class="nf">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">_api_internal</span><span class="o">.</span><span class="n">free</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">handle</span><span class="p">)</span>
 
-<div class="viewcode-block" id="CachedOp.get_optimized_symbol"><a class="viewcode-back" href="../../../api/legacy/ndarray/ndarray.html#mxnet.ndarray.CachedOp.get_optimized_symbol">[docs]</a>    <span class="k">def</span> <span class="nf">get_optimized_symbol</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="CachedOp.get_optimized_symbol"><a class="viewcode-back" href="../../../api/legacy/ndarray/op/index.html#mxnet.ndarray.op.CachedOp.get_optimized_symbol">[docs]</a>    <span class="k">def</span> <span class="nf">get_optimized_symbol</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Get an optimized version of the symbol from the cached op.</span>
 
 <span class="sd">        Returns</span>

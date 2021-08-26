@@ -1568,7 +1568,7 @@ div.rendered_html tbody tr:hover {
 <li><p>Metrics</p></li>
 </ol>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1585,8 +1585,8 @@ div.rendered_html tbody tr:hover {
 <h2>Initialization<a class="headerlink" href="#Initialization" title="Permalink to this headline">¶</a></h2>
 <p>In a previous notebook, you used <code class="docutils literal notranslate"><span class="pre">net.initialize()</span></code> to initialize the network before a forward pass. Now, you will learn about initialization in a little more detail.</p>
 <p>First, define and initialize the <code class="docutils literal notranslate"><span class="pre">sequential</span></code> network from earlier. After you initialize it, print the parameters using <code class="docutils literal notranslate"><span class="pre">collect_params()</span></code> method.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1601,8 +1601,21 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>Sequential(
+  (0): Dense(3 -&gt; 5, Activation(relu))
+  (1): Dense(-1 -&gt; 25, Activation(relu))
+  (2): Dense(-1 -&gt; 2, linear)
+)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1616,9 +1629,30 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.weight Parameter (shape=(5, 3), dtype=float32)
+0.bias Parameter (shape=(5,), dtype=float32)
+1.weight Parameter (shape=(25, -1), dtype=float32)
+1.bias Parameter (shape=(25,), dtype=float32)
+2.weight Parameter (shape=(2, -1), dtype=float32)
+2.bias Parameter (shape=(2,), dtype=float32)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+[09:03:24] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
+</pre></div></div>
+</div>
 <p>Next, you will print shape and params after the first forward pass.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1633,6 +1667,19 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.weight Parameter (shape=(5, 3), dtype=float32)
+0.bias Parameter (shape=(5,), dtype=float32)
+1.weight Parameter (shape=(25, 5), dtype=float32)
+1.bias Parameter (shape=(25,), dtype=float32)
+2.weight Parameter (shape=(2, 25), dtype=float32)
+2.bias Parameter (shape=(2,), dtype=float32)
+</pre></div></div>
+</div>
 <div class="section" id="Built-in-Initialization">
 <h3>Built-in Initialization<a class="headerlink" href="#Built-in-Initialization" title="Permalink to this headline">¶</a></h3>
 <p>MXNet makes it easy to initialize by providing many common initializers. A subset that you will be using in the following sections include:</p>
@@ -1643,8 +1690,8 @@ div.rendered_html tbody tr:hover {
 <p>For more information, see <a class="reference internal" href="../../../api/initializer/index.html"><span class="doc">Initializers</span></a></p>
 <p>When you use <code class="docutils literal notranslate"><span class="pre">net.intialize()</span></code>, MXNet, by default, initializes the weight matrices uniformly by drawing random values with a uniform-distribution between −0.07 and 0.07 and updates the bias parameters by setting them all to 0.</p>
 <p>To initialize your network using different built-in types, you have to use the <code class="docutils literal notranslate"><span class="pre">init</span></code> keyword argument in the <code class="docutils literal notranslate"><span class="pre">initialize()</span></code> method. Here is an example using <code class="docutils literal notranslate"><span class="pre">constant</span></code> and <code class="docutils literal notranslate"><span class="pre">normal</span></code> initialization.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1656,9 +1703,28 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[0.0068339  0.01299825 0.0301265 ]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/work/mxnet/python/mxnet/gluon/block.py:574: UserWarning: Parameter &#39;weight&#39; is already initialized, ignoring. Set force_reinit=True to re-initialize.
+  v.initialize(None, ctx, init, force_reinit=force_reinit)
+/work/mxnet/python/mxnet/gluon/block.py:574: UserWarning: Parameter &#39;bias&#39; is already initialized, ignoring. Set force_reinit=True to re-initialize.
+  v.initialize(None, ctx, init, force_reinit=force_reinit)
+</pre></div></div>
+</div>
 <p>If you use Normal to initialize your weights then you will use a normal distribution with a mean of zero and standard deviation of sigma. If you have already initialized the weight but want to reinitialize the weight, set the <code class="docutils literal notranslate"><span class="pre">force_reinit</span></code> flag to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1666,6 +1732,14 @@ div.rendered_html tbody tr:hover {
 <span class="k">print</span><span class="p">(</span><span class="n">net</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[-0.38397798 -0.3996415  -0.13511692]
+</pre></div></div>
 </div>
 </div>
 </div>
@@ -1684,8 +1758,8 @@ div.rendered_html tbody tr:hover {
 <h2>Loss function<a class="headerlink" href="#Loss-function" title="Permalink to this headline">¶</a></h2>
 <p>Loss functions are used to train neural networks and help the algorithm learn from the data. The loss function computes the difference between the output from the neural network and ground truth. This output is used to update the neural network weights during training. Next, you will look at a simple example.</p>
 <p>Suppose you have a neural network <code class="docutils literal notranslate"><span class="pre">net</span></code> and the data is stored in a variable <code class="docutils literal notranslate"><span class="pre">data</span></code>. The data consists of 5 total records (rows) and two features (columns) and the output from the neural network after the first epoch is given by the variable <code class="docutils literal notranslate"><span class="pre">nn_output</span></code>.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1703,9 +1777,22 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([[-0.05594432],
+       [-0.12212431],
+       [-0.05413363],
+       [-0.09064993],
+       [-0.04766688]])
+</pre></div>
+</div>
+</div>
 <p>The ground truth value of the data is stored in <code class="docutils literal notranslate"><span class="pre">groundtruth_label</span></code> is</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1721,8 +1808,8 @@ div.rendered_html tbody tr:hover {
 <div class="math notranslate nohighlight">
 \[L = \frac{1}{2N}\sum_i{|label_i − pred_i|)^2}\]</div>
 <p>The L2 loss function creates larger gradients for loss values which are farther apart due to the square operator and it also smooths the loss function space.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1733,9 +1820,18 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([0.00206367, 0.00793099, 0.00279331, 0.00456967, 0.00146107])
+</pre></div>
+</div>
+</div>
 <p>Now, you can do the same thing using the mxnet API</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1743,6 +1839,15 @@ div.rendered_html tbody tr:hover {
 <span class="n">loss</span> <span class="o">=</span> <span class="n">gloss</span><span class="o">.</span><span class="n">L2Loss</span><span class="p">()</span>
 
 <span class="n">loss</span><span class="p">(</span><span class="n">nn_output</span><span class="p">,</span> <span class="n">groundtruth_label</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([0.00206367, 0.00793099, 0.00279331, 0.00456967, 0.00146107])
 </pre></div>
 </div>
 </div>
@@ -1756,8 +1861,8 @@ div.rendered_html tbody tr:hover {
 <h3>Customizing your Loss functions<a class="headerlink" href="#Customizing-your-Loss-functions" title="Permalink to this headline">¶</a></h3>
 <p>You can also create custom loss functions using <strong>Loss Blocks</strong>.</p>
 <p>You can inherit the base <code class="docutils literal notranslate"><span class="pre">Loss</span></code> class and write your own <code class="docutils literal notranslate"><span class="pre">forward</span></code> method. The backward propagation will be automatically computed by autograd. However, that only holds true if you can build your loss from existing mxnet operators.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1777,13 +1882,31 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([0.06424432, 0.12594432, 0.07474363, 0.09559993, 0.05405688])
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="n">l1</span><span class="o">=</span><span class="n">gloss</span><span class="o">.</span><span class="n">L1Loss</span><span class="p">()</span>
 <span class="n">l1</span><span class="p">(</span><span class="n">nn_output</span><span class="p">,</span> <span class="n">groundtruth_label</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([0.06424432, 0.12594432, 0.07474363, 0.09559993, 0.05405688])
 </pre></div>
 </div>
 </div>
@@ -1794,7 +1917,7 @@ div.rendered_html tbody tr:hover {
 <p>The loss function determines how much to change the parameters based on how far the model is from the groundtruth. Optimizer determines how the model weights or parameters are updated based on the loss function. In Gluon, this optimization step is performed by the <code class="docutils literal notranslate"><span class="pre">gluon.Trainer</span></code>.</p>
 <p>Here is a basic example of how to call the <code class="docutils literal notranslate"><span class="pre">gluon.Trainer</span></code> method.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1803,7 +1926,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1817,8 +1940,8 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <p>When creating a <strong>Gluon Trainer</strong>, you must provide the trainer object with 1. A collection of parameters that need to be learnt. The collection of parameters will be the weights and biases of your network that you are training. 2. An Optimization algorithm (optimizer) that you want to use for training. This algorithm will be used to update the parameters every training iteration when <code class="docutils literal notranslate"><span class="pre">trainer.step</span></code> is called. For more information, see <a class="reference internal" href="../../../api/optimizer/index.html"><span class="doc">optimizers</span></a></p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1827,25 +1950,49 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[-0.03444817 -0.02608307]]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="n">batch_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nn_input</span><span class="p">)</span>
-<span class="n">trainer</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)</span>
+<span class="n">trainer</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">ignore_stale_grad</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[-0.03444817 -0.02608307]]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="k">print</span><span class="p">(</span><span class="n">curr_weight</span> <span class="o">-</span> <span class="n">net</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">grad</span><span class="p">()</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[-0.03444817 -0.02608307]]
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Metrics">
@@ -1859,7 +2006,7 @@ div.rendered_html tbody tr:hover {
 </ul>
 <p>Now, you will define two arrays for a dummy binary classification example.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1872,7 +2019,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>Before you can calculate the accuracy of your model, the metric (accuracy) should be instantiated before the training loop</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1884,7 +2031,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>To run and calculate the updated accuracy for each batch or epoch, you can call the <code class="docutils literal notranslate"><span class="pre">update()</span></code> method. This method uses labels and predictions which can be either class indexes or a vector of likelihoods for all of the classes.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1896,7 +2043,7 @@ div.rendered_html tbody tr:hover {
 <h3>Creating custom metrics<a class="headerlink" href="#Creating-custom-metrics" title="Permalink to this headline">¶</a></h3>
 <p>In addition to built-in metrics, if you want to create a custom metric, you can use the following skeleton code. This code inherits from the <code class="docutils literal notranslate"><span class="pre">EvalMetric</span></code> base class.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1912,7 +2059,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>Here is an example using the Precision metric. First, define the two values <code class="docutils literal notranslate"><span class="pre">labels</span></code> and <code class="docutils literal notranslate"><span class="pre">preds</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1923,7 +2070,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>Next, define the custom metric class <code class="docutils literal notranslate"><span class="pre">precision</span></code> and instantiate it</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -1945,12 +2092,21 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <p>And finally, call the <code class="docutils literal notranslate"><span class="pre">update</span></code> method to return the results of <code class="docutils literal notranslate"><span class="pre">precision</span></code> for your data</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y_true</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y_pred</span><span class="p">))</span>
+<span></span><span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">labels</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">preds</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array(0.4)
 </pre></div>
 </div>
 </div>

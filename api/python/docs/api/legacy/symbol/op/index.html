@@ -1397,787 +1397,790 @@ Edit on Github
 </div>
 </p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.Custom" title="mxnet.symbol.op.Custom"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Custom</span></code></a>(*data, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.CuDNNBatchNorm" title="mxnet.symbol.op.CuDNNBatchNorm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CuDNNBatchNorm</span></code></a>([data, gamma, beta, …])</p></td>
+<td><p>Apply batch normalization to input.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.Custom" title="mxnet.symbol.op.Custom"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Custom</span></code></a>(*data, **kwargs)</p></td>
 <td><p>Apply a custom operator implemented in a frontend language (like Python).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.Deconvolution" title="mxnet.symbol.op.Deconvolution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Deconvolution</span></code></a>([data, weight, bias, kernel, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.Deconvolution" title="mxnet.symbol.op.Deconvolution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Deconvolution</span></code></a>([data, weight, bias, kernel, …])</p></td>
 <td><p>Computes 1D or 2D transposed convolution (aka fractionally strided convolution) of the input tensor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.Dropout" title="mxnet.symbol.op.Dropout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Dropout</span></code></a>([data, p, mode, axes, cudnn_off, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.Dropout" title="mxnet.symbol.op.Dropout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Dropout</span></code></a>([data, p, mode, axes, cudnn_off, …])</p></td>
 <td><p>Applies dropout operation to input array.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.ElementWiseSum" title="mxnet.symbol.op.ElementWiseSum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ElementWiseSum</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.ElementWiseSum" title="mxnet.symbol.op.ElementWiseSum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ElementWiseSum</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Adds all input arguments element-wise.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.Embedding" title="mxnet.symbol.op.Embedding"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Embedding</span></code></a>([data, weight, input_dim, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.Embedding" title="mxnet.symbol.op.Embedding"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Embedding</span></code></a>([data, weight, input_dim, …])</p></td>
 <td><p>Maps integer indices to vector representations (embeddings).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.Flatten" title="mxnet.symbol.op.Flatten"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Flatten</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.Flatten" title="mxnet.symbol.op.Flatten"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Flatten</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Flattens the input array into a 2-D array by collapsing the higher dimensions.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.FullyConnected" title="mxnet.symbol.op.FullyConnected"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FullyConnected</span></code></a>([data, weight, bias, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.FullyConnected" title="mxnet.symbol.op.FullyConnected"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FullyConnected</span></code></a>([data, weight, bias, …])</p></td>
 <td><p>Applies a linear transformation: <span class="math notranslate nohighlight">\(Y = XW^T + b\)</span>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.GridGenerator" title="mxnet.symbol.op.GridGenerator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GridGenerator</span></code></a>([data, transform_type, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.GridGenerator" title="mxnet.symbol.op.GridGenerator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GridGenerator</span></code></a>([data, transform_type, …])</p></td>
 <td><p>Generates 2D sampling grid for bilinear sampling.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.GroupNorm" title="mxnet.symbol.op.GroupNorm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GroupNorm</span></code></a>([data, gamma, beta, num_groups, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.GroupNorm" title="mxnet.symbol.op.GroupNorm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GroupNorm</span></code></a>([data, gamma, beta, num_groups, …])</p></td>
 <td><p>Group normalization.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.IdentityAttachKLSparseReg" title="mxnet.symbol.op.IdentityAttachKLSparseReg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IdentityAttachKLSparseReg</span></code></a>([data, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.IdentityAttachKLSparseReg" title="mxnet.symbol.op.IdentityAttachKLSparseReg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IdentityAttachKLSparseReg</span></code></a>([data, …])</p></td>
 <td><p>Apply a sparse regularization to the output a sigmoid activation function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.InstanceNorm" title="mxnet.symbol.op.InstanceNorm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InstanceNorm</span></code></a>([data, gamma, beta, eps, name, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.InstanceNorm" title="mxnet.symbol.op.InstanceNorm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InstanceNorm</span></code></a>([data, gamma, beta, eps, name, …])</p></td>
 <td><p>Applies instance normalization to the n-dimensional input array.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.L2Normalization" title="mxnet.symbol.op.L2Normalization"><code class="xref py py-obj docutils literal notranslate"><span class="pre">L2Normalization</span></code></a>([data, eps, mode, name, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.L2Normalization" title="mxnet.symbol.op.L2Normalization"><code class="xref py py-obj docutils literal notranslate"><span class="pre">L2Normalization</span></code></a>([data, eps, mode, name, …])</p></td>
 <td><p>Normalize the input array using the L2 norm.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.LRN" title="mxnet.symbol.op.LRN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LRN</span></code></a>([data, alpha, beta, knorm, nsize, name, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.LRN" title="mxnet.symbol.op.LRN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LRN</span></code></a>([data, alpha, beta, knorm, nsize, name, …])</p></td>
 <td><p>Applies local response normalization to the input.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.LayerNorm" title="mxnet.symbol.op.LayerNorm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LayerNorm</span></code></a>([data, gamma, beta, axis, eps, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.LayerNorm" title="mxnet.symbol.op.LayerNorm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LayerNorm</span></code></a>([data, gamma, beta, axis, eps, …])</p></td>
 <td><p>Layer normalization.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.LeakyReLU" title="mxnet.symbol.op.LeakyReLU"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LeakyReLU</span></code></a>([data, gamma, act_type, slope, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.LeakyReLU" title="mxnet.symbol.op.LeakyReLU"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LeakyReLU</span></code></a>([data, gamma, act_type, slope, …])</p></td>
 <td><p>Applies Leaky rectified linear unit activation element-wise to the input.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.LinearRegressionOutput" title="mxnet.symbol.op.LinearRegressionOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LinearRegressionOutput</span></code></a>([data, label, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.LinearRegressionOutput" title="mxnet.symbol.op.LinearRegressionOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LinearRegressionOutput</span></code></a>([data, label, …])</p></td>
 <td><p>Computes and optimizes for squared loss during backward propagation.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.LogisticRegressionOutput" title="mxnet.symbol.op.LogisticRegressionOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LogisticRegressionOutput</span></code></a>([data, label, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.LogisticRegressionOutput" title="mxnet.symbol.op.LogisticRegressionOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LogisticRegressionOutput</span></code></a>([data, label, …])</p></td>
 <td><p>Applies a logistic function to the input.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.MAERegressionOutput" title="mxnet.symbol.op.MAERegressionOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MAERegressionOutput</span></code></a>([data, label, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.MAERegressionOutput" title="mxnet.symbol.op.MAERegressionOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MAERegressionOutput</span></code></a>([data, label, …])</p></td>
 <td><p>Computes mean absolute error of the input.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.MakeLoss" title="mxnet.symbol.op.MakeLoss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MakeLoss</span></code></a>([data, grad_scale, valid_thresh, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.MakeLoss" title="mxnet.symbol.op.MakeLoss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MakeLoss</span></code></a>([data, grad_scale, valid_thresh, …])</p></td>
 <td><p>Make your own loss function in network construction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.Pad" title="mxnet.symbol.op.Pad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Pad</span></code></a>([data, mode, pad_width, constant_value, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.Pad" title="mxnet.symbol.op.Pad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Pad</span></code></a>([data, mode, pad_width, constant_value, …])</p></td>
 <td><p>Pads an input array with a constant or edge values of the array.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.Pooling" title="mxnet.symbol.op.Pooling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Pooling</span></code></a>([data, kernel, pool_type, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.Pooling" title="mxnet.symbol.op.Pooling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Pooling</span></code></a>([data, kernel, pool_type, …])</p></td>
 <td><p>Performs pooling on the input.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.RNN" title="mxnet.symbol.op.RNN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RNN</span></code></a>([data, parameters, state, state_cell, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.RNN" title="mxnet.symbol.op.RNN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RNN</span></code></a>([data, parameters, state, state_cell, …])</p></td>
 <td><p>Applies recurrent layers to input data.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.ROIPooling" title="mxnet.symbol.op.ROIPooling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ROIPooling</span></code></a>([data, rois, pooled_size, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.ROIPooling" title="mxnet.symbol.op.ROIPooling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ROIPooling</span></code></a>([data, rois, pooled_size, …])</p></td>
 <td><p>Performs region of interest(ROI) pooling on the input array.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.Reshape" title="mxnet.symbol.op.Reshape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Reshape</span></code></a>([data, shape, reverse, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.Reshape" title="mxnet.symbol.op.Reshape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Reshape</span></code></a>([data, shape, reverse, …])</p></td>
 <td><p>Reshapes the input array.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.SVMOutput" title="mxnet.symbol.op.SVMOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SVMOutput</span></code></a>([data, label, margin, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.SVMOutput" title="mxnet.symbol.op.SVMOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SVMOutput</span></code></a>([data, label, margin, …])</p></td>
 <td><p>Computes support vector machine based transformation of the input.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.SequenceLast" title="mxnet.symbol.op.SequenceLast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SequenceLast</span></code></a>([data, sequence_length, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.SequenceLast" title="mxnet.symbol.op.SequenceLast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SequenceLast</span></code></a>([data, sequence_length, …])</p></td>
 <td><p>Takes the last element of a sequence.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.SequenceMask" title="mxnet.symbol.op.SequenceMask"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SequenceMask</span></code></a>([data, sequence_length, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.SequenceMask" title="mxnet.symbol.op.SequenceMask"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SequenceMask</span></code></a>([data, sequence_length, …])</p></td>
 <td><p>Sets all elements outside the sequence to a constant value.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.SequenceReverse" title="mxnet.symbol.op.SequenceReverse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SequenceReverse</span></code></a>([data, sequence_length, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.SequenceReverse" title="mxnet.symbol.op.SequenceReverse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SequenceReverse</span></code></a>([data, sequence_length, …])</p></td>
 <td><p>Reverses the elements of each sequence.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.SliceChannel" title="mxnet.symbol.op.SliceChannel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SliceChannel</span></code></a>([data, num_outputs, axis, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.SliceChannel" title="mxnet.symbol.op.SliceChannel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SliceChannel</span></code></a>([data, num_outputs, axis, …])</p></td>
 <td><p>Splits an array along a particular axis into multiple sub-arrays.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.Softmax" title="mxnet.symbol.op.Softmax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Softmax</span></code></a>([data, label, grad_scale, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.Softmax" title="mxnet.symbol.op.Softmax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Softmax</span></code></a>([data, label, grad_scale, …])</p></td>
 <td><p>Computes the gradient of cross entropy loss with respect to softmax output.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.SoftmaxActivation" title="mxnet.symbol.op.SoftmaxActivation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SoftmaxActivation</span></code></a>([data, mode, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.SoftmaxActivation" title="mxnet.symbol.op.SoftmaxActivation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SoftmaxActivation</span></code></a>([data, mode, name, attr, out])</p></td>
 <td><p>Applies softmax activation to input.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.SoftmaxOutput" title="mxnet.symbol.op.SoftmaxOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SoftmaxOutput</span></code></a>([data, label, grad_scale, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.SoftmaxOutput" title="mxnet.symbol.op.SoftmaxOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SoftmaxOutput</span></code></a>([data, label, grad_scale, …])</p></td>
 <td><p>Computes the gradient of cross entropy loss with respect to softmax output.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.SpatialTransformer" title="mxnet.symbol.op.SpatialTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SpatialTransformer</span></code></a>([data, loc, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.SpatialTransformer" title="mxnet.symbol.op.SpatialTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SpatialTransformer</span></code></a>([data, loc, …])</p></td>
 <td><p>Applies a spatial transformer to input feature map.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.SwapAxis" title="mxnet.symbol.op.SwapAxis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SwapAxis</span></code></a>([data, dim1, dim2, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.SwapAxis" title="mxnet.symbol.op.SwapAxis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SwapAxis</span></code></a>([data, dim1, dim2, name, attr, out])</p></td>
 <td><p>Interchanges two axes of an array.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.UpSampling" title="mxnet.symbol.op.UpSampling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UpSampling</span></code></a>(*data, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.UpSampling" title="mxnet.symbol.op.UpSampling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UpSampling</span></code></a>(*data, **kwargs)</p></td>
 <td><p>Upsamples the given input data.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.abs" title="mxnet.symbol.op.abs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">abs</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.abs" title="mxnet.symbol.op.abs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">abs</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns element-wise absolute value of the input.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.adam_update" title="mxnet.symbol.op.adam_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">adam_update</span></code></a>([weight, grad, mean, var, lr, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.adam_update" title="mxnet.symbol.op.adam_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">adam_update</span></code></a>([weight, grad, mean, var, lr, …])</p></td>
 <td><p>Update function for Adam optimizer.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.add_n" title="mxnet.symbol.op.add_n"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_n</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.add_n" title="mxnet.symbol.op.add_n"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_n</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Adds all input arguments element-wise.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.all_finite" title="mxnet.symbol.op.all_finite"><code class="xref py py-obj docutils literal notranslate"><span class="pre">all_finite</span></code></a>([data, init_output, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.all_finite" title="mxnet.symbol.op.all_finite"><code class="xref py py-obj docutils literal notranslate"><span class="pre">all_finite</span></code></a>([data, init_output, name, attr, out])</p></td>
 <td><p>Check if all the float numbers in the array are finite (used for AMP)</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.amp_cast" title="mxnet.symbol.op.amp_cast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">amp_cast</span></code></a>([data, dtype, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.amp_cast" title="mxnet.symbol.op.amp_cast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">amp_cast</span></code></a>([data, dtype, name, attr, out])</p></td>
 <td><p>Cast function between low precision float/FP32 used by AMP.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.amp_multicast" title="mxnet.symbol.op.amp_multicast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">amp_multicast</span></code></a>(*data, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.amp_multicast" title="mxnet.symbol.op.amp_multicast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">amp_multicast</span></code></a>(*data, **kwargs)</p></td>
 <td><p>Cast function used by AMP, that casts its inputs to the common widest type.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.arccos" title="mxnet.symbol.op.arccos"><code class="xref py py-obj docutils literal notranslate"><span class="pre">arccos</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.arccos" title="mxnet.symbol.op.arccos"><code class="xref py py-obj docutils literal notranslate"><span class="pre">arccos</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns element-wise inverse cosine of the input array.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.arccosh" title="mxnet.symbol.op.arccosh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">arccosh</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.arccosh" title="mxnet.symbol.op.arccosh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">arccosh</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns the element-wise inverse hyperbolic cosine of the input array, computed element-wise.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.arcsin" title="mxnet.symbol.op.arcsin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">arcsin</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.arcsin" title="mxnet.symbol.op.arcsin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">arcsin</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns element-wise inverse sine of the input array.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.arcsinh" title="mxnet.symbol.op.arcsinh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">arcsinh</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.arcsinh" title="mxnet.symbol.op.arcsinh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">arcsinh</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns the element-wise inverse hyperbolic sine of the input array, computed element-wise.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.arctan" title="mxnet.symbol.op.arctan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">arctan</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.arctan" title="mxnet.symbol.op.arctan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">arctan</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns element-wise inverse tangent of the input array.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.arctanh" title="mxnet.symbol.op.arctanh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">arctanh</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.arctanh" title="mxnet.symbol.op.arctanh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">arctanh</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns the element-wise inverse hyperbolic tangent of the input array, computed element-wise.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.argmax" title="mxnet.symbol.op.argmax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">argmax</span></code></a>([data, axis, keepdims, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.argmax" title="mxnet.symbol.op.argmax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">argmax</span></code></a>([data, axis, keepdims, name, attr, out])</p></td>
 <td><p>Returns indices of the maximum values along an axis.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.argmax_channel" title="mxnet.symbol.op.argmax_channel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">argmax_channel</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.argmax_channel" title="mxnet.symbol.op.argmax_channel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">argmax_channel</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns argmax indices of each channel from the input array.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.argmin" title="mxnet.symbol.op.argmin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">argmin</span></code></a>([data, axis, keepdims, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.argmin" title="mxnet.symbol.op.argmin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">argmin</span></code></a>([data, axis, keepdims, name, attr, out])</p></td>
 <td><p>Returns indices of the minimum values along an axis.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.argsort" title="mxnet.symbol.op.argsort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">argsort</span></code></a>([data, axis, is_ascend, dtype, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.argsort" title="mxnet.symbol.op.argsort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">argsort</span></code></a>([data, axis, is_ascend, dtype, …])</p></td>
 <td><p>Returns the indices that would sort an input array along the given axis.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.batch_dot" title="mxnet.symbol.op.batch_dot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">batch_dot</span></code></a>([lhs, rhs, transpose_a, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.batch_dot" title="mxnet.symbol.op.batch_dot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">batch_dot</span></code></a>([lhs, rhs, transpose_a, …])</p></td>
 <td><p>Batchwise dot product.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.batch_take" title="mxnet.symbol.op.batch_take"><code class="xref py py-obj docutils literal notranslate"><span class="pre">batch_take</span></code></a>([a, indices, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.batch_take" title="mxnet.symbol.op.batch_take"><code class="xref py py-obj docutils literal notranslate"><span class="pre">batch_take</span></code></a>([a, indices, name, attr, out])</p></td>
 <td><p>Takes elements from a data batch.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_add" title="mxnet.symbol.op.broadcast_add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_add</span></code></a>([lhs, rhs, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_add" title="mxnet.symbol.op.broadcast_add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_add</span></code></a>([lhs, rhs, name, attr, out])</p></td>
 <td><p>Returns element-wise sum of the input arrays with broadcasting.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_axes" title="mxnet.symbol.op.broadcast_axes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_axes</span></code></a>([data, axis, size, name, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_axes" title="mxnet.symbol.op.broadcast_axes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_axes</span></code></a>([data, axis, size, name, …])</p></td>
 <td><p>Broadcasts the input array over particular axes.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_axis" title="mxnet.symbol.op.broadcast_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_axis</span></code></a>([data, axis, size, name, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_axis" title="mxnet.symbol.op.broadcast_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_axis</span></code></a>([data, axis, size, name, …])</p></td>
 <td><p>Broadcasts the input array over particular axes.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_div" title="mxnet.symbol.op.broadcast_div"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_div</span></code></a>([lhs, rhs, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_div" title="mxnet.symbol.op.broadcast_div"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_div</span></code></a>([lhs, rhs, name, attr, out])</p></td>
 <td><p>Returns element-wise division of the input arrays with broadcasting.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_equal" title="mxnet.symbol.op.broadcast_equal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_equal</span></code></a>([lhs, rhs, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_equal" title="mxnet.symbol.op.broadcast_equal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_equal</span></code></a>([lhs, rhs, name, attr, out])</p></td>
 <td><p>Returns the result of element-wise <strong>equal to</strong> (==) comparison operation with broadcasting.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_greater" title="mxnet.symbol.op.broadcast_greater"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_greater</span></code></a>([lhs, rhs, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_greater" title="mxnet.symbol.op.broadcast_greater"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_greater</span></code></a>([lhs, rhs, name, attr, out])</p></td>
 <td><p>Returns the result of element-wise <strong>greater than</strong> (&gt;) comparison operation with broadcasting.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_greater_equal" title="mxnet.symbol.op.broadcast_greater_equal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_greater_equal</span></code></a>([lhs, rhs, name, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_greater_equal" title="mxnet.symbol.op.broadcast_greater_equal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_greater_equal</span></code></a>([lhs, rhs, name, …])</p></td>
 <td><p>Returns the result of element-wise <strong>greater than or equal to</strong> (&gt;=) comparison operation with broadcasting.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_hypot" title="mxnet.symbol.op.broadcast_hypot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_hypot</span></code></a>([lhs, rhs, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_hypot" title="mxnet.symbol.op.broadcast_hypot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_hypot</span></code></a>([lhs, rhs, name, attr, out])</p></td>
 <td><p>Returns the hypotenuse of a right angled triangle, given its “legs” with broadcasting.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_lesser" title="mxnet.symbol.op.broadcast_lesser"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_lesser</span></code></a>([lhs, rhs, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_lesser" title="mxnet.symbol.op.broadcast_lesser"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_lesser</span></code></a>([lhs, rhs, name, attr, out])</p></td>
 <td><p>Returns the result of element-wise <strong>lesser than</strong> (&lt;) comparison operation with broadcasting.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_lesser_equal" title="mxnet.symbol.op.broadcast_lesser_equal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_lesser_equal</span></code></a>([lhs, rhs, name, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_lesser_equal" title="mxnet.symbol.op.broadcast_lesser_equal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_lesser_equal</span></code></a>([lhs, rhs, name, …])</p></td>
 <td><p>Returns the result of element-wise <strong>lesser than or equal to</strong> (&lt;=) comparison operation with broadcasting.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_like" title="mxnet.symbol.op.broadcast_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_like</span></code></a>([lhs, rhs, lhs_axes, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_like" title="mxnet.symbol.op.broadcast_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_like</span></code></a>([lhs, rhs, lhs_axes, …])</p></td>
 <td><p>Broadcasts lhs to have the same shape as rhs.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_logical_and" title="mxnet.symbol.op.broadcast_logical_and"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_logical_and</span></code></a>([lhs, rhs, name, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_logical_and" title="mxnet.symbol.op.broadcast_logical_and"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_logical_and</span></code></a>([lhs, rhs, name, …])</p></td>
 <td><p>Returns the result of element-wise <strong>logical and</strong> with broadcasting.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_logical_or" title="mxnet.symbol.op.broadcast_logical_or"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_logical_or</span></code></a>([lhs, rhs, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_logical_or" title="mxnet.symbol.op.broadcast_logical_or"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_logical_or</span></code></a>([lhs, rhs, name, attr, out])</p></td>
 <td><p>Returns the result of element-wise <strong>logical or</strong> with broadcasting.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_logical_xor" title="mxnet.symbol.op.broadcast_logical_xor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_logical_xor</span></code></a>([lhs, rhs, name, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_logical_xor" title="mxnet.symbol.op.broadcast_logical_xor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_logical_xor</span></code></a>([lhs, rhs, name, …])</p></td>
 <td><p>Returns the result of element-wise <strong>logical xor</strong> with broadcasting.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_maximum" title="mxnet.symbol.op.broadcast_maximum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_maximum</span></code></a>([lhs, rhs, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_maximum" title="mxnet.symbol.op.broadcast_maximum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_maximum</span></code></a>([lhs, rhs, name, attr, out])</p></td>
 <td><p>Returns element-wise maximum of the input arrays with broadcasting.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_minimum" title="mxnet.symbol.op.broadcast_minimum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_minimum</span></code></a>([lhs, rhs, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_minimum" title="mxnet.symbol.op.broadcast_minimum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_minimum</span></code></a>([lhs, rhs, name, attr, out])</p></td>
 <td><p>Returns element-wise minimum of the input arrays with broadcasting.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_minus" title="mxnet.symbol.op.broadcast_minus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_minus</span></code></a>([lhs, rhs, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_minus" title="mxnet.symbol.op.broadcast_minus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_minus</span></code></a>([lhs, rhs, name, attr, out])</p></td>
 <td><p>Returns element-wise difference of the input arrays with broadcasting.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_mod" title="mxnet.symbol.op.broadcast_mod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_mod</span></code></a>([lhs, rhs, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_mod" title="mxnet.symbol.op.broadcast_mod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_mod</span></code></a>([lhs, rhs, name, attr, out])</p></td>
 <td><p>Returns element-wise modulo of the input arrays with broadcasting.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_mul" title="mxnet.symbol.op.broadcast_mul"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_mul</span></code></a>([lhs, rhs, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_mul" title="mxnet.symbol.op.broadcast_mul"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_mul</span></code></a>([lhs, rhs, name, attr, out])</p></td>
 <td><p>Returns element-wise product of the input arrays with broadcasting.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_not_equal" title="mxnet.symbol.op.broadcast_not_equal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_not_equal</span></code></a>([lhs, rhs, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_not_equal" title="mxnet.symbol.op.broadcast_not_equal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_not_equal</span></code></a>([lhs, rhs, name, attr, out])</p></td>
 <td><p>Returns the result of element-wise <strong>not equal to</strong> (!=) comparison operation with broadcasting.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_plus" title="mxnet.symbol.op.broadcast_plus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_plus</span></code></a>([lhs, rhs, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_plus" title="mxnet.symbol.op.broadcast_plus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_plus</span></code></a>([lhs, rhs, name, attr, out])</p></td>
 <td><p>Returns element-wise sum of the input arrays with broadcasting.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_power" title="mxnet.symbol.op.broadcast_power"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_power</span></code></a>([lhs, rhs, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_power" title="mxnet.symbol.op.broadcast_power"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_power</span></code></a>([lhs, rhs, name, attr, out])</p></td>
 <td><p>Returns result of first array elements raised to powers from second array, element-wise with broadcasting.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_sub" title="mxnet.symbol.op.broadcast_sub"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_sub</span></code></a>([lhs, rhs, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_sub" title="mxnet.symbol.op.broadcast_sub"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_sub</span></code></a>([lhs, rhs, name, attr, out])</p></td>
 <td><p>Returns element-wise difference of the input arrays with broadcasting.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_to" title="mxnet.symbol.op.broadcast_to"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_to</span></code></a>([data, shape, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.broadcast_to" title="mxnet.symbol.op.broadcast_to"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast_to</span></code></a>([data, shape, name, attr, out])</p></td>
 <td><p>Broadcasts the input array to a new shape.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.cast" title="mxnet.symbol.op.cast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cast</span></code></a>([data, dtype, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.cast" title="mxnet.symbol.op.cast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cast</span></code></a>([data, dtype, name, attr, out])</p></td>
 <td><p>Casts all elements of the input to a new type.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.cast_storage" title="mxnet.symbol.op.cast_storage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cast_storage</span></code></a>([data, stype, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.cast_storage" title="mxnet.symbol.op.cast_storage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cast_storage</span></code></a>([data, stype, name, attr, out])</p></td>
 <td><p>Casts tensor storage type to the new type.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.cbrt" title="mxnet.symbol.op.cbrt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cbrt</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.cbrt" title="mxnet.symbol.op.cbrt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cbrt</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns element-wise cube-root value of the input.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.ceil" title="mxnet.symbol.op.ceil"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ceil</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.ceil" title="mxnet.symbol.op.ceil"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ceil</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns element-wise ceiling of the input.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.choose_element_0index" title="mxnet.symbol.op.choose_element_0index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">choose_element_0index</span></code></a>([data, index, axis, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.choose_element_0index" title="mxnet.symbol.op.choose_element_0index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">choose_element_0index</span></code></a>([data, index, axis, …])</p></td>
 <td><p>Picks elements from an input array according to the input indices along the given axis.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.clip" title="mxnet.symbol.op.clip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clip</span></code></a>([data, a_min, a_max, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.clip" title="mxnet.symbol.op.clip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clip</span></code></a>([data, a_min, a_max, name, attr, out])</p></td>
 <td><p>Clips (limits) the values in an array.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.col2im" title="mxnet.symbol.op.col2im"><code class="xref py py-obj docutils literal notranslate"><span class="pre">col2im</span></code></a>([data, output_size, kernel, stride, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.col2im" title="mxnet.symbol.op.col2im"><code class="xref py py-obj docutils literal notranslate"><span class="pre">col2im</span></code></a>([data, output_size, kernel, stride, …])</p></td>
 <td><p>Combining the output column matrix of im2col back to image array.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.concat" title="mxnet.symbol.op.concat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">concat</span></code></a>(*data, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.concat" title="mxnet.symbol.op.concat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">concat</span></code></a>(*data, **kwargs)</p></td>
 <td><p>Joins input arrays along a given axis.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.cos" title="mxnet.symbol.op.cos"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cos</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.cos" title="mxnet.symbol.op.cos"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cos</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Computes the element-wise cosine of the input array.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.cosh" title="mxnet.symbol.op.cosh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cosh</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.cosh" title="mxnet.symbol.op.cosh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cosh</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns the hyperbolic cosine  of the input array, computed element-wise.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.crop" title="mxnet.symbol.op.crop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">crop</span></code></a>([data, begin, end, step, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.crop" title="mxnet.symbol.op.crop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">crop</span></code></a>([data, begin, end, step, name, attr, out])</p></td>
 <td><p>Slices a region of the array.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.ctc_loss" title="mxnet.symbol.op.ctc_loss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ctc_loss</span></code></a>([data, label, data_lengths, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.ctc_loss" title="mxnet.symbol.op.ctc_loss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ctc_loss</span></code></a>([data, label, data_lengths, …])</p></td>
 <td><p>Connectionist Temporal Classification Loss.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.cumsum" title="mxnet.symbol.op.cumsum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cumsum</span></code></a>([a, axis, dtype, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.cumsum" title="mxnet.symbol.op.cumsum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cumsum</span></code></a>([a, axis, dtype, name, attr, out])</p></td>
 <td><p>Return the cumulative sum of the elements along a given axis.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.degrees" title="mxnet.symbol.op.degrees"><code class="xref py py-obj docutils literal notranslate"><span class="pre">degrees</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.degrees" title="mxnet.symbol.op.degrees"><code class="xref py py-obj docutils literal notranslate"><span class="pre">degrees</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Converts each element of the input array from radians to degrees.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.depth_to_space" title="mxnet.symbol.op.depth_to_space"><code class="xref py py-obj docutils literal notranslate"><span class="pre">depth_to_space</span></code></a>([data, block_size, name, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.depth_to_space" title="mxnet.symbol.op.depth_to_space"><code class="xref py py-obj docutils literal notranslate"><span class="pre">depth_to_space</span></code></a>([data, block_size, name, …])</p></td>
 <td><p>Rearranges(permutes) data from depth into blocks of spatial data.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.diag" title="mxnet.symbol.op.diag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diag</span></code></a>([data, k, axis1, axis2, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.diag" title="mxnet.symbol.op.diag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diag</span></code></a>([data, k, axis1, axis2, name, attr, out])</p></td>
 <td><p>Extracts a diagonal or constructs a diagonal array.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.digamma" title="mxnet.symbol.op.digamma"><code class="xref py py-obj docutils literal notranslate"><span class="pre">digamma</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.digamma" title="mxnet.symbol.op.digamma"><code class="xref py py-obj docutils literal notranslate"><span class="pre">digamma</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns element-wise log derivative of the gamma function of the input.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.dot" title="mxnet.symbol.op.dot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dot</span></code></a>([lhs, rhs, transpose_a, transpose_b, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.dot" title="mxnet.symbol.op.dot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dot</span></code></a>([lhs, rhs, transpose_a, transpose_b, …])</p></td>
 <td><p>Dot product of two arrays.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.elemwise_add" title="mxnet.symbol.op.elemwise_add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">elemwise_add</span></code></a>([lhs, rhs, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.elemwise_add" title="mxnet.symbol.op.elemwise_add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">elemwise_add</span></code></a>([lhs, rhs, name, attr, out])</p></td>
 <td><p>Adds arguments element-wise.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.elemwise_div" title="mxnet.symbol.op.elemwise_div"><code class="xref py py-obj docutils literal notranslate"><span class="pre">elemwise_div</span></code></a>([lhs, rhs, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.elemwise_div" title="mxnet.symbol.op.elemwise_div"><code class="xref py py-obj docutils literal notranslate"><span class="pre">elemwise_div</span></code></a>([lhs, rhs, name, attr, out])</p></td>
 <td><p>Divides arguments element-wise.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.elemwise_mul" title="mxnet.symbol.op.elemwise_mul"><code class="xref py py-obj docutils literal notranslate"><span class="pre">elemwise_mul</span></code></a>([lhs, rhs, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.elemwise_mul" title="mxnet.symbol.op.elemwise_mul"><code class="xref py py-obj docutils literal notranslate"><span class="pre">elemwise_mul</span></code></a>([lhs, rhs, name, attr, out])</p></td>
 <td><p>Multiplies arguments element-wise.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.elemwise_sub" title="mxnet.symbol.op.elemwise_sub"><code class="xref py py-obj docutils literal notranslate"><span class="pre">elemwise_sub</span></code></a>([lhs, rhs, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.elemwise_sub" title="mxnet.symbol.op.elemwise_sub"><code class="xref py py-obj docutils literal notranslate"><span class="pre">elemwise_sub</span></code></a>([lhs, rhs, name, attr, out])</p></td>
 <td><p>Subtracts arguments element-wise.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.erf" title="mxnet.symbol.op.erf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">erf</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.erf" title="mxnet.symbol.op.erf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">erf</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns element-wise gauss error function of the input.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.erfinv" title="mxnet.symbol.op.erfinv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">erfinv</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.erfinv" title="mxnet.symbol.op.erfinv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">erfinv</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns element-wise inverse gauss error function of the input.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.exp" title="mxnet.symbol.op.exp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exp</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.exp" title="mxnet.symbol.op.exp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exp</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns element-wise exponential value of the input.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.expand_dims" title="mxnet.symbol.op.expand_dims"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_dims</span></code></a>([data, axis, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.expand_dims" title="mxnet.symbol.op.expand_dims"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_dims</span></code></a>([data, axis, name, attr, out])</p></td>
 <td><p>Inserts a new axis of size 1 into the array shape For example, given <code class="docutils literal notranslate"><span class="pre">x</span></code> with shape <code class="docutils literal notranslate"><span class="pre">(2,3,4)</span></code>, then <code class="docutils literal notranslate"><span class="pre">expand_dims(x,</span> <span class="pre">axis=1)</span></code> will return a new array with shape <code class="docutils literal notranslate"><span class="pre">(2,1,3,4)</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.expm1" title="mxnet.symbol.op.expm1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expm1</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.expm1" title="mxnet.symbol.op.expm1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expm1</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns <code class="docutils literal notranslate"><span class="pre">exp(x)</span> <span class="pre">-</span> <span class="pre">1</span></code> computed element-wise on the input.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.fill_element_0index" title="mxnet.symbol.op.fill_element_0index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill_element_0index</span></code></a>([lhs, mhs, rhs, name, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.fill_element_0index" title="mxnet.symbol.op.fill_element_0index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill_element_0index</span></code></a>([lhs, mhs, rhs, name, …])</p></td>
 <td><p>Fill one element of each line(row for python, column for R/Julia) in lhs according to index indicated by rhs and values indicated by mhs.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.fix" title="mxnet.symbol.op.fix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fix</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.fix" title="mxnet.symbol.op.fix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fix</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns element-wise rounded value to the nearest integer towards zero of the input.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.flatten" title="mxnet.symbol.op.flatten"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flatten</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.flatten" title="mxnet.symbol.op.flatten"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flatten</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Flattens the input array into a 2-D array by collapsing the higher dimensions.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.flip" title="mxnet.symbol.op.flip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flip</span></code></a>([data, axis, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.flip" title="mxnet.symbol.op.flip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flip</span></code></a>([data, axis, name, attr, out])</p></td>
 <td><p>Reverses the order of elements along given axis while preserving array shape.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.floor" title="mxnet.symbol.op.floor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">floor</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.floor" title="mxnet.symbol.op.floor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">floor</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns element-wise floor of the input.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.ftml_update" title="mxnet.symbol.op.ftml_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ftml_update</span></code></a>([weight, grad, d, v, z, lr, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.ftml_update" title="mxnet.symbol.op.ftml_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ftml_update</span></code></a>([weight, grad, d, v, z, lr, …])</p></td>
 <td><p>The FTML optimizer described in <em>FTML - Follow the Moving Leader in Deep Learning</em>, available at <a class="reference external" href="http://proceedings.mlr.press/v70/zheng17a/zheng17a.pdf">http://proceedings.mlr.press/v70/zheng17a/zheng17a.pdf</a>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.ftrl_update" title="mxnet.symbol.op.ftrl_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ftrl_update</span></code></a>([weight, grad, z, n, lr, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.ftrl_update" title="mxnet.symbol.op.ftrl_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ftrl_update</span></code></a>([weight, grad, z, n, lr, …])</p></td>
 <td><p>Update function for Ftrl optimizer.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.gamma" title="mxnet.symbol.op.gamma"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gamma</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.gamma" title="mxnet.symbol.op.gamma"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gamma</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns the gamma function (extension of the factorial function to the reals), computed element-wise on the input array.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.gammaln" title="mxnet.symbol.op.gammaln"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gammaln</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.gammaln" title="mxnet.symbol.op.gammaln"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gammaln</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns element-wise log of the absolute value of the gamma function of the input.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.gather_nd" title="mxnet.symbol.op.gather_nd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gather_nd</span></code></a>([data, indices, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.gather_nd" title="mxnet.symbol.op.gather_nd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gather_nd</span></code></a>([data, indices, name, attr, out])</p></td>
 <td><p>Gather elements or slices from <cite>data</cite> and store to a tensor whose shape is defined by <cite>indices</cite>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.hard_sigmoid" title="mxnet.symbol.op.hard_sigmoid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hard_sigmoid</span></code></a>([data, alpha, beta, name, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.hard_sigmoid" title="mxnet.symbol.op.hard_sigmoid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hard_sigmoid</span></code></a>([data, alpha, beta, name, …])</p></td>
 <td><p>Computes hard sigmoid of x element-wise.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.identity" title="mxnet.symbol.op.identity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">identity</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.identity" title="mxnet.symbol.op.identity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">identity</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns a copy of the input.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.im2col" title="mxnet.symbol.op.im2col"><code class="xref py py-obj docutils literal notranslate"><span class="pre">im2col</span></code></a>([data, kernel, stride, dilate, pad, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.im2col" title="mxnet.symbol.op.im2col"><code class="xref py py-obj docutils literal notranslate"><span class="pre">im2col</span></code></a>([data, kernel, stride, dilate, pad, …])</p></td>
 <td><p>Extract sliding blocks from input array.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.khatri_rao" title="mxnet.symbol.op.khatri_rao"><code class="xref py py-obj docutils literal notranslate"><span class="pre">khatri_rao</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.khatri_rao" title="mxnet.symbol.op.khatri_rao"><code class="xref py py-obj docutils literal notranslate"><span class="pre">khatri_rao</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Computes the Khatri-Rao product of the input matrices.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.lamb_update_phase1" title="mxnet.symbol.op.lamb_update_phase1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lamb_update_phase1</span></code></a>([weight, grad, mean, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.lamb_update_phase1" title="mxnet.symbol.op.lamb_update_phase1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lamb_update_phase1</span></code></a>([weight, grad, mean, …])</p></td>
 <td><p>Phase I of lamb update it performs the following operations and returns g:.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.lamb_update_phase2" title="mxnet.symbol.op.lamb_update_phase2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lamb_update_phase2</span></code></a>([weight, g, r1, r2, lr, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.lamb_update_phase2" title="mxnet.symbol.op.lamb_update_phase2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lamb_update_phase2</span></code></a>([weight, g, r1, r2, lr, …])</p></td>
 <td><p>Phase II of lamb update it performs the following operations and updates grad.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_det" title="mxnet.symbol.op.linalg_det"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_det</span></code></a>([A, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_det" title="mxnet.symbol.op.linalg_det"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_det</span></code></a>([A, name, attr, out])</p></td>
 <td><p>Compute the determinant of a matrix.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_extractdiag" title="mxnet.symbol.op.linalg_extractdiag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_extractdiag</span></code></a>([A, offset, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_extractdiag" title="mxnet.symbol.op.linalg_extractdiag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_extractdiag</span></code></a>([A, offset, name, attr, out])</p></td>
 <td><p>Extracts the diagonal entries of a square matrix.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_extracttrian" title="mxnet.symbol.op.linalg_extracttrian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_extracttrian</span></code></a>([A, offset, lower, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_extracttrian" title="mxnet.symbol.op.linalg_extracttrian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_extracttrian</span></code></a>([A, offset, lower, …])</p></td>
 <td><p>Extracts a triangular sub-matrix from a square matrix.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_gelqf" title="mxnet.symbol.op.linalg_gelqf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_gelqf</span></code></a>([A, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_gelqf" title="mxnet.symbol.op.linalg_gelqf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_gelqf</span></code></a>([A, name, attr, out])</p></td>
 <td><p>LQ factorization for general matrix.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_gemm" title="mxnet.symbol.op.linalg_gemm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_gemm</span></code></a>([A, B, C, transpose_a, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_gemm" title="mxnet.symbol.op.linalg_gemm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_gemm</span></code></a>([A, B, C, transpose_a, …])</p></td>
 <td><p>Performs general matrix multiplication and accumulation.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_gemm2" title="mxnet.symbol.op.linalg_gemm2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_gemm2</span></code></a>([A, B, transpose_a, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_gemm2" title="mxnet.symbol.op.linalg_gemm2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_gemm2</span></code></a>([A, B, transpose_a, …])</p></td>
 <td><p>Performs general matrix multiplication.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_inverse" title="mxnet.symbol.op.linalg_inverse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_inverse</span></code></a>([A, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_inverse" title="mxnet.symbol.op.linalg_inverse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_inverse</span></code></a>([A, name, attr, out])</p></td>
 <td><p>Compute the inverse of a matrix.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_makediag" title="mxnet.symbol.op.linalg_makediag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_makediag</span></code></a>([A, offset, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_makediag" title="mxnet.symbol.op.linalg_makediag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_makediag</span></code></a>([A, offset, name, attr, out])</p></td>
 <td><p>Constructs a square matrix with the input as diagonal.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_maketrian" title="mxnet.symbol.op.linalg_maketrian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_maketrian</span></code></a>([A, offset, lower, name, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_maketrian" title="mxnet.symbol.op.linalg_maketrian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_maketrian</span></code></a>([A, offset, lower, name, …])</p></td>
 <td><p>Constructs a square matrix with the input representing a specific triangular sub-matrix.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_potrf" title="mxnet.symbol.op.linalg_potrf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_potrf</span></code></a>([A, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_potrf" title="mxnet.symbol.op.linalg_potrf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_potrf</span></code></a>([A, name, attr, out])</p></td>
 <td><p>Performs Cholesky factorization of a symmetric positive-definite matrix.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_potri" title="mxnet.symbol.op.linalg_potri"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_potri</span></code></a>([A, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_potri" title="mxnet.symbol.op.linalg_potri"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_potri</span></code></a>([A, name, attr, out])</p></td>
 <td><p>Performs matrix inversion from a Cholesky factorization.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_slogdet" title="mxnet.symbol.op.linalg_slogdet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_slogdet</span></code></a>([A, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_slogdet" title="mxnet.symbol.op.linalg_slogdet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_slogdet</span></code></a>([A, name, attr, out])</p></td>
 <td><p>Compute the sign and log of the determinant of a matrix.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_sumlogdiag" title="mxnet.symbol.op.linalg_sumlogdiag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_sumlogdiag</span></code></a>([A, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_sumlogdiag" title="mxnet.symbol.op.linalg_sumlogdiag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_sumlogdiag</span></code></a>([A, name, attr, out])</p></td>
 <td><p>Computes the sum of the logarithms of the diagonal elements of a square matrix.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_syrk" title="mxnet.symbol.op.linalg_syrk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_syrk</span></code></a>([A, transpose, alpha, name, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_syrk" title="mxnet.symbol.op.linalg_syrk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_syrk</span></code></a>([A, transpose, alpha, name, …])</p></td>
 <td><p>Multiplication of matrix with its transpose.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_trmm" title="mxnet.symbol.op.linalg_trmm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_trmm</span></code></a>([A, B, transpose, rightside, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_trmm" title="mxnet.symbol.op.linalg_trmm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_trmm</span></code></a>([A, B, transpose, rightside, …])</p></td>
 <td><p>Performs multiplication with a lower triangular matrix.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_trsm" title="mxnet.symbol.op.linalg_trsm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_trsm</span></code></a>([A, B, transpose, rightside, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.linalg_trsm" title="mxnet.symbol.op.linalg_trsm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linalg_trsm</span></code></a>([A, B, transpose, rightside, …])</p></td>
 <td><p>Solves matrix equation involving a lower triangular matrix.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.log" title="mxnet.symbol.op.log"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.log" title="mxnet.symbol.op.log"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns element-wise Natural logarithmic value of the input.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.log10" title="mxnet.symbol.op.log10"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log10</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.log10" title="mxnet.symbol.op.log10"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log10</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns element-wise Base-10 logarithmic value of the input.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.log1p" title="mxnet.symbol.op.log1p"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log1p</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.log1p" title="mxnet.symbol.op.log1p"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log1p</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns element-wise <code class="docutils literal notranslate"><span class="pre">log(1</span> <span class="pre">+</span> <span class="pre">x)</span></code> value of the input.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.log2" title="mxnet.symbol.op.log2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log2</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.log2" title="mxnet.symbol.op.log2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log2</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns element-wise Base-2 logarithmic value of the input.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.log_sigmoid" title="mxnet.symbol.op.log_sigmoid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log_sigmoid</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.log_sigmoid" title="mxnet.symbol.op.log_sigmoid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log_sigmoid</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Computes log_sigmoid of x element-wise.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.log_softmax" title="mxnet.symbol.op.log_softmax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log_softmax</span></code></a>([data, axis, temperature, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.log_softmax" title="mxnet.symbol.op.log_softmax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log_softmax</span></code></a>([data, axis, temperature, …])</p></td>
 <td><p>Computes the log softmax of the input.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.logical_not" title="mxnet.symbol.op.logical_not"><code class="xref py py-obj docutils literal notranslate"><span class="pre">logical_not</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.logical_not" title="mxnet.symbol.op.logical_not"><code class="xref py py-obj docutils literal notranslate"><span class="pre">logical_not</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns the result of logical NOT (!) function</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.make_loss" title="mxnet.symbol.op.make_loss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_loss</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.make_loss" title="mxnet.symbol.op.make_loss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_loss</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Make your own loss function in network construction.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.masked_log_softmax" title="mxnet.symbol.op.masked_log_softmax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">masked_log_softmax</span></code></a>([data, mask, axis, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.masked_log_softmax" title="mxnet.symbol.op.masked_log_softmax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">masked_log_softmax</span></code></a>([data, mask, axis, …])</p></td>
 <td><p>Computes the masked log softmax of the input.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.masked_softmax" title="mxnet.symbol.op.masked_softmax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">masked_softmax</span></code></a>([data, mask, axis, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.masked_softmax" title="mxnet.symbol.op.masked_softmax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">masked_softmax</span></code></a>([data, mask, axis, …])</p></td>
 <td><p>Applies the softmax function masking elements according to the mask provided</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.max" title="mxnet.symbol.op.max"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max</span></code></a>([data, axis, keepdims, exclude, name, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.max" title="mxnet.symbol.op.max"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max</span></code></a>([data, axis, keepdims, exclude, name, …])</p></td>
 <td><p>Computes the max of array elements over given axes.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.max_axis" title="mxnet.symbol.op.max_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max_axis</span></code></a>([data, axis, keepdims, exclude, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.max_axis" title="mxnet.symbol.op.max_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max_axis</span></code></a>([data, axis, keepdims, exclude, …])</p></td>
 <td><p>Computes the max of array elements over given axes.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.mean" title="mxnet.symbol.op.mean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mean</span></code></a>([data, axis, keepdims, exclude, name, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.mean" title="mxnet.symbol.op.mean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mean</span></code></a>([data, axis, keepdims, exclude, name, …])</p></td>
 <td><p>Computes the mean of array elements over given axes.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.min" title="mxnet.symbol.op.min"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min</span></code></a>([data, axis, keepdims, exclude, name, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.min" title="mxnet.symbol.op.min"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min</span></code></a>([data, axis, keepdims, exclude, name, …])</p></td>
 <td><p>Computes the min of array elements over given axes.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.min_axis" title="mxnet.symbol.op.min_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min_axis</span></code></a>([data, axis, keepdims, exclude, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.min_axis" title="mxnet.symbol.op.min_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min_axis</span></code></a>([data, axis, keepdims, exclude, …])</p></td>
 <td><p>Computes the min of array elements over given axes.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.mish" title="mxnet.symbol.op.mish"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mish</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.mish" title="mxnet.symbol.op.mish"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mish</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Computes mish of x element-wise.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.moments" title="mxnet.symbol.op.moments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">moments</span></code></a>([data, axes, keepdims, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.moments" title="mxnet.symbol.op.moments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">moments</span></code></a>([data, axes, keepdims, name, attr, out])</p></td>
 <td><p>Calculate the mean and variance of <cite>data</cite>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.mp_lamb_update_phase1" title="mxnet.symbol.op.mp_lamb_update_phase1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mp_lamb_update_phase1</span></code></a>([weight, grad, mean, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.mp_lamb_update_phase1" title="mxnet.symbol.op.mp_lamb_update_phase1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mp_lamb_update_phase1</span></code></a>([weight, grad, mean, …])</p></td>
 <td><p>Mixed Precision version of Phase I of lamb update it performs the following operations and returns g:.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.mp_lamb_update_phase2" title="mxnet.symbol.op.mp_lamb_update_phase2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mp_lamb_update_phase2</span></code></a>([weight, g, r1, r2, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.mp_lamb_update_phase2" title="mxnet.symbol.op.mp_lamb_update_phase2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mp_lamb_update_phase2</span></code></a>([weight, g, r1, r2, …])</p></td>
 <td><p>Mixed Precision version Phase II of lamb update it performs the following operations and updates grad.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.mp_nag_mom_update" title="mxnet.symbol.op.mp_nag_mom_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mp_nag_mom_update</span></code></a>([weight, grad, mom, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.mp_nag_mom_update" title="mxnet.symbol.op.mp_nag_mom_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mp_nag_mom_update</span></code></a>([weight, grad, mom, …])</p></td>
 <td><p>Update function for multi-precision Nesterov Accelerated Gradient( NAG) optimizer.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.mp_sgd_mom_update" title="mxnet.symbol.op.mp_sgd_mom_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mp_sgd_mom_update</span></code></a>([weight, grad, mom, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.mp_sgd_mom_update" title="mxnet.symbol.op.mp_sgd_mom_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mp_sgd_mom_update</span></code></a>([weight, grad, mom, …])</p></td>
 <td><p>Updater function for multi-precision sgd optimizer</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.mp_sgd_update" title="mxnet.symbol.op.mp_sgd_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mp_sgd_update</span></code></a>([weight, grad, weight32, lr, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.mp_sgd_update" title="mxnet.symbol.op.mp_sgd_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mp_sgd_update</span></code></a>([weight, grad, weight32, lr, …])</p></td>
 <td><p>Updater function for multi-precision sgd optimizer</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.multi_all_finite" title="mxnet.symbol.op.multi_all_finite"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multi_all_finite</span></code></a>(*data, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.multi_all_finite" title="mxnet.symbol.op.multi_all_finite"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multi_all_finite</span></code></a>(*data, **kwargs)</p></td>
 <td><p>Check if all the float numbers in all the arrays are finite (used for AMP)</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.multi_lars" title="mxnet.symbol.op.multi_lars"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multi_lars</span></code></a>([lrs, weights_sum_sq, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.multi_lars" title="mxnet.symbol.op.multi_lars"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multi_lars</span></code></a>([lrs, weights_sum_sq, …])</p></td>
 <td><p>Compute the LARS coefficients of multiple weights and grads from their sums of square”</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.multi_mp_sgd_mom_update" title="mxnet.symbol.op.multi_mp_sgd_mom_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multi_mp_sgd_mom_update</span></code></a>(*data, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.multi_mp_sgd_mom_update" title="mxnet.symbol.op.multi_mp_sgd_mom_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multi_mp_sgd_mom_update</span></code></a>(*data, **kwargs)</p></td>
 <td><p>Momentum update function for multi-precision Stochastic Gradient Descent (SGD) optimizer.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.multi_mp_sgd_update" title="mxnet.symbol.op.multi_mp_sgd_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multi_mp_sgd_update</span></code></a>(*data, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.multi_mp_sgd_update" title="mxnet.symbol.op.multi_mp_sgd_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multi_mp_sgd_update</span></code></a>(*data, **kwargs)</p></td>
 <td><p>Update function for multi-precision Stochastic Gradient Descent (SDG) optimizer.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.multi_sgd_mom_update" title="mxnet.symbol.op.multi_sgd_mom_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multi_sgd_mom_update</span></code></a>(*data, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.multi_sgd_mom_update" title="mxnet.symbol.op.multi_sgd_mom_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multi_sgd_mom_update</span></code></a>(*data, **kwargs)</p></td>
 <td><p>Momentum update function for Stochastic Gradient Descent (SGD) optimizer.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.multi_sgd_update" title="mxnet.symbol.op.multi_sgd_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multi_sgd_update</span></code></a>(*data, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.multi_sgd_update" title="mxnet.symbol.op.multi_sgd_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multi_sgd_update</span></code></a>(*data, **kwargs)</p></td>
 <td><p>Update function for Stochastic Gradient Descent (SDG) optimizer.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.multi_sum_sq" title="mxnet.symbol.op.multi_sum_sq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multi_sum_sq</span></code></a>(*data, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.multi_sum_sq" title="mxnet.symbol.op.multi_sum_sq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multi_sum_sq</span></code></a>(*data, **kwargs)</p></td>
 <td><p>Compute the sums of squares of multiple arrays</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.nag_mom_update" title="mxnet.symbol.op.nag_mom_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nag_mom_update</span></code></a>([weight, grad, mom, lr, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.nag_mom_update" title="mxnet.symbol.op.nag_mom_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nag_mom_update</span></code></a>([weight, grad, mom, lr, …])</p></td>
 <td><p>Update function for Nesterov Accelerated Gradient( NAG) optimizer.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.nanprod" title="mxnet.symbol.op.nanprod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nanprod</span></code></a>([data, axis, keepdims, exclude, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.nanprod" title="mxnet.symbol.op.nanprod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nanprod</span></code></a>([data, axis, keepdims, exclude, …])</p></td>
 <td><p>Computes the product of array elements over given axes treating Not a Numbers (<code class="docutils literal notranslate"><span class="pre">NaN</span></code>) as one.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.nansum" title="mxnet.symbol.op.nansum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nansum</span></code></a>([data, axis, keepdims, exclude, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.nansum" title="mxnet.symbol.op.nansum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nansum</span></code></a>([data, axis, keepdims, exclude, …])</p></td>
 <td><p>Computes the sum of array elements over given axes treating Not a Numbers (<code class="docutils literal notranslate"><span class="pre">NaN</span></code>) as zero.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.negative" title="mxnet.symbol.op.negative"><code class="xref py py-obj docutils literal notranslate"><span class="pre">negative</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.negative" title="mxnet.symbol.op.negative"><code class="xref py py-obj docutils literal notranslate"><span class="pre">negative</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Numerical negative of the argument, element-wise.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.norm" title="mxnet.symbol.op.norm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">norm</span></code></a>([data, ord, axis, out_dtype, keepdims, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.norm" title="mxnet.symbol.op.norm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">norm</span></code></a>([data, ord, axis, out_dtype, keepdims, …])</p></td>
 <td><p>Computes the norm on an NDArray.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.normal" title="mxnet.symbol.op.normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normal</span></code></a>([loc, scale, shape, ctx, dtype, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.normal" title="mxnet.symbol.op.normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normal</span></code></a>([loc, scale, shape, ctx, dtype, …])</p></td>
 <td><p>Draw random samples from a normal (Gaussian) distribution.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.one_hot" title="mxnet.symbol.op.one_hot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">one_hot</span></code></a>([indices, depth, on_value, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.one_hot" title="mxnet.symbol.op.one_hot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">one_hot</span></code></a>([indices, depth, on_value, …])</p></td>
 <td><p>Returns a one-hot array.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.ones_like" title="mxnet.symbol.op.ones_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ones_like</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.ones_like" title="mxnet.symbol.op.ones_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ones_like</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Return an array of ones with the same shape and type as the input array.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.pad" title="mxnet.symbol.op.pad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pad</span></code></a>([data, mode, pad_width, constant_value, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.pad" title="mxnet.symbol.op.pad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pad</span></code></a>([data, mode, pad_width, constant_value, …])</p></td>
 <td><p>Pads an input array with a constant or edge values of the array.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.pick" title="mxnet.symbol.op.pick"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pick</span></code></a>([data, index, axis, keepdims, mode, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.pick" title="mxnet.symbol.op.pick"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pick</span></code></a>([data, index, axis, keepdims, mode, …])</p></td>
 <td><p>Picks elements from an input array according to the input indices along the given axis.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.preloaded_multi_mp_sgd_mom_update" title="mxnet.symbol.op.preloaded_multi_mp_sgd_mom_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preloaded_multi_mp_sgd_mom_update</span></code></a>(*data, …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.preloaded_multi_mp_sgd_mom_update" title="mxnet.symbol.op.preloaded_multi_mp_sgd_mom_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preloaded_multi_mp_sgd_mom_update</span></code></a>(*data, …)</p></td>
 <td><p>Momentum update function for multi-precision Stochastic Gradient Descent (SGD) optimizer.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.preloaded_multi_mp_sgd_update" title="mxnet.symbol.op.preloaded_multi_mp_sgd_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preloaded_multi_mp_sgd_update</span></code></a>(*data, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.preloaded_multi_mp_sgd_update" title="mxnet.symbol.op.preloaded_multi_mp_sgd_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preloaded_multi_mp_sgd_update</span></code></a>(*data, **kwargs)</p></td>
 <td><p>Update function for multi-precision Stochastic Gradient Descent (SDG) optimizer.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.preloaded_multi_sgd_mom_update" title="mxnet.symbol.op.preloaded_multi_sgd_mom_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preloaded_multi_sgd_mom_update</span></code></a>(*data, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.preloaded_multi_sgd_mom_update" title="mxnet.symbol.op.preloaded_multi_sgd_mom_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preloaded_multi_sgd_mom_update</span></code></a>(*data, **kwargs)</p></td>
 <td><p>Momentum update function for Stochastic Gradient Descent (SGD) optimizer.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.preloaded_multi_sgd_update" title="mxnet.symbol.op.preloaded_multi_sgd_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preloaded_multi_sgd_update</span></code></a>(*data, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.preloaded_multi_sgd_update" title="mxnet.symbol.op.preloaded_multi_sgd_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preloaded_multi_sgd_update</span></code></a>(*data, **kwargs)</p></td>
 <td><p>Update function for Stochastic Gradient Descent (SDG) optimizer.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.prod" title="mxnet.symbol.op.prod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prod</span></code></a>([data, axis, keepdims, exclude, name, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.prod" title="mxnet.symbol.op.prod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prod</span></code></a>([data, axis, keepdims, exclude, name, …])</p></td>
 <td><p>Computes the product of array elements over given axes.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.radians" title="mxnet.symbol.op.radians"><code class="xref py py-obj docutils literal notranslate"><span class="pre">radians</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.radians" title="mxnet.symbol.op.radians"><code class="xref py py-obj docutils literal notranslate"><span class="pre">radians</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Converts each element of the input array from degrees to radians.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_exponential" title="mxnet.symbol.op.random_exponential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_exponential</span></code></a>([lam, shape, ctx, dtype, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_exponential" title="mxnet.symbol.op.random_exponential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_exponential</span></code></a>([lam, shape, ctx, dtype, …])</p></td>
 <td><p>Draw random samples from an exponential distribution.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_gamma" title="mxnet.symbol.op.random_gamma"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_gamma</span></code></a>([alpha, beta, shape, ctx, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_gamma" title="mxnet.symbol.op.random_gamma"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_gamma</span></code></a>([alpha, beta, shape, ctx, …])</p></td>
 <td><p>Draw random samples from a gamma distribution.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_generalized_negative_binomial" title="mxnet.symbol.op.random_generalized_negative_binomial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_generalized_negative_binomial</span></code></a>([mu, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_generalized_negative_binomial" title="mxnet.symbol.op.random_generalized_negative_binomial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_generalized_negative_binomial</span></code></a>([mu, …])</p></td>
 <td><p>Draw random samples from a generalized negative binomial distribution.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_negative_binomial" title="mxnet.symbol.op.random_negative_binomial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_negative_binomial</span></code></a>([k, p, shape, ctx, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_negative_binomial" title="mxnet.symbol.op.random_negative_binomial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_negative_binomial</span></code></a>([k, p, shape, ctx, …])</p></td>
 <td><p>Draw random samples from a negative binomial distribution.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_normal" title="mxnet.symbol.op.random_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_normal</span></code></a>([loc, scale, shape, ctx, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_normal" title="mxnet.symbol.op.random_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_normal</span></code></a>([loc, scale, shape, ctx, …])</p></td>
 <td><p>Draw random samples from a normal (Gaussian) distribution.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_pdf_dirichlet" title="mxnet.symbol.op.random_pdf_dirichlet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_pdf_dirichlet</span></code></a>([sample, alpha, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_pdf_dirichlet" title="mxnet.symbol.op.random_pdf_dirichlet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_pdf_dirichlet</span></code></a>([sample, alpha, …])</p></td>
 <td><p>Computes the value of the PDF of <em>sample</em> of Dirichlet distributions with parameter <em>alpha</em>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_pdf_exponential" title="mxnet.symbol.op.random_pdf_exponential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_pdf_exponential</span></code></a>([sample, lam, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_pdf_exponential" title="mxnet.symbol.op.random_pdf_exponential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_pdf_exponential</span></code></a>([sample, lam, …])</p></td>
 <td><p>Computes the value of the PDF of <em>sample</em> of exponential distributions with parameters <em>lam</em> (rate).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_pdf_gamma" title="mxnet.symbol.op.random_pdf_gamma"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_pdf_gamma</span></code></a>([sample, alpha, beta, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_pdf_gamma" title="mxnet.symbol.op.random_pdf_gamma"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_pdf_gamma</span></code></a>([sample, alpha, beta, …])</p></td>
 <td><p>Computes the value of the PDF of <em>sample</em> of gamma distributions with parameters <em>alpha</em> (shape) and <em>beta</em> (rate).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_pdf_generalized_negative_binomial" title="mxnet.symbol.op.random_pdf_generalized_negative_binomial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_pdf_generalized_negative_binomial</span></code></a>([…])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_pdf_generalized_negative_binomial" title="mxnet.symbol.op.random_pdf_generalized_negative_binomial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_pdf_generalized_negative_binomial</span></code></a>([…])</p></td>
 <td><p>Computes the value of the PDF of <em>sample</em> of generalized negative binomial distributions with parameters <em>mu</em> (mean) and <em>alpha</em> (dispersion).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_pdf_negative_binomial" title="mxnet.symbol.op.random_pdf_negative_binomial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_pdf_negative_binomial</span></code></a>([sample, k, p, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_pdf_negative_binomial" title="mxnet.symbol.op.random_pdf_negative_binomial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_pdf_negative_binomial</span></code></a>([sample, k, p, …])</p></td>
 <td><p>Computes the value of the PDF of samples of negative binomial distributions with parameters <em>k</em> (failure limit) and <em>p</em> (failure probability).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_pdf_normal" title="mxnet.symbol.op.random_pdf_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_pdf_normal</span></code></a>([sample, mu, sigma, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_pdf_normal" title="mxnet.symbol.op.random_pdf_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_pdf_normal</span></code></a>([sample, mu, sigma, …])</p></td>
 <td><p>Computes the value of the PDF of <em>sample</em> of normal distributions with parameters <em>mu</em> (mean) and <em>sigma</em> (standard deviation).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_pdf_poisson" title="mxnet.symbol.op.random_pdf_poisson"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_pdf_poisson</span></code></a>([sample, lam, is_log, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_pdf_poisson" title="mxnet.symbol.op.random_pdf_poisson"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_pdf_poisson</span></code></a>([sample, lam, is_log, …])</p></td>
 <td><p>Computes the value of the PDF of <em>sample</em> of Poisson distributions with parameters <em>lam</em> (rate).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_pdf_uniform" title="mxnet.symbol.op.random_pdf_uniform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_pdf_uniform</span></code></a>([sample, low, high, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_pdf_uniform" title="mxnet.symbol.op.random_pdf_uniform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_pdf_uniform</span></code></a>([sample, low, high, …])</p></td>
 <td><p>Computes the value of the PDF of <em>sample</em> of uniform distributions on the intervals given by <em>[low,high)</em>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_poisson" title="mxnet.symbol.op.random_poisson"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_poisson</span></code></a>([lam, shape, ctx, dtype, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_poisson" title="mxnet.symbol.op.random_poisson"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_poisson</span></code></a>([lam, shape, ctx, dtype, …])</p></td>
 <td><p>Draw random samples from a Poisson distribution.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_randint" title="mxnet.symbol.op.random_randint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_randint</span></code></a>([low, high, shape, ctx, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_randint" title="mxnet.symbol.op.random_randint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_randint</span></code></a>([low, high, shape, ctx, …])</p></td>
 <td><p>Draw random samples from a discrete uniform distribution.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_uniform" title="mxnet.symbol.op.random_uniform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_uniform</span></code></a>([low, high, shape, ctx, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.random_uniform" title="mxnet.symbol.op.random_uniform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_uniform</span></code></a>([low, high, shape, ctx, …])</p></td>
 <td><p>Draw random samples from a uniform distribution.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.ravel_multi_index" title="mxnet.symbol.op.ravel_multi_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ravel_multi_index</span></code></a>([data, shape, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.ravel_multi_index" title="mxnet.symbol.op.ravel_multi_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ravel_multi_index</span></code></a>([data, shape, name, attr, out])</p></td>
 <td><p>Converts a batch of index arrays into an array of flat indices.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.rcbrt" title="mxnet.symbol.op.rcbrt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rcbrt</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.rcbrt" title="mxnet.symbol.op.rcbrt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rcbrt</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns element-wise inverse cube-root value of the input.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.reciprocal" title="mxnet.symbol.op.reciprocal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reciprocal</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.reciprocal" title="mxnet.symbol.op.reciprocal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reciprocal</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns the reciprocal of the argument, element-wise.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.relu" title="mxnet.symbol.op.relu"><code class="xref py py-obj docutils literal notranslate"><span class="pre">relu</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.relu" title="mxnet.symbol.op.relu"><code class="xref py py-obj docutils literal notranslate"><span class="pre">relu</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Computes rectified linear activation.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.repeat" title="mxnet.symbol.op.repeat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">repeat</span></code></a>([data, repeats, axis, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.repeat" title="mxnet.symbol.op.repeat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">repeat</span></code></a>([data, repeats, axis, name, attr, out])</p></td>
 <td><p>Repeats elements of an array.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.reset_arrays" title="mxnet.symbol.op.reset_arrays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_arrays</span></code></a>(*data, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.reset_arrays" title="mxnet.symbol.op.reset_arrays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_arrays</span></code></a>(*data, **kwargs)</p></td>
 <td><p>Set to zero multiple arrays</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.reshape" title="mxnet.symbol.op.reshape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reshape</span></code></a>([data, shape, reverse, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.reshape" title="mxnet.symbol.op.reshape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reshape</span></code></a>([data, shape, reverse, …])</p></td>
 <td><p>Reshapes the input array.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.reshape_like" title="mxnet.symbol.op.reshape_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reshape_like</span></code></a>([lhs, rhs, lhs_begin, lhs_end, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.reshape_like" title="mxnet.symbol.op.reshape_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reshape_like</span></code></a>([lhs, rhs, lhs_begin, lhs_end, …])</p></td>
 <td><p>Reshape some or all dimensions of <cite>lhs</cite> to have the same shape as some or all dimensions of <cite>rhs</cite>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.reverse" title="mxnet.symbol.op.reverse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reverse</span></code></a>([data, axis, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.reverse" title="mxnet.symbol.op.reverse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reverse</span></code></a>([data, axis, name, attr, out])</p></td>
 <td><p>Reverses the order of elements along given axis while preserving array shape.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.rint" title="mxnet.symbol.op.rint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rint</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.rint" title="mxnet.symbol.op.rint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rint</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns element-wise rounded value to the nearest integer of the input.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.rmsprop_update" title="mxnet.symbol.op.rmsprop_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rmsprop_update</span></code></a>([weight, grad, n, lr, rho, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.rmsprop_update" title="mxnet.symbol.op.rmsprop_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rmsprop_update</span></code></a>([weight, grad, n, lr, rho, …])</p></td>
 <td><p>Update function for <cite>RMSProp</cite> optimizer.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.rmspropalex_update" title="mxnet.symbol.op.rmspropalex_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rmspropalex_update</span></code></a>([weight, grad, n, g, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.rmspropalex_update" title="mxnet.symbol.op.rmspropalex_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rmspropalex_update</span></code></a>([weight, grad, n, g, …])</p></td>
 <td><p>Update function for RMSPropAlex optimizer.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.round" title="mxnet.symbol.op.round"><code class="xref py py-obj docutils literal notranslate"><span class="pre">round</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.round" title="mxnet.symbol.op.round"><code class="xref py py-obj docutils literal notranslate"><span class="pre">round</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns element-wise rounded value to the nearest integer of the input.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.rsqrt" title="mxnet.symbol.op.rsqrt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rsqrt</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.rsqrt" title="mxnet.symbol.op.rsqrt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rsqrt</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns element-wise inverse square-root value of the input.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.sample_exponential" title="mxnet.symbol.op.sample_exponential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_exponential</span></code></a>([lam, shape, dtype, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.sample_exponential" title="mxnet.symbol.op.sample_exponential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_exponential</span></code></a>([lam, shape, dtype, …])</p></td>
 <td><p>Concurrent sampling from multiple exponential distributions with parameters lambda (rate).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.sample_gamma" title="mxnet.symbol.op.sample_gamma"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_gamma</span></code></a>([alpha, beta, shape, dtype, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.sample_gamma" title="mxnet.symbol.op.sample_gamma"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_gamma</span></code></a>([alpha, beta, shape, dtype, …])</p></td>
 <td><p>Concurrent sampling from multiple gamma distributions with parameters <em>alpha</em> (shape) and <em>beta</em> (scale).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.sample_generalized_negative_binomial" title="mxnet.symbol.op.sample_generalized_negative_binomial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_generalized_negative_binomial</span></code></a>([mu, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.sample_generalized_negative_binomial" title="mxnet.symbol.op.sample_generalized_negative_binomial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_generalized_negative_binomial</span></code></a>([mu, …])</p></td>
 <td><p>Concurrent sampling from multiple generalized negative binomial distributions with parameters <em>mu</em> (mean) and <em>alpha</em> (dispersion).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.sample_multinomial" title="mxnet.symbol.op.sample_multinomial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_multinomial</span></code></a>([data, shape, get_prob, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.sample_multinomial" title="mxnet.symbol.op.sample_multinomial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_multinomial</span></code></a>([data, shape, get_prob, …])</p></td>
 <td><p>Concurrent sampling from multiple multinomial distributions.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.sample_negative_binomial" title="mxnet.symbol.op.sample_negative_binomial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_negative_binomial</span></code></a>([k, p, shape, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.sample_negative_binomial" title="mxnet.symbol.op.sample_negative_binomial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_negative_binomial</span></code></a>([k, p, shape, …])</p></td>
 <td><p>Concurrent sampling from multiple negative binomial distributions with parameters <em>k</em> (failure limit) and <em>p</em> (failure probability).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.sample_normal" title="mxnet.symbol.op.sample_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_normal</span></code></a>([mu, sigma, shape, dtype, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.sample_normal" title="mxnet.symbol.op.sample_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_normal</span></code></a>([mu, sigma, shape, dtype, …])</p></td>
 <td><p>Concurrent sampling from multiple normal distributions with parameters <em>mu</em> (mean) and <em>sigma</em> (standard deviation).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.sample_poisson" title="mxnet.symbol.op.sample_poisson"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_poisson</span></code></a>([lam, shape, dtype, name, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.sample_poisson" title="mxnet.symbol.op.sample_poisson"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_poisson</span></code></a>([lam, shape, dtype, name, …])</p></td>
 <td><p>Concurrent sampling from multiple Poisson distributions with parameters lambda (rate).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.sample_uniform" title="mxnet.symbol.op.sample_uniform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_uniform</span></code></a>([low, high, shape, dtype, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.sample_uniform" title="mxnet.symbol.op.sample_uniform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_uniform</span></code></a>([low, high, shape, dtype, …])</p></td>
 <td><p>Concurrent sampling from multiple uniform distributions on the intervals given by <em>[low,high)</em>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.scatter_nd" title="mxnet.symbol.op.scatter_nd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scatter_nd</span></code></a>([data, indices, shape, name, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.scatter_nd" title="mxnet.symbol.op.scatter_nd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scatter_nd</span></code></a>([data, indices, shape, name, …])</p></td>
 <td><p>Scatters data into a new tensor according to indices.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.sgd_mom_update" title="mxnet.symbol.op.sgd_mom_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sgd_mom_update</span></code></a>([weight, grad, mom, lr, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.sgd_mom_update" title="mxnet.symbol.op.sgd_mom_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sgd_mom_update</span></code></a>([weight, grad, mom, lr, …])</p></td>
 <td><p>Momentum update function for Stochastic Gradient Descent (SGD) optimizer.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.sgd_update" title="mxnet.symbol.op.sgd_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sgd_update</span></code></a>([weight, grad, lr, wd, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.sgd_update" title="mxnet.symbol.op.sgd_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sgd_update</span></code></a>([weight, grad, lr, wd, …])</p></td>
 <td><p>Update function for Stochastic Gradient Descent (SGD) optimizer.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.shape_array" title="mxnet.symbol.op.shape_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape_array</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.shape_array" title="mxnet.symbol.op.shape_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape_array</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns a 1D int64 array containing the shape of data.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.shuffle" title="mxnet.symbol.op.shuffle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shuffle</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.shuffle" title="mxnet.symbol.op.shuffle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shuffle</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Randomly shuffle the elements.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.sigmoid" title="mxnet.symbol.op.sigmoid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sigmoid</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.sigmoid" title="mxnet.symbol.op.sigmoid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sigmoid</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Computes sigmoid of x element-wise.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.sign" title="mxnet.symbol.op.sign"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sign</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.sign" title="mxnet.symbol.op.sign"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sign</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns element-wise sign of the input.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.signsgd_update" title="mxnet.symbol.op.signsgd_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">signsgd_update</span></code></a>([weight, grad, lr, wd, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.signsgd_update" title="mxnet.symbol.op.signsgd_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">signsgd_update</span></code></a>([weight, grad, lr, wd, …])</p></td>
 <td><p>Update function for SignSGD optimizer.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.signum_update" title="mxnet.symbol.op.signum_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">signum_update</span></code></a>([weight, grad, mom, lr, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.signum_update" title="mxnet.symbol.op.signum_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">signum_update</span></code></a>([weight, grad, mom, lr, …])</p></td>
 <td><p>SIGN momentUM (Signum) optimizer.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.sin" title="mxnet.symbol.op.sin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sin</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.sin" title="mxnet.symbol.op.sin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sin</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Computes the element-wise sine of the input array.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.sinh" title="mxnet.symbol.op.sinh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sinh</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.sinh" title="mxnet.symbol.op.sinh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sinh</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns the hyperbolic sine of the input array, computed element-wise.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.size_array" title="mxnet.symbol.op.size_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">size_array</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.size_array" title="mxnet.symbol.op.size_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">size_array</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns a 1D int64 array containing the size of data.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.slice" title="mxnet.symbol.op.slice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">slice</span></code></a>([data, begin, end, step, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.slice" title="mxnet.symbol.op.slice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">slice</span></code></a>([data, begin, end, step, name, attr, out])</p></td>
 <td><p>Slices a region of the array.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.slice_axis" title="mxnet.symbol.op.slice_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">slice_axis</span></code></a>([data, axis, begin, end, name, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.slice_axis" title="mxnet.symbol.op.slice_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">slice_axis</span></code></a>([data, axis, begin, end, name, …])</p></td>
 <td><p>Slices along a given axis.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.slice_like" title="mxnet.symbol.op.slice_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">slice_like</span></code></a>([data, shape_like, axes, name, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.slice_like" title="mxnet.symbol.op.slice_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">slice_like</span></code></a>([data, shape_like, axes, name, …])</p></td>
 <td><p>Slices a region of the array like the shape of another array.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.smooth_l1" title="mxnet.symbol.op.smooth_l1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">smooth_l1</span></code></a>([data, scalar, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.smooth_l1" title="mxnet.symbol.op.smooth_l1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">smooth_l1</span></code></a>([data, scalar, name, attr, out])</p></td>
 <td><p>Calculate Smooth L1 Loss(lhs, scalar) by summing</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.softmax" title="mxnet.symbol.op.softmax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">softmax</span></code></a>([data, length, axis, temperature, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.softmax" title="mxnet.symbol.op.softmax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">softmax</span></code></a>([data, length, axis, temperature, …])</p></td>
 <td><p>Applies the softmax function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.softmax_cross_entropy" title="mxnet.symbol.op.softmax_cross_entropy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">softmax_cross_entropy</span></code></a>([data, label, name, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.softmax_cross_entropy" title="mxnet.symbol.op.softmax_cross_entropy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">softmax_cross_entropy</span></code></a>([data, label, name, …])</p></td>
 <td><p>Calculate cross entropy of softmax output and one-hot label.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.softmin" title="mxnet.symbol.op.softmin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">softmin</span></code></a>([data, axis, temperature, dtype, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.softmin" title="mxnet.symbol.op.softmin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">softmin</span></code></a>([data, axis, temperature, dtype, …])</p></td>
 <td><p>Applies the softmin function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.softsign" title="mxnet.symbol.op.softsign"><code class="xref py py-obj docutils literal notranslate"><span class="pre">softsign</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.softsign" title="mxnet.symbol.op.softsign"><code class="xref py py-obj docutils literal notranslate"><span class="pre">softsign</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Computes softsign of x element-wise.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.sort" title="mxnet.symbol.op.sort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sort</span></code></a>([data, axis, is_ascend, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.sort" title="mxnet.symbol.op.sort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sort</span></code></a>([data, axis, is_ascend, name, attr, out])</p></td>
 <td><p>Returns a sorted copy of an input array along the given axis.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.space_to_depth" title="mxnet.symbol.op.space_to_depth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">space_to_depth</span></code></a>([data, block_size, name, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.space_to_depth" title="mxnet.symbol.op.space_to_depth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">space_to_depth</span></code></a>([data, block_size, name, …])</p></td>
 <td><p>Rearranges(permutes) blocks of spatial data into depth.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.split" title="mxnet.symbol.op.split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split</span></code></a>([data, num_outputs, axis, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.split" title="mxnet.symbol.op.split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split</span></code></a>([data, num_outputs, axis, …])</p></td>
 <td><p>Splits an array along a particular axis into multiple sub-arrays.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.sqrt" title="mxnet.symbol.op.sqrt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sqrt</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.sqrt" title="mxnet.symbol.op.sqrt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sqrt</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns element-wise square-root value of the input.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.square" title="mxnet.symbol.op.square"><code class="xref py py-obj docutils literal notranslate"><span class="pre">square</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.square" title="mxnet.symbol.op.square"><code class="xref py py-obj docutils literal notranslate"><span class="pre">square</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns element-wise squared value of the input.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.squeeze" title="mxnet.symbol.op.squeeze"><code class="xref py py-obj docutils literal notranslate"><span class="pre">squeeze</span></code></a>([data, axis, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.squeeze" title="mxnet.symbol.op.squeeze"><code class="xref py py-obj docutils literal notranslate"><span class="pre">squeeze</span></code></a>([data, axis, name, attr, out])</p></td>
 <td><p>Remove single-dimensional entries from the shape of an array.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.stack" title="mxnet.symbol.op.stack"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stack</span></code></a>(*data, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.stack" title="mxnet.symbol.op.stack"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stack</span></code></a>(*data, **kwargs)</p></td>
 <td><p>Join a sequence of arrays along a new axis.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.stop_gradient" title="mxnet.symbol.op.stop_gradient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stop_gradient</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.stop_gradient" title="mxnet.symbol.op.stop_gradient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stop_gradient</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Stops gradient computation.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.sum" title="mxnet.symbol.op.sum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sum</span></code></a>([data, axis, keepdims, exclude, name, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.sum" title="mxnet.symbol.op.sum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sum</span></code></a>([data, axis, keepdims, exclude, name, …])</p></td>
 <td><p>Computes the sum of array elements over given axes.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.sum_axis" title="mxnet.symbol.op.sum_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sum_axis</span></code></a>([data, axis, keepdims, exclude, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.sum_axis" title="mxnet.symbol.op.sum_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sum_axis</span></code></a>([data, axis, keepdims, exclude, …])</p></td>
 <td><p>Computes the sum of array elements over given axes.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.swapaxes" title="mxnet.symbol.op.swapaxes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">swapaxes</span></code></a>([data, dim1, dim2, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.swapaxes" title="mxnet.symbol.op.swapaxes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">swapaxes</span></code></a>([data, dim1, dim2, name, attr, out])</p></td>
 <td><p>Interchanges two axes of an array.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.take" title="mxnet.symbol.op.take"><code class="xref py py-obj docutils literal notranslate"><span class="pre">take</span></code></a>([a, indices, axis, mode, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.take" title="mxnet.symbol.op.take"><code class="xref py py-obj docutils literal notranslate"><span class="pre">take</span></code></a>([a, indices, axis, mode, name, attr, out])</p></td>
 <td><p>Takes elements from an input array along the given axis.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.tan" title="mxnet.symbol.op.tan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tan</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.tan" title="mxnet.symbol.op.tan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tan</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Computes the element-wise tangent of the input array.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.tanh" title="mxnet.symbol.op.tanh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tanh</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.tanh" title="mxnet.symbol.op.tanh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tanh</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Returns the hyperbolic tangent of the input array, computed element-wise.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.tile" title="mxnet.symbol.op.tile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tile</span></code></a>([data, reps, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.tile" title="mxnet.symbol.op.tile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tile</span></code></a>([data, reps, name, attr, out])</p></td>
 <td><p>Repeats the whole array multiple times.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.topk" title="mxnet.symbol.op.topk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">topk</span></code></a>([data, axis, k, ret_typ, is_ascend, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.topk" title="mxnet.symbol.op.topk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">topk</span></code></a>([data, axis, k, ret_typ, is_ascend, …])</p></td>
 <td><p>Returns the indices of the top <em>k</em> elements in an input array along the given  axis (by default).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.transpose" title="mxnet.symbol.op.transpose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transpose</span></code></a>([data, axes, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.transpose" title="mxnet.symbol.op.transpose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transpose</span></code></a>([data, axes, name, attr, out])</p></td>
 <td><p>Permutes the dimensions of an array.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.trunc" title="mxnet.symbol.op.trunc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">trunc</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.trunc" title="mxnet.symbol.op.trunc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">trunc</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Return the element-wise truncated value of the input.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.uniform" title="mxnet.symbol.op.uniform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">uniform</span></code></a>([low, high, shape, ctx, dtype, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.uniform" title="mxnet.symbol.op.uniform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">uniform</span></code></a>([low, high, shape, ctx, dtype, …])</p></td>
 <td><p>Draw random samples from a uniform distribution.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.unravel_index" title="mxnet.symbol.op.unravel_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unravel_index</span></code></a>([data, shape, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.unravel_index" title="mxnet.symbol.op.unravel_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unravel_index</span></code></a>([data, shape, name, attr, out])</p></td>
 <td><p>Converts an array of flat indices into a batch of index arrays.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.where" title="mxnet.symbol.op.where"><code class="xref py py-obj docutils literal notranslate"><span class="pre">where</span></code></a>([condition, x, y, name, attr, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.where" title="mxnet.symbol.op.where"><code class="xref py py-obj docutils literal notranslate"><span class="pre">where</span></code></a>([condition, x, y, name, attr, out])</p></td>
 <td><p>Return the elements, either from x or y, depending on the condition.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.op.zeros_like" title="mxnet.symbol.op.zeros_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zeros_like</span></code></a>([data, name, attr, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.op.zeros_like" title="mxnet.symbol.op.zeros_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zeros_like</span></code></a>([data, name, attr, out])</p></td>
 <td><p>Return an array of zeros with the same shape, type and storage type as the input array.</p></td>
 </tr>
 </tbody>
@@ -2733,6 +2736,39 @@ This function support variable length of positional input.</p>
 <li><p><strong>offset</strong> (<em>Shape</em><em>(</em><em>tuple</em><em>)</em><em>, </em><em>optional</em><em>, </em><em>default=</em><em>[</em><em>0</em><em>,</em><em>0</em><em>]</em>) – crop offset coordinate: (y, x)</p></li>
 <li><p><strong>h_w</strong> (<em>Shape</em><em>(</em><em>tuple</em><em>)</em><em>, </em><em>optional</em><em>, </em><em>default=</em><em>[</em><em>0</em><em>,</em><em>0</em><em>]</em>) – crop height and width: (h, w)</p></li>
 <li><p><strong>center_crop</strong> (<em>boolean</em><em>, </em><em>optional</em><em>, </em><em>default=0</em>) – If set to true, then it will use be the center_crop,or it will crop using the shape of crop_like</p></li>
+<li><p><strong>name</strong> (<em>string</em><em>, </em><em>optional.</em>) – Name of the resulting symbol.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The result symbol.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../symbol.html#mxnet.symbol.Symbol" title="mxnet.symbol.Symbol">Symbol</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mxnet.symbol.op.CuDNNBatchNorm">
+<code class="sig-name descname">CuDNNBatchNorm</code><span class="sig-paren">(</span><em class="sig-param">data=None</em>, <em class="sig-param">gamma=None</em>, <em class="sig-param">beta=None</em>, <em class="sig-param">moving_mean=None</em>, <em class="sig-param">moving_var=None</em>, <em class="sig-param">eps=_Null</em>, <em class="sig-param">momentum=_Null</em>, <em class="sig-param">fix_gamma=_Null</em>, <em class="sig-param">use_global_stats=_Null</em>, <em class="sig-param">output_mean_var=_Null</em>, <em class="sig-param">axis=_Null</em>, <em class="sig-param">cudnn_off=_Null</em>, <em class="sig-param">min_calib_range=_Null</em>, <em class="sig-param">max_calib_range=_Null</em>, <em class="sig-param">name=None</em>, <em class="sig-param">attr=None</em>, <em class="sig-param">out=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.symbol.op.CuDNNBatchNorm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply batch normalization to input.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<a class="reference internal" href="../symbol.html#mxnet.symbol.Symbol" title="mxnet.symbol.Symbol"><em>Symbol</em></a>) – Input data to batch normalization</p></li>
+<li><p><strong>gamma</strong> (<a class="reference internal" href="../symbol.html#mxnet.symbol.Symbol" title="mxnet.symbol.Symbol"><em>Symbol</em></a>) – gamma array</p></li>
+<li><p><strong>beta</strong> (<a class="reference internal" href="../symbol.html#mxnet.symbol.Symbol" title="mxnet.symbol.Symbol"><em>Symbol</em></a>) – beta array</p></li>
+<li><p><strong>moving_mean</strong> (<a class="reference internal" href="../symbol.html#mxnet.symbol.Symbol" title="mxnet.symbol.Symbol"><em>Symbol</em></a>) – running mean of input</p></li>
+<li><p><strong>moving_var</strong> (<a class="reference internal" href="../symbol.html#mxnet.symbol.Symbol" title="mxnet.symbol.Symbol"><em>Symbol</em></a>) – running variance of input</p></li>
+<li><p><strong>eps</strong> (<em>double</em><em>, </em><em>optional</em><em>, </em><em>default=0.0010000000474974513</em>) – Epsilon to prevent div 0. Must be no less than CUDNN_BN_MIN_EPSILON defined in cudnn.h when using cudnn (usually 1e-5)</p></li>
+<li><p><strong>momentum</strong> (<em>float</em><em>, </em><em>optional</em><em>, </em><em>default=0.899999976</em>) – Momentum for moving average</p></li>
+<li><p><strong>fix_gamma</strong> (<em>boolean</em><em>, </em><em>optional</em><em>, </em><em>default=1</em>) – Fix gamma while training</p></li>
+<li><p><strong>use_global_stats</strong> (<em>boolean</em><em>, </em><em>optional</em><em>, </em><em>default=0</em>) – Whether use global moving statistics instead of local batch-norm. This will force change batch-norm into a scale shift operator.</p></li>
+<li><p><strong>output_mean_var</strong> (<em>boolean</em><em>, </em><em>optional</em><em>, </em><em>default=0</em>) – Output the mean and inverse std</p></li>
+<li><p><strong>axis</strong> (<em>int</em><em>, </em><em>optional</em><em>, </em><em>default='1'</em>) – Specify which shape axis the channel is specified</p></li>
+<li><p><strong>cudnn_off</strong> (<em>boolean</em><em>, </em><em>optional</em><em>, </em><em>default=0</em>) – Do not select CUDNN operator, if available</p></li>
+<li><p><strong>min_calib_range</strong> (<em>float</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default=None</em>) – The minimum scalar value in the form of float32 obtained through calibration. If present, it will be used to by quantized batch norm op to calculate primitive scale.Note: this calib_range is to calib bn output.</p></li>
+<li><p><strong>max_calib_range</strong> (<em>float</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default=None</em>) – The maximum scalar value in the form of float32 obtained through calibration. If present, it will be used to by quantized batch norm op to calculate primitive scale.Note: this calib_range is to calib bn output.</p></li>
 <li><p><strong>name</strong> (<em>string</em><em>, </em><em>optional.</em>) – Name of the resulting symbol.</p></li>
 </ul>
 </dd>
@@ -3310,7 +3346,7 @@ have shape <em>(k,)</em>. If <code class="docutils literal notranslate"><span cl
 <p>The parameter <code class="docutils literal notranslate"><span class="pre">axis</span></code> specifies which axis of the input shape denotes
 the ‘channel’ (separately normalized groups).  The default is -1, which sets the channel
 axis to be the last item in the input shape.</p>
-<p>Defined in /work/mxnet/src/operator/nn/layer_norm.cc:L422</p>
+<p>Defined in /work/mxnet/src/operator/nn/layer_norm.cc:L470</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
