@@ -1667,7 +1667,7 @@ Downloading /home/jenkins_slave/.mxnet/datasets/mnist/train-labels-idx1-ubyte.gz
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[09:56:13] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
+[15:56:01] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 <p>Let’s build a model and train it. After training, we will save and restore this model from a file.</p>
@@ -1686,8 +1686,8 @@ Downloading /home/jenkins_slave/.mxnet/datasets/mnist/train-labels-idx1-ubyte.gz
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[09:56:15] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for GPU
-[09:56:17] /work/mxnet/src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:97: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+[15:56:03] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for GPU
+[15:56:05] /work/mxnet/src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:97: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1695,25 +1695,25 @@ Downloading /home/jenkins_slave/.mxnet/datasets/mnist/train-labels-idx1-ubyte.gz
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Epoch: 0; Batch 0; Loss 2.325769
-Epoch: 0; Batch 50; Loss 0.564180
-Epoch: 0; Batch 100; Loss 0.319071
-Epoch: 0; Batch 150; Loss 0.097947
-Epoch: 0; Batch 200; Loss 0.319174
-Epoch: 0; Batch 250; Loss 0.138257
-Epoch: 0; Batch 300; Loss 0.059608
-Epoch: 0; Batch 350; Loss 0.105764
-Epoch: 0; Batch 400; Loss 0.141797
-Epoch: 0; Batch 450; Loss 0.116927
-Epoch: 0; Batch 500; Loss 0.074019
-Epoch: 0; Batch 550; Loss 0.008757
-Epoch: 0; Batch 600; Loss 0.045513
-Epoch: 0; Batch 650; Loss 0.010023
-Epoch: 0; Batch 700; Loss 0.066567
-Epoch: 0; Batch 750; Loss 0.026965
-Epoch: 0; Batch 800; Loss 0.002353
-Epoch: 0; Batch 850; Loss 0.037124
-Epoch: 0; Batch 900; Loss 0.080222
+Epoch: 0; Batch 0; Loss 2.367048
+Epoch: 0; Batch 50; Loss 0.492447
+Epoch: 0; Batch 100; Loss 0.194988
+Epoch: 0; Batch 150; Loss 0.059916
+Epoch: 0; Batch 200; Loss 0.111990
+Epoch: 0; Batch 250; Loss 0.102179
+Epoch: 0; Batch 300; Loss 0.118671
+Epoch: 0; Batch 350; Loss 0.127936
+Epoch: 0; Batch 400; Loss 0.036480
+Epoch: 0; Batch 450; Loss 0.204328
+Epoch: 0; Batch 500; Loss 0.232668
+Epoch: 0; Batch 550; Loss 0.014095
+Epoch: 0; Batch 600; Loss 0.042001
+Epoch: 0; Batch 650; Loss 0.011908
+Epoch: 0; Batch 700; Loss 0.054819
+Epoch: 0; Batch 750; Loss 0.113467
+Epoch: 0; Batch 800; Loss 0.026032
+Epoch: 0; Batch 850; Loss 0.047836
+Epoch: 0; Batch 900; Loss 0.065951
 </pre></div></div>
 </div>
 <pre>Epoch: 0; Batch 0; Loss 2.288904 <!--notebook-skip-line-->
@@ -1827,7 +1827,7 @@ Downloading /home/jenkins_slave/.mxnet/datasets/mnist/t10k-labels-idx1-ubyte.gz 
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Model predictions:  [0 2 8 6 2 1 1 1 7 7]
+Model predictions:  [8 5 3 1 2 3 9 9 7 9]
 </pre></div></div>
 </div>
 <p><img alt="Model inputs mnist in 1" src="https://raw.githubusercontent.com/indhub/web-data/4a9c100aa996df3dff0e7f493029d411c2b526c3/mxnet/tutorials/gluon/save_load_params/mnist_in_1.png" /></p>
@@ -1853,25 +1853,25 @@ Model predictions:  [0 2 8 6 2 1 1 1 7 7]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Epoch: 0; Batch 0; Loss 2.329172
-Epoch: 0; Batch 50; Loss 0.454245
-Epoch: 0; Batch 100; Loss 0.232503
-Epoch: 0; Batch 150; Loss 0.062394
-Epoch: 0; Batch 200; Loss 0.229192
-Epoch: 0; Batch 250; Loss 0.137061
-Epoch: 0; Batch 300; Loss 0.037652
-Epoch: 0; Batch 350; Loss 0.308889
-Epoch: 0; Batch 400; Loss 0.066510
-Epoch: 0; Batch 450; Loss 0.071108
-Epoch: 0; Batch 500; Loss 0.222918
-Epoch: 0; Batch 550; Loss 0.016820
-Epoch: 0; Batch 600; Loss 0.040961
-Epoch: 0; Batch 650; Loss 0.022353
-Epoch: 0; Batch 700; Loss 0.010067
-Epoch: 0; Batch 750; Loss 0.021234
-Epoch: 0; Batch 800; Loss 0.004208
-Epoch: 0; Batch 850; Loss 0.090344
-Epoch: 0; Batch 900; Loss 0.124708
+Epoch: 0; Batch 0; Loss 2.307634
+Epoch: 0; Batch 50; Loss 0.354011
+Epoch: 0; Batch 100; Loss 0.150122
+Epoch: 0; Batch 150; Loss 0.219432
+Epoch: 0; Batch 200; Loss 0.154314
+Epoch: 0; Batch 250; Loss 0.179246
+Epoch: 0; Batch 300; Loss 0.080331
+Epoch: 0; Batch 350; Loss 0.084590
+Epoch: 0; Batch 400; Loss 0.062129
+Epoch: 0; Batch 450; Loss 0.017609
+Epoch: 0; Batch 500; Loss 0.026643
+Epoch: 0; Batch 550; Loss 0.029779
+Epoch: 0; Batch 600; Loss 0.016568
+Epoch: 0; Batch 650; Loss 0.119496
+Epoch: 0; Batch 700; Loss 0.013790
+Epoch: 0; Batch 750; Loss 0.012179
+Epoch: 0; Batch 800; Loss 0.038638
+Epoch: 0; Batch 850; Loss 0.085666
+Epoch: 0; Batch 900; Loss 0.007744
 </pre></div></div>
 </div>
 <pre>Epoch: 0; Batch 0; Loss 2.323284 <!--notebook-skip-line-->
@@ -1953,7 +1953,7 @@ Epoch: 0; Batch 900; Loss 0.037809 <!--notebook-skip-line-->
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Model predictions:  [1 2 8 8 3 7 1 4 1 4]
+Model predictions:  [5 3 5 8 0 7 3 3 9 3]
 </pre></div></div>
 </div>
 <p><img alt="Model inputs mnist in 2" src="https://raw.githubusercontent.com/indhub/web-data/4a9c100aa996df3dff0e7f493029d411c2b526c3/mxnet/tutorials/gluon/save_load_params/mnist_in_2.png" /></p>
