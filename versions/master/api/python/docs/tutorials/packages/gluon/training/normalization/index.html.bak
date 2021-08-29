@@ -1592,7 +1592,7 @@ towards a distribution with a mean of 0 (i.e. zero-centered) and a standard dis
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[04:04:27] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
+[10:05:48] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
