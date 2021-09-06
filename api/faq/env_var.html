@@ -1018,6 +1018,12 @@ If ctypes is used, it must be <code class="highlighter-rouge">mxnet._ctypes.ndar
       <li>Flag to set num of elements that ONEDNN cache can hold. Default is -1 which means cache size is unbounded. Should only be set if your model has variable input shapes, as cache size may grow unbounded. The number represents the number of items in the cache and is proportional to the number of layers that use ONEDNN and different input shape.</li>
     </ul>
   </li>
+  <li>MXNET_ONEDNN_FORCE_FC_AB_FORMAT
+    <ul>
+      <li>Values: 0, 1 <code class="highlighter-rouge">(default=0)</code></li>
+      <li>If set to true, FullyConnected will use only AB format for weights, thus MXNet won’t use BRGEMM implementation of FC on machines with AVX512-VNNI support which requires special weights format.</li>
+    </ul>
+  </li>
   <li>MXNET_ENFORCE_DETERMINISM
     <ul>
       <li>Values: 0(false) or 1(true) <code class="highlighter-rouge">(default=0)</code></li>
