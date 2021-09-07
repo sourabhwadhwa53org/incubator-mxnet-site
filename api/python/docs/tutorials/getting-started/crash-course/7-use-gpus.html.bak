@@ -1603,7 +1603,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[03:36:59] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for GPU
+[09:48:21] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for GPU
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1634,10 +1634,10 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[
+[09:48:22] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
-<div class="nboutput docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
@@ -1647,14 +1647,6 @@ div.rendered_html tbody tr:hover {
        [1., 1., 1., 1.]])
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-03:37:00] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
-</pre></div></div>
 </div>
 <p>MXNet requries that users explicitly move data between devices. But several operators such as <code class="docutils literal notranslate"><span class="pre">print</span></code>, and <code class="docutils literal notranslate"><span class="pre">asnumpy</span></code>, will implicitly move data to main memory.</p>
 </div>
@@ -1766,7 +1758,7 @@ while training neural networks.</p>
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[03:37:00] /work/mxnet/src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:97: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+[09:48:22] /work/mxnet/src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:97: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1774,7 +1766,7 @@ while training neural networks.</p>
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([[ 0.96624357, -2.5876825 ]], ctx=gpu(0))
+<span></span>array([[ 4.327322  , -0.45523313]], ctx=gpu(0))
 </pre></div>
 </div>
 </div>
@@ -1923,326 +1915,326 @@ while training neural networks.</p>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Using 1 GPUs
-Epoch[1] Batch[5] Speed: 0.7774763951807372 samples/sec                   batch loss = 13.556180000305176 | accuracy = 0.6
-Epoch[1] Batch[10] Speed: 1.2592524818633424 samples/sec                   batch loss = 27.58617353439331 | accuracy = 0.55
-Epoch[1] Batch[15] Speed: 1.2526096756636087 samples/sec                   batch loss = 42.163631200790405 | accuracy = 0.5333333333333333
-Epoch[1] Batch[20] Speed: 1.2531315561307872 samples/sec                   batch loss = 55.36625862121582 | accuracy = 0.55
-Epoch[1] Batch[25] Speed: 1.2501401611353813 samples/sec                   batch loss = 69.27478432655334 | accuracy = 0.53
-Epoch[1] Batch[30] Speed: 1.2588449659004997 samples/sec                   batch loss = 82.893559217453 | accuracy = 0.55
-Epoch[1] Batch[35] Speed: 1.2555115288628858 samples/sec                   batch loss = 97.17633008956909 | accuracy = 0.5357142857142857
-Epoch[1] Batch[40] Speed: 1.2547965602099014 samples/sec                   batch loss = 110.52748250961304 | accuracy = 0.54375
-Epoch[1] Batch[45] Speed: 1.257795691387378 samples/sec                   batch loss = 124.73583054542542 | accuracy = 0.5444444444444444
-Epoch[1] Batch[50] Speed: 1.2578642494271381 samples/sec                   batch loss = 139.42426323890686 | accuracy = 0.53
-Epoch[1] Batch[55] Speed: 1.2516752514154745 samples/sec                   batch loss = 153.82677912712097 | accuracy = 0.5363636363636364
-Epoch[1] Batch[60] Speed: 1.2541545905600908 samples/sec                   batch loss = 167.75646305084229 | accuracy = 0.5333333333333333
-Epoch[1] Batch[65] Speed: 1.2564201704926066 samples/sec                   batch loss = 180.8613932132721 | accuracy = 0.5346153846153846
-Epoch[1] Batch[70] Speed: 1.2554943352693206 samples/sec                   batch loss = 193.8033425807953 | accuracy = 0.55
-Epoch[1] Batch[75] Speed: 1.2572995992385705 samples/sec                   batch loss = 207.71337628364563 | accuracy = 0.5533333333333333
-Epoch[1] Batch[80] Speed: 1.2519036121994747 samples/sec                   batch loss = 221.0969009399414 | accuracy = 0.55625
-Epoch[1] Batch[85] Speed: 1.2546560849251465 samples/sec                   batch loss = 234.61986923217773 | accuracy = 0.5558823529411765
-Epoch[1] Batch[90] Speed: 1.2534318015842332 samples/sec                   batch loss = 248.25268936157227 | accuracy = 0.5555555555555556
-Epoch[1] Batch[95] Speed: 1.2531009498482997 samples/sec                   batch loss = 262.0067641735077 | accuracy = 0.5605263157894737
-Epoch[1] Batch[100] Speed: 1.2581644084817352 samples/sec                   batch loss = 275.66291522979736 | accuracy = 0.56
-Epoch[1] Batch[105] Speed: 1.250546906905931 samples/sec                   batch loss = 289.75682950019836 | accuracy = 0.5619047619047619
-Epoch[1] Batch[110] Speed: 1.2530848517309072 samples/sec                   batch loss = 304.39286279678345 | accuracy = 0.5522727272727272
-Epoch[1] Batch[115] Speed: 1.2527850530935223 samples/sec                   batch loss = 318.27429699897766 | accuracy = 0.5565217391304348
-Epoch[1] Batch[120] Speed: 1.2550268125093227 samples/sec                   batch loss = 331.9677197933197 | accuracy = 0.5583333333333333
-Epoch[1] Batch[125] Speed: 1.2520661773793056 samples/sec                   batch loss = 346.30039501190186 | accuracy = 0.554
-Epoch[1] Batch[130] Speed: 1.2576076902203652 samples/sec                   batch loss = 359.952819108963 | accuracy = 0.551923076923077
-Epoch[1] Batch[135] Speed: 1.2556347164122226 samples/sec                   batch loss = 372.8932001590729 | accuracy = 0.5574074074074075
-Epoch[1] Batch[140] Speed: 1.2603132781312658 samples/sec                   batch loss = 386.5837912559509 | accuracy = 0.5535714285714286
-Epoch[1] Batch[145] Speed: 1.2536908753596834 samples/sec                   batch loss = 400.9111125469208 | accuracy = 0.5482758620689655
-Epoch[1] Batch[150] Speed: 1.2544561706792123 samples/sec                   batch loss = 414.7470338344574 | accuracy = 0.5416666666666666
-Epoch[1] Batch[155] Speed: 1.2505837274294793 samples/sec                   batch loss = 428.87869095802307 | accuracy = 0.5387096774193548
-Epoch[1] Batch[160] Speed: 1.2494499981046616 samples/sec                   batch loss = 443.0650222301483 | accuracy = 0.540625
-Epoch[1] Batch[165] Speed: 1.2480637853033585 samples/sec                   batch loss = 456.7422800064087 | accuracy = 0.5424242424242425
-Epoch[1] Batch[170] Speed: 1.2529104195892715 samples/sec                   batch loss = 470.347487449646 | accuracy = 0.5397058823529411
-Epoch[1] Batch[175] Speed: 1.2509535443426267 samples/sec                   batch loss = 483.5874094963074 | accuracy = 0.5457142857142857
-Epoch[1] Batch[180] Speed: 1.2531963303190878 samples/sec                   batch loss = 496.85154700279236 | accuracy = 0.5527777777777778
-Epoch[1] Batch[185] Speed: 1.2549519923649157 samples/sec                   batch loss = 510.424427986145 | accuracy = 0.5540540540540541
-Epoch[1] Batch[190] Speed: 1.256980734735002 samples/sec                   batch loss = 524.5721743106842 | accuracy = 0.5513157894736842
-Epoch[1] Batch[195] Speed: 1.2485646937509758 samples/sec                   batch loss = 538.7726094722748 | accuracy = 0.5448717948717948
-Epoch[1] Batch[200] Speed: 1.2556215602197387 samples/sec                   batch loss = 552.212681055069 | accuracy = 0.54875
-Epoch[1] Batch[205] Speed: 1.2516919670268427 samples/sec                   batch loss = 565.7517750263214 | accuracy = 0.5536585365853659
-Epoch[1] Batch[210] Speed: 1.2577580677990117 samples/sec                   batch loss = 579.8714318275452 | accuracy = 0.555952380952381
-Epoch[1] Batch[215] Speed: 1.2524090105999153 samples/sec                   batch loss = 593.9883763790131 | accuracy = 0.5534883720930233
-Epoch[1] Batch[220] Speed: 1.2546330038191145 samples/sec                   batch loss = 608.141725063324 | accuracy = 0.5511363636363636
-Epoch[1] Batch[225] Speed: 1.2597241992628714 samples/sec                   batch loss = 621.9125261306763 | accuracy = 0.5522222222222222
-Epoch[1] Batch[230] Speed: 1.257481287739599 samples/sec                   batch loss = 635.5968225002289 | accuracy = 0.5532608695652174
-Epoch[1] Batch[235] Speed: 1.2540737812255829 samples/sec                   batch loss = 648.6630847454071 | accuracy = 0.5531914893617021
-Epoch[1] Batch[240] Speed: 1.2624059490706985 samples/sec                   batch loss = 662.6116933822632 | accuracy = 0.553125
-Epoch[1] Batch[245] Speed: 1.2547511392420778 samples/sec                   batch loss = 676.1782948970795 | accuracy = 0.5530612244897959
-Epoch[1] Batch[250] Speed: 1.25999193711672 samples/sec                   batch loss = 689.1890821456909 | accuracy = 0.554
-Epoch[1] Batch[255] Speed: 1.2556053033055665 samples/sec                   batch loss = 703.2335681915283 | accuracy = 0.5519607843137255
-Epoch[1] Batch[260] Speed: 1.2580047837608572 samples/sec                   batch loss = 716.3701531887054 | accuracy = 0.5509615384615385
-Epoch[1] Batch[265] Speed: 1.255354643035146 samples/sec                   batch loss = 730.1114976406097 | accuracy = 0.5528301886792453
-Epoch[1] Batch[270] Speed: 1.2534259020187242 samples/sec                   batch loss = 744.271322965622 | accuracy = 0.55
-Epoch[1] Batch[275] Speed: 1.257016145672637 samples/sec                   batch loss = 756.941558599472 | accuracy = 0.5554545454545454
-Epoch[1] Batch[280] Speed: 1.25505713739194 samples/sec                   batch loss = 770.5880405902863 | accuracy = 0.55625
-Epoch[1] Batch[285] Speed: 1.2606671794330775 samples/sec                   batch loss = 783.4854502677917 | accuracy = 0.5596491228070175
-Epoch[1] Batch[290] Speed: 1.2559734893214807 samples/sec                   batch loss = 797.4688787460327 | accuracy = 0.5586206896551724
-Epoch[1] Batch[295] Speed: 1.2538086460191844 samples/sec                   batch loss = 811.1558265686035 | accuracy = 0.5567796610169492
-Epoch[1] Batch[300] Speed: 1.2568768678824935 samples/sec                   batch loss = 824.723828792572 | accuracy = 0.5558333333333333
-Epoch[1] Batch[305] Speed: 1.2525477674670566 samples/sec                   batch loss = 838.9813847541809 | accuracy = 0.5549180327868852
-Epoch[1] Batch[310] Speed: 1.2549588450308473 samples/sec                   batch loss = 852.1379737854004 | accuracy = 0.557258064516129
-Epoch[1] Batch[315] Speed: 1.251604565190697 samples/sec                   batch loss = 865.7568819522858 | accuracy = 0.5571428571428572
-Epoch[1] Batch[320] Speed: 1.2552484150794267 samples/sec                   batch loss = 879.6810326576233 | accuracy = 0.55546875
-Epoch[1] Batch[325] Speed: 1.2557296371132527 samples/sec                   batch loss = 893.2602982521057 | accuracy = 0.5546153846153846
-Epoch[1] Batch[330] Speed: 1.2537314414340763 samples/sec                   batch loss = 906.4305517673492 | accuracy = 0.5568181818181818
-Epoch[1] Batch[335] Speed: 1.252995102948612 samples/sec                   batch loss = 919.2723143100739 | accuracy = 0.5604477611940298
-Epoch[1] Batch[340] Speed: 1.2506430176896208 samples/sec                   batch loss = 933.0617372989655 | accuracy = 0.5588235294117647
-Epoch[1] Batch[345] Speed: 1.2574221955206757 samples/sec                   batch loss = 946.655680179596 | accuracy = 0.5601449275362319
-Epoch[1] Batch[350] Speed: 1.2536606164639978 samples/sec                   batch loss = 959.9653673171997 | accuracy = 0.5607142857142857
-Epoch[1] Batch[355] Speed: 1.2566818931676096 samples/sec                   batch loss = 973.3725790977478 | accuracy = 0.5626760563380282
-Epoch[1] Batch[360] Speed: 1.256958415568013 samples/sec                   batch loss = 987.0207324028015 | accuracy = 0.5625
-Epoch[1] Batch[365] Speed: 1.2572722751164387 samples/sec                   batch loss = 1000.9547533988953 | accuracy = 0.5616438356164384
-Epoch[1] Batch[370] Speed: 1.257675756368621 samples/sec                   batch loss = 1013.6907210350037 | accuracy = 0.5641891891891891
-Epoch[1] Batch[375] Speed: 1.25646307763362 samples/sec                   batch loss = 1026.7844145298004 | accuracy = 0.566
-Epoch[1] Batch[380] Speed: 1.2572470249146328 samples/sec                   batch loss = 1040.0661561489105 | accuracy = 0.5671052631578948
-Epoch[1] Batch[385] Speed: 1.2552417470806858 samples/sec                   batch loss = 1053.5664870738983 | accuracy = 0.5688311688311688
-Epoch[1] Batch[390] Speed: 1.2556606537135029 samples/sec                   batch loss = 1068.058317899704 | accuracy = 0.5679487179487179
-Epoch[1] Batch[395] Speed: 1.2538512812667524 samples/sec                   batch loss = 1081.650488615036 | accuracy = 0.569620253164557
-Epoch[1] Batch[400] Speed: 1.2579048974060065 samples/sec                   batch loss = 1095.3414103984833 | accuracy = 0.56875
-Epoch[1] Batch[405] Speed: 1.2565750640206903 samples/sec                   batch loss = 1109.6148726940155 | accuracy = 0.5666666666666667
-Epoch[1] Batch[410] Speed: 1.2518462573211209 samples/sec                   batch loss = 1123.2940628528595 | accuracy = 0.5658536585365853
-Epoch[1] Batch[415] Speed: 1.2548703293668713 samples/sec                   batch loss = 1136.9926931858063 | accuracy = 0.5650602409638554
-Epoch[1] Batch[420] Speed: 1.2574274730687491 samples/sec                   batch loss = 1149.908932685852 | accuracy = 0.5660714285714286
-Epoch[1] Batch[425] Speed: 1.250742872955995 samples/sec                   batch loss = 1163.706796169281 | accuracy = 0.5664705882352942
-Epoch[1] Batch[430] Speed: 1.254703375697194 samples/sec                   batch loss = 1176.0717604160309 | accuracy = 0.5686046511627907
-Epoch[1] Batch[435] Speed: 1.2539124749418793 samples/sec                   batch loss = 1189.9524283409119 | accuracy = 0.5672413793103448
-Epoch[1] Batch[440] Speed: 1.2504167008265448 samples/sec                   batch loss = 1203.0092890262604 | accuracy = 0.56875
-Epoch[1] Batch[445] Speed: 1.2556733408272098 samples/sec                   batch loss = 1215.5781223773956 | accuracy = 0.5696629213483146
-Epoch[1] Batch[450] Speed: 1.2511933988074104 samples/sec                   batch loss = 1228.7793564796448 | accuracy = 0.57
-Epoch[1] Batch[455] Speed: 1.2541304966642666 samples/sec                   batch loss = 1241.6230599880219 | accuracy = 0.5725274725274725
-Epoch[1] Batch[460] Speed: 1.252830051165467 samples/sec                   batch loss = 1254.2923011779785 | accuracy = 0.5739130434782609
-Epoch[1] Batch[465] Speed: 1.254255476223317 samples/sec                   batch loss = 1267.8147447109222 | accuracy = 0.5741935483870968
-Epoch[1] Batch[470] Speed: 1.2557601839552337 samples/sec                   batch loss = 1280.655455827713 | accuracy = 0.575
-Epoch[1] Batch[475] Speed: 1.250025593268352 samples/sec                   batch loss = 1293.894413948059 | accuracy = 0.5742105263157895
-Epoch[1] Batch[480] Speed: 1.2490918570638 samples/sec                   batch loss = 1306.8216607570648 | accuracy = 0.575
-Epoch[1] Batch[485] Speed: 1.2608651932487578 samples/sec                   batch loss = 1319.147490978241 | accuracy = 0.5768041237113402
-Epoch[1] Batch[490] Speed: 1.255997654083819 samples/sec                   batch loss = 1332.934050321579 | accuracy = 0.576530612244898
-Epoch[1] Batch[495] Speed: 1.2559593858043157 samples/sec                   batch loss = 1345.5846710205078 | accuracy = 0.5762626262626263
-Epoch[1] Batch[500] Speed: 1.2504435413786616 samples/sec                   batch loss = 1358.0764486789703 | accuracy = 0.5785
-Epoch[1] Batch[505] Speed: 1.256841276482418 samples/sec                   batch loss = 1370.2438170909882 | accuracy = 0.5792079207920792
-Epoch[1] Batch[510] Speed: 1.2570460016569087 samples/sec                   batch loss = 1383.5620067119598 | accuracy = 0.5799019607843138
-Epoch[1] Batch[515] Speed: 1.2525989207793833 samples/sec                   batch loss = 1396.5405814647675 | accuracy = 0.5815533980582525
-Epoch[1] Batch[520] Speed: 1.249539891179637 samples/sec                   batch loss = 1411.5383279323578 | accuracy = 0.5798076923076924
-Epoch[1] Batch[525] Speed: 1.2544859051795236 samples/sec                   batch loss = 1425.1648387908936 | accuracy = 0.58
-Epoch[1] Batch[530] Speed: 1.2527984305610482 samples/sec                   batch loss = 1440.1409521102905 | accuracy = 0.5797169811320755
-Epoch[1] Batch[535] Speed: 1.2512227922022907 samples/sec                   batch loss = 1453.638426542282 | accuracy = 0.5799065420560747
-Epoch[1] Batch[540] Speed: 1.2497050080145604 samples/sec                   batch loss = 1466.5513155460358 | accuracy = 0.5796296296296296
-Epoch[1] Batch[545] Speed: 1.251913420970373 samples/sec                   batch loss = 1479.7055468559265 | accuracy = 0.5802752293577982
-Epoch[1] Batch[550] Speed: 1.2551371345162459 samples/sec                   batch loss = 1492.3221950531006 | accuracy = 0.5809090909090909
-Epoch[1] Batch[555] Speed: 1.258795756809223 samples/sec                   batch loss = 1506.056235551834 | accuracy = 0.5801801801801801
-Epoch[1] Batch[560] Speed: 1.2567138042507495 samples/sec                   batch loss = 1519.864496231079 | accuracy = 0.5790178571428571
-Epoch[1] Batch[565] Speed: 1.2503427088824985 samples/sec                   batch loss = 1532.8589470386505 | accuracy = 0.5805309734513274
-Epoch[1] Batch[570] Speed: 1.25394199623172 samples/sec                   batch loss = 1546.249452829361 | accuracy = 0.581140350877193
-Epoch[1] Batch[575] Speed: 1.2537817545081045 samples/sec                   batch loss = 1561.2172877788544 | accuracy = 0.5795652173913044
-Epoch[1] Batch[580] Speed: 1.2468393545799892 samples/sec                   batch loss = 1574.5450558662415 | accuracy = 0.5793103448275863
-Epoch[1] Batch[585] Speed: 1.252446969329367 samples/sec                   batch loss = 1586.9116599559784 | accuracy = 0.57991452991453
-Epoch[1] Batch[590] Speed: 1.2542439429327474 samples/sec                   batch loss = 1599.2149567604065 | accuracy = 0.5805084745762712
-Epoch[1] Batch[595] Speed: 1.2523397371755143 samples/sec                   batch loss = 1612.5701823234558 | accuracy = 0.5798319327731093
-Epoch[1] Batch[600] Speed: 1.2586582562139683 samples/sec                   batch loss = 1625.3060059547424 | accuracy = 0.5804166666666667
-Epoch[1] Batch[605] Speed: 1.2552969715162665 samples/sec                   batch loss = 1638.8938403129578 | accuracy = 0.5801652892561984
-Epoch[1] Batch[610] Speed: 1.25529903783095 samples/sec                   batch loss = 1652.0094377994537 | accuracy = 0.580327868852459
-Epoch[1] Batch[615] Speed: 1.2521897177716996 samples/sec                   batch loss = 1664.4179458618164 | accuracy = 0.5813008130081301
-Epoch[1] Batch[620] Speed: 1.2591194172746978 samples/sec                   batch loss = 1677.3356075286865 | accuracy = 0.582258064516129
-Epoch[1] Batch[625] Speed: 1.2578464255039419 samples/sec                   batch loss = 1691.1388030052185 | accuracy = 0.5816
-Epoch[1] Batch[630] Speed: 1.2523106651873315 samples/sec                   batch loss = 1703.8583006858826 | accuracy = 0.5825396825396826
-Epoch[1] Batch[635] Speed: 1.2512101948639516 samples/sec                   batch loss = 1716.9513053894043 | accuracy = 0.5838582677165355
-Epoch[1] Batch[640] Speed: 1.2551910350423248 samples/sec                   batch loss = 1730.4313991069794 | accuracy = 0.583203125
-Epoch[1] Batch[645] Speed: 1.2555201728145853 samples/sec                   batch loss = 1741.7436048984528 | accuracy = 0.5856589147286821
-Epoch[1] Batch[650] Speed: 1.2565584059581836 samples/sec                   batch loss = 1753.7014927864075 | accuracy = 0.5861538461538461
-Epoch[1] Batch[655] Speed: 1.2553178228219184 samples/sec                   batch loss = 1767.4717750549316 | accuracy = 0.5858778625954199
-Epoch[1] Batch[660] Speed: 1.2500505542338518 samples/sec                   batch loss = 1781.417095899582 | accuracy = 0.5848484848484848
-Epoch[1] Batch[665] Speed: 1.2579574324442366 samples/sec                   batch loss = 1794.0180399417877 | accuracy = 0.5853383458646616
-Epoch[1] Batch[670] Speed: 1.2570808511295113 samples/sec                   batch loss = 1806.4789581298828 | accuracy = 0.5861940298507463
-Epoch[1] Batch[675] Speed: 1.251515775184202 samples/sec                   batch loss = 1821.117225408554 | accuracy = 0.585925925925926
-Epoch[1] Batch[680] Speed: 1.2586581617870691 samples/sec                   batch loss = 1835.1895053386688 | accuracy = 0.5852941176470589
-Epoch[1] Batch[685] Speed: 1.2559059833564095 samples/sec                   batch loss = 1848.1436114311218 | accuracy = 0.5846715328467154
-Epoch[1] Batch[690] Speed: 1.252535143434966 samples/sec                   batch loss = 1860.9682313203812 | accuracy = 0.5851449275362319
-Epoch[1] Batch[695] Speed: 1.2497584429865483 samples/sec                   batch loss = 1872.9173010587692 | accuracy = 0.5852517985611511
-Epoch[1] Batch[700] Speed: 1.2552992256780768 samples/sec                   batch loss = 1885.8708943128586 | accuracy = 0.5853571428571429
-Epoch[1] Batch[705] Speed: 1.2504152097185457 samples/sec                   batch loss = 1897.7966712713242 | accuracy = 0.5861702127659575
-Epoch[1] Batch[710] Speed: 1.2550660567539593 samples/sec                   batch loss = 1908.722987294197 | accuracy = 0.5876760563380282
-Epoch[1] Batch[715] Speed: 1.2514101958968415 samples/sec                   batch loss = 1921.6353780031204 | accuracy = 0.5874125874125874
-Epoch[1] Batch[720] Speed: 1.2623226482837577 samples/sec                   batch loss = 1934.9061669111252 | accuracy = 0.5881944444444445
-Epoch[1] Batch[725] Speed: 1.246766989851877 samples/sec                   batch loss = 1946.5022255182266 | accuracy = 0.5886206896551724
-Epoch[1] Batch[730] Speed: 1.2527491317971144 samples/sec                   batch loss = 1958.3738104104996 | accuracy = 0.5893835616438357
-Epoch[1] Batch[735] Speed: 1.2566277704046211 samples/sec                   batch loss = 1970.8460718393326 | accuracy = 0.5901360544217688
-Epoch[1] Batch[740] Speed: 1.2535525207610192 samples/sec                   batch loss = 1985.0617076158524 | accuracy = 0.5891891891891892
-Epoch[1] Batch[745] Speed: 1.2540284125678685 samples/sec                   batch loss = 1999.3106707334518 | accuracy = 0.5885906040268456
-Epoch[1] Batch[750] Speed: 1.251874373632494 samples/sec                   batch loss = 2011.7098333835602 | accuracy = 0.589
-Epoch[1] Batch[755] Speed: 1.2526949731118686 samples/sec                   batch loss = 2024.4912178516388 | accuracy = 0.5890728476821192
-Epoch[1] Batch[760] Speed: 1.251349059538671 samples/sec                   batch loss = 2038.7929549217224 | accuracy = 0.5884868421052631
-Epoch[1] Batch[765] Speed: 1.2552187383332447 samples/sec                   batch loss = 2051.1417129039764 | accuracy = 0.5888888888888889
-Epoch[1] Batch[770] Speed: 1.2515161486173636 samples/sec                   batch loss = 2064.1865565776825 | accuracy = 0.5883116883116883
-Epoch[1] Batch[775] Speed: 1.255708772124687 samples/sec                   batch loss = 2077.2381324768066 | accuracy = 0.5887096774193549
-Epoch[1] Batch[780] Speed: 1.2531567348968622 samples/sec                   batch loss = 2090.4823117256165 | accuracy = 0.5884615384615385
-Epoch[1] Batch[785] Speed: 1.250438229094596 samples/sec                   batch loss = 2103.002591609955 | accuracy = 0.589171974522293
-[Epoch 1] training: accuracy=0.5901015228426396
-[Epoch 1] time cost: 646.7240388393402
-[Epoch 1] validation: validation accuracy=0.66
-Epoch[2] Batch[5] Speed: 1.246448351439675 samples/sec                   batch loss = 10.389495611190796 | accuracy = 0.85
-Epoch[2] Batch[10] Speed: 1.2544300955267211 samples/sec                   batch loss = 22.63936722278595 | accuracy = 0.75
-Epoch[2] Batch[15] Speed: 1.250251395886184 samples/sec                   batch loss = 34.740644693374634 | accuracy = 0.7
-Epoch[2] Batch[20] Speed: 1.2526659781584815 samples/sec                   batch loss = 45.95945858955383 | accuracy = 0.7125
-Epoch[2] Batch[25] Speed: 1.250653832242644 samples/sec                   batch loss = 59.34159231185913 | accuracy = 0.7
-Epoch[2] Batch[30] Speed: 1.2566654205288263 samples/sec                   batch loss = 69.66549384593964 | accuracy = 0.725
-Epoch[2] Batch[35] Speed: 1.250632949135966 samples/sec                   batch loss = 83.31095135211945 | accuracy = 0.7
-Epoch[2] Batch[40] Speed: 1.2506859973203446 samples/sec                   batch loss = 95.17073404788971 | accuracy = 0.70625
-Epoch[2] Batch[45] Speed: 1.2494013346833277 samples/sec                   batch loss = 108.36108434200287 | accuracy = 0.7055555555555556
-Epoch[2] Batch[50] Speed: 1.2482651963561273 samples/sec                   batch loss = 120.6958841085434 | accuracy = 0.7
-Epoch[2] Batch[55] Speed: 1.251284942784116 samples/sec                   batch loss = 135.35539734363556 | accuracy = 0.6818181818181818
-Epoch[2] Batch[60] Speed: 1.250100665450038 samples/sec                   batch loss = 146.88205301761627 | accuracy = 0.6791666666666667
-Epoch[2] Batch[65] Speed: 1.2535190841844868 samples/sec                   batch loss = 158.01218521595 | accuracy = 0.6807692307692308
-Epoch[2] Batch[70] Speed: 1.2544724916499805 samples/sec                   batch loss = 170.4664375782013 | accuracy = 0.6785714285714286
-Epoch[2] Batch[75] Speed: 1.256415748212643 samples/sec                   batch loss = 181.7860403060913 | accuracy = 0.6833333333333333
-Epoch[2] Batch[80] Speed: 1.252699743377939 samples/sec                   batch loss = 191.77506053447723 | accuracy = 0.696875
-Epoch[2] Batch[85] Speed: 1.2540557833487127 samples/sec                   batch loss = 203.932377576828 | accuracy = 0.6941176470588235
-Epoch[2] Batch[90] Speed: 1.2528990981512864 samples/sec                   batch loss = 216.1828420162201 | accuracy = 0.6916666666666667
-Epoch[2] Batch[95] Speed: 1.2505635923935228 samples/sec                   batch loss = 231.1062355041504 | accuracy = 0.6789473684210526
-Epoch[2] Batch[100] Speed: 1.2565539827050607 samples/sec                   batch loss = 243.50462532043457 | accuracy = 0.675
-Epoch[2] Batch[105] Speed: 1.2528539080033088 samples/sec                   batch loss = 256.71578907966614 | accuracy = 0.6714285714285714
-Epoch[2] Batch[110] Speed: 1.2522800989898364 samples/sec                   batch loss = 269.8468542098999 | accuracy = 0.6704545454545454
-Epoch[2] Batch[115] Speed: 1.2493126709293816 samples/sec                   batch loss = 279.42831552028656 | accuracy = 0.6739130434782609
-Epoch[2] Batch[120] Speed: 1.2455182854310758 samples/sec                   batch loss = 290.92751026153564 | accuracy = 0.675
-Epoch[2] Batch[125] Speed: 1.2539506185850025 samples/sec                   batch loss = 305.17585158348083 | accuracy = 0.67
-Epoch[2] Batch[130] Speed: 1.2543590978181147 samples/sec                   batch loss = 316.8784657716751 | accuracy = 0.6692307692307692
-Epoch[2] Batch[135] Speed: 1.2445413208065312 samples/sec                   batch loss = 330.3228545188904 | accuracy = 0.662962962962963
-Epoch[2] Batch[140] Speed: 1.2558617981445792 samples/sec                   batch loss = 341.36538803577423 | accuracy = 0.6642857142857143
-Epoch[2] Batch[145] Speed: 1.257137273696474 samples/sec                   batch loss = 353.8380296230316 | accuracy = 0.6620689655172414
-Epoch[2] Batch[150] Speed: 1.2484391734735132 samples/sec                   batch loss = 368.4913592338562 | accuracy = 0.6533333333333333
-Epoch[2] Batch[155] Speed: 1.2604807811649617 samples/sec                   batch loss = 378.18055164813995 | accuracy = 0.6564516129032258
-Epoch[2] Batch[160] Speed: 1.2552589337566706 samples/sec                   batch loss = 387.9539587497711 | accuracy = 0.6640625
-Epoch[2] Batch[165] Speed: 1.2556178953295014 samples/sec                   batch loss = 400.3240764141083 | accuracy = 0.6621212121212121
-Epoch[2] Batch[170] Speed: 1.254876430257982 samples/sec                   batch loss = 413.20764541625977 | accuracy = 0.6602941176470588
-Epoch[2] Batch[175] Speed: 1.2543407166300096 samples/sec                   batch loss = 426.2314211130142 | accuracy = 0.6571428571428571
-Epoch[2] Batch[180] Speed: 1.2586006584368932 samples/sec                   batch loss = 441.7276338338852 | accuracy = 0.6583333333333333
-Epoch[2] Batch[185] Speed: 1.2557458032567985 samples/sec                   batch loss = 455.4955929517746 | accuracy = 0.6581081081081082
-Epoch[2] Batch[190] Speed: 1.254232222326302 samples/sec                   batch loss = 470.13484132289886 | accuracy = 0.6552631578947369
-Epoch[2] Batch[195] Speed: 1.2504940569315177 samples/sec                   batch loss = 483.14445650577545 | accuracy = 0.6538461538461539
-Epoch[2] Batch[200] Speed: 1.2494693528707896 samples/sec                   batch loss = 498.4307870864868 | accuracy = 0.65125
-Epoch[2] Batch[205] Speed: 1.255282225740788 samples/sec                   batch loss = 512.5482968091965 | accuracy = 0.6487804878048781
-Epoch[2] Batch[210] Speed: 1.2476633849459382 samples/sec                   batch loss = 522.4883233308792 | accuracy = 0.6547619047619048
-Epoch[2] Batch[215] Speed: 1.2520187114574692 samples/sec                   batch loss = 535.5222054719925 | accuracy = 0.6511627906976745
-Epoch[2] Batch[220] Speed: 1.2534444436973333 samples/sec                   batch loss = 549.7990354299545 | accuracy = 0.6488636363636363
-Epoch[2] Batch[225] Speed: 1.2486391259087906 samples/sec                   batch loss = 564.3621999025345 | accuracy = 0.6455555555555555
-Epoch[2] Batch[230] Speed: 1.247768054529521 samples/sec                   batch loss = 575.9287621974945 | accuracy = 0.6478260869565218
-Epoch[2] Batch[235] Speed: 1.2495576666008268 samples/sec                   batch loss = 586.9418499469757 | accuracy = 0.65
-Epoch[2] Batch[240] Speed: 1.2533555797286968 samples/sec                   batch loss = 599.4497398138046 | accuracy = 0.6489583333333333
-Epoch[2] Batch[245] Speed: 1.2505006745848868 samples/sec                   batch loss = 612.1372872591019 | accuracy = 0.6489795918367347
-Epoch[2] Batch[250] Speed: 1.2481075163419115 samples/sec                   batch loss = 623.1467200517654 | accuracy = 0.652
-Epoch[2] Batch[255] Speed: 1.2542773244202565 samples/sec                   batch loss = 635.3748525381088 | accuracy = 0.6529411764705882
-Epoch[2] Batch[260] Speed: 1.2493349054629719 samples/sec                   batch loss = 645.6870528459549 | accuracy = 0.6548076923076923
-Epoch[2] Batch[265] Speed: 1.250370478132176 samples/sec                   batch loss = 657.1997727155685 | accuracy = 0.6537735849056604
-Epoch[2] Batch[270] Speed: 1.2530097950391548 samples/sec                   batch loss = 668.4911112785339 | accuracy = 0.6546296296296297
-Epoch[2] Batch[275] Speed: 1.248142057672244 samples/sec                   batch loss = 680.9112141132355 | accuracy = 0.6536363636363637
-Epoch[2] Batch[280] Speed: 1.2509659499609624 samples/sec                   batch loss = 692.8086208105087 | accuracy = 0.6535714285714286
-Epoch[2] Batch[285] Speed: 1.259258814473041 samples/sec                   batch loss = 703.5582227706909 | accuracy = 0.6543859649122807
-Epoch[2] Batch[290] Speed: 1.2529234254606416 samples/sec                   batch loss = 714.4016448259354 | accuracy = 0.6560344827586206
-Epoch[2] Batch[295] Speed: 1.2528569018667306 samples/sec                   batch loss = 727.1726524829865 | accuracy = 0.6542372881355932
-Epoch[2] Batch[300] Speed: 1.252274397203755 samples/sec                   batch loss = 738.1594567298889 | accuracy = 0.6541666666666667
-Epoch[2] Batch[305] Speed: 1.25368366180613 samples/sec                   batch loss = 749.2879922389984 | accuracy = 0.6565573770491804
-Epoch[2] Batch[310] Speed: 1.2535692865506531 samples/sec                   batch loss = 760.1460078954697 | accuracy = 0.6580645161290323
-Epoch[2] Batch[315] Speed: 1.2514247574980837 samples/sec                   batch loss = 772.6673903465271 | accuracy = 0.6579365079365079
-Epoch[2] Batch[320] Speed: 1.2510216383616444 samples/sec                   batch loss = 783.4131714105606 | accuracy = 0.6609375
-Epoch[2] Batch[325] Speed: 1.253755051535791 samples/sec                   batch loss = 796.2444924116135 | accuracy = 0.6607692307692308
-Epoch[2] Batch[330] Speed: 1.2484374083794023 samples/sec                   batch loss = 806.4058303833008 | accuracy = 0.6613636363636364
-Epoch[2] Batch[335] Speed: 1.2499931827559339 samples/sec                   batch loss = 817.6274344921112 | accuracy = 0.6597014925373135
-Epoch[2] Batch[340] Speed: 1.249269134469503 samples/sec                   batch loss = 829.0283315181732 | accuracy = 0.6617647058823529
-Epoch[2] Batch[345] Speed: 1.25338488752702 samples/sec                   batch loss = 841.5661708116531 | accuracy = 0.6615942028985508
-Epoch[2] Batch[350] Speed: 1.2443574452885096 samples/sec                   batch loss = 853.263636469841 | accuracy = 0.6614285714285715
-Epoch[2] Batch[355] Speed: 1.2585251283582335 samples/sec                   batch loss = 865.9023970365524 | accuracy = 0.6605633802816901
-Epoch[2] Batch[360] Speed: 1.2551591073425152 samples/sec                   batch loss = 877.940103828907 | accuracy = 0.6611111111111111
-Epoch[2] Batch[365] Speed: 1.2542876392841689 samples/sec                   batch loss = 890.1707579493523 | accuracy = 0.6595890410958904
-Epoch[2] Batch[370] Speed: 1.2555172601653906 samples/sec                   batch loss = 904.7820910811424 | accuracy = 0.6567567567567567
-Epoch[2] Batch[375] Speed: 1.256864533068514 samples/sec                   batch loss = 915.7877635359764 | accuracy = 0.658
-Epoch[2] Batch[380] Speed: 1.2566176052578775 samples/sec                   batch loss = 930.2552065253258 | accuracy = 0.6552631578947369
-Epoch[2] Batch[385] Speed: 1.2572597441059354 samples/sec                   batch loss = 942.8044003844261 | accuracy = 0.6558441558441559
-Epoch[2] Batch[390] Speed: 1.2541799979666652 samples/sec                   batch loss = 956.8543357253075 | accuracy = 0.6525641025641026
-Epoch[2] Batch[395] Speed: 1.257082263986724 samples/sec                   batch loss = 966.9464134573936 | accuracy = 0.6544303797468355
-Epoch[2] Batch[400] Speed: 1.2556379115291478 samples/sec                   batch loss = 979.5373634696007 | accuracy = 0.653125
-Epoch[2] Batch[405] Speed: 1.2523693714272064 samples/sec                   batch loss = 991.7864660620689 | accuracy = 0.6524691358024691
-Epoch[2] Batch[410] Speed: 1.2524461278547614 samples/sec                   batch loss = 1003.024594604969 | accuracy = 0.651829268292683
-Epoch[2] Batch[415] Speed: 1.2539516495264837 samples/sec                   batch loss = 1014.3769243359566 | accuracy = 0.653012048192771
-Epoch[2] Batch[420] Speed: 1.252515880587508 samples/sec                   batch loss = 1025.1397332549095 | accuracy = 0.6547619047619048
-Epoch[2] Batch[425] Speed: 1.2466582269206794 samples/sec                   batch loss = 1037.9565573334694 | accuracy = 0.6535294117647059
-Epoch[2] Batch[430] Speed: 1.2533258987867764 samples/sec                   batch loss = 1048.873401105404 | accuracy = 0.6546511627906977
-Epoch[2] Batch[435] Speed: 1.2528150826330569 samples/sec                   batch loss = 1060.5339667201042 | accuracy = 0.6545977011494253
-Epoch[2] Batch[440] Speed: 1.251975546755614 samples/sec                   batch loss = 1073.4628799557686 | accuracy = 0.6551136363636364
-Epoch[2] Batch[445] Speed: 1.2527534347604772 samples/sec                   batch loss = 1086.7115818858147 | accuracy = 0.6556179775280899
-Epoch[2] Batch[450] Speed: 1.2550873698481728 samples/sec                   batch loss = 1100.2493230700493 | accuracy = 0.6538888888888889
-Epoch[2] Batch[455] Speed: 1.2537184187822938 samples/sec                   batch loss = 1112.4301256537437 | accuracy = 0.654945054945055
-Epoch[2] Batch[460] Speed: 1.2583221861838347 samples/sec                   batch loss = 1123.6781668066978 | accuracy = 0.6554347826086957
-Epoch[2] Batch[465] Speed: 1.2506788183045079 samples/sec                   batch loss = 1133.9601127505302 | accuracy = 0.6564516129032258
-Epoch[2] Batch[470] Speed: 1.2533145698389478 samples/sec                   batch loss = 1145.7589324116707 | accuracy = 0.6574468085106383
-Epoch[2] Batch[475] Speed: 1.2521524288063448 samples/sec                   batch loss = 1158.8429055809975 | accuracy = 0.6578947368421053
-Epoch[2] Batch[480] Speed: 1.253517585668198 samples/sec                   batch loss = 1169.2279285788536 | accuracy = 0.6588541666666666
-Epoch[2] Batch[485] Speed: 1.2535882071423794 samples/sec                   batch loss = 1182.4272710680962 | accuracy = 0.6587628865979381
-Epoch[2] Batch[490] Speed: 1.2545537276261856 samples/sec                   batch loss = 1192.8703365921974 | accuracy = 0.6596938775510204
-Epoch[2] Batch[495] Speed: 1.2485860653724663 samples/sec                   batch loss = 1204.4389162659645 | accuracy = 0.6601010101010101
-Epoch[2] Batch[500] Speed: 1.2420096029640244 samples/sec                   batch loss = 1214.7293352484703 | accuracy = 0.661
-Epoch[2] Batch[505] Speed: 1.2488197142006026 samples/sec                   batch loss = 1224.3841341137886 | accuracy = 0.6608910891089109
-Epoch[2] Batch[510] Speed: 1.2486521361858034 samples/sec                   batch loss = 1236.3659871220589 | accuracy = 0.6607843137254902
-Epoch[2] Batch[515] Speed: 1.2448710851193112 samples/sec                   batch loss = 1249.7558962702751 | accuracy = 0.6611650485436893
-Epoch[2] Batch[520] Speed: 1.2509937469013566 samples/sec                   batch loss = 1261.9363207221031 | accuracy = 0.6605769230769231
-Epoch[2] Batch[525] Speed: 1.2441695644016502 samples/sec                   batch loss = 1273.1500362753868 | accuracy = 0.6614285714285715
-Epoch[2] Batch[530] Speed: 1.2463292743651933 samples/sec                   batch loss = 1287.4578347802162 | accuracy = 0.660377358490566
-Epoch[2] Batch[535] Speed: 1.2479720622099033 samples/sec                   batch loss = 1301.1441890597343 | accuracy = 0.6598130841121496
-Epoch[2] Batch[540] Speed: 1.2457902862280872 samples/sec                   batch loss = 1312.8236317038536 | accuracy = 0.6601851851851852
-Epoch[2] Batch[545] Speed: 1.2442455035272946 samples/sec                   batch loss = 1325.5224124789238 | accuracy = 0.6600917431192661
-Epoch[2] Batch[550] Speed: 1.2437557068985112 samples/sec                   batch loss = 1335.7014747262 | accuracy = 0.6618181818181819
-Epoch[2] Batch[555] Speed: 1.248351296428535 samples/sec                   batch loss = 1345.584081709385 | accuracy = 0.6621621621621622
-Epoch[2] Batch[560] Speed: 1.246835184809333 samples/sec                   batch loss = 1356.4305508732796 | accuracy = 0.6633928571428571
-Epoch[2] Batch[565] Speed: 1.2473685857942778 samples/sec                   batch loss = 1365.6870294213295 | accuracy = 0.6650442477876106
-Epoch[2] Batch[570] Speed: 1.2427750601657017 samples/sec                   batch loss = 1377.8592310547829 | accuracy = 0.6657894736842105
-Epoch[2] Batch[575] Speed: 1.2486574333048233 samples/sec                   batch loss = 1389.1664527058601 | accuracy = 0.6660869565217391
-Epoch[2] Batch[580] Speed: 1.244937317615729 samples/sec                   batch loss = 1401.113499701023 | accuracy = 0.6663793103448276
-Epoch[2] Batch[585] Speed: 1.2432508178250097 samples/sec                   batch loss = 1413.5158349871635 | accuracy = 0.6662393162393162
-Epoch[2] Batch[590] Speed: 1.2482002808544672 samples/sec                   batch loss = 1427.0469576716423 | accuracy = 0.6665254237288135
-Epoch[2] Batch[595] Speed: 1.2533567033250916 samples/sec                   batch loss = 1437.3775768876076 | accuracy = 0.6668067226890756
-Epoch[2] Batch[600] Speed: 1.251342152905822 samples/sec                   batch loss = 1449.012929737568 | accuracy = 0.6670833333333334
-Epoch[2] Batch[605] Speed: 1.2484388018743382 samples/sec                   batch loss = 1458.5990317463875 | accuracy = 0.6694214876033058
-Epoch[2] Batch[610] Speed: 1.2449435070654105 samples/sec                   batch loss = 1470.0214769244194 | accuracy = 0.6692622950819672
-Epoch[2] Batch[615] Speed: 1.248966602689312 samples/sec                   batch loss = 1477.0588077902794 | accuracy = 0.6715447154471544
-Epoch[2] Batch[620] Speed: 1.2515866381175997 samples/sec                   batch loss = 1486.4589883685112 | accuracy = 0.6721774193548387
-Epoch[2] Batch[625] Speed: 1.2506708002803517 samples/sec                   batch loss = 1501.7540199160576 | accuracy = 0.6712
-Epoch[2] Batch[630] Speed: 1.2518725988113744 samples/sec                   batch loss = 1512.126691520214 | accuracy = 0.6726190476190477
-Epoch[2] Batch[635] Speed: 1.2501095145022236 samples/sec                   batch loss = 1523.0734162926674 | accuracy = 0.6724409448818898
-Epoch[2] Batch[640] Speed: 1.2475503837820687 samples/sec                   batch loss = 1534.3951241374016 | accuracy = 0.67265625
-Epoch[2] Batch[645] Speed: 1.2559828918422278 samples/sec                   batch loss = 1545.7704628109932 | accuracy = 0.6724806201550387
-Epoch[2] Batch[650] Speed: 1.2543892028663737 samples/sec                   batch loss = 1557.150073826313 | accuracy = 0.6730769230769231
-Epoch[2] Batch[655] Speed: 1.251757619809464 samples/sec                   batch loss = 1573.2161231637 | accuracy = 0.6717557251908397
-Epoch[2] Batch[660] Speed: 1.24616958384102 samples/sec                   batch loss = 1585.5162408947945 | accuracy = 0.6727272727272727
-Epoch[2] Batch[665] Speed: 1.2479742901414723 samples/sec                   batch loss = 1594.723118841648 | accuracy = 0.6733082706766917
-Epoch[2] Batch[670] Speed: 1.2461906884154856 samples/sec                   batch loss = 1605.8057863116264 | accuracy = 0.6738805970149254
-Epoch[2] Batch[675] Speed: 1.2465138257458963 samples/sec                   batch loss = 1614.7276950478554 | accuracy = 0.6748148148148149
-Epoch[2] Batch[680] Speed: 1.2430551660587552 samples/sec                   batch loss = 1626.464846432209 | accuracy = 0.674264705882353
-Epoch[2] Batch[685] Speed: 1.2478293983244477 samples/sec                   batch loss = 1639.4941022992134 | accuracy = 0.6744525547445256
-Epoch[2] Batch[690] Speed: 1.2542056876826582 samples/sec                   batch loss = 1652.8430817723274 | accuracy = 0.6742753623188406
-Epoch[2] Batch[695] Speed: 1.2494608850868258 samples/sec                   batch loss = 1661.9304487109184 | accuracy = 0.6751798561151079
-Epoch[2] Batch[700] Speed: 1.2501360624104716 samples/sec                   batch loss = 1671.8716874718666 | accuracy = 0.6760714285714285
-Epoch[2] Batch[705] Speed: 1.251551625783944 samples/sec                   batch loss = 1680.8941023349762 | accuracy = 0.676950354609929
-Epoch[2] Batch[710] Speed: 1.2549304961313603 samples/sec                   batch loss = 1690.1383282542229 | accuracy = 0.678169014084507
-Epoch[2] Batch[715] Speed: 1.2505555758467062 samples/sec                   batch loss = 1697.570876300335 | accuracy = 0.6797202797202797
-Epoch[2] Batch[720] Speed: 1.2620516406196813 samples/sec                   batch loss = 1707.0224069952965 | accuracy = 0.6809027777777777
-Epoch[2] Batch[725] Speed: 1.2574787429841578 samples/sec                   batch loss = 1721.6701599955559 | accuracy = 0.6796551724137931
-Epoch[2] Batch[730] Speed: 1.2586331391580807 samples/sec                   batch loss = 1731.6580664515495 | accuracy = 0.6801369863013699
-Epoch[2] Batch[735] Speed: 1.2560617845370805 samples/sec                   batch loss = 1744.417484819889 | accuracy = 0.6806122448979591
-Epoch[2] Batch[740] Speed: 1.2619185533335935 samples/sec                   batch loss = 1756.1579461693764 | accuracy = 0.6810810810810811
-Epoch[2] Batch[745] Speed: 1.2545482865507829 samples/sec                   batch loss = 1765.6189668774605 | accuracy = 0.6818791946308724
-Epoch[2] Batch[750] Speed: 1.2564386126765736 samples/sec                   batch loss = 1772.5640084147453 | accuracy = 0.6836666666666666
-Epoch[2] Batch[755] Speed: 1.2561050433798755 samples/sec                   batch loss = 1784.5548120737076 | accuracy = 0.6841059602649007
-Epoch[2] Batch[760] Speed: 1.2543711021501156 samples/sec                   batch loss = 1796.877470612526 | accuracy = 0.6835526315789474
-Epoch[2] Batch[765] Speed: 1.2547854861997436 samples/sec                   batch loss = 1807.0379396677017 | accuracy = 0.6843137254901961
-Epoch[2] Batch[770] Speed: 1.256971788138286 samples/sec                   batch loss = 1818.9629348516464 | accuracy = 0.685064935064935
-Epoch[2] Batch[775] Speed: 1.2537401545823699 samples/sec                   batch loss = 1830.5999583005905 | accuracy = 0.6851612903225807
-Epoch[2] Batch[780] Speed: 1.2532345240190357 samples/sec                   batch loss = 1841.822379231453 | accuracy = 0.6852564102564103
-Epoch[2] Batch[785] Speed: 1.2543369654333196 samples/sec                   batch loss = 1851.8623243570328 | accuracy = 0.6859872611464968
-[Epoch 2] training: accuracy=0.6852791878172588
-[Epoch 2] time cost: 645.3860840797424
-[Epoch 2] validation: validation accuracy=0.7066666666666667
+Epoch[1] Batch[5] Speed: 0.7781987664847925 samples/sec                   batch loss = 14.736643314361572 | accuracy = 0.45
+Epoch[1] Batch[10] Speed: 1.2611529452056134 samples/sec                   batch loss = 26.31227993965149 | accuracy = 0.7
+Epoch[1] Batch[15] Speed: 1.2582736785390263 samples/sec                   batch loss = 41.23965311050415 | accuracy = 0.6
+Epoch[1] Batch[20] Speed: 1.2570867851511467 samples/sec                   batch loss = 54.788434743881226 | accuracy = 0.6
+Epoch[1] Batch[25] Speed: 1.2566042402226072 samples/sec                   batch loss = 66.59488010406494 | accuracy = 0.63
+Epoch[1] Batch[30] Speed: 1.24295579780999 samples/sec                   batch loss = 79.65683436393738 | accuracy = 0.6416666666666667
+Epoch[1] Batch[35] Speed: 1.2517644376339547 samples/sec                   batch loss = 93.13111305236816 | accuracy = 0.6357142857142857
+Epoch[1] Batch[40] Speed: 1.2485715697580615 samples/sec                   batch loss = 107.69727349281311 | accuracy = 0.61875
+Epoch[1] Batch[45] Speed: 1.250153389021832 samples/sec                   batch loss = 121.9922845363617 | accuracy = 0.6111111111111112
+Epoch[1] Batch[50] Speed: 1.2583034999167118 samples/sec                   batch loss = 135.65971684455872 | accuracy = 0.605
+Epoch[1] Batch[55] Speed: 1.24963063488493 samples/sec                   batch loss = 151.4678065776825 | accuracy = 0.5818181818181818
+Epoch[1] Batch[60] Speed: 1.2535791214404177 samples/sec                   batch loss = 165.11830878257751 | accuracy = 0.5875
+Epoch[1] Batch[65] Speed: 1.2545260536813887 samples/sec                   batch loss = 178.0665307044983 | accuracy = 0.6076923076923076
+Epoch[1] Batch[70] Speed: 1.2547409105934757 samples/sec                   batch loss = 192.01660537719727 | accuracy = 0.6035714285714285
+Epoch[1] Batch[75] Speed: 1.2570899876622894 samples/sec                   batch loss = 205.6652262210846 | accuracy = 0.6
+Epoch[1] Batch[80] Speed: 1.2527323879383816 samples/sec                   batch loss = 220.18012642860413 | accuracy = 0.584375
+Epoch[1] Batch[85] Speed: 1.2562967347113905 samples/sec                   batch loss = 233.59374499320984 | accuracy = 0.5823529411764706
+Epoch[1] Batch[90] Speed: 1.2596833390421425 samples/sec                   batch loss = 247.21634125709534 | accuracy = 0.5888888888888889
+Epoch[1] Batch[95] Speed: 1.2589324372369066 samples/sec                   batch loss = 260.4536077976227 | accuracy = 0.5894736842105263
+Epoch[1] Batch[100] Speed: 1.2573205171277644 samples/sec                   batch loss = 274.26730275154114 | accuracy = 0.5925
+Epoch[1] Batch[105] Speed: 1.2577824898719714 samples/sec                   batch loss = 288.80299973487854 | accuracy = 0.5785714285714286
+Epoch[1] Batch[110] Speed: 1.2546295323441155 samples/sec                   batch loss = 303.2053174972534 | accuracy = 0.5681818181818182
+Epoch[1] Batch[115] Speed: 1.2596985667312164 samples/sec                   batch loss = 316.91707491874695 | accuracy = 0.5673913043478261
+Epoch[1] Batch[120] Speed: 1.2604889254659963 samples/sec                   batch loss = 330.51522946357727 | accuracy = 0.5625
+Epoch[1] Batch[125] Speed: 1.259158823387255 samples/sec                   batch loss = 344.66580057144165 | accuracy = 0.556
+Epoch[1] Batch[130] Speed: 1.2613148871131319 samples/sec                   batch loss = 358.77867102622986 | accuracy = 0.5557692307692308
+Epoch[1] Batch[135] Speed: 1.2534572733617124 samples/sec                   batch loss = 371.8961606025696 | accuracy = 0.5592592592592592
+Epoch[1] Batch[140] Speed: 1.2567144631987477 samples/sec                   batch loss = 386.04612493515015 | accuracy = 0.5589285714285714
+Epoch[1] Batch[145] Speed: 1.2553413048512627 samples/sec                   batch loss = 399.5165784358978 | accuracy = 0.5568965517241379
+Epoch[1] Batch[150] Speed: 1.2582831155309828 samples/sec                   batch loss = 412.1220772266388 | accuracy = 0.5616666666666666
+Epoch[1] Batch[155] Speed: 1.2658499699254155 samples/sec                   batch loss = 424.84599256515503 | accuracy = 0.5661290322580645
+Epoch[1] Batch[160] Speed: 1.2546773840975185 samples/sec                   batch loss = 438.88154125213623 | accuracy = 0.5671875
+Epoch[1] Batch[165] Speed: 1.2584543271421558 samples/sec                   batch loss = 453.74017310142517 | accuracy = 0.5606060606060606
+Epoch[1] Batch[170] Speed: 1.2591504127629092 samples/sec                   batch loss = 467.9160895347595 | accuracy = 0.5588235294117647
+Epoch[1] Batch[175] Speed: 1.259077367908522 samples/sec                   batch loss = 481.927344083786 | accuracy = 0.5571428571428572
+Epoch[1] Batch[180] Speed: 1.25517976625692 samples/sec                   batch loss = 496.09247159957886 | accuracy = 0.5541666666666667
+Epoch[1] Batch[185] Speed: 1.2573681032070305 samples/sec                   batch loss = 509.95026326179504 | accuracy = 0.5513513513513514
+Epoch[1] Batch[190] Speed: 1.2558782497218532 samples/sec                   batch loss = 523.6118173599243 | accuracy = 0.5513157894736842
+Epoch[1] Batch[195] Speed: 1.2564637363187112 samples/sec                   batch loss = 536.7637269496918 | accuracy = 0.5564102564102564
+Epoch[1] Batch[200] Speed: 1.2580122357867143 samples/sec                   batch loss = 551.1984746456146 | accuracy = 0.5525
+Epoch[1] Batch[205] Speed: 1.2599677130389697 samples/sec                   batch loss = 564.9495451450348 | accuracy = 0.5548780487804879
+Epoch[1] Batch[210] Speed: 1.259879624733874 samples/sec                   batch loss = 579.1959500312805 | accuracy = 0.55
+Epoch[1] Batch[215] Speed: 1.259252292831196 samples/sec                   batch loss = 593.6108794212341 | accuracy = 0.5488372093023256
+Epoch[1] Batch[220] Speed: 1.2602119836001038 samples/sec                   batch loss = 606.8099155426025 | accuracy = 0.553409090909091
+Epoch[1] Batch[225] Speed: 1.2548700477887136 samples/sec                   batch loss = 620.698869228363 | accuracy = 0.5511111111111111
+Epoch[1] Batch[230] Speed: 1.2526211789180977 samples/sec                   batch loss = 634.5889446735382 | accuracy = 0.55
+Epoch[1] Batch[235] Speed: 1.2641064689892914 samples/sec                   batch loss = 647.9550297260284 | accuracy = 0.551063829787234
+Epoch[1] Batch[240] Speed: 1.2524278026882396 samples/sec                   batch loss = 660.574563741684 | accuracy = 0.5552083333333333
+Epoch[1] Batch[245] Speed: 1.2533967795804966 samples/sec                   batch loss = 674.3419420719147 | accuracy = 0.5551020408163265
+Epoch[1] Batch[250] Speed: 1.2566099815057434 samples/sec                   batch loss = 688.5889959335327 | accuracy = 0.554
+Epoch[1] Batch[255] Speed: 1.2525285977407294 samples/sec                   batch loss = 702.0785663127899 | accuracy = 0.5568627450980392
+Epoch[1] Batch[260] Speed: 1.2543511263183433 samples/sec                   batch loss = 715.3593940734863 | accuracy = 0.5615384615384615
+Epoch[1] Batch[265] Speed: 1.2495057377321446 samples/sec                   batch loss = 728.0678989887238 | accuracy = 0.5632075471698114
+Epoch[1] Batch[270] Speed: 1.2573498221881279 samples/sec                   batch loss = 740.7850654125214 | accuracy = 0.5666666666666667
+Epoch[1] Batch[275] Speed: 1.2488324493660676 samples/sec                   batch loss = 753.5262196063995 | accuracy = 0.5718181818181818
+Epoch[1] Batch[280] Speed: 1.2502207437991093 samples/sec                   batch loss = 767.085102558136 | accuracy = 0.5741071428571428
+Epoch[1] Batch[285] Speed: 1.2511772563558121 samples/sec                   batch loss = 781.0282225608826 | accuracy = 0.5728070175438597
+Epoch[1] Batch[290] Speed: 1.248029619660487 samples/sec                   batch loss = 794.9798917770386 | accuracy = 0.5706896551724138
+Epoch[1] Batch[295] Speed: 1.2549422297920212 samples/sec                   batch loss = 809.3313851356506 | accuracy = 0.5686440677966101
+Epoch[1] Batch[300] Speed: 1.2528452071689573 samples/sec                   batch loss = 823.7894103527069 | accuracy = 0.5675
+Epoch[1] Batch[305] Speed: 1.2513222734287073 samples/sec                   batch loss = 838.2302341461182 | accuracy = 0.5647540983606557
+Epoch[1] Batch[310] Speed: 1.2513997416228828 samples/sec                   batch loss = 851.9876239299774 | accuracy = 0.5645161290322581
+Epoch[1] Batch[315] Speed: 1.2487739812950551 samples/sec                   batch loss = 865.4584155082703 | accuracy = 0.5634920634920635
+Epoch[1] Batch[320] Speed: 1.2570836768471125 samples/sec                   batch loss = 879.8228344917297 | accuracy = 0.56015625
+Epoch[1] Batch[325] Speed: 1.2547761954437036 samples/sec                   batch loss = 893.240483045578 | accuracy = 0.5607692307692308
+Epoch[1] Batch[330] Speed: 1.2518773628162811 samples/sec                   batch loss = 906.9014842510223 | accuracy = 0.5598484848484848
+Epoch[1] Batch[335] Speed: 1.2601921052764016 samples/sec                   batch loss = 921.1056241989136 | accuracy = 0.5574626865671641
+Epoch[1] Batch[340] Speed: 1.2574484894585771 samples/sec                   batch loss = 935.9464886188507 | accuracy = 0.5551470588235294
+Epoch[1] Batch[345] Speed: 1.2560782413543818 samples/sec                   batch loss = 949.5549421310425 | accuracy = 0.5557971014492754
+Epoch[1] Batch[350] Speed: 1.2525631971851923 samples/sec                   batch loss = 963.4451851844788 | accuracy = 0.5557142857142857
+Epoch[1] Batch[355] Speed: 1.256729148504866 samples/sec                   batch loss = 977.017627954483 | accuracy = 0.5563380281690141
+Epoch[1] Batch[360] Speed: 1.2546383518046795 samples/sec                   batch loss = 991.4578902721405 | accuracy = 0.5541666666666667
+Epoch[1] Batch[365] Speed: 1.2586191646888387 samples/sec                   batch loss = 1005.087470293045 | accuracy = 0.5541095890410959
+Epoch[1] Batch[370] Speed: 1.2580070476581102 samples/sec                   batch loss = 1018.7560622692108 | accuracy = 0.5533783783783783
+Epoch[1] Batch[375] Speed: 1.2535528954106374 samples/sec                   batch loss = 1032.3083157539368 | accuracy = 0.554
+Epoch[1] Batch[380] Speed: 1.2552056847658508 samples/sec                   batch loss = 1045.880331993103 | accuracy = 0.5546052631578947
+Epoch[1] Batch[385] Speed: 1.254740347553441 samples/sec                   batch loss = 1059.1877205371857 | accuracy = 0.5558441558441558
+Epoch[1] Batch[390] Speed: 1.249496711111098 samples/sec                   batch loss = 1073.231868982315 | accuracy = 0.5532051282051282
+Epoch[1] Batch[395] Speed: 1.2566641027363794 samples/sec                   batch loss = 1086.0180451869965 | accuracy = 0.5550632911392405
+Epoch[1] Batch[400] Speed: 1.2604497201457496 samples/sec                   batch loss = 1100.2121148109436 | accuracy = 0.5525
+Epoch[1] Batch[405] Speed: 1.2632189222743733 samples/sec                   batch loss = 1113.5898461341858 | accuracy = 0.5530864197530864
+Epoch[1] Batch[410] Speed: 1.2583504997673016 samples/sec                   batch loss = 1127.0068001747131 | accuracy = 0.5530487804878049
+Epoch[1] Batch[415] Speed: 1.2630900580575781 samples/sec                   batch loss = 1139.7168264389038 | accuracy = 0.555421686746988
+Epoch[1] Batch[420] Speed: 1.252773453283024 samples/sec                   batch loss = 1153.0142226219177 | accuracy = 0.5565476190476191
+Epoch[1] Batch[425] Speed: 1.2588720750472286 samples/sec                   batch loss = 1166.9374740123749 | accuracy = 0.5558823529411765
+Epoch[1] Batch[430] Speed: 1.2602237215714367 samples/sec                   batch loss = 1180.6006591320038 | accuracy = 0.5563953488372093
+Epoch[1] Batch[435] Speed: 1.2556249432143316 samples/sec                   batch loss = 1193.932692527771 | accuracy = 0.5563218390804597
+Epoch[1] Batch[440] Speed: 1.2573338031755719 samples/sec                   batch loss = 1206.8279461860657 | accuracy = 0.5573863636363636
+Epoch[1] Batch[445] Speed: 1.2509846987683735 samples/sec                   batch loss = 1219.8909423351288 | accuracy = 0.5595505617977528
+Epoch[1] Batch[450] Speed: 1.25400160535851 samples/sec                   batch loss = 1234.8900437355042 | accuracy = 0.5566666666666666
+Epoch[1] Batch[455] Speed: 1.258988364807012 samples/sec                   batch loss = 1247.6427364349365 | accuracy = 0.5582417582417583
+Epoch[1] Batch[460] Speed: 1.2572769860872481 samples/sec                   batch loss = 1261.400360584259 | accuracy = 0.5576086956521739
+Epoch[1] Batch[465] Speed: 1.2603959351721439 samples/sec                   batch loss = 1274.2221632003784 | accuracy = 0.5591397849462365
+Epoch[1] Batch[470] Speed: 1.254731245142999 samples/sec                   batch loss = 1287.7087757587433 | accuracy = 0.5590425531914893
+Epoch[1] Batch[475] Speed: 1.252351796370533 samples/sec                   batch loss = 1300.6991848945618 | accuracy = 0.5594736842105263
+Epoch[1] Batch[480] Speed: 1.2496318448900383 samples/sec                   batch loss = 1313.6691105365753 | accuracy = 0.5614583333333333
+Epoch[1] Batch[485] Speed: 1.2535515841379536 samples/sec                   batch loss = 1326.2493398189545 | accuracy = 0.5628865979381443
+Epoch[1] Batch[490] Speed: 1.2543836694313544 samples/sec                   batch loss = 1338.9156956672668 | accuracy = 0.564795918367347
+Epoch[1] Batch[495] Speed: 1.2519234167331286 samples/sec                   batch loss = 1352.62433719635 | accuracy = 0.5641414141414142
+Epoch[1] Batch[500] Speed: 1.2489838039177996 samples/sec                   batch loss = 1364.852923154831 | accuracy = 0.5665
+Epoch[1] Batch[505] Speed: 1.2540067605020686 samples/sec                   batch loss = 1377.7650175094604 | accuracy = 0.5663366336633663
+Epoch[1] Batch[510] Speed: 1.253928875486847 samples/sec                   batch loss = 1391.1515650749207 | accuracy = 0.5666666666666667
+Epoch[1] Batch[515] Speed: 1.25483381911987 samples/sec                   batch loss = 1403.8009147644043 | accuracy = 0.5674757281553398
+Epoch[1] Batch[520] Speed: 1.2544551389079763 samples/sec                   batch loss = 1417.1018023490906 | accuracy = 0.5682692307692307
+Epoch[1] Batch[525] Speed: 1.258328886950164 samples/sec                   batch loss = 1429.5848331451416 | accuracy = 0.5695238095238095
+Epoch[1] Batch[530] Speed: 1.25297582595115 samples/sec                   batch loss = 1441.4687731266022 | accuracy = 0.5716981132075472
+Epoch[1] Batch[535] Speed: 1.2591163934063287 samples/sec                   batch loss = 1455.135099887848 | accuracy = 0.572429906542056
+Epoch[1] Batch[540] Speed: 1.2596425760466472 samples/sec                   batch loss = 1467.5451753139496 | accuracy = 0.5736111111111111
+Epoch[1] Batch[545] Speed: 1.2547887708433834 samples/sec                   batch loss = 1479.870790362358 | accuracy = 0.5752293577981651
+Epoch[1] Batch[550] Speed: 1.2531646912229109 samples/sec                   batch loss = 1494.1506043672562 | accuracy = 0.5745454545454546
+Epoch[1] Batch[555] Speed: 1.2521988768046821 samples/sec                   batch loss = 1506.576923251152 | accuracy = 0.5752252252252252
+Epoch[1] Batch[560] Speed: 1.253089063407716 samples/sec                   batch loss = 1518.4389692544937 | accuracy = 0.5763392857142857
+Epoch[1] Batch[565] Speed: 1.2529236125974519 samples/sec                   batch loss = 1530.7719396352768 | accuracy = 0.5778761061946903
+Epoch[1] Batch[570] Speed: 1.255585476078325 samples/sec                   batch loss = 1544.477411866188 | accuracy = 0.5776315789473684
+Epoch[1] Batch[575] Speed: 1.2569531419565587 samples/sec                   batch loss = 1557.729046702385 | accuracy = 0.5769565217391305
+Epoch[1] Batch[580] Speed: 1.2630839721322558 samples/sec                   batch loss = 1572.3733376264572 | accuracy = 0.5758620689655173
+Epoch[1] Batch[585] Speed: 1.261641172723875 samples/sec                   batch loss = 1586.163069844246 | accuracy = 0.576068376068376
+Epoch[1] Batch[590] Speed: 1.25478661236134 samples/sec                   batch loss = 1598.8591319322586 | accuracy = 0.576271186440678
+Epoch[1] Batch[595] Speed: 1.2489088658137393 samples/sec                   batch loss = 1611.0512799024582 | accuracy = 0.5781512605042017
+Epoch[1] Batch[600] Speed: 1.2480719556255393 samples/sec                   batch loss = 1623.9820920228958 | accuracy = 0.5783333333333334
+Epoch[1] Batch[605] Speed: 1.2503572456513066 samples/sec                   batch loss = 1637.207580447197 | accuracy = 0.5776859504132231
+Epoch[1] Batch[610] Speed: 1.250231830550721 samples/sec                   batch loss = 1649.8908772468567 | accuracy = 0.5782786885245902
+Epoch[1] Batch[615] Speed: 1.2448219464544252 samples/sec                   batch loss = 1663.3573768138885 | accuracy = 0.5784552845528456
+Epoch[1] Batch[620] Speed: 1.2516242668893804 samples/sec                   batch loss = 1676.5638964176178 | accuracy = 0.5786290322580645
+Epoch[1] Batch[625] Speed: 1.2487328059551366 samples/sec                   batch loss = 1692.1265926361084 | accuracy = 0.5764
+Epoch[1] Batch[630] Speed: 1.2480679632956544 samples/sec                   batch loss = 1706.742222070694 | accuracy = 0.5761904761904761
+Epoch[1] Batch[635] Speed: 1.2542046563234177 samples/sec                   batch loss = 1718.7495067119598 | accuracy = 0.5771653543307087
+Epoch[1] Batch[640] Speed: 1.2540370361096276 samples/sec                   batch loss = 1731.8319685459137 | accuracy = 0.578515625
+Epoch[1] Batch[645] Speed: 1.253098609979965 samples/sec                   batch loss = 1744.7909936904907 | accuracy = 0.5786821705426357
+Epoch[1] Batch[650] Speed: 1.2475640207674312 samples/sec                   batch loss = 1758.8026320934296 | accuracy = 0.5792307692307692
+Epoch[1] Batch[655] Speed: 1.2468805904803226 samples/sec                   batch loss = 1773.2397227287292 | accuracy = 0.5790076335877863
+Epoch[1] Batch[660] Speed: 1.2471044238967612 samples/sec                   batch loss = 1786.0761134624481 | accuracy = 0.5787878787878787
+Epoch[1] Batch[665] Speed: 1.2552687951766934 samples/sec                   batch loss = 1798.6717405319214 | accuracy = 0.5796992481203007
+Epoch[1] Batch[670] Speed: 1.2485558665556027 samples/sec                   batch loss = 1810.5840426683426 | accuracy = 0.5813432835820895
+Epoch[1] Batch[675] Speed: 1.2468141510580952 samples/sec                   batch loss = 1823.322238445282 | accuracy = 0.5822222222222222
+Epoch[1] Batch[680] Speed: 1.2519226693808596 samples/sec                   batch loss = 1835.8985924720764 | accuracy = 0.5823529411764706
+Epoch[1] Batch[685] Speed: 1.249322904298421 samples/sec                   batch loss = 1847.643583893776 | accuracy = 0.5835766423357664
+Epoch[1] Batch[690] Speed: 1.2503006846122289 samples/sec                   batch loss = 1861.9395068883896 | accuracy = 0.5833333333333334
+Epoch[1] Batch[695] Speed: 1.2530541541418259 samples/sec                   batch loss = 1874.5922833681107 | accuracy = 0.5830935251798561
+Epoch[1] Batch[700] Speed: 1.2550344170635805 samples/sec                   batch loss = 1887.8812310695648 | accuracy = 0.5832142857142857
+Epoch[1] Batch[705] Speed: 1.2568472082424502 samples/sec                   batch loss = 1899.9060771465302 | accuracy = 0.5836879432624114
+Epoch[1] Batch[710] Speed: 1.2573138270965065 samples/sec                   batch loss = 1914.8393709659576 | accuracy = 0.5838028169014085
+Epoch[1] Batch[715] Speed: 1.2530529375000747 samples/sec                   batch loss = 1929.5187919139862 | accuracy = 0.5835664335664336
+Epoch[1] Batch[720] Speed: 1.2535516778001972 samples/sec                   batch loss = 1943.096762418747 | accuracy = 0.584375
+Epoch[1] Batch[725] Speed: 1.254821524373493 samples/sec                   batch loss = 1957.1066312789917 | accuracy = 0.5837931034482758
+Epoch[1] Batch[730] Speed: 1.253090841679758 samples/sec                   batch loss = 1971.4345304965973 | accuracy = 0.5832191780821918
+Epoch[1] Batch[735] Speed: 1.2610159717864369 samples/sec                   batch loss = 1984.3037083148956 | accuracy = 0.5833333333333334
+Epoch[1] Batch[740] Speed: 1.253916598467098 samples/sec                   batch loss = 1997.1793973445892 | accuracy = 0.5834459459459459
+Epoch[1] Batch[745] Speed: 1.2568459842238906 samples/sec                   batch loss = 2009.7039639949799 | accuracy = 0.5842281879194631
+Epoch[1] Batch[750] Speed: 1.2494499050543497 samples/sec                   batch loss = 2021.5348320007324 | accuracy = 0.5846666666666667
+Epoch[1] Batch[755] Speed: 1.2479017936172396 samples/sec                   batch loss = 2033.1615500450134 | accuracy = 0.5854304635761589
+Epoch[1] Batch[760] Speed: 1.2531615086803678 samples/sec                   batch loss = 2046.8107113838196 | accuracy = 0.5858552631578947
+Epoch[1] Batch[765] Speed: 1.2528597086266835 samples/sec                   batch loss = 2058.276060819626 | accuracy = 0.5872549019607843
+Epoch[1] Batch[770] Speed: 1.2510222913538747 samples/sec                   batch loss = 2070.8947343826294 | accuracy = 0.5883116883116883
+Epoch[1] Batch[775] Speed: 1.2507763480842575 samples/sec                   batch loss = 2084.618464946747 | accuracy = 0.5870967741935483
+Epoch[1] Batch[780] Speed: 1.2541837482245646 samples/sec                   batch loss = 2099.4229686260223 | accuracy = 0.5862179487179487
+Epoch[1] Batch[785] Speed: 1.2523113195259148 samples/sec                   batch loss = 2111.3108360767365 | accuracy = 0.5869426751592357
+[Epoch 1] training: accuracy=0.5869289340101523
+[Epoch 1] time cost: 646.5818147659302
+[Epoch 1] validation: validation accuracy=0.6866666666666666
+Epoch[2] Batch[5] Speed: 1.249346720788193 samples/sec                   batch loss = 13.810960531234741 | accuracy = 0.65
+Epoch[2] Batch[10] Speed: 1.250762454289832 samples/sec                   batch loss = 28.037219047546387 | accuracy = 0.65
+Epoch[2] Batch[15] Speed: 1.2542959850709523 samples/sec                   batch loss = 41.71009564399719 | accuracy = 0.65
+Epoch[2] Batch[20] Speed: 1.255900812585885 samples/sec                   batch loss = 55.40298628807068 | accuracy = 0.625
+Epoch[2] Batch[25] Speed: 1.2595382688399785 samples/sec                   batch loss = 68.13471531867981 | accuracy = 0.64
+Epoch[2] Batch[30] Speed: 1.2563942958920622 samples/sec                   batch loss = 80.53116011619568 | accuracy = 0.6583333333333333
+Epoch[2] Batch[35] Speed: 1.2580475161961129 samples/sec                   batch loss = 93.23491644859314 | accuracy = 0.65
+Epoch[2] Batch[40] Speed: 1.259401173224021 samples/sec                   batch loss = 105.8311550617218 | accuracy = 0.65625
+Epoch[2] Batch[45] Speed: 1.2573126963940313 samples/sec                   batch loss = 118.89766216278076 | accuracy = 0.6666666666666666
+Epoch[2] Batch[50] Speed: 1.2620899012893958 samples/sec                   batch loss = 134.66805839538574 | accuracy = 0.655
+Epoch[2] Batch[55] Speed: 1.2623797323581751 samples/sec                   batch loss = 147.5053265094757 | accuracy = 0.6545454545454545
+Epoch[2] Batch[60] Speed: 1.2532889166148922 samples/sec                   batch loss = 160.43827414512634 | accuracy = 0.6458333333333334
+Epoch[2] Batch[65] Speed: 1.2563366228905224 samples/sec                   batch loss = 173.09013664722443 | accuracy = 0.6423076923076924
+Epoch[2] Batch[70] Speed: 1.2632573488713166 samples/sec                   batch loss = 184.85497403144836 | accuracy = 0.65
+Epoch[2] Batch[75] Speed: 1.2597353606174118 samples/sec                   batch loss = 196.96041023731232 | accuracy = 0.6533333333333333
+Epoch[2] Batch[80] Speed: 1.254624559724206 samples/sec                   batch loss = 208.07557463645935 | accuracy = 0.6625
+Epoch[2] Batch[85] Speed: 1.2568086998778416 samples/sec                   batch loss = 219.26296961307526 | accuracy = 0.6617647058823529
+Epoch[2] Batch[90] Speed: 1.2539154738666214 samples/sec                   batch loss = 231.6712189912796 | accuracy = 0.6583333333333333
+Epoch[2] Batch[95] Speed: 1.2619821507458402 samples/sec                   batch loss = 242.39992702007294 | accuracy = 0.6684210526315789
+Epoch[2] Batch[100] Speed: 1.259225639866704 samples/sec                   batch loss = 256.1371840238571 | accuracy = 0.665
+Epoch[2] Batch[105] Speed: 1.2594342625366783 samples/sec                   batch loss = 268.6055551767349 | accuracy = 0.6666666666666666
+Epoch[2] Batch[110] Speed: 1.2609653607647078 samples/sec                   batch loss = 281.5845946073532 | accuracy = 0.6659090909090909
+Epoch[2] Batch[115] Speed: 1.2635084157749974 samples/sec                   batch loss = 294.9182096719742 | accuracy = 0.6673913043478261
+Epoch[2] Batch[120] Speed: 1.2577461871334603 samples/sec                   batch loss = 306.9475281238556 | accuracy = 0.6645833333333333
+Epoch[2] Batch[125] Speed: 1.2534418216084702 samples/sec                   batch loss = 321.22828817367554 | accuracy = 0.662
+Epoch[2] Batch[130] Speed: 1.2546251226603304 samples/sec                   batch loss = 333.0864748954773 | accuracy = 0.6615384615384615
+Epoch[2] Batch[135] Speed: 1.2579379081384994 samples/sec                   batch loss = 345.199622631073 | accuracy = 0.6592592592592592
+Epoch[2] Batch[140] Speed: 1.2547842661936288 samples/sec                   batch loss = 357.03254437446594 | accuracy = 0.6607142857142857
+Epoch[2] Batch[145] Speed: 1.250147892894174 samples/sec                   batch loss = 368.7690488100052 | accuracy = 0.6655172413793103
+Epoch[2] Batch[150] Speed: 1.2561259215395981 samples/sec                   batch loss = 380.71541488170624 | accuracy = 0.6633333333333333
+Epoch[2] Batch[155] Speed: 1.2510092316387846 samples/sec                   batch loss = 391.81329452991486 | accuracy = 0.6645161290322581
+Epoch[2] Batch[160] Speed: 1.2517345518307827 samples/sec                   batch loss = 403.6497564315796 | accuracy = 0.6625
+Epoch[2] Batch[165] Speed: 1.2497409411336167 samples/sec                   batch loss = 416.8663625717163 | accuracy = 0.6590909090909091
+Epoch[2] Batch[170] Speed: 1.2524249978631339 samples/sec                   batch loss = 429.83944845199585 | accuracy = 0.6617647058823529
+Epoch[2] Batch[175] Speed: 1.2523226303437816 samples/sec                   batch loss = 441.6566706895828 | accuracy = 0.6642857142857143
+Epoch[2] Batch[180] Speed: 1.2518794178884154 samples/sec                   batch loss = 451.514560341835 | accuracy = 0.6680555555555555
+Epoch[2] Batch[185] Speed: 1.2483984846779048 samples/sec                   batch loss = 464.0218313932419 | accuracy = 0.6675675675675675
+Epoch[2] Batch[190] Speed: 1.2501207855816738 samples/sec                   batch loss = 476.71569311618805 | accuracy = 0.6657894736842105
+Epoch[2] Batch[195] Speed: 1.2501973597828975 samples/sec                   batch loss = 488.19565880298615 | accuracy = 0.6666666666666666
+Epoch[2] Batch[200] Speed: 1.2524062058589789 samples/sec                   batch loss = 505.1306198835373 | accuracy = 0.66125
+Epoch[2] Batch[205] Speed: 1.253141852158204 samples/sec                   batch loss = 517.6828354597092 | accuracy = 0.6597560975609756
+Epoch[2] Batch[210] Speed: 1.253028511577089 samples/sec                   batch loss = 531.9066125154495 | accuracy = 0.6571428571428571
+Epoch[2] Batch[215] Speed: 1.249893447154594 samples/sec                   batch loss = 544.5294698476791 | accuracy = 0.6569767441860465
+Epoch[2] Batch[220] Speed: 1.2490918570638 samples/sec                   batch loss = 558.7007077932358 | accuracy = 0.6556818181818181
+Epoch[2] Batch[225] Speed: 1.2569553078987652 samples/sec                   batch loss = 570.239865899086 | accuracy = 0.6566666666666666
+Epoch[2] Batch[230] Speed: 1.2639318116926312 samples/sec                   batch loss = 586.1176711320877 | accuracy = 0.657608695652174
+Epoch[2] Batch[235] Speed: 1.2561566757687 samples/sec                   batch loss = 596.4980334043503 | accuracy = 0.6595744680851063
+Epoch[2] Batch[240] Speed: 1.2532935977818251 samples/sec                   batch loss = 609.3690060377121 | accuracy = 0.659375
+Epoch[2] Batch[245] Speed: 1.2508503913619444 samples/sec                   batch loss = 625.1268757581711 | accuracy = 0.6561224489795918
+Epoch[2] Batch[250] Speed: 1.246235584295866 samples/sec                   batch loss = 637.9854166507721 | accuracy = 0.655
+Epoch[2] Batch[255] Speed: 1.2510843287243831 samples/sec                   batch loss = 651.469117641449 | accuracy = 0.6519607843137255
+Epoch[2] Batch[260] Speed: 1.2471792383198228 samples/sec                   batch loss = 664.0573827028275 | accuracy = 0.6519230769230769
+Epoch[2] Batch[265] Speed: 1.2534091400642213 samples/sec                   batch loss = 676.5409806966782 | accuracy = 0.6509433962264151
+Epoch[2] Batch[270] Speed: 1.2544507304499957 samples/sec                   batch loss = 687.069907784462 | accuracy = 0.6527777777777778
+Epoch[2] Batch[275] Speed: 1.2591531532910853 samples/sec                   batch loss = 699.9755312204361 | accuracy = 0.6527272727272727
+Epoch[2] Batch[280] Speed: 1.2562667261707758 samples/sec                   batch loss = 710.5344967842102 | accuracy = 0.6553571428571429
+Epoch[2] Batch[285] Speed: 1.258188185842284 samples/sec                   batch loss = 724.5156028270721 | accuracy = 0.6526315789473685
+Epoch[2] Batch[290] Speed: 1.2544308458756734 samples/sec                   batch loss = 735.604011297226 | accuracy = 0.6543103448275862
+Epoch[2] Batch[295] Speed: 1.257764479680022 samples/sec                   batch loss = 748.9583077430725 | accuracy = 0.6542372881355932
+Epoch[2] Batch[300] Speed: 1.261678744344628 samples/sec                   batch loss = 760.9207615852356 | accuracy = 0.655
+Epoch[2] Batch[305] Speed: 1.2592185515022538 samples/sec                   batch loss = 775.7373087406158 | accuracy = 0.6532786885245901
+Epoch[2] Batch[310] Speed: 1.2542897022773098 samples/sec                   batch loss = 788.5961651802063 | accuracy = 0.6516129032258065
+Epoch[2] Batch[315] Speed: 1.26093465493397 samples/sec                   batch loss = 800.9212425947189 | accuracy = 0.6515873015873016
+Epoch[2] Batch[320] Speed: 1.2592658087726996 samples/sec                   batch loss = 815.2375651597977 | accuracy = 0.64921875
+Epoch[2] Batch[325] Speed: 1.2585906501804442 samples/sec                   batch loss = 829.3528825044632 | accuracy = 0.6484615384615384
+Epoch[2] Batch[330] Speed: 1.2549764933369738 samples/sec                   batch loss = 843.4017158746719 | accuracy = 0.646969696969697
+Epoch[2] Batch[335] Speed: 1.256021631712577 samples/sec                   batch loss = 854.9791016578674 | accuracy = 0.6477611940298508
+Epoch[2] Batch[340] Speed: 1.2522748645613164 samples/sec                   batch loss = 868.3720848560333 | accuracy = 0.6463235294117647
+Epoch[2] Batch[345] Speed: 1.259637847331636 samples/sec                   batch loss = 882.4638493061066 | accuracy = 0.644927536231884
+Epoch[2] Batch[350] Speed: 1.2541433403767883 samples/sec                   batch loss = 893.014281630516 | accuracy = 0.6471428571428571
+Epoch[2] Batch[355] Speed: 1.2596596942918787 samples/sec                   batch loss = 906.0331041812897 | accuracy = 0.6450704225352113
+Epoch[2] Batch[360] Speed: 1.2561047612473348 samples/sec                   batch loss = 915.8147450685501 | accuracy = 0.6472222222222223
+Epoch[2] Batch[365] Speed: 1.257276043890262 samples/sec                   batch loss = 926.8549777269363 | accuracy = 0.6486301369863013
+Epoch[2] Batch[370] Speed: 1.2522334580350825 samples/sec                   batch loss = 939.2362750768661 | accuracy = 0.6493243243243243
+Epoch[2] Batch[375] Speed: 1.259672273188517 samples/sec                   batch loss = 951.0831160545349 | accuracy = 0.6506666666666666
+Epoch[2] Batch[380] Speed: 1.2553141597045527 samples/sec                   batch loss = 962.677083492279 | accuracy = 0.6513157894736842
+Epoch[2] Batch[385] Speed: 1.2574980645332472 samples/sec                   batch loss = 973.3473744392395 | accuracy = 0.6532467532467533
+Epoch[2] Batch[390] Speed: 1.2586428648164296 samples/sec                   batch loss = 984.1026520729065 | accuracy = 0.6544871794871795
+Epoch[2] Batch[395] Speed: 1.2567402568490227 samples/sec                   batch loss = 994.6097257137299 | accuracy = 0.6569620253164556
+Epoch[2] Batch[400] Speed: 1.2564617602655095 samples/sec                   batch loss = 1005.2908893823624 | accuracy = 0.66
+Epoch[2] Batch[405] Speed: 1.2493630951516594 samples/sec                   batch loss = 1018.7015070915222 | accuracy = 0.6592592592592592
+Epoch[2] Batch[410] Speed: 1.2602551501195676 samples/sec                   batch loss = 1029.5408743619919 | accuracy = 0.6603658536585366
+Epoch[2] Batch[415] Speed: 1.250951025938874 samples/sec                   batch loss = 1042.6144543886185 | accuracy = 0.6596385542168675
+Epoch[2] Batch[420] Speed: 1.252991172638855 samples/sec                   batch loss = 1051.092512845993 | accuracy = 0.6619047619047619
+Epoch[2] Batch[425] Speed: 1.2505978969175324 samples/sec                   batch loss = 1064.0956873893738 | accuracy = 0.6611764705882353
+Epoch[2] Batch[430] Speed: 1.2522239246403326 samples/sec                   batch loss = 1076.1258571147919 | accuracy = 0.661046511627907
+Epoch[2] Batch[435] Speed: 1.2522198122403527 samples/sec                   batch loss = 1087.0251166820526 | accuracy = 0.6626436781609195
+Epoch[2] Batch[440] Speed: 1.2538783631825337 samples/sec                   batch loss = 1099.1497231721878 | accuracy = 0.6636363636363637
+Epoch[2] Batch[445] Speed: 1.251866433682377 samples/sec                   batch loss = 1110.4980680942535 | accuracy = 0.6629213483146067
+Epoch[2] Batch[450] Speed: 1.2531325857259152 samples/sec                   batch loss = 1123.4860949516296 | accuracy = 0.6633333333333333
+Epoch[2] Batch[455] Speed: 1.2482521941412288 samples/sec                   batch loss = 1136.1720486879349 | accuracy = 0.6631868131868132
+Epoch[2] Batch[460] Speed: 1.2573493510348734 samples/sec                   batch loss = 1148.3970960378647 | accuracy = 0.6630434782608695
+Epoch[2] Batch[465] Speed: 1.2494200366204864 samples/sec                   batch loss = 1160.4139713048935 | accuracy = 0.6634408602150538
+Epoch[2] Batch[470] Speed: 1.2518305650453294 samples/sec                   batch loss = 1169.469930768013 | accuracy = 0.6654255319148936
+Epoch[2] Batch[475] Speed: 1.2469351743271266 samples/sec                   batch loss = 1181.0941642522812 | accuracy = 0.6652631578947369
+Epoch[2] Batch[480] Speed: 1.2434058907198366 samples/sec                   batch loss = 1193.6745826005936 | accuracy = 0.6651041666666667
+Epoch[2] Batch[485] Speed: 1.2484898059295693 samples/sec                   batch loss = 1203.775716662407 | accuracy = 0.6664948453608247
+Epoch[2] Batch[490] Speed: 1.2573746053470671 samples/sec                   batch loss = 1215.1361161470413 | accuracy = 0.6673469387755102
+Epoch[2] Batch[495] Speed: 1.2517525765350261 samples/sec                   batch loss = 1227.418669104576 | accuracy = 0.6666666666666666
+Epoch[2] Batch[500] Speed: 1.2550193958106066 samples/sec                   batch loss = 1240.4457066059113 | accuracy = 0.6675
+Epoch[2] Batch[505] Speed: 1.2579475287351496 samples/sec                   batch loss = 1253.251231789589 | accuracy = 0.6668316831683169
+Epoch[2] Batch[510] Speed: 1.257461118479164 samples/sec                   batch loss = 1268.091540336609 | accuracy = 0.6666666666666666
+Epoch[2] Batch[515] Speed: 1.2536934984906478 samples/sec                   batch loss = 1279.0497151613235 | accuracy = 0.6669902912621359
+Epoch[2] Batch[520] Speed: 1.2489966354129949 samples/sec                   batch loss = 1291.7274556159973 | accuracy = 0.666826923076923
+Epoch[2] Batch[525] Speed: 1.2461354292679625 samples/sec                   batch loss = 1302.0091047286987 | accuracy = 0.6685714285714286
+Epoch[2] Batch[530] Speed: 1.2543908910427086 samples/sec                   batch loss = 1317.8537728786469 | accuracy = 0.6669811320754717
+Epoch[2] Batch[535] Speed: 1.2642342069777264 samples/sec                   batch loss = 1330.9320520162582 | accuracy = 0.6672897196261682
+Epoch[2] Batch[540] Speed: 1.2602151073937027 samples/sec                   batch loss = 1344.4894417524338 | accuracy = 0.6652777777777777
+Epoch[2] Batch[545] Speed: 1.252947472998721 samples/sec                   batch loss = 1354.3903237581253 | accuracy = 0.6660550458715596
+Epoch[2] Batch[550] Speed: 1.2542471309755954 samples/sec                   batch loss = 1365.4879829883575 | accuracy = 0.6654545454545454
+Epoch[2] Batch[555] Speed: 1.2581207246418111 samples/sec                   batch loss = 1376.8799483776093 | accuracy = 0.6666666666666666
+Epoch[2] Batch[560] Speed: 1.2605806034629794 samples/sec                   batch loss = 1388.029999256134 | accuracy = 0.6674107142857143
+Epoch[2] Batch[565] Speed: 1.2544664884849206 samples/sec                   batch loss = 1399.0282530784607 | accuracy = 0.6676991150442478
+Epoch[2] Batch[570] Speed: 1.260223626909503 samples/sec                   batch loss = 1411.4538649320602 | accuracy = 0.6679824561403509
+Epoch[2] Batch[575] Speed: 1.2620308498141692 samples/sec                   batch loss = 1421.3629832267761 | accuracy = 0.668695652173913
+Epoch[2] Batch[580] Speed: 1.2592718579593858 samples/sec                   batch loss = 1432.1865286827087 | accuracy = 0.6698275862068965
+Epoch[2] Batch[585] Speed: 1.263950475054533 samples/sec                   batch loss = 1446.5727081298828 | accuracy = 0.6692307692307692
+Epoch[2] Batch[590] Speed: 1.259145876742486 samples/sec                   batch loss = 1455.5078731775284 | accuracy = 0.6703389830508475
+Epoch[2] Batch[595] Speed: 1.2611879279626428 samples/sec                   batch loss = 1467.3447626829147 | accuracy = 0.6701680672268907
+Epoch[2] Batch[600] Speed: 1.2597294961522318 samples/sec                   batch loss = 1478.8349332809448 | accuracy = 0.67
+Epoch[2] Batch[605] Speed: 1.261394071742227 samples/sec                   batch loss = 1493.1204721927643 | accuracy = 0.6694214876033058
+Epoch[2] Batch[610] Speed: 1.2579163094918637 samples/sec                   batch loss = 1504.0178376436234 | accuracy = 0.6692622950819672
+Epoch[2] Batch[615] Speed: 1.2620362610537705 samples/sec                   batch loss = 1514.5073989629745 | accuracy = 0.6703252032520325
+Epoch[2] Batch[620] Speed: 1.2605557884739935 samples/sec                   batch loss = 1527.485483765602 | accuracy = 0.6705645161290322
+Epoch[2] Batch[625] Speed: 1.2666307602570706 samples/sec                   batch loss = 1538.3344161510468 | accuracy = 0.6708
+Epoch[2] Batch[630] Speed: 1.266902303282856 samples/sec                   batch loss = 1546.8901089429855 | accuracy = 0.6718253968253968
+Epoch[2] Batch[635] Speed: 1.2657058631596219 samples/sec                   batch loss = 1561.1400438547134 | accuracy = 0.6708661417322834
+Epoch[2] Batch[640] Speed: 1.2624581957667673 samples/sec                   batch loss = 1572.1339583396912 | accuracy = 0.67109375
+Epoch[2] Batch[645] Speed: 1.2559202737072954 samples/sec                   batch loss = 1581.551023364067 | accuracy = 0.6724806201550387
+Epoch[2] Batch[650] Speed: 1.2498329244380424 samples/sec                   batch loss = 1595.173353433609 | accuracy = 0.671923076923077
+Epoch[2] Batch[655] Speed: 1.250171554533328 samples/sec                   batch loss = 1608.2508507966995 | accuracy = 0.6709923664122137
+Epoch[2] Batch[660] Speed: 1.2558884029103419 samples/sec                   batch loss = 1619.3790313005447 | accuracy = 0.6712121212121213
+Epoch[2] Batch[665] Speed: 1.255597128022259 samples/sec                   batch loss = 1628.8891763687134 | accuracy = 0.6718045112781955
+Epoch[2] Batch[670] Speed: 1.2554913287876706 samples/sec                   batch loss = 1642.7363146543503 | accuracy = 0.6712686567164179
+Epoch[2] Batch[675] Speed: 1.2565417483373336 samples/sec                   batch loss = 1655.0772374868393 | accuracy = 0.6718518518518518
+Epoch[2] Batch[680] Speed: 1.2540280376339605 samples/sec                   batch loss = 1666.950755596161 | accuracy = 0.6716911764705882
+Epoch[2] Batch[685] Speed: 1.254959689885254 samples/sec                   batch loss = 1676.5066301822662 | accuracy = 0.672992700729927
+Epoch[2] Batch[690] Speed: 1.253159730207752 samples/sec                   batch loss = 1687.5178639888763 | accuracy = 0.6731884057971015
+Epoch[2] Batch[695] Speed: 1.2604901565904258 samples/sec                   batch loss = 1699.074748158455 | accuracy = 0.6733812949640288
+Epoch[2] Batch[700] Speed: 1.2537380933965687 samples/sec                   batch loss = 1713.4878185987473 | accuracy = 0.6732142857142858
+Epoch[2] Batch[705] Speed: 1.2581934698222315 samples/sec                   batch loss = 1725.4165530204773 | accuracy = 0.6737588652482269
+Epoch[2] Batch[710] Speed: 1.2542440366984822 samples/sec                   batch loss = 1739.1960725784302 | accuracy = 0.6732394366197183
+Epoch[2] Batch[715] Speed: 1.2529797561646303 samples/sec                   batch loss = 1748.763686656952 | accuracy = 0.6741258741258741
+Epoch[2] Batch[720] Speed: 1.2483015111195768 samples/sec                   batch loss = 1762.6798720359802 | accuracy = 0.6736111111111112
+Epoch[2] Batch[725] Speed: 1.25086064993814 samples/sec                   batch loss = 1778.8643659353256 | accuracy = 0.6724137931034483
+Epoch[2] Batch[730] Speed: 1.255179954068352 samples/sec                   batch loss = 1792.0614961385727 | accuracy = 0.6719178082191781
+Epoch[2] Batch[735] Speed: 1.2503452248375269 samples/sec                   batch loss = 1800.4058433771133 | accuracy = 0.6731292517006803
+Epoch[2] Batch[740] Speed: 1.2464334424106427 samples/sec                   batch loss = 1814.1460044384003 | accuracy = 0.6726351351351352
+Epoch[2] Batch[745] Speed: 1.2507582582381094 samples/sec                   batch loss = 1824.4724659919739 | accuracy = 0.6728187919463087
+Epoch[2] Batch[750] Speed: 1.256128366774878 samples/sec                   batch loss = 1835.2534362077713 | accuracy = 0.673
+Epoch[2] Batch[755] Speed: 1.2589671079660893 samples/sec                   batch loss = 1847.7062544822693 | accuracy = 0.6731788079470199
+Epoch[2] Batch[760] Speed: 1.2572063252317993 samples/sec                   batch loss = 1858.0443929433823 | accuracy = 0.6733552631578947
+Epoch[2] Batch[765] Speed: 1.2497661700244125 samples/sec                   batch loss = 1873.7836828231812 | accuracy = 0.6722222222222223
+Epoch[2] Batch[770] Speed: 1.2557771028456755 samples/sec                   batch loss = 1883.236686348915 | accuracy = 0.6733766233766234
+Epoch[2] Batch[775] Speed: 1.2492564834176871 samples/sec                   batch loss = 1895.251222372055 | accuracy = 0.6729032258064516
+Epoch[2] Batch[780] Speed: 1.2494436707150245 samples/sec                   batch loss = 1909.7354172468185 | accuracy = 0.6727564102564103
+Epoch[2] Batch[785] Speed: 1.2506029308919024 samples/sec                   batch loss = 1921.0936161279678 | accuracy = 0.6735668789808917
+[Epoch 2] training: accuracy=0.6735406091370558
+[Epoch 2] time cost: 643.5972573757172
+[Epoch 2] validation: validation accuracy=0.7333333333333333
 </pre></div></div>
 </div>
 </div>
