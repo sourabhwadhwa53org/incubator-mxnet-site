@@ -1646,7 +1646,7 @@ sudo pip3 install mxnet_cu102-1.6.0-py2.py3-none-linux_aarch64.whl
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Downloading /home/jenkins_slave/.mxnet/models/resnet50_v1-0aee57f9.zipba3cfdc5-049f-4b18-a20a-e5a53fbdecae from https://apache-mxnet.s3-accelerate.dualstack.amazonaws.com/gluon/models/resnet50_v1-0aee57f9.zip...
+Downloading /home/jenkins_slave/.mxnet/models/resnet50_v1-0aee57f9.zip8092232a-7752-41ff-9ac5-2b08daf67da2 from https://apache-mxnet.s3-accelerate.dualstack.amazonaws.com/gluon/models/resnet50_v1-0aee57f9.zip...
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -1654,8 +1654,8 @@ Downloading /home/jenkins_slave/.mxnet/models/resnet50_v1-0aee57f9.zipba3cfdc5-0
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[15:07:55] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
-[15:07:58] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for GPU
+[20:53:25] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
+[20:53:27] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for GPU
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -1672,7 +1672,7 @@ Downloading cat.jpg?raw=true from https://github.com/dmlc/web-data/blob/master/m
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[15:08:00] /work/mxnet/src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:97: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+[20:53:30] /work/mxnet/src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:97: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
