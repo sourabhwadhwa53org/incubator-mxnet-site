@@ -1710,7 +1710,7 @@ API</span></a> to load the images and apply the following data augmentations: 1.
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[16:00:50] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
+[22:05:27] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 </div>
@@ -1753,7 +1753,7 @@ tutorial</span></a>.</p>
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[16:00:53] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for GPU
+[22:05:29] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for GPU
 </pre></div></div>
 </div>
 </div>
@@ -1814,8 +1814,8 @@ tutorial</span></a>.</p>
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[16:00:55] /work/mxnet/src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:97: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
-[16:02:01] /work/mxnet/src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:97: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+[22:05:31] /work/mxnet/src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:97: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+[22:06:39] /work/mxnet/src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:97: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1823,8 +1823,8 @@ tutorial</span></a>.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[Epoch 1] Train-acc: 0.329, loss: 3.266 | Val-acc: 0.466 | learning-rate: 1.000E-03 | time: 68.6
-[Finished] Test-acc: 0.445
+[Epoch 1] Train-acc: 0.325, loss: 3.321 | Val-acc: 0.476 | learning-rate: 1.000E-03 | time: 70.0
+[Finished] Test-acc: 0.463
 </pre></div></div>
 </div>
 <p>Following is the training result:</p>
