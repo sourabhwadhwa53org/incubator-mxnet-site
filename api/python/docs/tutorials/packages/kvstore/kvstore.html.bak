@@ -1591,8 +1591,8 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[16:41:34] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
-[16:41:34] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU_PINNED
+[04:06:15] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
+[04:06:15] /work/mxnet/src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU_PINNED
 </pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">[[</span> <span class="pre">2.</span>&#160; <span class="pre">2.</span>&#160; <span class="pre">2.],[</span> <span class="pre">2.</span>&#160; <span class="pre">2.</span>&#160; <span class="pre">2.]]</span></code></p>
