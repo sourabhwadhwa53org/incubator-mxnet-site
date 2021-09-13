@@ -1451,7 +1451,7 @@ is not computationally efficient when A is non-invertible.</p>
 <span class="n">det</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">5.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L975</p>
+<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L1075</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1498,7 +1498,7 @@ Input is a tensor <em>A</em> of dimension <em>n &gt;= 2</em>.</p>
                   <span class="p">[</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">]]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L495</p>
+<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L544</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1553,7 +1553,7 @@ Input is a tensor <em>A</em> of dimension <em>n &gt;= 2</em>.</p>
                    <span class="p">[</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">]]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L605</p>
+<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L662</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1619,7 +1619,7 @@ inputs (batch mode).</p>
       <span class="p">[</span><span class="o">-</span><span class="mf">19.09768702</span><span class="p">,</span> <span class="mf">0.52758934</span><span class="p">]]]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L798</p>
+<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L868</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1755,7 +1755,7 @@ Tensor Cores on suitable NVIDIA GPUs. This can sometimes give significant speedu
         <span class="o">=</span> <span class="p">[[[</span><span class="mf">4.0</span><span class="p">]],</span> <span class="p">[[</span><span class="mf">0.04</span> <span class="p">]]]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L163</p>
+<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L171</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1804,7 +1804,7 @@ for all inputs (batch mode).</p>
               <span class="p">[[</span><span class="o">-</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">]]]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L920</p>
+<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L1010</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1853,7 +1853,7 @@ If <em>n&gt;1</em>, then <em>A</em> represents a batch of diagonals of square ma
                 <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">]]]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L547</p>
+<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L600</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1918,7 +1918,7 @@ diagonal with zero entries to the square matrix.</p>
                            <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]]]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L673</p>
+<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L735</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1965,7 +1965,7 @@ positive diagonal entries, and:</p>
 <span class="n">potrf</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="o">=</span> <span class="p">[[[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]],</span> <span class="p">[[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">]]]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L214</p>
+<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L228</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2021,7 +2021,7 @@ cannot use the Cholesky factor <em>A</em> (<em>potrf</em>), together with backsu
             <span class="p">[[</span><span class="mf">0.06641</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.01562</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.01562</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0625</span><span class="p">]]]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L275</p>
+<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L296</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2080,7 +2080,7 @@ the docs of operator det for detail.</p>
 <span class="n">logabsdet</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.609438</span><span class="p">,</span> <span class="o">-</span><span class="n">inf</span><span class="p">,</span> <span class="mf">1.609438</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L1034</p>
+<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L1140</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2120,7 +2120,7 @@ inputs (batch mode).</p>
 <span class="n">sumlogdiag</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.9459</span><span class="p">,</span> <span class="mf">3.9318</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L445</p>
+<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L488</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2185,7 +2185,7 @@ gradients, do not apply this operator to matrices with multiple eigenvalues.</p>
      <span class="p">[</span><span class="mf">0.17157288</span><span class="p">,</span> <span class="mf">5.82842712</span><span class="p">]]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L868</p>
+<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L948</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2238,7 +2238,7 @@ inputs (batch mode).</p>
 <span class="n">syrk</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">2.</span><span class="p">,</span> <span class="n">transpose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">=</span> <span class="p">[[[</span><span class="mf">4.</span><span class="p">]],</span> <span class="p">[[</span><span class="mf">0.04</span><span class="p">]]]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L730</p>
+<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L796</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2293,7 +2293,7 @@ identity or the matrix transposition (depending on <em>transpose</em>).</p>
                          <span class="p">[[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]]]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L333</p>
+<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L360</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2352,7 +2352,7 @@ identity or the matrix transposition (depending on <em>transpose</em>).</p>
                          <span class="p">[[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]]]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L396</p>
+<p>Defined in /work/mxnet/src/operator/tensor/la_op.cc:L431</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">

@@ -119,11 +119,11 @@ $(function() {
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="stringliteral"></span> </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="stringliteral">)code&quot;</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="stringliteral"></span><span class="preprocessor">#if MSHADOW_INT64_TENSOR_SIZE == 1</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="stringliteral">&quot;typedef int64 index_t;\n&quot;</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                                   <span class="stringliteral">&quot;typedef int64 index_t;\n&quot;</span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="stringliteral">&quot;typedef int32 index_t;\n&quot;</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                                   <span class="stringliteral">&quot;typedef int32 index_t;\n&quot;</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;R<span class="stringliteral">&quot;code(</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                                   R<span class="stringliteral">&quot;code(</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="stringliteral">// bool and int8 need to be accumulated in index_t</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="stringliteral">// but bool needs to be treated in the special way</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="stringliteral">// for ops like bitwise_not</span></div>
@@ -335,11 +335,11 @@ $(function() {
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="stringliteral"></span> </div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="stringliteral">template &lt;typename... Ts&gt;</span></div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="stringliteral">using mixed_type = typename multi_mixed_type_helper&lt;Ts...&gt;::type;</span></div>
-<div class="line"><a name="l00267"></a><span class="lineno"><a class="line" href="namespacemxnet_1_1common_1_1cuda_1_1rtc.html#a8a744161be1ad33c7ffb12d9cdfa316f">  267</a></span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="stringliteral"></span> </div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="stringliteral">}  // namespace type_util</span></div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="stringliteral">)code&quot;;</span></div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="stringliteral"></span><span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code" href="namespacemxnet_1_1common_1_1cuda_1_1rtc.html#a8a744161be1ad33c7ffb12d9cdfa316f">util_string</a>[] = R<span class="stringliteral">&quot;code(</span></div>
+<div class="line"><a name="l00271"></a><span class="lineno"><a class="line" href="namespacemxnet_1_1common_1_1cuda_1_1rtc.html#a8a744161be1ad33c7ffb12d9cdfa316f">  271</a></span>&#160;<span class="stringliteral"></span><span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code" href="namespacemxnet_1_1common_1_1cuda_1_1rtc.html#a8a744161be1ad33c7ffb12d9cdfa316f">util_string</a>[] = R<span class="stringliteral">&quot;code(</span></div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="stringliteral">enum class OpReqType {</span></div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;<span class="stringliteral">  kNullOp,</span></div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="stringliteral">  kWriteTo,</span></div>
@@ -514,11 +514,11 @@ $(function() {
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;<span class="stringliteral">  }</span></div>
 <div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;<span class="stringliteral">  return value;</span></div>
 <div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;<span class="stringliteral">}</span></div>
-<div class="line"><a name="l00446"></a><span class="lineno"><a class="line" href="namespacemxnet_1_1common_1_1cuda_1_1rtc.html#a09828bc99a0f05955a61b9e4feabb9b8">  446</a></span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;<span class="stringliteral"></span> </div>
 <div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;<span class="stringliteral">}  // namespace util</span></div>
 <div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;<span class="stringliteral">)code&quot;;</span></div>
 <div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;<span class="stringliteral"></span><span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code" href="namespacemxnet_1_1common_1_1cuda_1_1rtc.html#a09828bc99a0f05955a61b9e4feabb9b8">limits</a>[] = R<span class="stringliteral">&quot;code(</span></div>
+<div class="line"><a name="l00450"></a><span class="lineno"><a class="line" href="namespacemxnet_1_1common_1_1cuda_1_1rtc.html#a09828bc99a0f05955a61b9e4feabb9b8">  450</a></span>&#160;<span class="stringliteral"></span><span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code" href="namespacemxnet_1_1common_1_1cuda_1_1rtc.html#a09828bc99a0f05955a61b9e4feabb9b8">limits</a>[] = R<span class="stringliteral">&quot;code(</span></div>
 <div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;<span class="stringliteral">constexpr double DBL_MAX = 1.7976931348623157081e+308;</span></div>
 <div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;<span class="stringliteral">constexpr float FLT_MAX = 3.4028234663852885981e+38;</span></div>
 <div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;<span class="stringliteral">#define inf ((float)1e50)</span></div>
@@ -635,12 +635,12 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="anamespacemxnet_html"><div class="ttname"><a href="namespacemxnet.html">mxnet</a></div><div class="ttdoc">namespace of mxnet</div><div class="ttdef"><b>Definition:</b> api_registry.h:33</div></div>
 <div class="ttc" id="anamespacemxnet_1_1common_1_1cuda_1_1rtc_html_ae927f16659df551ae48be9507647ec2d"><div class="ttname"><a href="namespacemxnet_1_1common_1_1cuda_1_1rtc.html#ae927f16659df551ae48be9507647ec2d">mxnet::common::cuda::rtc::type_support_string</a></div><div class="ttdeci">const char type_support_string[]</div><div class="ttdef"><b>Definition:</b> util-inl.h:32</div></div>
-<div class="ttc" id="anamespacemxnet_1_1common_1_1cuda_1_1rtc_html_a09828bc99a0f05955a61b9e4feabb9b8"><div class="ttname"><a href="namespacemxnet_1_1common_1_1cuda_1_1rtc.html#a09828bc99a0f05955a61b9e4feabb9b8">mxnet::common::cuda::rtc::limits</a></div><div class="ttdeci">const char limits[]</div><div class="ttdef"><b>Definition:</b> util-inl.h:446</div></div>
+<div class="ttc" id="anamespacemxnet_1_1common_1_1cuda_1_1rtc_html_a09828bc99a0f05955a61b9e4feabb9b8"><div class="ttname"><a href="namespacemxnet_1_1common_1_1cuda_1_1rtc.html#a09828bc99a0f05955a61b9e4feabb9b8">mxnet::common::cuda::rtc::limits</a></div><div class="ttdeci">const char limits[]</div><div class="ttdef"><b>Definition:</b> util-inl.h:450</div></div>
 <div class="ttc" id="ainclude_2mxnet_2base_8h_html"><div class="ttname"><a href="include_2mxnet_2base_8h.html">base.h</a></div><div class="ttdoc">configuration of MXNet as well as basic data structure.</div></div>
-<div class="ttc" id="anamespacemxnet_1_1common_1_1cuda_1_1rtc_html_a8a744161be1ad33c7ffb12d9cdfa316f"><div class="ttname"><a href="namespacemxnet_1_1common_1_1cuda_1_1rtc.html#a8a744161be1ad33c7ffb12d9cdfa316f">mxnet::common::cuda::rtc::util_string</a></div><div class="ttdeci">const char util_string[]</div><div class="ttdef"><b>Definition:</b> util-inl.h:267</div></div>
+<div class="ttc" id="anamespacemxnet_1_1common_1_1cuda_1_1rtc_html_a8a744161be1ad33c7ffb12d9cdfa316f"><div class="ttname"><a href="namespacemxnet_1_1common_1_1cuda_1_1rtc.html#a8a744161be1ad33c7ffb12d9cdfa316f">mxnet::common::cuda::rtc::util_string</a></div><div class="ttdeci">const char util_string[]</div><div class="ttdef"><b>Definition:</b> util-inl.h:271</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Sep 12 2021 21:11:25 for mxnet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Sep 13 2021 20:43:02 for mxnet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

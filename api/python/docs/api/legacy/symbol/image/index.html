@@ -1384,7 +1384,7 @@ Edit on Github
 <td><p>Defined in /work/mxnet/src/operator/image/image_random.cc:L223</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.image.random_color_jitter" title="mxnet.symbol.image.random_color_jitter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_color_jitter</span></code></a>([data, brightness, …])</p></td>
-<td><p>Defined in /work/mxnet/src/operator/image/image_random.cc:L254</p></td>
+<td><p>Defined in /work/mxnet/src/operator/image/image_random.cc:L251</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.image.random_contrast" title="mxnet.symbol.image.random_contrast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_contrast</span></code></a>([data, min_factor, …])</p></td>
 <td><p>Defined in /work/mxnet/src/operator/image/image_random.cc:L230</p></td>
@@ -1399,7 +1399,7 @@ Edit on Github
 <td><p>Defined in /work/mxnet/src/operator/image/image_random.cc:L217</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.image.random_hue" title="mxnet.symbol.image.random_hue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_hue</span></code></a>([data, min_factor, max_factor, …])</p></td>
-<td><p>Defined in /work/mxnet/src/operator/image/image_random.cc:L246</p></td>
+<td><p>Defined in /work/mxnet/src/operator/image/image_random.cc:L244</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.image.random_lighting" title="mxnet.symbol.image.random_lighting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_lighting</span></code></a>([data, alpha_std, name, …])</p></td>
 <td><p>Randomly add PCA noise.</p></td>
@@ -1408,7 +1408,7 @@ Edit on Github
 <td><p>Randomly crop an image NDArray of shape (H x W x C) or (N x H x W x C) to the given size.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.symbol.image.random_saturation" title="mxnet.symbol.image.random_saturation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_saturation</span></code></a>([data, min_factor, …])</p></td>
-<td><p>Defined in /work/mxnet/src/operator/image/image_random.cc:L238</p></td>
+<td><p>Defined in /work/mxnet/src/operator/image/image_random.cc:L237</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#mxnet.symbol.image.resize" title="mxnet.symbol.image.resize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resize</span></code></a>([data, size, keep_ratio, interp, …])</p></td>
 <td><p>Resize an image NDArray of shape (H x W x C) or (N x H x W x C) to the given size.</p></td>
@@ -1422,7 +1422,7 @@ Edit on Github
 <dt id="mxnet.symbol.image.adjust_lighting">
 <code class="sig-name descname">adjust_lighting</code><span class="sig-paren">(</span><em class="sig-param">data=None</em>, <em class="sig-param">alpha=_Null</em>, <em class="sig-param">name=None</em>, <em class="sig-param">attr=None</em>, <em class="sig-param">out=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.symbol.image.adjust_lighting" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adjust the lighting level of the input. Follow the AlexNet style.</p>
-<p>Defined in /work/mxnet/src/operator/image/image_random.cc:L262</p>
+<p>Defined in /work/mxnet/src/operator/image/image_random.cc:L259</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1612,7 +1612,7 @@ this transform normalizes each channel of the input tensor with:</p>
 <dl class="function">
 <dt id="mxnet.symbol.image.random_color_jitter">
 <code class="sig-name descname">random_color_jitter</code><span class="sig-paren">(</span><em class="sig-param">data=None</em>, <em class="sig-param">brightness=_Null</em>, <em class="sig-param">contrast=_Null</em>, <em class="sig-param">saturation=_Null</em>, <em class="sig-param">hue=_Null</em>, <em class="sig-param">name=None</em>, <em class="sig-param">attr=None</em>, <em class="sig-param">out=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.symbol.image.random_color_jitter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Defined in /work/mxnet/src/operator/image/image_random.cc:L254</p>
+<dd><p>Defined in /work/mxnet/src/operator/image/image_random.cc:L251</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1731,7 +1731,7 @@ to the given size. Upsample result if <cite>src</cite> is smaller than <cite>siz
 <dl class="function">
 <dt id="mxnet.symbol.image.random_hue">
 <code class="sig-name descname">random_hue</code><span class="sig-paren">(</span><em class="sig-param">data=None</em>, <em class="sig-param">min_factor=_Null</em>, <em class="sig-param">max_factor=_Null</em>, <em class="sig-param">name=None</em>, <em class="sig-param">attr=None</em>, <em class="sig-param">out=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.symbol.image.random_hue" title="Permalink to this definition">¶</a></dt>
-<dd><p>Defined in /work/mxnet/src/operator/image/image_random.cc:L246</p>
+<dd><p>Defined in /work/mxnet/src/operator/image/image_random.cc:L244</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1754,7 +1754,7 @@ to the given size. Upsample result if <cite>src</cite> is smaller than <cite>siz
 <dt id="mxnet.symbol.image.random_lighting">
 <code class="sig-name descname">random_lighting</code><span class="sig-paren">(</span><em class="sig-param">data=None</em>, <em class="sig-param">alpha_std=_Null</em>, <em class="sig-param">name=None</em>, <em class="sig-param">attr=None</em>, <em class="sig-param">out=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.symbol.image.random_lighting" title="Permalink to this definition">¶</a></dt>
 <dd><p>Randomly add PCA noise. Follow the AlexNet style.</p>
-<p>Defined in /work/mxnet/src/operator/image/image_random.cc:L270</p>
+<p>Defined in /work/mxnet/src/operator/image/image_random.cc:L266</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1783,7 +1783,7 @@ Example:
 <div><p>im = mx.nd.array(cv2.imread(“flower.jpg”))
 cropped_im, rect  = mx.nd.image.random_resized_crop(im, (100, 100))</p>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/image/crop.cc:L113</p>
+<p>Defined in /work/mxnet/src/operator/image/crop.cc:L115</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1808,7 +1808,7 @@ cropped_im, rect  = mx.nd.image.random_resized_crop(im, (100, 100))</p>
 <dl class="function">
 <dt id="mxnet.symbol.image.random_saturation">
 <code class="sig-name descname">random_saturation</code><span class="sig-paren">(</span><em class="sig-param">data=None</em>, <em class="sig-param">min_factor=_Null</em>, <em class="sig-param">max_factor=_Null</em>, <em class="sig-param">name=None</em>, <em class="sig-param">attr=None</em>, <em class="sig-param">out=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.symbol.image.random_saturation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Defined in /work/mxnet/src/operator/image/image_random.cc:L238</p>
+<dd><p>Defined in /work/mxnet/src/operator/image/image_random.cc:L237</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">

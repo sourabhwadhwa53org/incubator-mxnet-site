@@ -96,7 +96,7 @@ $(function() {
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacemxnet.html">mxnet</a> {</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>common {</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keywordtype">int</span> num&gt;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">int</span> num&gt;</div>
 <div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="structmxnet_1_1common_1_1StaticArray.html">   40</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structmxnet_1_1common_1_1StaticArray.html">StaticArray</a> {</div>
 <div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="structmxnet_1_1common_1_1StaticArray.html#a12a35d1d843c258cc1dca2cf340d12f0">   41</a></span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="structmxnet_1_1common_1_1StaticArray.html#a12a35d1d843c258cc1dca2cf340d12f0">kNum</a> = num;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
@@ -105,14 +105,14 @@ $(function() {
 <div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="structmxnet_1_1common_1_1StaticArray.html#a1c3a79ddcb6b472f1a903f1753f4194a">   46</a></span>&#160;  <a class="code" href="3rdparty_2mshadow_2mshadow_2base_8h.html#af205b8ab4d8733133d590df7d2639d69">MSHADOW_XINLINE</a> <a class="code" href="structmxnet_1_1common_1_1StaticArray.html#a1c3a79ddcb6b472f1a903f1753f4194a">StaticArray</a>(<span class="keywordtype">void</span>) {}</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
 <div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="structmxnet_1_1common_1_1StaticArray.html#a857e64b386ca8e0bfab5087a42ae2f53">   49</a></span>&#160;  <a class="code" href="3rdparty_2mshadow_2mshadow_2base_8h.html#af205b8ab4d8733133d590df7d2639d69">MSHADOW_XINLINE</a> <a class="code" href="structmxnet_1_1common_1_1StaticArray.html#a857e64b386ca8e0bfab5087a42ae2f53">StaticArray</a>(<span class="keyword">const</span> T&amp; val) {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">    #pragma unroll</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#pragma unroll</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; num; ++i) {</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      this-&gt;array_[i] = val;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  }</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
 <div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="structmxnet_1_1common_1_1StaticArray.html#abb2f84b9e5f856fed4435c3d5f0ef044">   57</a></span>&#160;  <a class="code" href="3rdparty_2mshadow_2mshadow_2base_8h.html#af205b8ab4d8733133d590df7d2639d69">MSHADOW_XINLINE</a> <a class="code" href="structmxnet_1_1common_1_1StaticArray.html#abb2f84b9e5f856fed4435c3d5f0ef044">StaticArray</a>(<span class="keyword">const</span> <a class="code" href="structmxnet_1_1common_1_1StaticArray.html">StaticArray&lt;T, num&gt;</a>&amp; sa) {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">    #pragma unroll</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#pragma unroll</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; num; ++i) {</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      this-&gt;array_[i] = sa[i];</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
@@ -145,7 +145,7 @@ $(function() {
 <div class="ttc" id="a3rdparty_2mshadow_2mshadow_2base_8h_html"><div class="ttname"><a href="3rdparty_2mshadow_2mshadow_2base_8h.html">base.h</a></div><div class="ttdoc">definitions of base types, operators, macros functions</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Sep 12 2021 21:11:25 for mxnet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Sep 13 2021 20:43:02 for mxnet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

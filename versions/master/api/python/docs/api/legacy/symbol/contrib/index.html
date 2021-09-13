@@ -1846,7 +1846,7 @@ The pooling kernel and stride sizes are automatically chosen for desired output 
 <li><p>If a single integer is provided for output_size, the output size is (N x C x output_size x output_size) for any input (NCHW).</p></li>
 <li><p>If a tuple of integers (height, width) are provided for output_size, the output size is (N x C x height x width) for any input (NCHW).</p></li>
 </ul>
-<p>Defined in /work/mxnet/src/operator/contrib/adaptive_avg_pooling.cc:L214</p>
+<p>Defined in /work/mxnet/src/operator/contrib/adaptive_avg_pooling.cc:L216</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1869,7 +1869,7 @@ The pooling kernel and stride sizes are automatically chosen for desired output 
 <code class="sig-name descname">BatchNormWithReLU</code><span class="sig-paren">(</span><em class="sig-param">data=None</em>, <em class="sig-param">gamma=None</em>, <em class="sig-param">beta=None</em>, <em class="sig-param">moving_mean=None</em>, <em class="sig-param">moving_var=None</em>, <em class="sig-param">eps=_Null</em>, <em class="sig-param">momentum=_Null</em>, <em class="sig-param">fix_gamma=_Null</em>, <em class="sig-param">use_global_stats=_Null</em>, <em class="sig-param">output_mean_var=_Null</em>, <em class="sig-param">axis=_Null</em>, <em class="sig-param">cudnn_off=_Null</em>, <em class="sig-param">min_calib_range=_Null</em>, <em class="sig-param">max_calib_range=_Null</em>, <em class="sig-param">name=None</em>, <em class="sig-param">attr=None</em>, <em class="sig-param">out=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.symbol.contrib.BatchNormWithReLU" title="Permalink to this definition">¶</a></dt>
 <dd><p>Batch normalization with ReLU fusion.</p>
 <p>An extented operator of Batch normalization which can fuse ReLU activation.</p>
-<p>Defined in /work/mxnet/src/operator/contrib/batch_norm_relu.cc:L254</p>
+<p>Defined in /work/mxnet/src/operator/contrib/batch_norm_relu.cc:L260</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1909,7 +1909,7 @@ The key idea of bilinear interpolation is to perform linear interpolation
 first in one direction, and then again in the other direction. See the wikipedia of
 <a class="reference external" href="https://en.wikipedia.org/wiki/Bilinear_interpolation">Bilinear interpolation</a>
 for more details.</p>
-<p>Defined in /work/mxnet/src/operator/contrib/bilinear_resize.cc:L220</p>
+<p>Defined in /work/mxnet/src/operator/contrib/bilinear_resize.cc:L212</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1977,7 +1977,7 @@ The resulting <cite>label</cite> tensor should be padded to be:</p>
 <p>See <em>Connectionist Temporal Classification: Labelling Unsegmented
 Sequence Data with Recurrent Neural Networks</em>, A. Graves <em>et al</em>. for more
 information on the definition and the algorithm.</p>
-<p>Defined in /work/mxnet/src/operator/nn/ctc_loss.cc:L101</p>
+<p>Defined in /work/mxnet/src/operator/nn/ctc_loss.cc:L104</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2216,7 +2216,7 @@ input features at four regularly sampled locations in each RoI bin.
 Then the feature map can be aggregated by avgpooling.</p>
 <p class="rubric">References</p>
 <p>He, Kaiming, et al. “Mask R-CNN.” ICCV, 2017</p>
-<p>Defined in /work/mxnet/src/operator/contrib/roi_align.cc:L559</p>
+<p>Defined in /work/mxnet/src/operator/contrib/roi_align.cc:L552</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2254,7 +2254,7 @@ each RoI bin. Then the feature map can be aggregated by avgpooling.</p>
 <p class="rubric">References</p>
 <p>Ma, Jianqi, et al. “Arbitrary-Oriented Scene Text Detection via Rotation Proposals.”
 IEEE Transactions on Multimedia, 2018.</p>
-<p>Defined in /work/mxnet/src/operator/contrib/rroi_align.cc:L274</p>
+<p>Defined in /work/mxnet/src/operator/contrib/rroi_align.cc:L301</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2320,7 +2320,7 @@ then set <code class="docutils literal notranslate"><span class="pre">gamma</spa
 </dl>
 </dd>
 </dl>
-<p>Defined in /work/mxnet/src/operator/contrib/sync_batch_norm.cc:L97</p>
+<p>Defined in /work/mxnet/src/operator/contrib/sync_batch_norm.cc:L98</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2369,7 +2369,7 @@ then set <code class="docutils literal notranslate"><span class="pre">gamma</spa
 <span class="n">y</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/contrib/allclose_op.cc:L55</p>
+<p>Defined in /work/mxnet/src/operator/contrib/allclose_op.cc:L56</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2529,7 +2529,7 @@ y : matched row indices.</p>
 </div>
 </dd>
 </dl>
-<p>Defined in /work/mxnet/src/operator/contrib/bounding_box.cc:L186</p>
+<p>Defined in /work/mxnet/src/operator/contrib/bounding_box.cc:L185</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2563,7 +2563,7 @@ which stands for the rows in x where the corresonding element in index is non-ze
 </div>
 <p>[[4. 5. 6.]]
 &lt;NDArray 1x3 &#64;cpu(0)&gt;</p>
-<p>Defined in /work/mxnet/src/operator/contrib/boolean_mask.cc:L201</p>
+<p>Defined in /work/mxnet/src/operator/contrib/boolean_mask.cc:L214</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2590,7 +2590,7 @@ which stands for the rows in x where the corresonding element in index is non-ze
 or center type: <code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">width,</span> <span class="pre">height</span></code>.) array</p>
 </dd>
 </dl>
-<p>Defined in /work/mxnet/src/operator/contrib/bounding_box.cc:L239</p>
+<p>Defined in /work/mxnet/src/operator/contrib/bounding_box.cc:L243</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2622,7 +2622,7 @@ or center type: <code class="docutils literal notranslate"><span class="pre">x,<
 <dt>Encode bounding boxes training target with normalized center offsets.</dt><dd><p>Input bounding boxes are using corner type: <cite>x_{min}, y_{min}, x_{max}, y_{max}</cite>.) array</p>
 </dd>
 </dl>
-<p>Defined in /work/mxnet/src/operator/contrib/bounding_box.cc:L215</p>
+<p>Defined in /work/mxnet/src/operator/contrib/bounding_box.cc:L214</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2664,7 +2664,7 @@ or center type: <code class="docutils literal notranslate"><span class="pre">x,<
 </div>
 </dd>
 </dl>
-<p>Defined in /work/mxnet/src/operator/contrib/bounding_box.cc:L139</p>
+<p>Defined in /work/mxnet/src/operator/contrib/bounding_box.cc:L138</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2738,7 +2738,7 @@ When two boxes overlap IOU &gt; <code class="docutils literal notranslate"><span
            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/contrib/bounding_box.cc:L96</p>
+<p>Defined in /work/mxnet/src/operator/contrib/bounding_box.cc:L95</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2821,7 +2821,7 @@ When two boxes overlap IOU &gt; <code class="docutils literal notranslate"><span
            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/contrib/bounding_box.cc:L96</p>
+<p>Defined in /work/mxnet/src/operator/contrib/bounding_box.cc:L95</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2858,7 +2858,7 @@ When two boxes overlap IOU &gt; <code class="docutils literal notranslate"><span
 <p class="admonition-title">Note</p>
 <p>This operator only supports forward propagation. DO NOT use it in training.</p>
 </div>
-<p>Defined in /work/mxnet/src/operator/quantization/calibrate.cc:L198</p>
+<p>Defined in /work/mxnet/src/operator/quantization/calibrate.cc:L208</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2900,7 +2900,7 @@ Then the operator computs:</p>
                                                                   <span class="p">[</span><span class="mf">3.2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.7</span><span class="p">,</span> <span class="mf">6.6</span><span class="p">]]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/contrib/count_sketch.cc:L67</p>
+<p>Defined in /work/mxnet/src/operator/contrib/count_sketch.cc:L68</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2965,7 +2965,7 @@ The resulting <cite>label</cite> tensor should be padded to be:</p>
 <p>See <em>Connectionist Temporal Classification: Labelling Unsegmented
 Sequence Data with Recurrent Neural Networks</em>, A. Graves <em>et al</em>. for more
 information on the definition and the algorithm.</p>
-<p>Defined in /work/mxnet/src/operator/nn/ctc_loss.cc:L101</p>
+<p>Defined in /work/mxnet/src/operator/nn/ctc_loss.cc:L104</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3003,7 +3003,7 @@ by keep zero centered for the quantized value:</p>
 <p class="admonition-title">Note</p>
 <p>This operator only supports forward propogation. DO NOT use it in training.</p>
 </div>
-<p>Defined in /work/mxnet/src/operator/quantization/dequantize.cc:L81</p>
+<p>Defined in /work/mxnet/src/operator/quantization/dequantize.cc:L82</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3039,7 +3039,7 @@ the data value of float32.</p>
      <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="p">]]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/contrib/dgl_graph.cc:L1425</p>
+<p>Defined in /work/mxnet/src/operator/contrib/dgl_graph.cc:L1419</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3099,7 +3099,7 @@ of max_num_vertices, and the valid number of vertices is the same as the ones in
 <span class="o">&lt;</span><span class="n">NDArray</span> <span class="mi">5</span> <span class="nd">@cpu</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/contrib/dgl_graph.cc:L912
+<p>Defined in /work/mxnet/src/operator/contrib/dgl_graph.cc:L886
 This function support variable length of positional input.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -3160,7 +3160,7 @@ of max_num_vertices, and the valid number of vertices is the same as the ones in
 <span class="o">&lt;</span><span class="n">NDArray</span> <span class="mi">5</span> <span class="nd">@cpu</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/contrib/dgl_graph.cc:L802
+<p>Defined in /work/mxnet/src/operator/contrib/dgl_graph.cc:L777
 This function support variable length of positional input.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -3212,7 +3212,7 @@ empty rows and empty columns.</p>
        <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/contrib/dgl_graph.cc:L1614
+<p>Defined in /work/mxnet/src/operator/contrib/dgl_graph.cc:L1608
 This function support variable length of positional input.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -3256,7 +3256,7 @@ edge Ids.</p>
    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/contrib/dgl_graph.cc:L1172
+<p>Defined in /work/mxnet/src/operator/contrib/dgl_graph.cc:L1154
 This function support variable length of positional input.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -3283,7 +3283,7 @@ This function support variable length of positional input.</p>
 <blockquote>
 <div><p>out = data / sqrt(data.shape[-1])</p>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L844</p>
+<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L882</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3392,7 +3392,7 @@ otherwise output[i] will be -1. Both u and v should be 1D vectors.</p>
 </ul>
 </dd>
 </dl>
-<p>Defined in /work/mxnet/src/operator/contrib/dgl_graph.cc:L1353</p>
+<p>Defined in /work/mxnet/src/operator/contrib/dgl_graph.cc:L1347</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3426,7 +3426,7 @@ The output data has shape: (N, 2*d) or (N1, N2, N3, 2*d). The format is: [real0,
 <span class="n">out</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">ndarray</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">ctx</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="mi">0</span><span class="p">)))</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/contrib/fft.cc:L56</p>
+<p>Defined in /work/mxnet/src/operator/contrib/fft.cc:L57</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3449,7 +3449,7 @@ The output data has shape: (N, 2*d) or (N1, N2, N3, 2*d). The format is: [real0,
 <code class="sig-name descname">getnnz</code><span class="sig-paren">(</span><em class="sig-param">data=None</em>, <em class="sig-param">axis=_Null</em>, <em class="sig-param">name=None</em>, <em class="sig-param">attr=None</em>, <em class="sig-param">out=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.symbol.contrib.getnnz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of stored values for a sparse tensor, including explicit zeros.</p>
 <p>This operator only supports CSR matrix on CPU.</p>
-<p>Defined in /work/mxnet/src/operator/contrib/nnz.cc:L177</p>
+<p>Defined in /work/mxnet/src/operator/contrib/nnz.cc:L178</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3509,7 +3509,7 @@ uses only a single learning rate for every row of the parameter array.</p>
 </div>
 <p>Weights are updated lazily if the gradient is sparse.</p>
 <p>Note that non-zero values for the weight decay option are not supported.</p>
-<p>Defined in /work/mxnet/src/operator/contrib/optimizer_op.cc:L71</p>
+<p>Defined in /work/mxnet/src/operator/contrib/optimizer_op.cc:L70</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3645,7 +3645,7 @@ equality will hold: <span class="math notranslate nohighlight">\(idx[i_1, i_2, .
                                                <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span><span class="p">]]]]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/contrib/index_array.cc:L118</p>
+<p>Defined in /work/mxnet/src/operator/contrib/index_array.cc:L117</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3690,7 +3690,7 @@ For example, if <cite>index[i] == j</cite>, then the <cite>i</cite> th row of <c
 <span class="o">&lt;</span><span class="n">NDArray</span> <span class="mi">5</span><span class="n">x3</span> <span class="nd">@cpu</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/contrib/index_copy.cc:L193</p>
+<p>Defined in /work/mxnet/src/operator/contrib/index_copy.cc:L206</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3728,7 +3728,7 @@ queries and keys in multihead attention use as encoder-decoder.</p>
 <span class="n">output</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">batch_dot</span><span class="p">(</span><span class="n">q_proj</span><span class="p">,</span> <span class="n">k_proj</span><span class="p">,</span> <span class="n">transpose_b</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L763</p>
+<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L798</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3767,7 +3767,7 @@ keys and values following the layout:
 <span class="n">output</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L811</p>
+<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L848</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3804,7 +3804,7 @@ of queries, keys and values following the layout:
 <span class="n">output</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">batch_dot</span><span class="p">(</span><span class="n">q_proj</span><span class="p">,</span> <span class="n">k_proj</span><span class="p">,</span> <span class="n">transpose_b</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L669</p>
+<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L695</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3842,7 +3842,7 @@ of queries, keys and values following the layout:
 <span class="n">output</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L716</p>
+<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L746</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3873,7 +3873,7 @@ scaling = (max passed to intgemm_prepare_weight)/127.0 if data is in float32
 scaling = (max_passed to intgemm_prepare_data)/127.0 * (max passed to intgemm_prepare_weight)/127.0 if data is in int8</p>
 <p>bias: present if and only if !no_bias. This is added to the output after scaling and has the same number of columns as the output.</p>
 <p>out_type: type of the output.</p>
-<p>Defined in /work/mxnet/src/operator/contrib/intgemm/intgemm_fully_connected_op.cc:L283</p>
+<p>Defined in /work/mxnet/src/operator/contrib/intgemm/intgemm_fully_connected_op.cc:L284</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3902,7 +3902,7 @@ scaling = (max_passed to intgemm_prepare_data)/127.0 * (max passed to intgemm_pr
 <code class="sig-name descname">intgemm_maxabsolute</code><span class="sig-paren">(</span><em class="sig-param">data=None</em>, <em class="sig-param">name=None</em>, <em class="sig-param">attr=None</em>, <em class="sig-param">out=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.symbol.contrib.intgemm_maxabsolute" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the maximum absolute value in a tensor of float32 fast on a CPU.  The tensor’s total size must be a multiple of 16 and aligned to a multiple of 64 bytes.
 mxnet.nd.contrib.intgemm_maxabsolute(arr) == arr.abs().max()</p>
-<p>Defined in /work/mxnet/src/operator/contrib/intgemm/max_absolute_op.cc:L101</p>
+<p>Defined in /work/mxnet/src/operator/contrib/intgemm/max_absolute_op.cc:L102</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3951,7 +3951,7 @@ mxnet.nd.contrib.intgemm_maxabsolute(arr) == arr.abs().max()</p>
 <p>If the provided weight matrix is float32, it will be quantized first.  The quantization function is (int8_t)(127.0 / max * weight) where multiplier is provided as argument 1 (the weight matrix is argument 0).  Then the matrix will be rearranged into the CPU-dependent format.</p>
 <p>If the provided weight matrix is already int8, the matrix will only be rearranged into the CPU-dependent format.  This way one can quantize with intgemm_prepare_data (which just quantizes), store to disk in a consistent format, then at load time convert to CPU-dependent format with intgemm_prepare_weight.</p>
 <p>The internal representation depends on register length.  So AVX512, AVX2, and SSSE3 have different formats.  AVX512BW and AVX512VNNI have the same representation.</p>
-<p>Defined in /work/mxnet/src/operator/contrib/intgemm/prepare_weight_op.cc:L153</p>
+<p>Defined in /work/mxnet/src/operator/contrib/intgemm/prepare_weight_op.cc:L152</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3975,7 +3975,7 @@ mxnet.nd.contrib.intgemm_maxabsolute(arr) == arr.abs().max()</p>
 <code class="sig-name descname">intgemm_take_weight</code><span class="sig-paren">(</span><em class="sig-param">weight=None</em>, <em class="sig-param">indices=None</em>, <em class="sig-param">name=None</em>, <em class="sig-param">attr=None</em>, <em class="sig-param">out=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.symbol.contrib.intgemm_take_weight" title="Permalink to this definition">¶</a></dt>
 <dd><p>Index a weight matrix stored in intgemm’s weight format.
 The indices select the outputs of matrix multiplication, not the inner dot product dimension.</p>
-<p>Defined in /work/mxnet/src/operator/contrib/intgemm/take_weight_op.cc:L128</p>
+<p>Defined in /work/mxnet/src/operator/contrib/intgemm/take_weight_op.cc:L125</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -4124,7 +4124,7 @@ If min_calib_range isn’t presented, the output type will be int8.</p>
 <p class="admonition-title">Note</p>
 <p>This operator only supports forward propagation. DO NOT use it in training.</p>
 </div>
-<p>Defined in /work/mxnet/src/operator/quantization/quantize_v2.cc:L93</p>
+<p>Defined in /work/mxnet/src/operator/quantization/quantize_v2.cc:L96</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -4155,7 +4155,7 @@ the float32 data into int8.</p>
 <p>This operator only supports forward propogation. DO NOT use it in training.
 This operator only supports <cite>relu</cite></p>
 </div>
-<p>Defined in /work/mxnet/src/operator/quantization/quantized_activation.cc:L92</p>
+<p>Defined in /work/mxnet/src/operator/quantization/quantized_activation.cc:L93</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -4185,7 +4185,7 @@ the float32 data into int8.</p>
 <p class="admonition-title">Note</p>
 <p>This operator only supports forward propogation. DO NOT use it in training.</p>
 </div>
-<p>Defined in /work/mxnet/src/operator/quantization/quantized_batch_norm.cc:L95</p>
+<p>Defined in /work/mxnet/src/operator/quantization/quantized_batch_norm.cc:L97</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -4227,7 +4227,7 @@ The dimension of the output array along the concatenated axis will be equal
 to the sum of the corresponding dimensions of the input arrays.
 All inputs with different min/max will be rescaled by using largest [min, max] pairs.
 If any input holds int8, then the output will be int8. Otherwise output will be uint8.</p>
-<p>Defined in /work/mxnet/src/operator/quantization/quantized_concat.cc:L109
+<p>Defined in /work/mxnet/src/operator/quantization/quantized_concat.cc:L113
 This function support variable length of positional input.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -4332,7 +4332,7 @@ and max thresholds representing the threholds for quantizing the float32 output 
 <dt id="mxnet.symbol.contrib.quantized_elemwise_mul">
 <code class="sig-name descname">quantized_elemwise_mul</code><span class="sig-paren">(</span><em class="sig-param">lhs=None</em>, <em class="sig-param">rhs=None</em>, <em class="sig-param">lhs_min=None</em>, <em class="sig-param">lhs_max=None</em>, <em class="sig-param">rhs_min=None</em>, <em class="sig-param">rhs_max=None</em>, <em class="sig-param">min_calib_range=_Null</em>, <em class="sig-param">max_calib_range=_Null</em>, <em class="sig-param">enable_float_output=_Null</em>, <em class="sig-param">name=None</em>, <em class="sig-param">attr=None</em>, <em class="sig-param">out=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.symbol.contrib.quantized_elemwise_mul" title="Permalink to this definition">¶</a></dt>
 <dd><p>Multiplies arguments int8 element-wise.</p>
-<p>Defined in /work/mxnet/src/operator/quantization/quantized_elemwise_mul.cc:L214</p>
+<p>Defined in /work/mxnet/src/operator/quantization/quantized_elemwise_mul.cc:L215</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -4418,7 +4418,7 @@ and max thresholds representing the threholds for quantizing the float32 output 
 <p class="admonition-title">Note</p>
 <p>This operator only supports forward propogation. DO NOT use it in training.</p>
 </div>
-<p>Defined in /work/mxnet/src/operator/quantization/quantized_fully_connected.cc:L314</p>
+<p>Defined in /work/mxnet/src/operator/quantization/quantized_fully_connected.cc:L325</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -4457,7 +4457,7 @@ the float32 data into int8.</p>
 <p>This operator only supports forward propogation. DO NOT use it in training.
 This operator only supports <cite>pool_type</cite> of <cite>avg</cite> or <cite>max</cite>.</p>
 </div>
-<p>Defined in /work/mxnet/src/operator/quantization/quantized_pooling.cc:L188</p>
+<p>Defined in /work/mxnet/src/operator/quantization/quantized_pooling.cc:L185</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -4543,7 +4543,7 @@ x.grad() = [1.,  1., 1.,  1.,  1.]</p>
 </ul>
 </dd>
 </dl>
-<p>Defined in /work/mxnet/src/operator/contrib/stes_op.cc:L56</p>
+<p>Defined in /work/mxnet/src/operator/contrib/stes_op.cc:L55</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -4582,7 +4582,7 @@ x.grad() = [1.,  1., 1.]</p>
 </ul>
 </dd>
 </dl>
-<p>Defined in /work/mxnet/src/operator/contrib/stes_op.cc:L82</p>
+<p>Defined in /work/mxnet/src/operator/contrib/stes_op.cc:L81</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -4622,7 +4622,7 @@ otherwise each token attends to <em>w</em> tokens on each side.</p>
 </ul>
 <p>The shape of the output is:
 - <em>context_vec</em> : (batch_size, seq_length, num_heads, num_head_units)</p>
-<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L999</p>
+<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L1046</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -4666,7 +4666,7 @@ otherwise each token attends to <em>w</em> tokens on each side.</p>
 </ul>
 <p>The shape of the output is:
 - <em>mask</em> : same as the shape of <em>score</em></p>
-<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L873</p>
+<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L910</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -4707,7 +4707,7 @@ otherwise each token attends to <em>w</em> tokens on each side.</p>
 <li><p>(batch_size, seq_length, num_heads, w + 1) otherwise.</p></li>
 </ul>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L928</p>
+<p>Defined in /work/mxnet/src/operator/contrib/transformer.cc:L970</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">

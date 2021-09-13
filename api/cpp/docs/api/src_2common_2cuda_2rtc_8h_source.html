@@ -118,17 +118,17 @@ $(function() {
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">extern</span> std::mutex <a class="code" href="namespacemxnet_1_1common_1_1cuda_1_1rtc.html#aef7cd83e7f0216b689f5f9d4191d9f8b">lock</a>;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;CUfunction <a class="code" href="namespacemxnet_1_1common_1_1cuda_1_1rtc.html#aa376584cbd919b0c3cf23f22bbe948fd">get_function</a>(<span class="keyword">const</span> std::string &amp;parameters,</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                        <span class="keyword">const</span> std::string &amp;kernel_name,</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                        <span class="keyword">const</span> std::string &amp;code,</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;CUfunction <a class="code" href="namespacemxnet_1_1common_1_1cuda_1_1rtc.html#aa376584cbd919b0c3cf23f22bbe948fd">get_function</a>(<span class="keyword">const</span> std::string&amp; parameters,</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                        <span class="keyword">const</span> std::string&amp; kernel_name,</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                        <span class="keyword">const</span> std::string&amp; code,</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                        <span class="keywordtype">int</span> dev_id);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacemxnet_1_1common_1_1cuda_1_1rtc.html#a9732a1d386bd52d6e11f19ab02be34b1">launch</a>(CUfunction <span class="keyword">function</span>,</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keyword">const</span> dim3 grid_dim,</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keyword">const</span> dim3 block_dim,</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> shared_mem_bytes,</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <a class="code" href="structmshadow_1_1Stream_3_01gpu_01_4.html">mshadow::Stream&lt;gpu&gt;</a> *stream,</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            std::vector&lt;const void*&gt; *args);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <a class="code" href="structmshadow_1_1Stream_3_01gpu_01_4.html">mshadow::Stream&lt;gpu&gt;</a>* stream,</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            std::vector&lt;const void*&gt;* args);</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}  <span class="comment">// namespace rtc</span></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}  <span class="comment">// namespace cuda</span></div>
@@ -151,7 +151,7 @@ $(function() {
 <div class="ttc" id="ainclude_2mxnet_2base_8h_html"><div class="ttname"><a href="include_2mxnet_2base_8h.html">base.h</a></div><div class="ttdoc">configuration of MXNet as well as basic data structure.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Sep 12 2021 21:11:25 for mxnet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Sep 13 2021 20:43:02 for mxnet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
