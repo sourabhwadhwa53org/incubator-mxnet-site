@@ -1685,7 +1685,7 @@ bias
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[03:44:13] /work/mxnet/src/storage/storage.cc:205: Using Pooled (Naive) StorageManager for CPU
+[16:31:54] /work/mxnet/src/storage/storage.cc:205: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
