@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['ndarrayformaterr_8840',['NDArrayFormatErr',['../namespacemxnet.html#ace60510752753f459193f95cab0e9e1a',1,'mxnet']]],
-  ['ndarrayfunctiontypemask_8841',['NDArrayFunctionTypeMask',['../namespacemxnet.html#a89a5f0f5cfd9e1e94604a7b42dda818a',1,'mxnet']]],
-  ['ndarraystoragetype_8842',['NDArrayStorageType',['../namespacemxnet.html#a536b732faa980e1de446c552460ff76a',1,'mxnet']]],
-  ['numpyshape_8843',['NumpyShape',['../namespacemxnet.html#a2a487cb76fa5483d32c5d87ca448e94e',1,'mxnet']]]
+  ['ndarrayformaterr_8856',['NDArrayFormatErr',['../namespacemxnet.html#ace60510752753f459193f95cab0e9e1a',1,'mxnet']]],
+  ['ndarrayfunctiontypemask_8857',['NDArrayFunctionTypeMask',['../namespacemxnet.html#a89a5f0f5cfd9e1e94604a7b42dda818a',1,'mxnet']]],
+  ['ndarraystoragetype_8858',['NDArrayStorageType',['../namespacemxnet.html#a536b732faa980e1de446c552460ff76a',1,'mxnet']]],
+  ['numpyshape_8859',['NumpyShape',['../namespacemxnet.html#a2a487cb76fa5483d32c5d87ca448e94e',1,'mxnet']]]
 ];

@@ -1452,7 +1452,7 @@ mx.nd.image.crop(image, 1, 1, 2, 2).shape # (2, 2, 3)
 image = mx.nd.random.uniform(0, 255, (2, 4, 2, 3)).astype(dtype=np.uint8)
 mx.nd.image.crop(image, 1, 1, 2, 2) # (2, 2, 2, 3)</p>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/image/crop.cc:L50</p>
+<p>Defined in /work/mxnet/src/operator/image/crop.cc:L49</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1664,7 +1664,7 @@ to the given size. Upsample result if <cite>src</cite> is smaller than <cite>siz
 <span class="n">cropped_im</span><span class="p">,</span> <span class="n">rect</span>  <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">random_crop</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/image/crop.cc:L78</p>
+<p>Defined in /work/mxnet/src/operator/image/crop.cc:L77</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1783,7 +1783,7 @@ Example:
 <div><p>im = mx.nd.array(cv2.imread(“flower.jpg”))
 cropped_im, rect  = mx.nd.image.random_resized_crop(im, (100, 100))</p>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/image/crop.cc:L115</p>
+<p>Defined in /work/mxnet/src/operator/image/crop.cc:L114</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1864,7 +1864,7 @@ to the given size. Example:</p>
     <span class="o">&lt;</span><span class="n">NDArray</span> <span class="mi">2</span><span class="n">x2x2x3</span> <span class="nd">@cpu</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/image/resize.cc:L74</p>
+<p>Defined in /work/mxnet/src/operator/image/resize.cc:L73</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">

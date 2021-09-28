@@ -2622,7 +2622,7 @@ broadcastable to a common shape.</p></li>
 <li><p>add_n(any input combinations longer than 4 (&gt;4) with at least one default type) = default</p></li>
 <li><p>otherwise, <code class="docutils literal notranslate"><span class="pre">add_n</span></code> falls all inputs back to default storage and generates default storage</p></li>
 </ul>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_sum.cc:L156</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_sum.cc:L155</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2686,7 +2686,7 @@ and Adam. Note that by default lazy updates is turned on, which may perform diff
 from standard updates. For more details, please check the Optimization API at:
 <a class="reference external" href="https://mxnet.apache.org/versions/master/api/python/docs/api/optimizer/index.html">https://mxnet.apache.org/versions/master/api/python/docs/api/optimizer/index.html</a></p>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/indexing_op.cc:L675</p>
+<p>Defined in /work/mxnet/src/operator/tensor/indexing_op.cc:L674</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2737,7 +2737,7 @@ trained with importance sampling or noise contrastive estimation.</p>
 <p>To compute linear transformation with ‘csr’ sparse data, sparse.dot is recommended instead
 of sparse.FullyConnected.</p>
 </div>
-<p>Defined in /work/mxnet/src/operator/nn/fully_connected.cc:L285</p>
+<p>Defined in /work/mxnet/src/operator/nn/fully_connected.cc:L284</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2922,7 +2922,7 @@ and available at <a class="reference external" href="http://www.jmlr.org/papers/
 </pre></div>
 </div>
 <p>Note that non-zero values for the weight decay option are not supported.</p>
-<p>Defined in /work/mxnet/src/operator/optimizer_op.cc:L953</p>
+<p>Defined in /work/mxnet/src/operator/optimizer_op.cc:L952</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2973,7 +2973,7 @@ only the row slices whose indices appear in grad.indices are updated (for w, m a
     <span class="n">w</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">+=</span> <span class="o">-</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">m</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">row</span><span class="p">])</span> <span class="o">+</span> <span class="n">epsilon</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/optimizer_op.cc:L734</p>
+<p>Defined in /work/mxnet/src/operator/optimizer_op.cc:L733</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3015,7 +3015,7 @@ only the row slices whose indices appear in grad.indices are updated (for w, m a
 <li><p>add_n(any input combinations longer than 4 (&gt;4) with at least one default type) = default</p></li>
 <li><p>otherwise, <code class="docutils literal notranslate"><span class="pre">add_n</span></code> falls all inputs back to default storage and generates default storage</p></li>
 </ul>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_sum.cc:L156</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_sum.cc:L155</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3227,7 +3227,7 @@ The output is in the closed interval of [<span class="math notranslate nohighlig
 <div><p>broadcast_add(csr, dense(1D)) = dense
 broadcast_add(dense(1D), csr) = dense</p>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_binary_broadcast_op_basic.cc:L58</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_binary_broadcast_op_basic.cc:L57</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3264,7 +3264,7 @@ broadcast_add(dense(1D), csr) = dense</p>
 <blockquote>
 <div><p>broadcast_div(csr, dense(1D)) = csr</p>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_binary_broadcast_op_basic.cc:L191</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_binary_broadcast_op_basic.cc:L190</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3306,7 +3306,7 @@ broadcast_add(dense(1D), csr) = dense</p>
 <div><p>broadcast_sub/minus(csr, dense(1D)) = dense
 broadcast_sub/minus(dense(1D), csr) = dense</p>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_binary_broadcast_op_basic.cc:L108</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_binary_broadcast_op_basic.cc:L107</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3343,7 +3343,7 @@ broadcast_sub/minus(dense(1D), csr) = dense</p>
 <blockquote>
 <div><p>broadcast_mul(csr, dense(1D)) = csr</p>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_binary_broadcast_op_basic.cc:L150</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_binary_broadcast_op_basic.cc:L149</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3385,7 +3385,7 @@ broadcast_sub/minus(dense(1D), csr) = dense</p>
 <div><p>broadcast_add(csr, dense(1D)) = dense
 broadcast_add(dense(1D), csr) = dense</p>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_binary_broadcast_op_basic.cc:L58</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_binary_broadcast_op_basic.cc:L57</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3427,7 +3427,7 @@ broadcast_add(dense(1D), csr) = dense</p>
 <div><p>broadcast_sub/minus(csr, dense(1D)) = dense
 broadcast_sub/minus(dense(1D), csr) = dense</p>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_binary_broadcast_op_basic.cc:L108</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_binary_broadcast_op_basic.cc:L107</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3593,7 +3593,7 @@ Clipping <code class="docutils literal notranslate"><span class="pre">x</span></
 * clip(row_sparse, a_min &gt; 0, a_max &gt; 0) = default
 * clip(csr, a_min &lt; 0, a_max &lt; 0) = csr
 * clip(csr, a_min &gt; 0, a_max &gt; 0) = csr</p>
-<p>Defined in /work/mxnet/src/operator/tensor/matrix_op.cc:L729</p>
+<p>Defined in /work/mxnet/src/operator/tensor/matrix_op.cc:L728</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3651,7 +3651,7 @@ to the sum of the corresponding dimensions of the input arrays.</p>
                       <span class="p">[</span> <span class="mf">5.</span><span class="p">,</span>  <span class="mf">5.</span><span class="p">,</span>  <span class="mf">8.</span><span class="p">,</span>  <span class="mf">8.</span><span class="p">]]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/nn/concat.cc:L387</p>
+<p>Defined in /work/mxnet/src/operator/nn/concat.cc:L386</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -4104,7 +4104,7 @@ only the row slices whose indices appear in grad.indices are updated (for w, z a
     <span class="n">w</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">sign</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="n">row</span><span class="p">])</span> <span class="o">*</span> <span class="n">lamda1</span> <span class="o">-</span> <span class="n">z</span><span class="p">[</span><span class="n">row</span><span class="p">])</span> <span class="o">/</span> <span class="p">((</span><span class="n">beta</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="n">row</span><span class="p">]))</span> <span class="o">/</span> <span class="n">learning_rate</span> <span class="o">+</span> <span class="n">wd</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="n">row</span><span class="p">])</span> <span class="o">&gt;</span> <span class="n">lamda1</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/optimizer_op.cc:L920</p>
+<p>Defined in /work/mxnet/src/operator/optimizer_op.cc:L919</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -4340,7 +4340,7 @@ from backpropagation. See more detail in <code class="docutils literal notransla
 <dt id="mxnet.ndarray.sparse.mean">
 <code class="sig-name descname">mean</code><span class="sig-paren">(</span><em class="sig-param">data=None</em>, <em class="sig-param">axis=_Null</em>, <em class="sig-param">keepdims=_Null</em>, <em class="sig-param">exclude=_Null</em>, <em class="sig-param">out=None</em>, <em class="sig-param">name=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.ndarray.sparse.mean" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the mean of array elements over given axes.</p>
-<p>Defined in /work/mxnet/src/operator/tensor/./broadcast_reduce_op.h:L84</p>
+<p>Defined in /work/mxnet/src/operator/tensor/./broadcast_reduce_op.h:L83</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -4451,7 +4451,7 @@ array. Currently only ord=2 supports sparse ndarrays.</p>
 <span class="n">norm</span><span class="p">(</span><span class="n">csr</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span><span class="mf">5.47722578</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/broadcast_reduce_norm_value.cc:L89</p>
+<p>Defined in /work/mxnet/src/operator/tensor/broadcast_reduce_norm_value.cc:L88</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -4706,7 +4706,7 @@ only the row slices whose indices appear in grad.indices are updated (for both w
     <span class="n">weight</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">+=</span> <span class="n">v</span><span class="p">[</span><span class="n">row</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/optimizer_op.cc:L609</p>
+<p>Defined in /work/mxnet/src/operator/optimizer_op.cc:L608</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -4745,7 +4745,7 @@ only the row slices whose indices appear in grad.indices are updated:</p>
     <span class="n">weight</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">=</span> <span class="n">weight</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">-</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="p">(</span><span class="n">gradient</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">+</span> <span class="n">wd</span> <span class="o">*</span> <span class="n">weight</span><span class="p">[</span><span class="n">row</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/optimizer_op.cc:L568</p>
+<p>Defined in /work/mxnet/src/operator/optimizer_op.cc:L567</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -4932,7 +4932,7 @@ a dense tensor.</p>
                                                           <span class="p">[</span><span class="mf">1.</span><span class="p">,</span>  <span class="mf">3.</span><span class="p">]]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/matrix_op.cc:L525</p>
+<p>Defined in /work/mxnet/src/operator/tensor/matrix_op.cc:L524</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -5101,7 +5101,7 @@ Setting keepdims or exclude to True will cause a fallback to dense operator.</p>
 <span class="p">[</span> <span class="mf">3.</span>  <span class="mf">4.</span>  <span class="mf">5.</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/broadcast_reduce_sum_value.cc:L67</p>
+<p>Defined in /work/mxnet/src/operator/tensor/broadcast_reduce_sum_value.cc:L66</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -5254,7 +5254,7 @@ if the corresponding element from condition is true, and from y’s row if false
 <span class="n">where</span><span class="p">(</span><span class="n">csr_cond</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">]]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/control_flow_op.cc:L57</p>
+<p>Defined in /work/mxnet/src/operator/tensor/control_flow_op.cc:L56</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">

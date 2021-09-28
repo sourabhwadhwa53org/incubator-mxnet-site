@@ -573,7 +573,7 @@ AWS_SECRET_ACCESS_KEY=&lt;your-secret-access-key&gt;
 
 <p>Once the data is in S3, it is very straightforward to use it from MXNet. Any data iterator that can read/write data from a local drive can also read/write data from S3.</p>
 
-<p>Let’s modify an existing example code in MXNet repository to read data from S3 instead of local disk. <a href="https://github.com/dmlc/mxnet/blob/master/tests/python/train/test_conv.py"><code class="highlighter-rouge">mxnet/tests/python/train/test_conv.py</code></a> trains a convolutional network using MNIST data from local disk. We’ll do the following change to read the data from S3 instead.</p>
+<p>Let’s modify an existing example code in MXNet repository to read data from S3 instead of local disk. <a href="https://github.com/apache/mxnet/blob/master/tests/python/train/test_conv.py"><code class="highlighter-rouge">mxnet/tests/python/train/test_conv.py</code></a> trains a convolutional network using MNIST data from local disk. We’ll do the following change to read the data from S3 instead.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">~/mxnet$</span> sed -i -- 's/data\//s3:\/\/bucket-name\/training-data\//g' ./tests/python/train/test_conv.py
 

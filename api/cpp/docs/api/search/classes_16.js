@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['zero_6118',['Zero',['../classmxnet_1_1cpp_1_1Zero.html',1,'mxnet::cpp']]]
+  ['zero_6126',['Zero',['../classmxnet_1_1cpp_1_1Zero.html',1,'mxnet::cpp']]]
 ];

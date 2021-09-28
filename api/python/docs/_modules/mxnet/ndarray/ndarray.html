@@ -4239,6 +4239,11 @@ Edit on Github
             <span class="n">ctypes</span><span class="o">.</span><span class="n">pointer</span><span class="p">(</span><span class="n">mx_uint</span><span class="p">(</span><span class="n">grad_req</span><span class="p">)),</span>
             <span class="n">ctypes</span><span class="o">.</span><span class="n">pointer</span><span class="p">(</span><span class="n">grad</span><span class="o">.</span><span class="n">handle</span><span class="p">)))</span></div>
 
+<div class="viewcode-block" id="NDArray.drop_grad"><a class="viewcode-back" href="../../../api/legacy/ndarray/ndarray.html#mxnet.ndarray.NDArray.drop_grad">[docs]</a>    <span class="k">def</span> <span class="nf">drop_grad</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Free the memory of the marked ndarray.&quot;&quot;&quot;</span>
+        <span class="n">check_call</span><span class="p">(</span><span class="n">_LIB</span><span class="o">.</span><span class="n">MXAutogradDropGrads</span><span class="p">(</span>
+            <span class="mi">1</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">pointer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">handle</span><span class="p">)))</span></div>
+
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">grad</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns gradient buffer attached to this NDArray.&quot;&quot;&quot;</span>

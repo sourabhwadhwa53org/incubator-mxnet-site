@@ -648,12 +648,12 @@ even if one of them is empty.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mlp</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">Custom</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">fc3</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">'softmax'</span><span class="p">,</span> <span class="n">op_type</span><span class="o">=</span><span class="s">'softmax'</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>Please see the full code for this example <a href="https://github.com/dmlc/mxnet/blob/master/example/numpy-ops/custom_softmax.py">here</a>.</p>
+<p>Please see the full code for this example <a href="https://github.com/apache/mxnet/blob/master/example/numpy-ops/custom_softmax.py">here</a>.</p>
 
 <h2 id="c">C++</h2>
 <p>With MXNet v0.9 (the NNVM refactor) or later, creating new operators has become easier.
 Operators are now registered with NNVM.
-The following code is an example on how to register an operator (checkout <a href="https://github.com/dmlc/mxnet/tree/master/src/operator/tensor">src/operator/tensor</a> for more examples):</p>
+The following code is an example on how to register an operator (checkout <a href="https://github.com/apache/mxnet/tree/master/src/operator/tensor">src/operator/tensor</a> for more examples):</p>
 
 <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">NNVM_REGISTER_OP</span><span class="p">(</span><span class="n">abs</span><span class="p">)</span>
 <span class="p">.</span><span class="n">MXNET_DESCRIBE</span><span class="p">(</span><span class="s">"Take absolute value of the src"</span><span class="p">)</span>
@@ -692,7 +692,7 @@ You can find the definition for them in the following two files:</p>
 
 <ul>
   <li><a href="https://github.com/dmlc/nnvm/blob/master/include/nnvm/op_attr_types.h">nnvm/op_attr_types.h</a></li>
-  <li><a href="https://github.com/dmlc/mxnet/blob/master/include/mxnet/op_attr_types.h">mxnet/op_attr_types.h</a></li>
+  <li><a href="https://github.com/apache/mxnet/blob/master/include/mxnet/op_attr_types.h">mxnet/op_attr_types.h</a></li>
 </ul>
 
 <h4 id="descriptions-optional">Descriptions (Optional)</h4>

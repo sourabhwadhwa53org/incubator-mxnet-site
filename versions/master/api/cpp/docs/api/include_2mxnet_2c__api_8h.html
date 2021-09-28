@@ -547,6 +547,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ae5dcf6a6609157e49fb922d85ac49b85"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2mxnet_2c__api_8h.html#a5b0e47dde55f9b2f58b99fab92d1e0ac">MXNET_DLL</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2mxnet_2c__api_8h.html#ae5dcf6a6609157e49fb922d85ac49b85">MXAutogradMarkVariables</a> (uint32_t num_var, <a class="el" href="include_2mxnet_2c__api_8h.html#a99c2939783499d2a5ce0d76881dce9df">NDArrayHandle</a> *var_handles, uint32_t *reqs_array, <a class="el" href="include_2mxnet_2c__api_8h.html#a99c2939783499d2a5ce0d76881dce9df">NDArrayHandle</a> *grad_handles)</td></tr>
 <tr class="memdesc:ae5dcf6a6609157e49fb922d85ac49b85"><td class="mdescLeft">&#160;</td><td class="mdescRight">mark NDArrays as variables to compute gradient for autograd  <a href="include_2mxnet_2c__api_8h.html#ae5dcf6a6609157e49fb922d85ac49b85">More...</a><br /></td></tr>
 <tr class="separator:ae5dcf6a6609157e49fb922d85ac49b85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4514da6615604959a44a0bad14711192"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2mxnet_2c__api_8h.html#a5b0e47dde55f9b2f58b99fab92d1e0ac">MXNET_DLL</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2mxnet_2c__api_8h.html#a4514da6615604959a44a0bad14711192">MXAutogradDropGrads</a> (uint32_t num_var, <a class="el" href="include_2mxnet_2c__api_8h.html#a99c2939783499d2a5ce0d76881dce9df">NDArrayHandle</a> *var_handles)</td></tr>
+<tr class="memdesc:a4514da6615604959a44a0bad14711192"><td class="mdescLeft">&#160;</td><td class="mdescRight">unmark nonleaf NDArrays to free the memory  <a href="include_2mxnet_2c__api_8h.html#a4514da6615604959a44a0bad14711192">More...</a><br /></td></tr>
+<tr class="separator:a4514da6615604959a44a0bad14711192"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a497e38801c292a7378a58c107baaca6a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2mxnet_2c__api_8h.html#a5b0e47dde55f9b2f58b99fab92d1e0ac">MXNET_DLL</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2mxnet_2c__api_8h.html#a497e38801c292a7378a58c107baaca6a">MXAutogradComputeGradient</a> (uint32_t num_output, <a class="el" href="include_2mxnet_2c__api_8h.html#a99c2939783499d2a5ce0d76881dce9df">NDArrayHandle</a> *output_handles)</td></tr>
 <tr class="memdesc:a497e38801c292a7378a58c107baaca6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute the gradient of outputs w.r.t variabels  <a href="include_2mxnet_2c__api_8h.html#a497e38801c292a7378a58c107baaca6a">More...</a><br /></td></tr>
 <tr class="separator:a497e38801c292a7378a58c107baaca6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -962,6 +965,18 @@ Functions</h2></td></tr>
 <tr class="memitem:a3328a08f12b6c37098339671a5b46a4f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2mxnet_2c__api_8h.html#a5b0e47dde55f9b2f58b99fab92d1e0ac">MXNET_DLL</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2mxnet_2c__api_8h.html#a3328a08f12b6c37098339671a5b46a4f">MXCheckDynamicShapeOp</a> (<a class="el" href="include_2mxnet_2c__api_8h.html#a301e9a7722b326126defdd39ccd99b37">SymbolHandle</a> sym_handle, bool *has_dynamic_shape)</td></tr>
 <tr class="memdesc:a3328a08f12b6c37098339671a5b46a4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function checks if any dynamic shape op is present in the symbol.  <a href="include_2mxnet_2c__api_8h.html#a3328a08f12b6c37098339671a5b46a4f">More...</a><br /></td></tr>
 <tr class="separator:a3328a08f12b6c37098339671a5b46a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78e616482c07e3bb11648fd9404e2fab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2mxnet_2c__api_8h.html#a5b0e47dde55f9b2f58b99fab92d1e0ac">MXNET_DLL</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2mxnet_2c__api_8h.html#a78e616482c07e3bb11648fd9404e2fab">MXNVTXRangePush</a> (const char *name, <a class="el" href="include_2mxnet_2c__api_8h.html#a3438cf44a22968b254a78032ca0c2c59">mx_uint</a> color)</td></tr>
+<tr class="memdesc:a78e616482c07e3bb11648fd9404e2fab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push a new NVTX range. Requires building with CUDA and NVTX.  <a href="include_2mxnet_2c__api_8h.html#a78e616482c07e3bb11648fd9404e2fab">More...</a><br /></td></tr>
+<tr class="separator:a78e616482c07e3bb11648fd9404e2fab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac504ea797359396fa823d84d975e8c72"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2mxnet_2c__api_8h.html#a5b0e47dde55f9b2f58b99fab92d1e0ac">MXNET_DLL</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2mxnet_2c__api_8h.html#ac504ea797359396fa823d84d975e8c72">MXNVTXRangePop</a> ()</td></tr>
+<tr class="memdesc:ac504ea797359396fa823d84d975e8c72"><td class="mdescLeft">&#160;</td><td class="mdescRight">End the NVTX range. Requires building with CUDA and NVTX.  <a href="include_2mxnet_2c__api_8h.html#ac504ea797359396fa823d84d975e8c72">More...</a><br /></td></tr>
+<tr class="separator:ac504ea797359396fa823d84d975e8c72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bda8bae0ca44f780505672c71a9b068"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2mxnet_2c__api_8h.html#a5b0e47dde55f9b2f58b99fab92d1e0ac">MXNET_DLL</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2mxnet_2c__api_8h.html#a6bda8bae0ca44f780505672c71a9b068">MXCUDAProfilerStart</a> ()</td></tr>
+<tr class="memdesc:a6bda8bae0ca44f780505672c71a9b068"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start CUDA profiling session. Requires building with CUDA and NVTX.  <a href="include_2mxnet_2c__api_8h.html#a6bda8bae0ca44f780505672c71a9b068">More...</a><br /></td></tr>
+<tr class="separator:a6bda8bae0ca44f780505672c71a9b068"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a840982ef5835097238f67c79c5349e25"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2mxnet_2c__api_8h.html#a5b0e47dde55f9b2f58b99fab92d1e0ac">MXNET_DLL</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2mxnet_2c__api_8h.html#a840982ef5835097238f67c79c5349e25">MXCUDAProfilerStop</a> ()</td></tr>
+<tr class="memdesc:a840982ef5835097238f67c79c5349e25"><td class="mdescLeft">&#160;</td><td class="mdescRight">End CUDA profiling session. Requires building with CUDA and NVTX.  <a href="include_2mxnet_2c__api_8h.html#a840982ef5835097238f67c79c5349e25">More...</a><br /></td></tr>
+<tr class="separator:a840982ef5835097238f67c79c5349e25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -977,7 +992,6 @@ Variables</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>C API of mxnet. </p>
-<p>Copyright (c) 2015 by Contributors </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a2380be5ab258c3657553d0cef62936fe"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2380be5ab258c3657553d0cef62936fe">&#9670;&nbsp;</a></span>DEFAULT</h2>
@@ -2022,6 +2036,44 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a4514da6615604959a44a0bad14711192"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4514da6615604959a44a0bad14711192">&#9670;&nbsp;</a></span>MXAutogradDropGrads()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2mxnet_2c__api_8h.html#a5b0e47dde55f9b2f58b99fab92d1e0ac">MXNET_DLL</a> int MXAutogradDropGrads </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>num_var</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2mxnet_2c__api_8h.html#a99c2939783499d2a5ce0d76881dce9df">NDArrayHandle</a> *&#160;</td>
+          <td class="paramname"><em>var_handles</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>unmark nonleaf NDArrays to free the memory </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num_var</td><td>number of variable NDArrays </td></tr>
+    <tr><td class="paramname">var_handles</td><td>variable NDArrays </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 when success, -1 when failure happens </dd></dl>
+
+</div>
+</div>
 <a id="a638b8ad3ae66ff77d17bd3ee504f12cc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a638b8ad3ae66ff77d17bd3ee504f12cc">&#9670;&nbsp;</a></span>MXAutogradGetSymbol()</h2>
 
@@ -2602,6 +2654,44 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>create cached operator, allows to choose thread_safe version of cachedop </p>
+
+</div>
+</div>
+<a id="a6bda8bae0ca44f780505672c71a9b068"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bda8bae0ca44f780505672c71a9b068">&#9670;&nbsp;</a></span>MXCUDAProfilerStart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2mxnet_2c__api_8h.html#a5b0e47dde55f9b2f58b99fab92d1e0ac">MXNET_DLL</a> int MXCUDAProfilerStart </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Start CUDA profiling session. Requires building with CUDA and NVTX. </p>
+
+</div>
+</div>
+<a id="a840982ef5835097238f67c79c5349e25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a840982ef5835097238f67c79c5349e25">&#9670;&nbsp;</a></span>MXCUDAProfilerStop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2mxnet_2c__api_8h.html#a5b0e47dde55f9b2f58b99fab92d1e0ac">MXNET_DLL</a> int MXCUDAProfilerStop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>End CUDA profiling session. Requires building with CUDA and NVTX. </p>
 
 </div>
 </div>
@@ -8841,6 +8931,62 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="ac504ea797359396fa823d84d975e8c72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac504ea797359396fa823d84d975e8c72">&#9670;&nbsp;</a></span>MXNVTXRangePop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2mxnet_2c__api_8h.html#a5b0e47dde55f9b2f58b99fab92d1e0ac">MXNET_DLL</a> int MXNVTXRangePop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>End the NVTX range. Requires building with CUDA and NVTX. </p>
+
+</div>
+</div>
+<a id="a78e616482c07e3bb11648fd9404e2fab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78e616482c07e3bb11648fd9404e2fab">&#9670;&nbsp;</a></span>MXNVTXRangePush()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2mxnet_2c__api_8h.html#a5b0e47dde55f9b2f58b99fab92d1e0ac">MXNET_DLL</a> int MXNVTXRangePush </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2mxnet_2c__api_8h.html#a3438cf44a22968b254a78032ca0c2c59">mx_uint</a>&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Push a new NVTX range. Requires building with CUDA and NVTX. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Name of the range. </td></tr>
+    <tr><td class="paramname">color</td><td>Color used to display the range in the visual profiling tools. Encoded as 256*256*R + 256*G + B. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a5a4343e3c9c1d71aea84f1de06499032"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5a4343e3c9c1d71aea84f1de06499032">&#9670;&nbsp;</a></span>MXOptimizeForBackend()</h2>
 
@@ -13314,7 +13460,7 @@ Variables</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 23 2021 02:40:18 for mxnet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Sep 28 2021 02:49:27 for mxnet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
