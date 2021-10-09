@@ -1364,6 +1364,10 @@ Edit on Github
 <dd><p>Return matrix rank of array using SVD method</p>
 <p>Rank of the array is the number of singular values of the array that are
 greater than <cite>tol</cite>.</p>
+<p class="rubric">Notes</p>
+<p><cite>matrix_rank</cite> is an alias for <cite>matrix_rank</cite>. It is a standard API in
+<a class="reference external" href="https://data-apis.org/array-api/latest/extensions/linear_algebra_functions.html#linalg-matrix-rank-x-rtol-none">https://data-apis.org/array-api/latest/extensions/linear_algebra_functions.html#linalg-matrix-rank-x-rtol-none</a>
+instead of an official NumPy operator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1374,7 +1378,7 @@ None, and <code class="docutils literal notranslate"><span class="pre">S</span><
 set to <code class="docutils literal notranslate"><span class="pre">S.max()</span> <span class="pre">*</span> <span class="pre">max(M.shape)</span> <span class="pre">*</span> <span class="pre">eps</span></code>.</p></li>
 <li><p><strong>hermitian</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, <cite>M</cite> is assumed to be Hermitian (symmetric if real-valued),
 enabling a more efficient method for finding singular values.
-Defaults to False.</p></li>
+Default: False.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1386,14 +1390,14 @@ Defaults to False.</p></li>
 </dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mxnet</span> <span class="k">import</span> <span class="n">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># Full rank matrix</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># Full rank matrix</span>
 <span class="go">4</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">I</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span> <span class="n">I</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.</span> <span class="c1"># rank deficient matrix</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
 <span class="go">3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,)))</span> <span class="c1"># 1 dimension - rank 1 unless all 0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,)))</span> <span class="c1"># 1 dimension - rank 1 unless all 0</span>
 <span class="go">1</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,)))</span>
 <span class="go">0</span>
 </pre></div>
 </div>
