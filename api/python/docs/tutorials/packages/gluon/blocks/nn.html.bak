@@ -1587,7 +1587,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[03:58:12] /work/mxnet/src/storage/storage.cc:
+[
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -1607,7 +1607,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-202: Using Pooled (Naive) StorageManager for CPU
+16:00:31] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 <p>This generates a network with a hidden layer of <span class="math notranslate nohighlight">\(256\)</span> units, followed by a ReLU activation and another <span class="math notranslate nohighlight">\(10\)</span> units governing the output. In particular, we used the <a class="reference internal" href="../../../../api/gluon/nn/index.html#mxnet.gluon.nn.Sequential"><span class="std std-ref">nn.Sequential</span></a> constructor to generate an empty network into which we then inserted both layers. What exactly happens inside <code class="docutils literal notranslate"><span class="pre">nn.Sequential</span></code> has remained rather mysterious so far. In the following we will see that this really just constructs a block that is
