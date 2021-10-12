@@ -1624,10 +1624,10 @@ than at coding time greatly simplifies the process of doing deep learning.</p>
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[03:48:43] /work/mxnet/src/storage/storage.cc
+[10:01:49] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
-<div class="nboutput docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
@@ -1638,14 +1638,6 @@ than at coding time greatly simplifies the process of doing deep learning.</p>
  &#39;1.bias&#39;: Parameter (shape=(10,), dtype=float32)}
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-:202: Using Pooled (Naive) StorageManager for CPU
-</pre></div></div>
 </div>
 <p>As we can see, nothing really changed. Only once we provide the network with some data do we see a difference. Let’s try it out.</p>
 <div class="nbinput docutils container">
