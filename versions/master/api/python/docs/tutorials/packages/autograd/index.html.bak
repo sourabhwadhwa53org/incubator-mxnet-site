@@ -1655,7 +1655,7 @@ methods exist, they’re suited to ‘fan-out’ situations where few parameters
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[10:01:31] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
+[16:00:46] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 <p>We’re ready for our first forward pass through the network, and we want <code class="docutils literal notranslate"><span class="pre">autograd</span></code> to record the computational graph so we can calculate gradients. One of the simplest ways to do this is by running the network (and loss) code in the scope of an <code class="docutils literal notranslate"><span class="pre">autograd.record</span></code> context.</p>
