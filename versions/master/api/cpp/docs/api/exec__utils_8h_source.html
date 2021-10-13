@@ -161,7 +161,7 @@ $(function() {
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span>&amp; nd = src[i];</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#if MXNET_USE_ONEDNN == 1</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">if</span> (req-&gt;at(i) == <a class="code" href="namespacemxnet.html#a7cd7094ef222e9ae1f520c3b6a214398a640322face587ca12684378d0f053d51">kWriteInplace</a> &amp;&amp; nd.IsMKLDNNData())</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">if</span> (req-&gt;at(i) == <a class="code" href="namespacemxnet.html#a7cd7094ef222e9ae1f520c3b6a214398a640322face587ca12684378d0f053d51">kWriteInplace</a> &amp;&amp; nd.IsDNNLData())</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;      <span class="comment">// If it&#39;s write inplace and the output array doesn&#39;t use the default</span></div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      <span class="comment">// layout, we&#39;ll generate a temporary output array below, which means</span></div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;      <span class="comment">// the input array and the output array are no longer the same array.</span></div>
@@ -175,7 +175,7 @@ $(function() {
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      <span class="keywordflow">if</span> (bufs != <span class="keyword">nullptr</span>) {</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        temp = bufs-&gt;at(i);</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="namespacemxnet.html#a7cd7094ef222e9ae1f520c3b6a214398a1b850737dba4d2c42a2687d14c10f383">kAddTo</a> == req-&gt;at(i)) {</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        temp = nd.IsMKLDNNData() ? nd.Reorder2Default() : nd;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        temp = nd.IsDNNLData() ? nd.Reorder2Default() : nd;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;      } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        temp = <a class="code" href="classmxnet_1_1NDArray.html">NDArray</a>(nd.shape(), nd.ctx(), <span class="keyword">true</span>, nd.dtype());</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      }</div>
@@ -665,7 +665,7 @@ $(function() {
 <div class="ttc" id="anamespacemxnet_html_aad5fec2b4bceabbf4b884460cc2e0a2ba2157864769b54d1d0f8f9be63393e7d6"><div class="ttname"><a href="namespacemxnet.html#aad5fec2b4bceabbf4b884460cc2e0a2ba2157864769b54d1d0f8f9be63393e7d6">mxnet::DispatchMode::kFCompute</a></div><div class="ttdeci">@ kFCompute</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 13 2021 14:49:57 for mxnet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 13 2021 20:55:36 for mxnet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

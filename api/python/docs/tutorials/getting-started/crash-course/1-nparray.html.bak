@@ -301,8 +301,8 @@ Edit on Github
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../performance/backend/index.html">Accelerated Backend Tools</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../performance/backend/mkldnn/index.html">Intel MKL-DNN</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../performance/backend/mkldnn/mkldnn_readme.html">Install MXNet with ONEDNN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../performance/backend/dnnl/index.html">oneDNN</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../performance/backend/dnnl/dnnl_readme.html">Install MXNet with ONEDNN</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../performance/backend/tvm.html">Use TVM</a></li>
@@ -893,8 +893,8 @@ Edit on Github
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../performance/backend/index.html">Accelerated Backend Tools</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../performance/backend/mkldnn/index.html">Intel MKL-DNN</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../performance/backend/mkldnn/mkldnn_readme.html">Install MXNet with ONEDNN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../performance/backend/dnnl/index.html">oneDNN</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../performance/backend/dnnl/dnnl_readme.html">Install MXNet with ONEDNN</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../performance/backend/tvm.html">Use TVM</a></li>
@@ -1587,7 +1587,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[15:02:57] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
+[21:03:20] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -2050,7 +2050,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[15:03:00] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for GPU
+[21:03:23] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for GPU
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">

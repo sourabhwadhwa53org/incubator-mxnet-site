@@ -301,8 +301,8 @@ Edit on Github
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../performance/backend/index.html">Accelerated Backend Tools</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../performance/backend/mkldnn/index.html">Intel MKL-DNN</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../performance/backend/mkldnn/mkldnn_readme.html">Install MXNet with ONEDNN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../performance/backend/dnnl/index.html">oneDNN</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../performance/backend/dnnl/dnnl_readme.html">Install MXNet with ONEDNN</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../performance/backend/tvm.html">Use TVM</a></li>
@@ -893,8 +893,8 @@ Edit on Github
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../performance/backend/index.html">Accelerated Backend Tools</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../performance/backend/mkldnn/index.html">Intel MKL-DNN</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../performance/backend/mkldnn/mkldnn_readme.html">Install MXNet with ONEDNN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../performance/backend/dnnl/index.html">oneDNN</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../performance/backend/dnnl/dnnl_readme.html">Install MXNet with ONEDNN</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../performance/backend/tvm.html">Use TVM</a></li>
@@ -1585,7 +1585,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[16:12:13] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
+[22:12:09] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1753,9 +1753,9 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([[1.401298e-45, 0.000000e+00],
-       [1.088943e-36, 0.000000e+00],
-       [3.363116e-44,          nan]])
+<span></span>array([[3.3631163e-44,           nan],
+       [6.3321917e-19, 4.5875709e-41],
+       [1.4012985e-45, 0.0000000e+00]])
 </pre></div>
 </div>
 </div>

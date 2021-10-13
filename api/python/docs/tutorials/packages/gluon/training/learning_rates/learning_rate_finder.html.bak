@@ -303,8 +303,8 @@ Edit on Github
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../performance/backend/index.html">Accelerated Backend Tools</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../../performance/backend/mkldnn/index.html">Intel MKL-DNN</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../../performance/backend/mkldnn/mkldnn_readme.html">Install MXNet with ONEDNN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../performance/backend/dnnl/index.html">oneDNN</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../performance/backend/dnnl/dnnl_readme.html">Install MXNet with ONEDNN</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../performance/backend/tvm.html">Use TVM</a></li>
@@ -895,8 +895,8 @@ Edit on Github
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../performance/backend/index.html">Accelerated Backend Tools</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../../performance/backend/mkldnn/index.html">Intel MKL-DNN</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../../performance/backend/mkldnn/mkldnn_readme.html">Install MXNet with ONEDNN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../performance/backend/dnnl/index.html">oneDNN</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../performance/backend/dnnl/dnnl_readme.html">Install MXNet with ONEDNN</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../performance/backend/tvm.html">Use TVM</a></li>
@@ -1677,7 +1677,7 @@ keep your training logic for a single batch in <code class="docutils literal not
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[16:08:37] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
+[22:08:33] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 </div>
@@ -1807,8 +1807,8 @@ notice that we save the parameters and state of the optimizer before the process
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[16:08:40] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for GPU
-[16:08:42] /work/mxnet/src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:106: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+[22:08:36] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for GPU
+[22:08:38] /work/mxnet/src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:106: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1842,10 +1842,10 @@ idea. We save the initialized parameters for a later comparison with other learn
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Iteration: 0, Loss: 2.723
-Iteration: 100, Loss: 1.4919
-Iteration: 200, Loss: 1.3898
-Final Loss: 1.2142
+Iteration: 0, Loss: 2.5657
+Iteration: 100, Loss: 1.5861
+Iteration: 200, Loss: 1.4057
+Final Loss: 1.3829
 </pre></div></div>
 </div>
 <p>Iteration: 0, Loss: 2.785</p>
@@ -1877,10 +1877,10 @@ Final Loss: 1.2142
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Iteration: 0, Loss: 2.7189
-Iteration: 100, Loss: 2.2478
-Iteration: 200, Loss: 1.6351
-Final Loss: 1.4838
+Iteration: 0, Loss: 2.7935
+Iteration: 100, Loss: 1.9052
+Iteration: 200, Loss: 1.604
+Final Loss: 1.5534
 </pre></div></div>
 </div>
 <p>Iteration: 0, Loss: 2.6469</p>
@@ -1912,10 +1912,10 @@ Final Loss: 1.4838
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Iteration: 0, Loss: 2.663
-Iteration: 100, Loss: 1.8499
-Iteration: 200, Loss: 1.606
-Final Loss: 1.5421
+Iteration: 0, Loss: 2.7229
+Iteration: 100, Loss: 1.8991
+Iteration: 200, Loss: 1.6521
+Final Loss: 1.4777
 </pre></div></div>
 </div>
 <p>Iteration: 0, Loss: 2.605</p>

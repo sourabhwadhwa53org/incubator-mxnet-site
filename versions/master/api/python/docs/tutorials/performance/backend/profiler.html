@@ -301,8 +301,8 @@ Edit on Github
 </ul>
 </li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Accelerated Backend Tools</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="mkldnn/index.html">Intel MKL-DNN</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="mkldnn/mkldnn_readme.html">Install MXNet with ONEDNN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dnnl/index.html">oneDNN</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="dnnl/dnnl_readme.html">Install MXNet with ONEDNN</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="tvm.html">Use TVM</a></li>
@@ -893,8 +893,8 @@ Edit on Github
 </ul>
 </li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Accelerated Backend Tools</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="mkldnn/index.html">Intel MKL-DNN</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="mkldnn/mkldnn_readme.html">Install MXNet with ONEDNN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dnnl/index.html">oneDNN</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="dnnl/dnnl_readme.html">Install MXNet with ONEDNN</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="tvm.html">Use TVM</a></li>
@@ -1777,19 +1777,19 @@ profiling jointly with vendor tools is recommended.</p>
 </div>
 <div class="section" id="Profiling-ONEDNN-Operators">
 <h3>Profiling ONEDNN Operators<a class="headerlink" href="#Profiling-ONEDNN-Operators" title="Permalink to this headline">¶</a></h3>
-<p>Reagrding ONEDNN operators, the library has already provided the internal profiling tool. Firstly, you need set <code class="docutils literal notranslate"><span class="pre">MKLDNN_VERBOSE=1</span></code> to enable internal profiler.</p>
-<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">MKLDNN_VERBOSE=1</span> <span class="pre">python</span> <span class="pre">my_script.py</span> <span class="pre">&gt;</span> <span class="pre">mkldnn_verbose.log</span></code></p>
-<p>Now, the detailed profiling insights of each ONEDNN prmitive are saved into <code class="docutils literal notranslate"><span class="pre">mkldnn_verbose.log</span></code> (like below).</p>
+<p>Reagrding ONEDNN operators, the library has already provided the internal profiling tool. Firstly, you need set <code class="docutils literal notranslate"><span class="pre">DNNL_VERBOSE=1</span></code> to enable internal profiler.</p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">DNNL_VERBOSE=1</span> <span class="pre">python</span> <span class="pre">my_script.py</span> <span class="pre">&gt;</span> <span class="pre">dnnl_verbose.log</span></code></p>
+<p>Now, the detailed profiling insights of each oneDNN prmitive are saved into <code class="docutils literal notranslate"><span class="pre">dnnl_verbose.log</span></code> (like below).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dnnl_verbose</span><span class="p">,</span><span class="n">info</span><span class="p">,</span><span class="n">DNNL</span> <span class="n">v1</span><span class="o">.</span><span class="mf">1.2</span> <span class="p">(</span><span class="n">commit</span> <span class="n">cb2cc7ac17ff4e2ef50805c7048d33256d82be4d</span><span class="p">)</span>
 <span class="n">dnnl_verbose</span><span class="p">,</span><span class="n">info</span><span class="p">,</span><span class="n">Detected</span> <span class="n">ISA</span> <span class="ow">is</span> <span class="n">Intel</span> <span class="n">AVX</span><span class="o">-</span><span class="mi">512</span> <span class="k">with</span> <span class="n">Intel</span> <span class="n">DL</span> <span class="n">Boost</span>
 <span class="n">dnnl_verbose</span><span class="p">,</span><span class="n">exec</span><span class="p">,</span><span class="n">cpu</span><span class="p">,</span><span class="n">convolution</span><span class="p">,</span><span class="n">jit</span><span class="p">:</span><span class="n">avx512_common</span><span class="p">,</span><span class="n">forward_inference</span><span class="p">,</span><span class="n">src_f32</span><span class="p">::</span><span class="n">blocked</span><span class="p">:</span><span class="n">aBcd16b</span><span class="p">:</span><span class="n">f0</span> <span class="n">wei_f32</span><span class="p">::</span><span class="n">blocked</span><span class="p">:</span><span class="n">ABcd16b16a</span><span class="p">:</span><span class="n">f0</span> <span class="n">bia_undef</span><span class="p">::</span><span class="n">undef</span><span class="p">::</span><span class="n">f0</span> <span class="n">dst_f32</span><span class="p">::</span><span class="n">blocked</span><span class="p">:</span><span class="n">aBcd16b</span><span class="p">:</span><span class="n">f0</span><span class="p">,,</span><span class="n">alg</span><span class="p">:</span><span class="n">convolution_direct</span><span class="p">,</span><span class="n">mb32_ic32oc32_ih256oh256kh3sh1dh0ph1_iw256ow256kw3sw1dw0pw1</span><span class="p">,</span><span class="mf">20.7539</span>
 </pre></div>
 </div>
 <p>For example, if you want to calculate the total executing time of <code class="docutils literal notranslate"><span class="pre">convolution</span></code> primitive, you can just run:</p>
-<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">cat</span> <span class="pre">mkldnn_verbose.log</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;exec,cpu,convolution&quot;</span> <span class="pre">|</span> <span class="pre">awk</span> <span class="pre">'BEGIN{FS=&quot;,&quot;}</span> <span class="pre">{SUM+=$11}</span> <span class="pre">END</span> <span class="pre">{print</span> <span class="pre">SUM}'</span></code></p>
-<p>Moreover, you can set <code class="docutils literal notranslate"><span class="pre">MKLDNN_VERBOSE=2</span></code> to collect both creating and executing time of each primitive.</p>
-<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">cat</span> <span class="pre">mkldnn_verbose.log</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;create,cpu,convolution&quot;</span> <span class="pre">|</span> <span class="pre">awk</span> <span class="pre">'BEGIN{FS=&quot;,&quot;}</span> <span class="pre">{SUM+=$11}</span> <span class="pre">END</span> <span class="pre">{print</span> <span class="pre">SUM}'</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">cat</span> <span class="pre">mkldnn_verbose.log</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;exec,cpu,convolution&quot;</span> <span class="pre">|</span> <span class="pre">awk</span> <span class="pre">'BEGIN{FS=&quot;,&quot;}</span> <span class="pre">{SUM+=$11}</span> <span class="pre">END</span> <span class="pre">{print</span> <span class="pre">SUM}'</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">cat</span> <span class="pre">dnnl_verbose.log</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;exec,cpu,convolution&quot;</span> <span class="pre">|</span> <span class="pre">awk</span> <span class="pre">'BEGIN{FS=&quot;,&quot;}</span> <span class="pre">{SUM+=$11}</span> <span class="pre">END</span> <span class="pre">{print</span> <span class="pre">SUM}'</span></code></p>
+<p>Moreover, you can set <code class="docutils literal notranslate"><span class="pre">DNNL_VERBOSE=2</span></code> to collect both creating and executing time of each primitive.</p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">cat</span> <span class="pre">dnnl_verbose.log</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;create,cpu,convolution&quot;</span> <span class="pre">|</span> <span class="pre">awk</span> <span class="pre">'BEGIN{FS=&quot;,&quot;}</span> <span class="pre">{SUM+=$11}</span> <span class="pre">END</span> <span class="pre">{print</span> <span class="pre">SUM}'</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">cat</span> <span class="pre">dnnl_verbose.log</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;exec,cpu,convolution&quot;</span> <span class="pre">|</span> <span class="pre">awk</span> <span class="pre">'BEGIN{FS=&quot;,&quot;}</span> <span class="pre">{SUM+=$11}</span> <span class="pre">END</span> <span class="pre">{print</span> <span class="pre">SUM}'</span></code></p>
 </div>
 <div class="section" id="Profiling-Custom-Operators">
 <h3>Profiling Custom Operators<a class="headerlink" href="#Profiling-Custom-Operators" title="Permalink to this headline">¶</a></h3>

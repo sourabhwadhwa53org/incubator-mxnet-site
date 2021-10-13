@@ -303,8 +303,8 @@ Edit on Github
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../performance/backend/index.html">Accelerated Backend Tools</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../../performance/backend/mkldnn/index.html">Intel MKL-DNN</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../../performance/backend/mkldnn/mkldnn_readme.html">Install MXNet with ONEDNN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../performance/backend/dnnl/index.html">oneDNN</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../performance/backend/dnnl/dnnl_readme.html">Install MXNet with ONEDNN</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../performance/backend/tvm.html">Use TVM</a></li>
@@ -895,8 +895,8 @@ Edit on Github
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../performance/backend/index.html">Accelerated Backend Tools</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../../performance/backend/mkldnn/index.html">Intel MKL-DNN</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../../performance/backend/mkldnn/mkldnn_readme.html">Install MXNet with ONEDNN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../performance/backend/dnnl/index.html">oneDNN</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../performance/backend/dnnl/dnnl_readme.html">Install MXNet with ONEDNN</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../performance/backend/tvm.html">Use TVM</a></li>
@@ -1759,7 +1759,7 @@ rate of the 250th iteration will be 1 and the 251st iteration will be 0.5.</p>
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[16:09:36] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
+[22:09:33] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 <p>We then initialize our network (technically deferred until we pass the first batch) and define the loss.</p>
@@ -1780,7 +1780,7 @@ rate of the 250th iteration will be 1 and the 251st iteration will be 0.5.</p>
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[16:09:38] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for GPU
+[22:09:35] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for GPU
 </pre></div></div>
 </div>
 <p>We’re now ready to create our schedule, and in this example we opt for a stepwise decay schedule using <code class="docutils literal notranslate"><span class="pre">MultiFactorScheduler</span></code>. Since we’re only training a demonstration model for a limited number of epochs (10 in total) we will exaggerate the schedule and drop the learning rate by 90% after the 4th, 7th and 9th epochs. We call these steps, and the drop occurs <em>after</em> the step index. Schedules are defined for iterations (i.e. training batches), so we must represent our steps in iterations too.</p>
@@ -1883,7 +1883,7 @@ learning rate from ``lr_scheduler`` has been overwritten by ``learning_rate`` in
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[16:09:40] /work/mxnet/src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:106: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+[22:09:37] /work/mxnet/src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:106: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1892,15 +1892,15 @@ learning rate from ``lr_scheduler`` has been overwritten by ``learning_rate`` in
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Epoch: 1; Batch 1; Loss 2.304708; LR 0.030000
-Epoch: 2; Batch 1; Loss 0.092996; LR 0.030000
-Epoch: 3; Batch 1; Loss 0.166846; LR 0.030000
-Epoch: 4; Batch 1; Loss 0.113021; LR 0.030000
-Epoch: 5; Batch 1; Loss 0.084722; LR 0.003000
-Epoch: 6; Batch 1; Loss 0.022108; LR 0.003000
-Epoch: 7; Batch 1; Loss 0.016900; LR 0.003000
-Epoch: 8; Batch 1; Loss 0.040111; LR 0.000300
-Epoch: 9; Batch 1; Loss 0.034364; LR 0.000300
-Epoch: 10; Batch 1; Loss 0.017511; LR 0.000030
+Epoch: 2; Batch 1; Loss 0.093118; LR 0.030000
+Epoch: 3; Batch 1; Loss 0.173004; LR 0.030000
+Epoch: 4; Batch 1; Loss 0.110772; LR 0.030000
+Epoch: 5; Batch 1; Loss 0.078995; LR 0.003000
+Epoch: 6; Batch 1; Loss 0.025055; LR 0.003000
+Epoch: 7; Batch 1; Loss 0.019275; LR 0.003000
+Epoch: 8; Batch 1; Loss 0.042423; LR 0.000300
+Epoch: 9; Batch 1; Loss 0.033657; LR 0.000300
+Epoch: 10; Batch 1; Loss 0.017446; LR 0.000030
 </pre></div></div>
 </div>
 <p>Epoch: 1; Batch 1; Loss 2.304071; LR 0.030000</p>
@@ -1968,15 +1968,15 @@ Epoch: 10; Batch 1; Loss 0.017511; LR 0.000030
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Epoch: 1; Batch 1; Loss 2.279933; LR 0.030000
-Epoch: 2; Batch 1; Loss 0.101329; LR 0.030000
-Epoch: 3; Batch 1; Loss 0.024307; LR 0.030000
-Epoch: 4; Batch 1; Loss 0.021743; LR 0.030000
-Epoch: 5; Batch 1; Loss 0.028003; LR 0.003000
-Epoch: 6; Batch 1; Loss 0.028087; LR 0.003000
-Epoch: 7; Batch 1; Loss 0.033716; LR 0.003000
-Epoch: 8; Batch 1; Loss 0.015931; LR 0.000300
-Epoch: 9; Batch 1; Loss 0.019184; LR 0.000300
-Epoch: 10; Batch 1; Loss 0.022596; LR 0.000030
+Epoch: 2; Batch 1; Loss 0.100590; LR 0.030000
+Epoch: 3; Batch 1; Loss 0.028936; LR 0.030000
+Epoch: 4; Batch 1; Loss 0.021702; LR 0.030000
+Epoch: 5; Batch 1; Loss 0.026463; LR 0.003000
+Epoch: 6; Batch 1; Loss 0.028589; LR 0.003000
+Epoch: 7; Batch 1; Loss 0.035738; LR 0.003000
+Epoch: 8; Batch 1; Loss 0.014156; LR 0.000300
+Epoch: 9; Batch 1; Loss 0.019340; LR 0.000300
+Epoch: 10; Batch 1; Loss 0.021731; LR 0.000030
 </pre></div></div>
 </div>
 <p>Epoch: 1; Batch 1; Loss 2.334119; LR 0.030000</p>

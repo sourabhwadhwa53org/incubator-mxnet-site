@@ -104,7 +104,7 @@ $(function() {
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#if MXNET_USE_ONEDNN == 1</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &lt;mkldnn.hpp&gt;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &lt;dnnl.hpp&gt;</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="3rdparty_2dmlc-core_2include_2dmlc_2base_8h.html">./base.h</a>&quot;</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="engine_8h.html">./engine.h</a>&quot;</span></div>
@@ -140,7 +140,7 @@ $(function() {
 <div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="namespacemxnet.html#ace60510752753f459193f95cab0e9e1aa7636cc230df4abe46f3210846faac799">   73</a></span>&#160;  <a class="code" href="namespacemxnet.html#ace60510752753f459193f95cab0e9e1aa7636cc230df4abe46f3210846faac799">kRSPIdxErr</a>,     <span class="comment">// indices error for row sparse</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;};</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">class </span>MKLDNNMemory;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">class </span>DNNLMemory;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
 <div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classmxnet_1_1NDArray.html">   81</a></span>&#160;<span class="keyword">class </span><a class="code" href="classmxnet_1_1NDArray.html">NDArray</a> {</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; <span class="keyword">public</span>:</div>
@@ -232,7 +232,7 @@ $(function() {
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;  <span class="comment">/*</span></div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="comment">   * This indicates whether an array is a view of another array (created by</span></div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="comment">   * reshape or slice). If an array is a view and the data is stored in</span></div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="comment">   * MKLDNN format, we need to convert the data to the default format when</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="comment">   * DNNL format, we need to convert the data to the default format when</span></div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="comment">   * data in the view is accessed.</span></div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00223"></a><span class="lineno"><a class="line" href="classmxnet_1_1NDArray.html#afe1e6281a1bc6d0a0f2377d8870fb8f5">  223</a></span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="classmxnet_1_1NDArray.html#afe1e6281a1bc6d0a0f2377d8870fb8f5">IsView</a>()<span class="keyword"> const </span>{</div>
@@ -495,20 +495,20 @@ $(function() {
 <div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160; </div>
 <div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;<span class="preprocessor">#if MXNET_USE_ONEDNN == 1</span></div>
 <div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;  <span class="comment">/*</span></div>
-<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;<span class="comment">   * Create NDArray from mkldnn memory.</span></div>
-<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;<span class="comment">   * mkldnn_mem The mkldnn memory to be managed.</span></div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;<span class="comment">   * Create NDArray from dnnl memory.</span></div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;<span class="comment">   * dnnl_mem The dnnl memory to be managed.</span></div>
 <div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;<span class="comment">   */</span></div>
-<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classmxnet_1_1NDArray.html#a12ec978e5dbe9092d21721a657c39756">NDArray</a>(<span class="keyword">const</span> std::shared_ptr&lt;mkldnn::memory&gt;&amp; mkldnn_mem);</div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classmxnet_1_1NDArray.html#a12ec978e5dbe9092d21721a657c39756">NDArray</a>(<span class="keyword">const</span> std::shared_ptr&lt;dnnl::memory&gt;&amp; dnnl_mem);</div>
 <div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;  <span class="comment">/*</span></div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;<span class="comment">   * Create NDArray from mkldnn memory descriptor.</span></div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;<span class="comment">   * mem_pd The mkldnn memory descriptor to be created.</span></div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;<span class="comment">   * Create NDArray from dnnl memory descriptor.</span></div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;<span class="comment">   * mem_pd The dnnl memory descriptor to be created.</span></div>
 <div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;<span class="comment">   */</span></div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classmxnet_1_1NDArray.html#a12ec978e5dbe9092d21721a657c39756">NDArray</a>(<span class="keyword">const</span> mkldnn::memory::desc&amp; md);</div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classmxnet_1_1NDArray.html#a12ec978e5dbe9092d21721a657c39756">NDArray</a>(<span class="keyword">const</span> dnnl::memory::desc&amp; md);</div>
 <div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;  <span class="comment">/*</span></div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;<span class="comment">   * Test if the data is stored in one of special MKLDNN format.</span></div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;<span class="comment">   * Test if the data is stored in one of special DNNL format.</span></div>
 <div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;<span class="comment">   */</span></div>
-<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;  <span class="keywordtype">bool</span> IsMKLDNNData()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;    <span class="keywordflow">return</span> ptr_-&gt;IsMKLDNN();</div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;  <span class="keywordtype">bool</span> IsDNNLData()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;    <span class="keywordflow">return</span> ptr_-&gt;IsDNNL();</div>
 <div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;  }</div>
 <div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;  <span class="comment">/*</span></div>
 <div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;<span class="comment">   * Test if the data is stored in one of default MXNet formats.</span></div>
@@ -517,37 +517,37 @@ $(function() {
 <div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;    <span class="keywordflow">return</span> ptr_-&gt;IsDefault();</div>
 <div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;  }</div>
 <div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;  <span class="comment">/*</span></div>
-<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;<span class="comment">   * All functions below return a raw pointer to mkldnn memory. Actually there</span></div>
-<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;<span class="comment">   * is a shared pointer that hold the memory either in NDArray or in MKLDNN</span></div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;<span class="comment">   * All functions below return a raw pointer to dnnl memory. Actually there</span></div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;<span class="comment">   * is a shared pointer that hold the memory either in NDArray or in DNNL</span></div>
 <div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;<span class="comment">   * stream. As long as we call these functions inside an operator, the return</span></div>
 <div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;<span class="comment">   * memory is always valid.</span></div>
 <div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160; </div>
 <div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;  <span class="comment">/*</span></div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;<span class="comment">   * This function returns mkldnn::memory with the default primitive_desc.</span></div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;<span class="comment">   * This function returns dnnl::memory with the default primitive_desc.</span></div>
 <div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;<span class="comment">   */</span></div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;  <span class="keyword">const</span> mkldnn::memory* GetMKLDNNData() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;  <span class="keyword">const</span> dnnl::memory* GetDNNLData() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;  <span class="comment">/*</span></div>
-<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;<span class="comment">   * This function returns mkldnn::memory with the given primitive_desc</span></div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;<span class="comment">   * This function returns dnnl::memory with the given primitive_desc</span></div>
 <div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;<span class="comment">   * as long as the array size meets the required size in the given primitive_desc.</span></div>
 <div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;<span class="comment">   */</span></div>
-<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;  <span class="keyword">const</span> mkldnn::memory* GetMKLDNNData(<span class="keyword">const</span> mkldnn::memory::desc&amp; md) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;  <span class="keyword">const</span> dnnl::memory* GetDNNLData(<span class="keyword">const</span> dnnl::memory::desc&amp; md) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;  <span class="comment">/*</span></div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;<span class="comment">   * This function returns mkldnn::memory with the given primitive_desc.</span></div>
-<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;<span class="comment">   * The returned mkldnn::memory will have the same physical layout as</span></div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;<span class="comment">   * This function returns dnnl::memory with the given primitive_desc.</span></div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;<span class="comment">   * The returned dnnl::memory will have the same physical layout as</span></div>
 <div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;<span class="comment">   * the given primitive_desc.</span></div>
 <div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;<span class="comment">   */</span></div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;  <span class="keyword">const</span> mkldnn::memory* GetMKLDNNDataReorder(<span class="keyword">const</span> mkldnn::memory::desc&amp; md) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;  <span class="keyword">const</span> dnnl::memory* GetDNNLDataReorder(<span class="keyword">const</span> dnnl::memory::desc&amp; md) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160; </div>
 <div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;  <span class="comment">/*</span></div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;<span class="comment">   * This function copies data from mkldnn memory.</span></div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;<span class="comment">   * This function copies data from dnnl memory.</span></div>
 <div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;<span class="comment">   */</span></div>
-<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;  <span class="keywordtype">void</span> CopyFrom(<span class="keyword">const</span> mkldnn::memory&amp; mem);</div>
+<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;  <span class="keywordtype">void</span> CopyFrom(<span class="keyword">const</span> dnnl::memory&amp; mem);</div>
 <div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;  <span class="comment">/*</span></div>
-<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;<span class="comment">   * This function allocates memory for array and creates mkldnn memory</span></div>
+<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;<span class="comment">   * This function allocates memory for array and creates dnnl memory</span></div>
 <div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;<span class="comment">   * with the specified format.</span></div>
 <div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;<span class="comment">   */</span></div>
-<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;  mkldnn::memory* CreateMKLDNNData(<span class="keyword">const</span> mkldnn::memory::desc&amp; md);</div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;  dnnl::memory* CreateDNNLData(<span class="keyword">const</span> dnnl::memory::desc&amp; md);</div>
 <div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160; </div>
 <div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;  <span class="comment">/*</span></div>
 <div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;<span class="comment">   * These are the async version of the methods above.</span></div>
@@ -555,7 +555,7 @@ $(function() {
 <div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;<span class="comment">   * the array are complete.</span></div>
 <div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;  <span class="keywordtype">void</span> Reorder2DefaultAsync() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;  <span class="keywordtype">void</span> MKLDNNDataReorderAsync(<span class="keyword">const</span> mkldnn::memory::desc&amp; md) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;  <span class="keywordtype">void</span> DNNLDataReorderAsync(<span class="keyword">const</span> dnnl::memory::desc&amp; md) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160; </div>
 <div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;  <span class="comment">/*</span></div>
 <div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;<span class="comment">   * This creates a new NDArray with the reordered data.</span></div>
@@ -569,7 +569,7 @@ $(function() {
 <div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;  <a class="code" href="classmxnet_1_1NDArray.html#a12ec978e5dbe9092d21721a657c39756">NDArray</a> Reorder2DefaultFloatFormat() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160; </div>
-<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;  <span class="keywordtype">void</span> InvalidateMKLDNNData();</div>
+<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;  <span class="keywordtype">void</span> InvalidateDNNLData();</div>
 <div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160; </div>
 <div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;  <span class="comment">/*</span></div>
 <div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;<span class="comment">   * This function is used inside operators to reshape an array.</span></div>
@@ -581,9 +581,9 @@ $(function() {
 <div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;<span class="comment">   * which can be expensive.</span></div>
 <div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;<span class="comment">   * It&#39;s used by FullyConnected right now.</span></div>
 <div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;<span class="comment">   */</span></div>
-<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;  <a class="code" href="classmxnet_1_1NDArray.html#a12ec978e5dbe9092d21721a657c39756">NDArray</a> MKLDNNDataReshape(<span class="keyword">const</span> <a class="code" href="classmxnet_1_1TShape.html">mxnet::TShape</a>&amp; <a class="code" href="classmxnet_1_1NDArray.html#aa0ff3466e6ff09f8fe0a8019b53d5d42">shape</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;  <a class="code" href="classmxnet_1_1NDArray.html#a12ec978e5dbe9092d21721a657c39756">NDArray</a> DNNLDataReshape(<span class="keyword">const</span> <a class="code" href="classmxnet_1_1TShape.html">mxnet::TShape</a>&amp; <a class="code" href="classmxnet_1_1NDArray.html#aa0ff3466e6ff09f8fe0a8019b53d5d42">shape</a>) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160; </div>
-<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;  <span class="keywordtype">void</span> UpdateMKLDNNMemDesc(<span class="keyword">const</span> mkldnn::memory::desc&amp; desc);</div>
+<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;  <span class="keywordtype">void</span> UpdateDNNLMemDesc(<span class="keyword">const</span> dnnl::memory::desc&amp; desc);</div>
 <div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160; </div>
 <div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classmxnet_1_1NDArray.html#a7dd1143eeb4fbe15cebe85f28142551f">Save</a>(<a class="code" href="classdmlc_1_1Stream.html">dmlc::Stream</a>* fo,</div>
@@ -601,7 +601,7 @@ $(function() {
 <div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160; </div>
 <div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;<span class="preprocessor">#if MXNET_USE_ONEDNN == 1</span></div>
 <div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160; </div>
-<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;    std::shared_ptr&lt;MKLDNNMemory&gt; mkl_mem_;</div>
+<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;    std::shared_ptr&lt;DNNLMemory&gt; dnnl_mem_;</div>
 <div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160; </div>
 <div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;    <a class="code" href="structmxnet_1_1engine_1_1Var.html">Engine::VarHandle</a> <a class="code" href="classmxnet_1_1NDArray.html#a168da55c01cc5c7a218d975af6b5b1f9">var</a>;</div>
@@ -763,7 +763,7 @@ $(function() {
 <div class="line"><a name="l01035"></a><span class="lineno"> 1035</span>&#160;      <span class="keywordflow">if</span> (delay_alloc) {</div>
 <div class="line"><a name="l01036"></a><span class="lineno"> 1036</span>&#160;        <a class="code" href="classmxnet_1_1Storage.html#a96abc072908d72d3271360a7e3e4bbc2">Storage::Get</a>()-&gt;<a class="code" href="classmxnet_1_1Storage.html#a8ac978f345ba93f26b11ae4331406561">Alloc</a>(&amp;shandle);</div>
 <div class="line"><a name="l01037"></a><span class="lineno"> 1037</span>&#160;<span class="preprocessor">#if MXNET_USE_ONEDNN == 1</span></div>
-<div class="line"><a name="l01038"></a><span class="lineno"> 1038</span>&#160;        mkl_mem_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l01038"></a><span class="lineno"> 1038</span>&#160;        dnnl_mem_ = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l01039"></a><span class="lineno"> 1039</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l01040"></a><span class="lineno"> 1040</span>&#160;        delay_alloc = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l01041"></a><span class="lineno"> 1041</span>&#160;      }</div>
@@ -778,7 +778,7 @@ $(function() {
 <div class="line"><a name="l01051"></a><span class="lineno"> 1051</span>&#160;        shandle.<a class="code" href="structmxnet_1_1Storage_1_1Handle.html#ab93b9db0c83e4ef3803fb587377a74a0">size</a> = dbytes;</div>
 <div class="line"><a name="l01052"></a><span class="lineno"> 1052</span>&#160;        <a class="code" href="classmxnet_1_1Storage.html#a96abc072908d72d3271360a7e3e4bbc2">Storage::Get</a>()-&gt;<a class="code" href="classmxnet_1_1Storage.html#a8ac978f345ba93f26b11ae4331406561">Alloc</a>(&amp;shandle);</div>
 <div class="line"><a name="l01053"></a><span class="lineno"> 1053</span>&#160;<span class="preprocessor">#if MXNET_USE_ONEDNN == 1</span></div>
-<div class="line"><a name="l01054"></a><span class="lineno"> 1054</span>&#160;        mkl_mem_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l01054"></a><span class="lineno"> 1054</span>&#160;        dnnl_mem_ = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l01055"></a><span class="lineno"> 1055</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l01056"></a><span class="lineno"> 1056</span>&#160;        delay_alloc = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l01057"></a><span class="lineno"> 1057</span>&#160;      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (shandle.<a class="code" href="structmxnet_1_1Storage_1_1Handle.html#ab93b9db0c83e4ef3803fb587377a74a0">size</a> &lt; dbytes) {</div>
@@ -788,7 +788,7 @@ $(function() {
 <div class="line"><a name="l01061"></a><span class="lineno"> 1061</span>&#160;        shandle.<a class="code" href="structmxnet_1_1Storage_1_1Handle.html#ab93b9db0c83e4ef3803fb587377a74a0">size</a> = dbytes;</div>
 <div class="line"><a name="l01062"></a><span class="lineno"> 1062</span>&#160;        <a class="code" href="classmxnet_1_1Storage.html#a96abc072908d72d3271360a7e3e4bbc2">Storage::Get</a>()-&gt;<a class="code" href="classmxnet_1_1Storage.html#a8ac978f345ba93f26b11ae4331406561">Alloc</a>(&amp;shandle);</div>
 <div class="line"><a name="l01063"></a><span class="lineno"> 1063</span>&#160;<span class="preprocessor">#if MXNET_USE_ONEDNN == 1</span></div>
-<div class="line"><a name="l01064"></a><span class="lineno"> 1064</span>&#160;        mkl_mem_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l01064"></a><span class="lineno"> 1064</span>&#160;        dnnl_mem_ = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l01065"></a><span class="lineno"> 1065</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l01066"></a><span class="lineno"> 1066</span>&#160;      }</div>
 <div class="line"><a name="l01067"></a><span class="lineno"> 1067</span>&#160;    }</div>
@@ -825,14 +825,14 @@ $(function() {
 <div class="line"><a name="l01099"></a><span class="lineno"> 1099</span>&#160; </div>
 <div class="line"><a name="l01100"></a><span class="lineno"> 1100</span>&#160;<span class="preprocessor">#if MXNET_USE_ONEDNN == 1</span></div>
 <div class="line"><a name="l01101"></a><span class="lineno"> 1101</span>&#160;    <span class="comment">// Have MKL memory reference to the data in the default storage</span></div>
-<div class="line"><a name="l01102"></a><span class="lineno"> 1102</span>&#160;    <span class="comment">// or create memory for MKLDNN.</span></div>
+<div class="line"><a name="l01102"></a><span class="lineno"> 1102</span>&#160;    <span class="comment">// or create memory for DNNL.</span></div>
 <div class="line"><a name="l01103"></a><span class="lineno"> 1103</span>&#160;    <span class="keywordtype">void</span> SetMKLMem(<span class="keyword">const</span> <a class="code" href="classmxnet_1_1TShape.html">mxnet::TShape</a>&amp; <a class="code" href="classmxnet_1_1NDArray.html#aa0ff3466e6ff09f8fe0a8019b53d5d42">shape</a>, <span class="keywordtype">int</span> <a class="code" href="classmxnet_1_1NDArray.html#a67b0f8eb36568b4c9fbd3da2a1c4b0a3">dtype</a>);</div>
-<div class="line"><a name="l01104"></a><span class="lineno"> 1104</span>&#160;    <span class="comment">// If the data is stored in MKLDNN layout, we reorder data in mkl_mem_ and</span></div>
+<div class="line"><a name="l01104"></a><span class="lineno"> 1104</span>&#160;    <span class="comment">// If the data is stored in DNNL layout, we reorder data in dnnl_mem_ and</span></div>
 <div class="line"><a name="l01105"></a><span class="lineno"> 1105</span>&#160;    <span class="comment">// save the result in shandle.</span></div>
 <div class="line"><a name="l01106"></a><span class="lineno"> 1106</span>&#160;    <span class="keywordtype">void</span> Reorder2Default();</div>
 <div class="line"><a name="l01107"></a><span class="lineno"> 1107</span>&#160;    <span class="comment">// Reroder data to a specified layout.</span></div>
-<div class="line"><a name="l01108"></a><span class="lineno"> 1108</span>&#160;    <span class="keywordtype">void</span> MKLDNNDataReorder(<span class="keyword">const</span> mkldnn::memory::desc&amp; md);</div>
-<div class="line"><a name="l01109"></a><span class="lineno"> 1109</span>&#160;    <span class="keywordtype">bool</span> IsMKLDNN() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l01108"></a><span class="lineno"> 1108</span>&#160;    <span class="keywordtype">void</span> DNNLDataReorder(<span class="keyword">const</span> dnnl::memory::desc&amp; md);</div>
+<div class="line"><a name="l01109"></a><span class="lineno"> 1109</span>&#160;    <span class="keywordtype">bool</span> IsDNNL() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l01110"></a><span class="lineno"> 1110</span>&#160;    <span class="keywordtype">bool</span> IsDefault() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l01111"></a><span class="lineno"> 1111</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l01112"></a><span class="lineno"> 1112</span>&#160; </div>
@@ -1244,7 +1244,7 @@ $(function() {
 <div class="ttc" id="a3rdparty_2mshadow_2mshadow_2base_8h_html_af67c41c06afea92ccf285ae8501e2316"><div class="ttname"><a href="3rdparty_2mshadow_2mshadow_2base_8h.html#af67c41c06afea92ccf285ae8501e2316">MSHADOW_TYPE_SWITCH</a></div><div class="ttdeci">#define MSHADOW_TYPE_SWITCH(type, DType,...)</div><div class="ttdef"><b>Definition:</b> base.h:1085</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 13 2021 14:49:57 for mxnet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 13 2021 20:55:36 for mxnet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
