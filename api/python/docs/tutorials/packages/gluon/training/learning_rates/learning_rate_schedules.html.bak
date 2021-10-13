@@ -1759,7 +1759,7 @@ rate of the 250th iteration will be 1 and the 251st iteration will be 0.5.</p>
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[22:09:33] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
+[03:54:03] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 <p>We then initialize our network (technically deferred until we pass the first batch) and define the loss.</p>
@@ -1780,7 +1780,7 @@ rate of the 250th iteration will be 1 and the 251st iteration will be 0.5.</p>
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[22:09:36] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for GPU
+[03:54:05] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for GPU
 </pre></div></div>
 </div>
 <p>We’re now ready to create our schedule, and in this example we opt for a stepwise decay schedule using <code class="docutils literal notranslate"><span class="pre">MultiFactorScheduler</span></code>. Since we’re only training a demonstration model for a limited number of epochs (10 in total) we will exaggerate the schedule and drop the learning rate by 90% after the 4th, 7th and 9th epochs. We call these steps, and the drop occurs <em>after</em> the step index. Schedules are defined for iterations (i.e. training batches), so we must represent our steps in iterations too.</p>
@@ -1883,7 +1883,7 @@ learning rate from ``lr_scheduler`` has been overwritten by ``learning_rate`` in
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[22:09:38] /work/mxnet/src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:106: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+[03:54:07] /work/mxnet/src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:106: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1892,15 +1892,15 @@ learning rate from ``lr_scheduler`` has been overwritten by ``learning_rate`` in
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Epoch: 1; Batch 1; Loss 2.304708; LR 0.030000
-Epoch: 2; Batch 1; Loss 0.092297; LR 0.030000
-Epoch: 3; Batch 1; Loss 0.167450; LR 0.030000
-Epoch: 4; Batch 1; Loss 0.105222; LR 0.030000
-Epoch: 5; Batch 1; Loss 0.085040; LR 0.003000
-Epoch: 6; Batch 1; Loss 0.022773; LR 0.003000
-Epoch: 7; Batch 1; Loss 0.016686; LR 0.003000
-Epoch: 8; Batch 1; Loss 0.039545; LR 0.000300
-Epoch: 9; Batch 1; Loss 0.034114; LR 0.000300
-Epoch: 10; Batch 1; Loss 0.017229; LR 0.000030
+Epoch: 2; Batch 1; Loss 0.090258; LR 0.030000
+Epoch: 3; Batch 1; Loss 0.168718; LR 0.030000
+Epoch: 4; Batch 1; Loss 0.107040; LR 0.030000
+Epoch: 5; Batch 1; Loss 0.082587; LR 0.003000
+Epoch: 6; Batch 1; Loss 0.023061; LR 0.003000
+Epoch: 7; Batch 1; Loss 0.015644; LR 0.003000
+Epoch: 8; Batch 1; Loss 0.038936; LR 0.000300
+Epoch: 9; Batch 1; Loss 0.034411; LR 0.000300
+Epoch: 10; Batch 1; Loss 0.017735; LR 0.000030
 </pre></div></div>
 </div>
 <p>Epoch: 1; Batch 1; Loss 2.304071; LR 0.030000</p>
@@ -1968,15 +1968,15 @@ Epoch: 10; Batch 1; Loss 0.017229; LR 0.000030
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Epoch: 1; Batch 1; Loss 2.279933; LR 0.030000
-Epoch: 2; Batch 1; Loss 0.104618; LR 0.030000
-Epoch: 3; Batch 1; Loss 0.026451; LR 0.030000
-Epoch: 4; Batch 1; Loss 0.022331; LR 0.030000
-Epoch: 5; Batch 1; Loss 0.027466; LR 0.003000
-Epoch: 6; Batch 1; Loss 0.027818; LR 0.003000
-Epoch: 7; Batch 1; Loss 0.034165; LR 0.003000
-Epoch: 8; Batch 1; Loss 0.015977; LR 0.000300
-Epoch: 9; Batch 1; Loss 0.019008; LR 0.000300
-Epoch: 10; Batch 1; Loss 0.020673; LR 0.000030
+Epoch: 2; Batch 1; Loss 0.101529; LR 0.030000
+Epoch: 3; Batch 1; Loss 0.023908; LR 0.030000
+Epoch: 4; Batch 1; Loss 0.021788; LR 0.030000
+Epoch: 5; Batch 1; Loss 0.027815; LR 0.003000
+Epoch: 6; Batch 1; Loss 0.027658; LR 0.003000
+Epoch: 7; Batch 1; Loss 0.034352; LR 0.003000
+Epoch: 8; Batch 1; Loss 0.014320; LR 0.000300
+Epoch: 9; Batch 1; Loss 0.018672; LR 0.000300
+Epoch: 10; Batch 1; Loss 0.021995; LR 0.000030
 </pre></div></div>
 </div>
 <p>Epoch: 1; Batch 1; Loss 2.334119; LR 0.030000</p>
