@@ -2398,7 +2398,7 @@ of its inputs to be taken into account for computing gradients.</p>
 <span class="p">[</span> <span class="mf">1.</span>  <span class="mf">1.</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L429</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L430</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2496,7 +2496,7 @@ information on the definition and the algorithm.</p>
 <span class="n">cast</span><span class="p">([</span><span class="mi">300</span><span class="p">,</span> <span class="mf">11.1</span><span class="p">,</span> <span class="mf">10.9</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;uint8&#39;</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span><span class="mi">44</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">253</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L788</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L789</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2874,7 +2874,7 @@ If mode is ‘always’, the same computaion as during training will be applied.
 <li><p>add_n(any input combinations longer than 4 (&gt;4) with at least one default type) = default</p></li>
 <li><p>otherwise, <code class="docutils literal notranslate"><span class="pre">add_n</span></code> falls all inputs back to default storage and generates default storage</p></li>
 </ul>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_sum.cc:L155
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_sum.cc:L156
 This function support variable length of positional input.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -3686,7 +3686,7 @@ L-1 pooling is simply sum pooling, while L-inf pooling is simply max pooling.
 We can see that Lp pooling stands between those two, in practice the most common value for p is 2.</p>
 <p>For each window <code class="docutils literal notranslate"><span class="pre">X</span></code>, the mathematical expression for Lp pooling is:</p>
 <p><span class="math notranslate nohighlight">\(f(X) = \sqrt[p]{\sum_{x}^{X} x^p}\)</span></p>
-<p>Defined in /work/mxnet/src/operator/nn/pooling.cc:L418</p>
+<p>Defined in /work/mxnet/src/operator/nn/pooling.cc:L416</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -4696,7 +4696,7 @@ This function support variable length of positional input.</p>
 <li><p>abs(csr) = csr</p></li>
 </ul>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L844</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L845</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -4782,7 +4782,7 @@ only the row slices whose indices appear in grad.indices are updated (for w, m a
 <li><p>add_n(any input combinations longer than 4 (&gt;4) with at least one default type) = default</p></li>
 <li><p>otherwise, <code class="docutils literal notranslate"><span class="pre">add_n</span></code> falls all inputs back to default storage and generates default storage</p></li>
 </ul>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_sum.cc:L155
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_sum.cc:L156
 This function support variable length of positional input.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -6145,7 +6145,7 @@ So with <cite>shape=(2,0)</cite>, we will obtain the same result as in the above
 <span class="n">cast</span><span class="p">([</span><span class="mi">300</span><span class="p">,</span> <span class="mf">11.1</span><span class="p">,</span> <span class="mf">10.9</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;uint8&#39;</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span><span class="mi">44</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">253</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L788</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L789</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -6237,7 +6237,7 @@ the result is compact, which means:</p>
 <li><p>cbrt(csr) = csr</p></li>
 </ul>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_pow.cc:L296</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_pow.cc:L297</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -6271,7 +6271,7 @@ the result is compact, which means:</p>
 <li><p>ceil(csr) = csr</p></li>
 </ul>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L945</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L946</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -7054,7 +7054,7 @@ from standard updates. For more details, please check the Optimization API at:
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">erf</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">10.</span><span class="p">])</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8427</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L1014</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L1015</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -7079,7 +7079,7 @@ from standard updates. For more details, please check the Optimization API at:
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">erfinv</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="o">.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">])</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.4769</span><span class="p">,</span> <span class="o">-</span><span class="n">inf</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L1035</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L1036</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -7107,7 +7107,7 @@ from standard updates. For more details, please check the Optimization API at:
 </pre></div>
 </div>
 <p>The storage type of <code class="docutils literal notranslate"><span class="pre">exp</span></code> output is always dense</p>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_logexp.cc:L64</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_logexp.cc:L65</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -7161,7 +7161,7 @@ will return a new array with shape <code class="docutils literal notranslate"><s
 <li><p>expm1(csr) = csr</p></li>
 </ul>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_logexp.cc:L245</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_logexp.cc:L246</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -7216,7 +7216,7 @@ will return a new array with shape <code class="docutils literal notranslate"><s
 <li><p>fix(csr) = csr</p></li>
 </ul>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L1002</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L1003</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -7322,7 +7322,7 @@ Examples:</p>
 <li><p>floor(csr) = csr</p></li>
 </ul>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L964</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L965</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -7519,7 +7519,7 @@ where <cite>M &lt;= N</cite>. If <cite>M == N</cite>, output shape will simply b
 <dd><p>Computes hard sigmoid of x element-wise.</p>
 <div class="math notranslate nohighlight">
 \[y = max(0, min(1, alpha * x + beta))\]</div>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L263</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L264</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -7542,7 +7542,7 @@ where <cite>M &lt;= N</cite>. If <cite>M == N</cite>, output shape will simply b
 <dt id="mxnet.symbol.op.identity">
 <code class="sig-name descname">identity</code><span class="sig-paren">(</span><em class="sig-param">data=None</em>, <em class="sig-param">name=None</em>, <em class="sig-param">attr=None</em>, <em class="sig-param">out=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.symbol.op.identity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a copy of the input.</p>
-<p>From:/work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:347</p>
+<p>From:/work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:348</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -8631,7 +8631,7 @@ identity or the matrix transposition (depending on <em>transpose</em>).</p>
 <dd><p>Returns element-wise Natural logarithmic value of the input.</p>
 <p>The natural logarithm is logarithm in base <em>e</em>, so that <code class="docutils literal notranslate"><span class="pre">log(exp(x))</span> <span class="pre">=</span> <span class="pre">x</span></code></p>
 <p>The storage type of <code class="docutils literal notranslate"><span class="pre">log</span></code> output is always dense</p>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_logexp.cc:L77</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_logexp.cc:L78</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -8654,7 +8654,7 @@ identity or the matrix transposition (depending on <em>transpose</em>).</p>
 <dd><p>Returns element-wise Base-10 logarithmic value of the input.</p>
 <p><code class="docutils literal notranslate"><span class="pre">10**log10(x)</span> <span class="pre">=</span> <span class="pre">x</span></code></p>
 <p>The storage type of <code class="docutils literal notranslate"><span class="pre">log10</span></code> output is always dense</p>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_logexp.cc:L94</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_logexp.cc:L95</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -8685,7 +8685,7 @@ identity or the matrix transposition (depending on <em>transpose</em>).</p>
 <li><p>log1p(csr) = csr</p></li>
 </ul>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_logexp.cc:L200</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_logexp.cc:L201</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -8708,7 +8708,7 @@ identity or the matrix transposition (depending on <em>transpose</em>).</p>
 <dd><p>Returns element-wise Base-2 logarithmic value of the input.</p>
 <p><code class="docutils literal notranslate"><span class="pre">2**log2(x)</span> <span class="pre">=</span> <span class="pre">x</span></code></p>
 <p>The storage type of <code class="docutils literal notranslate"><span class="pre">log2</span></code> output is always dense</p>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_logexp.cc:L106</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_logexp.cc:L107</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -8732,7 +8732,7 @@ identity or the matrix transposition (depending on <em>transpose</em>).</p>
 <div class="math notranslate nohighlight">
 \[y = log(1 / (1 + exp(-x)))\]</div>
 <p>The storage type of <code class="docutils literal notranslate"><span class="pre">log_sigmoid</span></code> output is always dense</p>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L192</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L193</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -8830,7 +8830,7 @@ from backpropagation. See more detail in <code class="docutils literal notransla
 <li><p>make_loss(row_sparse) = row_sparse</p></li>
 </ul>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L462</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L463</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -9079,7 +9079,7 @@ NOT in axis instead.</p>
 <div class="math notranslate nohighlight">
 \[y = x * tanh(log(1 + exp(x)))\]</div>
 <p>The storage type of <code class="docutils literal notranslate"><span class="pre">mish</span></code> output is always dense</p>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L250</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L251</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -10851,7 +10851,7 @@ Samples will always be returned as a floating point data type.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rcbrt</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="o">-</span><span class="mi">125</span><span class="p">])</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_pow.cc:L368</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_pow.cc:L369</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -10877,7 +10877,7 @@ Samples will always be returned as a floating point data type.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">reciprocal</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.33333334</span><span class="p">,</span> <span class="mf">0.625</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_pow.cc:L43</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_pow.cc:L44</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -10908,7 +10908,7 @@ Samples will always be returned as a floating point data type.</p>
 <li><p>relu(csr) = csr</p></li>
 </ul>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L89</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L90</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -11094,7 +11094,7 @@ Example:</p>
 </pre></div>
 </div>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L628</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L629</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -11171,7 +11171,7 @@ Examples:</p>
 <li><p>rint(csr) = csr</p></li>
 </ul>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L926</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L927</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -11303,7 +11303,7 @@ to be 0.9 and the learning rate <span class="math notranslate nohighlight">\(\et
 <li><p>round(csr) = csr</p></li>
 </ul>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L905</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L906</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -11331,7 +11331,7 @@ to be 0.9 and the learning rate <span class="math notranslate nohighlight">\(\et
 </pre></div>
 </div>
 <p>The storage type of <code class="docutils literal notranslate"><span class="pre">rsqrt</span></code> output is always dense</p>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_pow.cc:L245</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_pow.cc:L246</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -11870,7 +11870,7 @@ only the row slices whose indices appear in grad.indices are updated:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">shape_array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]])</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L697</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L698</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -11918,7 +11918,7 @@ but the order of the elements in each row does not change.</p>
 <div class="math notranslate nohighlight">
 \[y = 1 / (1 + exp(-x))\]</div>
 <p>The storage type of <code class="docutils literal notranslate"><span class="pre">sigmoid</span></code> output is always dense</p>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L131</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L132</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -11951,7 +11951,7 @@ but the order of the elements in each row does not change.</p>
 <li><p>sign(csr) = csr</p></li>
 </ul>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L888</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L889</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -12123,7 +12123,7 @@ weight = weight - learning_rate * sign(state)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">size_array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]])</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L748</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L749</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -12479,7 +12479,7 @@ up to 1.</p>
 <div class="math notranslate nohighlight">
 \[y = x / (1 + abs(x))\]</div>
 <p>The storage type of <code class="docutils literal notranslate"><span class="pre">softsign</span></code> output is always dense</p>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L293</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L294</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -12688,7 +12688,7 @@ Also <cite>squeeze_axis</cite> can be set to true only if <code class="docutils 
 <li><p>sqrt(csr) = csr</p></li>
 </ul>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_pow.cc:L179</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_pow.cc:L180</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -12723,7 +12723,7 @@ Also <cite>squeeze_axis</cite> can be set to true only if <code class="docutils 
 <li><p>square(csr) = csr</p></li>
 </ul>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_pow.cc:L128</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_pow.cc:L129</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -12836,7 +12836,7 @@ of its inputs to be taken into account for computing gradients.</p>
 <span class="p">[</span> <span class="mf">1.</span>  <span class="mf">1.</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L429</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L430</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -13332,7 +13332,7 @@ zero than x is. In short, the fractional part of the signed number x is discarde
 <li><p>trunc(csr) = csr</p></li>
 </ul>
 </div></blockquote>
-<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L984</p>
+<p>Defined in /work/mxnet/src/operator/tensor/elemwise_unary_op_basic.cc:L985</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
