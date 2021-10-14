@@ -1362,7 +1362,9 @@ Edit on Github
 <dt id="mxnet.np.arccos">
 <code class="sig-name descname">arccos</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">out=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.np.arccos" title="Permalink to this definition">¶</a></dt>
 <dd><p>Trigonometric inverse cosine, element-wise.
-The inverse of cos so that, if y = cos(x), then x = arccos(y).</p>
+The inverse of cos so that, if y = cos(x), then x = acos(y).</p>
+<p>&gt;&gt;&gt;np.acos is np.arccos
+True</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1381,14 +1383,17 @@ This is a scalar if x is a scalar.</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>arccos is a multivalued function: for each x there are infinitely many numbers z such that
+<p><cite>acos</cite> is a alias for <cite>arccos</cite>. It is a standard API in
+<a class="reference external" href="https://data-apis.org/array-api/latest/API_specification/elementwise_functions.html#acos-x">https://data-apis.org/array-api/latest/API_specification/elementwise_functions.html#acos-x</a>
+instead of an official NumPy operator.</p>
+<p>acos is a multivalued function: for each x there are infinitely many numbers z such that
 cos(z) = x. The convention is to return the angle z whose real part lies in [0, pi].
-For real-valued input data types, arccos always returns real output.
+For real-valued input data types, acos always returns real output.
 For each value that cannot be expressed as a real number or infinity, it yields nan and sets
 the invalid floating point error flag.
 The inverse cos is also known as acos or cos^-1.</p>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">acos</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 <span class="go">array([ 0.        ,  3.14159265])</span>
 </pre></div>
 </div>

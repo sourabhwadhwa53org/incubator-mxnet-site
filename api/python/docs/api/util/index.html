@@ -1434,6 +1434,12 @@ Edit on Github
 <tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.use_np_shape" title="mxnet.util.use_np_shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">use_np_shape</span></code></a>(func)</p></td>
 <td><p>A decorator wrapping a function or class with activated NumPy-shape semantics.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.wrap_data_api_linalg_func" title="mxnet.util.wrap_data_api_linalg_func"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wrap_data_api_linalg_func</span></code></a>(func)</p></td>
+<td><p>A convenience decorator for wrapping data apis standardized linalg functions to provide context keyward backward compatibility :param func: :type func: a numpy-compatible array linalg function to be wrapped for context keyward change.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.wrap_data_api_statical_func" title="mxnet.util.wrap_data_api_statical_func"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wrap_data_api_statical_func</span></code></a>(func)</p></td>
+<td><p>A convenience decorator for wrapping data apis standardized statical functions to provide context keyward backward compatibility :param func: :type func: a numpy-compatible array statical function to be wrapped for context keyward change.</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.wrap_np_binary_func" title="mxnet.util.wrap_np_binary_func"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wrap_np_binary_func</span></code></a>(func)</p></td>
 <td><p>A convenience decorator for wrapping numpy-compatible binary ufuncs to provide uniform error handling.</p></td>
 </tr>
@@ -2200,6 +2206,42 @@ of the class are executed with the NumPy shape semantics.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference internal" href="../autograd/index.html#mxnet.autograd.Function" title="mxnet.autograd.Function">Function</a> or class</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mxnet.util.wrap_data_api_linalg_func">
+<code class="sig-name descname">wrap_data_api_linalg_func</code><span class="sig-paren">(</span><em class="sig-param">func</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/util.html#wrap_data_api_linalg_func"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.util.wrap_data_api_linalg_func" title="Permalink to this definition">¶</a></dt>
+<dd><p>A convenience decorator for wrapping data apis standardized linalg functions to provide
+context keyward backward compatibility
+:param func:
+:type func: a numpy-compatible array linalg function to be wrapped for context keyward change.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><em>Function</em></p></li>
+<li><p><em>A function wrapped with context keyward changes.</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mxnet.util.wrap_data_api_statical_func">
+<code class="sig-name descname">wrap_data_api_statical_func</code><span class="sig-paren">(</span><em class="sig-param">func</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/util.html#wrap_data_api_statical_func"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.util.wrap_data_api_statical_func" title="Permalink to this definition">¶</a></dt>
+<dd><p>A convenience decorator for wrapping data apis standardized statical functions to provide
+context keyward backward compatibility
+:param func:
+:type func: a numpy-compatible array statical function to be wrapped for context keyward change.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><em>Function</em></p></li>
+<li><p><em>A function wrapped with context keyward changes.</em></p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>

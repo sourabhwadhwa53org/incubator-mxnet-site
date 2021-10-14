@@ -1362,6 +1362,8 @@ Edit on Github
 <dt id="mxnet.np.arccosh">
 <code class="sig-name descname">arccosh</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">out=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.np.arccosh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inverse hyperbolic cosine, element-wise.</p>
+<p>&gt;&gt;&gt;np.acosh is np.arccosh
+True</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1371,11 +1373,14 @@ Edit on Github
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul>
-<li><p><strong>arccosh</strong> (<em>ndarray</em>) – Array of the same shape as <cite>x</cite>.
+<li><p><strong>acosh</strong> (<em>ndarray</em>) – Array of the same shape as <cite>x</cite>.
 This is a scalar if <cite>x</cite> is a scalar.</p></li>
-<li><p><em>.. note::</em> – <cite>arccosh</cite> is a multivalued function: for each <cite>x</cite> there are infinitely
+<li><p><em>.. note::</em> – <cite>acosh</cite> is a alias for <cite>arccosh</cite>. It is a standard API in
+<a class="reference external" href="https://data-apis.org/array-api/latest/API_specification/elementwise_functions.html#acosh-x">https://data-apis.org/array-api/latest/API_specification/elementwise_functions.html#acosh-x</a>
+instead of an official NumPy operator.</p>
+<p><cite>acosh</cite> is a multivalued function: for each <cite>x</cite> there are infinitely
 many numbers <cite>z</cite> such that <cite>cosh(z) = x</cite>.</p>
-<p>For real-valued input data types, <cite>arccosh</cite> always returns real output.
+<p>For real-valued input data types, <cite>acosh</cite> always returns real output.
 For each value that cannot be expressed as a real number or infinity, it
 yields <code class="docutils literal notranslate"><span class="pre">nan</span></code> and sets the <cite>invalid</cite> floating point error flag.</p>
 <p>This function differs from the original numpy.arccosh in the following aspects:</p>
@@ -1393,11 +1398,11 @@ yields <code class="docutils literal notranslate"><span class="pre">nan</span></
 </dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">3.2</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">arccosh</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">acosh</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="go">array([1.8309381, 2.2924316])</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">arccosh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">acosh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="go">0.0</span>
 </pre></div>
 </div>

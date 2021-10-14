@@ -1362,6 +1362,8 @@ Edit on Github
 <dt id="mxnet.np.arcsin">
 <code class="sig-name descname">arcsin</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">out=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.np.arcsin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inverse sine, element-wise.</p>
+<p>&gt;&gt;&gt;np.asin is np.asin
+True</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1381,20 +1383,23 @@ closed interval <code class="docutils literal notranslate"><span class="pre">[-p
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>     <span class="c1"># pi/2</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">asin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>     <span class="c1"># pi/2</span>
 <span class="go">1.5707963267948966</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># -pi/2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">asin</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># -pi/2</span>
 <span class="go">-1.5707963267948966</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">asin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="go">0.0</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><cite>arcsin</cite> is a multivalued function: for each <cite>x</cite> there are infinitely
+<p><cite>asin</cite> is a alias for <cite>arcsin</cite>. It is a standard API in
+<a class="reference external" href="https://data-apis.org/array-api/latest/API_specification/elementwise_functions.html#asin-x">https://data-apis.org/array-api/latest/API_specification/elementwise_functions.html#asin-x</a>
+instead of an official NumPy operator.</p>
+<p><cite>asin</cite> is a multivalued function: for each <cite>x</cite> there are infinitely
 many numbers <cite>z</cite> such that <span class="math notranslate nohighlight">\(sin(z) = x\)</span>.  The convention is to
 return the angle <cite>z</cite> whose real part lies in [-pi/2, pi/2].
-For real-valued input data types, <em>arcsin</em> always returns real output.
+For real-valued input data types, <em>asin</em> always returns real output.
 For each value that cannot be expressed as a real number or infinity,
 it yields <code class="docutils literal notranslate"><span class="pre">nan</span></code> and sets the <cite>invalid</cite> floating point error flag.
 The inverse sine is also known as <cite>asin</cite> or sin^{-1}.

@@ -1362,7 +1362,9 @@ Edit on Github
 <dt id="mxnet.np.arctan">
 <code class="sig-name descname">arctan</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">out=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.np.arctan" title="Permalink to this definition">¶</a></dt>
 <dd><p>Trigonometric inverse tangent, element-wise.
-The inverse of tan, so that if <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">tan(x)</span></code> then <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">arctan(y)</span></code>.</p>
+The inverse of tan, so that if <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">tan(x)</span></code> then <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">atan(y)</span></code>.</p>
+<p>&gt;&gt;&gt;np.atan is np.arctan
+True</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1374,7 +1376,7 @@ a freshly-allocated array is returned.</p></li>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>out</strong> – Out has the same shape as <cite>x</cite>. It lies is in
-<code class="docutils literal notranslate"><span class="pre">[-pi/2,</span> <span class="pre">pi/2]</span></code> (<code class="docutils literal notranslate"><span class="pre">arctan(+/-inf)</span></code> returns <code class="docutils literal notranslate"><span class="pre">+/-pi/2</span></code>).
+<code class="docutils literal notranslate"><span class="pre">[-pi/2,</span> <span class="pre">pi/2]</span></code> (<code class="docutils literal notranslate"><span class="pre">atan(+/-inf)</span></code> returns <code class="docutils literal notranslate"><span class="pre">+/-pi/2</span></code>).
 This is a scalar if <cite>x</cite> is a scalar.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
@@ -1382,17 +1384,20 @@ This is a scalar if <cite>x</cite> is a scalar.</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p><cite>arctan</cite> is a multi-valued function: for each <cite>x</cite> there are infinitely
+<p><cite>atan</cite> is a alias for <cite>arctan</cite>. It is a standard API in
+<a class="reference external" href="https://data-apis.org/array-api/latest/API_specification/elementwise_functions.html#atan-x">https://data-apis.org/array-api/latest/API_specification/elementwise_functions.html#atan-x</a>
+instead of an official NumPy operator.</p>
+<p><cite>atan</cite> is a multi-valued function: for each <cite>x</cite> there are infinitely
 many numbers <cite>z</cite> such that tan(<cite>z</cite>) = <cite>x</cite>.  The convention is to return
 the angle <cite>z</cite> whose real part lies in [-pi/2, pi/2].
-For real-valued input data types, <cite>arctan</cite> always returns real output.
+For real-valued input data types, <cite>atan</cite> always returns real output.
 For each value that cannot be expressed as a real number or infinity,
 it yields <code class="docutils literal notranslate"><span class="pre">nan</span></code> and sets the <cite>invalid</cite> floating point error flag.
 For complex-valued input, we do not have support for them yet.
 The inverse tangent is also known as <cite>atan</cite> or tan^{-1}.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">atan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="go">array([0.       , 0.7853982])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span>
 <span class="go">0.7853981633974483</span>

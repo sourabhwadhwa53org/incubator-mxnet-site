@@ -1362,7 +1362,7 @@ Edit on Github
 <dt id="mxnet.np.arctan2">
 <code class="sig-name descname">arctan2</code><span class="sig-paren">(</span><em class="sig-param">x1</em>, <em class="sig-param">x2</em>, <em class="sig-param">out=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.np.arctan2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Element-wise arc tangent of <code class="docutils literal notranslate"><span class="pre">x1/x2</span></code> choosing the quadrant correctly.</p>
-<p>The quadrant (i.e., branch) is chosen so that <code class="docutils literal notranslate"><span class="pre">arctan2(x1,</span> <span class="pre">x2)</span></code> is
+<p>The quadrant (i.e., branch) is chosen so that <code class="docutils literal notranslate"><span class="pre">atan2(x1,</span> <span class="pre">x2)</span></code> is
 the signed angle in radians between the ray ending at the origin and
 passing through the point (1,0), and the ray ending at the origin and
 passing through the point (<cite>x2</cite>, <cite>x1</cite>).  (Note the role reversal: the
@@ -1372,6 +1372,8 @@ is the second.)  By IEEE convention, this function is defined for
 Notes for specific values).</p>
 <p>This function is not defined for complex-valued arguments; for the
 so-called argument of complex values, use <cite>angle</cite>.</p>
+<p>&gt;&gt;&gt;np.atan2 is np.arctan2
+True</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1387,11 +1389,14 @@ a freshly-allocated array is returned.</p></li>
 <dd class="field-even"><p><ul>
 <li><p><strong>out</strong> (<em>ndarray or scalar</em>) – Array of angles in radians, in the range <code class="docutils literal notranslate"><span class="pre">[-pi,</span> <span class="pre">pi]</span></code>. This is a scalar if
 <cite>x1</cite> and <cite>x2</cite> are scalars.</p></li>
-<li><p><em>.. notes::</em> – <em>arctan2</em> is identical to the <code class="docutils literal notranslate"><span class="pre">atan2</span></code> function of the underlying
+<li><p><em>.. notes::</em> – <cite>atan2</cite> is a alias for <cite>arctan2</cite>. It is a standard API in
+<a class="reference external" href="https://data-apis.org/array-api/latest/API_specification/elementwise_functions.html#atan2-x1-x2">https://data-apis.org/array-api/latest/API_specification/elementwise_functions.html#atan2-x1-x2</a>
+instead of an official NumPy operator.</p>
+<p><em>atan2</em> is identical to the <code class="docutils literal notranslate"><span class="pre">atan2</span></code> function of the underlying
 C library.  The following special values are defined in the C
 standard: <a class="footnote-reference brackets" href="#id2" id="id1">1</a></p>
 <p>+========+========+==================+
-| <cite>x1</cite>   | <cite>x2</cite>   | <cite>arctan2(x1,x2)</cite> |
+| <cite>x1</cite>   | <cite>x2</cite>   | <cite>atan2(x1,x2)</cite> |
 +========+========+==================+
 | +/- 0  | +0     | +/- 0            |
 +========+========+==================+
@@ -1426,16 +1431,16 @@ and -inf.</p>
 <p>Consider four points in different quadrants:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="mi">180</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="mi">180</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
 <span class="go">array([-135.,  -45.,   45.,  135.])</span>
 </pre></div>
 </div>
-<p>Note the order of the parameters. <cite>arctan2</cite> is defined also when <cite>x2</cite> = 0
+<p>Note the order of the parameters. <cite>atan2</cite> is defined also when <cite>x2</cite> = 0
 and at several other special points, obtaining values in
 the range <code class="docutils literal notranslate"><span class="pre">[-pi,</span> <span class="pre">pi]</span></code>:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="go">array([ 1.5707964, -1.5707964])</span>
 </pre></div>
 </div>

@@ -1360,7 +1360,7 @@ Edit on Github
 <h1>mxnet.np.linalg.eigh<a class="headerlink" href="#mxnet-np-linalg-eigh" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="mxnet.np.linalg.eigh">
-<code class="sig-name descname">eigh</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">UPLO='L'</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.np.linalg.eigh" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">eigh</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">upper=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.np.linalg.eigh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the eigenvalues and eigenvectors real symmetric matrix.</p>
 <p>Returns two objects, a 1-D array containing the eigenvalues of <cite>a</cite>, and
 a 2-D square array or matrix (depending on the input type) of the
@@ -1409,7 +1409,7 @@ a matrix object.</p></li>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mf">6.8189726</span> <span class="p">,</span> <span class="o">-</span><span class="mf">3.926585</span>  <span class="p">,</span>  <span class="mf">4.3990498</span> <span class="p">],</span>
 <span class="gp">... </span>              <span class="p">[</span><span class="o">-</span><span class="mf">0.59656644</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.9166266</span> <span class="p">,</span>  <span class="mf">9.54532</span>   <span class="p">],</span>
 <span class="gp">... </span>              <span class="p">[</span> <span class="mf">2.1093285</span> <span class="p">,</span>  <span class="mf">0.19688708</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.1634291</span> <span class="p">]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">w</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">LA</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">UPLO</span><span class="o">=</span><span class="s1">&#39;L&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">w</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">LA</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">w</span>
 <span class="go">array([-2.175445 , -1.4581827,  7.3725457])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">v</span>
