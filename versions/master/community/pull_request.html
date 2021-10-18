@@ -331,7 +331,7 @@ git rebase upstream/master
   </li>
   <li>
     <p>Make sure code style check pass by typing the following command, and
-all the existing test-cases pass. Use the <a href="/versions/master/community/code_guide">clang-format</a> to reformat your code.</p>
+all the existing test-cases pass. Use the <a href="/versions/master/community/clang_format_guide">clang-format</a> to reformat your code.</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Reproduce the lint procedure in the CI.</span>
 ci/build.py <span class="nt">-R</span> <span class="nt">--docker-registry</span> mxnetci <span class="nt">--platform</span> ubuntu_cpu <span class="nt">--docker-build-retries</span> 3 <span class="nt">--shm-size</span> 500m /work/runtime_functions.sh sanity
