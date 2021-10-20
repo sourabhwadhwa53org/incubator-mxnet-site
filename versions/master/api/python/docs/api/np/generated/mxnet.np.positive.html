@@ -1360,26 +1360,30 @@ Edit on Github
 <h1>mxnet.np.positive<a class="headerlink" href="#mxnet-np-positive" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="mxnet.np.positive">
-<code class="sig-name descname">positive</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">/</em>, <em class="sig-param">out=None</em>, <em class="sig-param">*</em>, <em class="sig-param">where=True</em>, <em class="sig-param">casting='same_kind'</em>, <em class="sig-param">order='K'</em>, <em class="sig-param">dtype=None</em>, <em class="sig-param">subok=True</em><span class="optional">[</span>, <em class="sig-param">signature</em>, <em class="sig-param">extobj</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.np.positive" title="Permalink to this definition">¶</a></dt>
-<dd><p>Numerical positive, element-wise.</p>
-<div class="versionadded">
-<p><span class="versionmodified added">New in version 1.13.0.</span></p>
-</div>
+<code class="sig-name descname">positive</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">out=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.np.positive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the numerical positive of each element <cite>x_i</cite> (i.e.,`y_i = +x_i`)
+of the input array x .</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>x</strong> (<em>array_like</em><em> or </em><em>scalar</em>) – Input array.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>ndarray</em><em> or </em><em>scalar</em>) – Input array.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>y</strong> – Returned array or scalar: <cite>y = +x</cite>.
-This is a scalar if <cite>x</cite> is a scalar.</p>
+<dd class="field-even"><p><strong>y</strong> – Returned array or scalar: y = +x. This is a scalar if x is a scalar.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>ndarray or scalar</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Equivalent to <cite>x.copy()</cite>, but only defined for types that support
-arithmetic.</p>
+<p>Equivalent to <cite>x.copy()</cite>, but only defined for types that support arithmetic.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(([</span><span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">positive</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+<span class="go">array([ 1., -1.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="o">+</span><span class="n">x1</span>
+<span class="go">array([ 1., -1.])</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>
