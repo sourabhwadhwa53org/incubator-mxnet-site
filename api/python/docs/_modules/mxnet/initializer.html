@@ -2065,6 +2065,125 @@ Edit on Github
         <span class="c1"># gate of the 4 LSTM gates, we modify the according values.</span>
         <span class="n">num_hidden</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
         <span class="n">arr</span><span class="p">[</span><span class="n">num_hidden</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="n">num_hidden</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">forget_bias</span></div>
+
+
+<div class="viewcode-block" id="RNNFused"><a class="viewcode-back" href="../../api/initializer/index.html#mxnet.initializer.RNNFused">[docs]</a><span class="nd">@register</span>
+<span class="k">class</span> <span class="nc">RNNFused</span><span class="p">(</span><span class="n">Initializer</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Initialize RNN fused parameter with bias part initialized to 0.0 and</span>
+<span class="sd">    weight initialized with random values uniformly sampled from a given range.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    mode : {&#39;gru&#39;, &#39;lstm&#39;, &#39;rnn_relu&#39;, &#39;rnn_tanh&#39;}, required</span>
+<span class="sd">        the type of RNN to compute</span>
+<span class="sd">    num_layers : int (non-negative), required</span>
+<span class="sd">        number of stacked layers</span>
+<span class="sd">    state_size : int (non-negative), required</span>
+<span class="sd">        size of the state for each layer</span>
+<span class="sd">    bidirectional : boolean, optional, default=0</span>
+<span class="sd">        whether to use bidirectional recurrent layers</span>
+<span class="sd">    projection_size : int or None, optional, default=&#39;None&#39;</span>
+<span class="sd">        size of project size</span>
+<span class="sd">    scale : float, optional</span>
+<span class="sd">        The bound on the range of the generated random values for weights.</span>
+<span class="sd">        Values are generated from the range [-`scale`, `scale`].</span>
+<span class="sd">        Default scale is 0.07.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">num_layers</span><span class="p">,</span> <span class="n">state_size</span><span class="p">,</span> <span class="n">bidirectional</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">projection_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">i2h_weight_initializer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">h2h_weight_initializer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">i2h_bias_initializer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">h2h_bias_initializer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">h2r_weight_initializer</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">RNNFused</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">num_layers</span><span class="o">=</span><span class="n">num_layers</span><span class="p">,</span>
+                                       <span class="n">state_size</span><span class="o">=</span><span class="n">state_size</span><span class="p">,</span>
+                                       <span class="n">bidirectional</span><span class="o">=</span><span class="n">bidirectional</span><span class="p">,</span>
+                                       <span class="n">projection_size</span><span class="o">=</span><span class="n">projection_size</span><span class="p">,</span>
+                                       <span class="n">i2h_weight_initializer</span><span class="o">=</span><span class="n">i2h_weight_initializer</span><span class="p">,</span>
+                                       <span class="n">h2h_weight_initializer</span><span class="o">=</span><span class="n">h2h_weight_initializer</span><span class="p">,</span>
+                                       <span class="n">i2h_bias_initializer</span><span class="o">=</span><span class="n">i2h_bias_initializer</span><span class="p">,</span>
+                                       <span class="n">h2h_bias_initializer</span><span class="o">=</span><span class="n">h2h_bias_initializer</span><span class="p">,</span>
+                                       <span class="n">h2r_weight_initializer</span><span class="o">=</span><span class="n">h2r_weight_initializer</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gates</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;rnn_relu&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;rnn_tanh&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;lstm&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;gru&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}[</span><span class="n">mode</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_layers</span> <span class="o">=</span> <span class="n">num_layers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_hidden</span> <span class="o">=</span> <span class="n">state_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dir</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">bidirectional</span> <span class="k">else</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">projection_size</span> <span class="o">=</span> <span class="n">projection_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_i2h_weight_initializer</span> <span class="o">=</span> <span class="n">i2h_weight_initializer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_h2h_weight_initializer</span> <span class="o">=</span> <span class="n">h2h_weight_initializer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_i2h_bias_initializer</span> <span class="o">=</span> <span class="n">i2h_bias_initializer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_h2h_bias_initializer</span> <span class="o">=</span> <span class="n">h2h_bias_initializer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_h2r_weight_initializer</span> <span class="o">=</span> <span class="n">h2r_weight_initializer</span>
+
+    <span class="c1"># pylint: disable=too-many-nested-blocks</span>
+    <span class="k">def</span> <span class="nf">_init_weight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">arr</span><span class="p">):</span>
+        <span class="n">arr_len</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_hidden</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">dir</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">gates</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">projection_size</span><span class="p">:</span>
+            <span class="c1"># second layer size</span>
+            <span class="n">size2</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_hidden</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">dir</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_hidden</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">size</span>
+            <span class="n">input_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">arr_len</span> <span class="o">-</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_layers</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">size2</span><span class="p">)</span> <span class="o">//</span> \
+                <span class="n">size</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_hidden</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># second layer size</span>
+            <span class="n">size2</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">projection_size</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">dir</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">projection_size</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">size</span>
+            <span class="n">size_projection</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">projection_size</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_hidden</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_layers</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">dir</span>
+            <span class="n">input_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">arr_len</span> <span class="o">-</span> <span class="n">size_projection</span> <span class="o">-</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_layers</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">size2</span><span class="p">)</span> <span class="o">//</span> \
+                <span class="n">size</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">projection_size</span>
+        <span class="n">begin</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">projection_size</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="s1">&#39;bias&#39;</span><span class="p">]:</span>
+                <span class="k">for</span> <span class="n">layer_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_layers</span><span class="p">):</span>
+                    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dir</span><span class="p">):</span>
+                        <span class="k">for</span> <span class="n">connect</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;i2h&#39;</span><span class="p">,</span> <span class="s1">&#39;h2h&#39;</span><span class="p">]:</span>
+                            <span class="n">num_inputs</span> <span class="o">=</span> <span class="n">input_size</span>
+                            <span class="k">if</span> <span class="n">layer_num</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                                <span class="n">num_inputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_hidden</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">dir</span>
+                            <span class="k">if</span> <span class="n">connect</span> <span class="o">==</span> <span class="s1">&#39;h2h&#39;</span><span class="p">:</span>
+                                <span class="n">num_inputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_hidden</span>
+                            <span class="n">shape0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gates</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_hidden</span>
+                            <span class="k">if</span> <span class="n">param</span> <span class="o">==</span> <span class="s1">&#39;weight&#39;</span><span class="p">:</span>
+                                <span class="n">cur_len</span> <span class="o">=</span> <span class="n">shape0</span> <span class="o">*</span> <span class="n">num_inputs</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="n">cur_len</span> <span class="o">=</span> <span class="n">shape0</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">_init_util</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">connect</span><span class="p">,</span> <span class="n">arr</span><span class="p">[</span><span class="n">begin</span><span class="p">:</span><span class="n">begin</span><span class="o">+</span><span class="n">cur_len</span><span class="p">])</span>
+                            <span class="n">begin</span> <span class="o">+=</span> <span class="n">cur_len</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="s1">&#39;bias&#39;</span><span class="p">]:</span>
+                <span class="k">for</span> <span class="n">layer_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_layers</span><span class="p">):</span>
+                    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dir</span><span class="p">):</span>
+                        <span class="k">for</span> <span class="n">connect</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;i2h&#39;</span><span class="p">,</span> <span class="s1">&#39;h2h&#39;</span><span class="p">,</span> <span class="s1">&#39;h2r&#39;</span><span class="p">]:</span>
+                            <span class="k">if</span> <span class="n">connect</span> <span class="o">!=</span> <span class="s1">&#39;h2r&#39;</span> <span class="ow">or</span> <span class="n">param</span> <span class="o">!=</span> <span class="s1">&#39;bias&#39;</span><span class="p">:</span>
+                                <span class="k">if</span> <span class="n">connect</span> <span class="o">==</span> <span class="s1">&#39;h2r&#39;</span><span class="p">:</span>
+                                    <span class="n">cur_len</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">projection_size</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_hidden</span>
+                                <span class="k">else</span><span class="p">:</span>
+                                    <span class="n">num_inputs</span> <span class="o">=</span> <span class="n">input_size</span>
+                                    <span class="k">if</span> <span class="n">layer_num</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                                        <span class="n">num_inputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">projection_size</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">dir</span>
+                                    <span class="k">if</span> <span class="n">connect</span> <span class="o">==</span> <span class="s1">&#39;h2h&#39;</span><span class="p">:</span>
+                                        <span class="n">num_inputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">projection_size</span>
+                                    <span class="n">shape0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gates</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_hidden</span>
+                                    <span class="k">if</span> <span class="n">param</span> <span class="o">==</span> <span class="s1">&#39;weight&#39;</span><span class="p">:</span>
+                                        <span class="n">cur_len</span> <span class="o">=</span> <span class="n">shape0</span> <span class="o">*</span> <span class="n">num_inputs</span>
+                                    <span class="k">else</span><span class="p">:</span>
+                                        <span class="n">cur_len</span> <span class="o">=</span> <span class="n">shape0</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">_init_util</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">connect</span><span class="p">,</span> <span class="n">arr</span><span class="p">[</span><span class="n">begin</span><span class="p">:</span><span class="n">begin</span><span class="o">+</span><span class="n">cur_len</span><span class="p">])</span>
+                                <span class="n">begin</span> <span class="o">+=</span> <span class="n">cur_len</span>
+
+    <span class="k">def</span> <span class="nf">_init_util</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">connect</span><span class="p">,</span> <span class="n">arr</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;_</span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">_initializer&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">connect</span><span class="p">,</span> <span class="n">param</span><span class="p">)</span>
+        <span class="n">init</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="n">create</span><span class="p">(</span><span class="n">init</span><span class="p">)(</span><span class="n">InitDesc</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;__init__&#39;</span><span class="p">:</span> <span class="n">init</span><span class="p">}),</span> <span class="n">arr</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">set_initializer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">init</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_i2h_weight_initializer</span> <span class="o">=</span> \
+            <span class="n">init</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_i2h_weight_initializer</span> <span class="k">else</span> <span class="s1">&#39;uniform&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_h2h_weight_initializer</span> <span class="o">=</span> \
+            <span class="n">init</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_h2h_weight_initializer</span> <span class="k">else</span> <span class="s1">&#39;uniform&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_i2h_bias_initializer</span> <span class="o">=</span> \
+            <span class="n">init</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_i2h_bias_initializer</span> <span class="k">else</span> <span class="s1">&#39;zero&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_h2h_bias_initializer</span> <span class="o">=</span> \
+            <span class="n">init</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_i2h_bias_initializer</span> <span class="k">else</span> <span class="s1">&#39;zero&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_h2r_weight_initializer</span> <span class="o">=</span> \
+            <span class="n">init</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_h2r_weight_initializer</span> <span class="k">else</span> <span class="s1">&#39;uniform&#39;</span></div>
 </pre></div>
 
         <hr class="feedback-hr-top" />

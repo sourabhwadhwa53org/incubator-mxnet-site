@@ -1396,13 +1396,16 @@ Edit on Github
 <tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.initializer.Orthogonal" title="mxnet.initializer.Orthogonal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Orthogonal</span></code></a>([scale, rand_type])</p></td>
 <td><p>Initialize weight as orthogonal matrix.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.initializer.Uniform" title="mxnet.initializer.Uniform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Uniform</span></code></a>([scale])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.initializer.RNNFused" title="mxnet.initializer.RNNFused"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RNNFused</span></code></a>(mode, num_layers, state_size[, …])</p></td>
+<td><p>Initialize RNN fused parameter with bias part initialized to 0.0 and weight initialized with random values uniformly sampled from a given range.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.initializer.Uniform" title="mxnet.initializer.Uniform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Uniform</span></code></a>([scale])</p></td>
 <td><p>Initializes weights with random values uniformly sampled from a given range.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.initializer.Xavier" title="mxnet.initializer.Xavier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Xavier</span></code></a>([rnd_type, factor_type, magnitude])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.initializer.Xavier" title="mxnet.initializer.Xavier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Xavier</span></code></a>([rnd_type, factor_type, magnitude])</p></td>
 <td><p>Returns an initializer performing “Xavier” initialization for weights.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.initializer.Zero" title="mxnet.initializer.Zero"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Zero</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.initializer.Zero" title="mxnet.initializer.Zero"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Zero</span></code></a>()</p></td>
 <td><p>Initializes weights to zero.</p></td>
 </tr>
 </tbody>
@@ -1704,6 +1707,28 @@ learning in deep linear neural networks</em>, available at
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>scale</strong> (<em>float optional</em>) – Scaling factor of weight.</p></li>
 <li><p><strong>rand_type</strong> (<em>string optional</em>) – Use “uniform” or “normal” random number to initialize weight.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="mxnet.initializer.RNNFused">
+<em class="property">class </em><code class="sig-name descname">RNNFused</code><span class="sig-paren">(</span><em class="sig-param">mode</em>, <em class="sig-param">num_layers</em>, <em class="sig-param">state_size</em>, <em class="sig-param">bidirectional=False</em>, <em class="sig-param">projection_size=None</em>, <em class="sig-param">i2h_weight_initializer=None</em>, <em class="sig-param">h2h_weight_initializer=None</em>, <em class="sig-param">i2h_bias_initializer=None</em>, <em class="sig-param">h2h_bias_initializer=None</em>, <em class="sig-param">h2r_weight_initializer=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/initializer.html#RNNFused"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.initializer.RNNFused" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mxnet.initializer.Initializer" title="mxnet.initializer.Initializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">mxnet.initializer.Initializer</span></code></a></p>
+<p>Initialize RNN fused parameter with bias part initialized to 0.0 and
+weight initialized with random values uniformly sampled from a given range.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mode</strong> (<em>{'gru'</em><em>, </em><em>'lstm'</em><em>, </em><em>'rnn_relu'</em><em>, </em><em>'rnn_tanh'}</em><em>, </em><em>required</em>) – the type of RNN to compute</p></li>
+<li><p><strong>num_layers</strong> (<em>int</em><em> (</em><em>non-negative</em><em>)</em><em>, </em><em>required</em>) – number of stacked layers</p></li>
+<li><p><strong>state_size</strong> (<em>int</em><em> (</em><em>non-negative</em><em>)</em><em>, </em><em>required</em>) – size of the state for each layer</p></li>
+<li><p><strong>bidirectional</strong> (<em>boolean</em><em>, </em><em>optional</em><em>, </em><em>default=0</em>) – whether to use bidirectional recurrent layers</p></li>
+<li><p><strong>projection_size</strong> (<em>int</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default='None'</em>) – size of project size</p></li>
+<li><p><strong>scale</strong> (<em>float</em><em>, </em><em>optional</em>) – The bound on the range of the generated random values for weights.
+Values are generated from the range [-<cite>scale</cite>, <cite>scale</cite>].
+Default scale is 0.07.</p></li>
 </ul>
 </dd>
 </dl>
