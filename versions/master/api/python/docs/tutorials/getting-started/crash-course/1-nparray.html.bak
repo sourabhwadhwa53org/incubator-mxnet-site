@@ -1587,7 +1587,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[15:02:08] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
+[21:01:59] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -2050,10 +2050,10 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[
+[21:02:03] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for GPU
 </pre></div></div>
 </div>
-<div class="nboutput docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
@@ -2062,14 +2062,6 @@ div.rendered_html tbody tr:hover {
        [3., 3., 3.]], ctx=gpu(0))
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-15:02:12] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for GPU
-</pre></div></div>
 </div>
 </div>
 <div class="section" id="Next-Steps">

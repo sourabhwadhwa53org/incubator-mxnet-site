@@ -1585,7 +1585,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[16:10:36] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
+[22:09:54] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1753,9 +1753,9 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([[4.6846768e-21, 4.5736981e-41],
-       [6.2747567e-38, 0.0000000e+00],
-       [4.6847091e-21, 4.5736981e-41]])
+<span></span>array([[1.4012985e-45, 0.0000000e+00],
+       [5.4205816e-36, 0.0000000e+00],
+       [3.3631163e-44,           nan]])
 </pre></div>
 </div>
 </div>
