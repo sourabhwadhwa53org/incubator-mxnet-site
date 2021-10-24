@@ -1649,7 +1649,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[21:02:02] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
+[02:55:57] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 <p>Now that you have initialized your network, you can give it data. Passing data through a network is also called a forward pass. You can do a forward pass with random data, shown in the following example. First, you create a <code class="docutils literal notranslate"><span class="pre">(10,3)</span></code> shape random input <code class="docutils literal notranslate"><span class="pre">x</span></code> and feed the data into the layer to compute the output.</p>
@@ -2064,7 +2064,7 @@ Custom Lenet:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Downloading /home/jenkins_slave/.mxnet/models/resnet50_v2-ecdde353.zipff08bf8e-083e-4730-9462-59c909d0a8ef from https://apache-mxnet.s3-accelerate.dualstack.amazonaws.com/gluon/models/resnet50_v2-ecdde353.zip...
+Downloading /home/jenkins_slave/.mxnet/models/resnet50_v2-ecdde353.zip0290d5e6-d973-4c21-8f39-d859864d3308 from https://apache-mxnet.s3-accelerate.dualstack.amazonaws.com/gluon/models/resnet50_v2-ecdde353.zip...
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -2209,8 +2209,8 @@ Downloading /home/jenkins_slave/.mxnet/models/resnet50_v2-ecdde353.zipff08bf8e-0
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Before hybridizing: 0.3327 sec
-After hybridizing: 0.1312 sec
+Before hybridizing: 0.3528 sec
+After hybridizing: 0.1334 sec
 </pre></div></div>
 </div>
 <p>Peeling back another layer, you also have a <code class="docutils literal notranslate"><span class="pre">HybridBlock</span></code> which is the hybrid version of the <code class="docutils literal notranslate"><span class="pre">Block</span></code> API.</p>
@@ -2248,8 +2248,8 @@ After hybridizing: 0.1312 sec
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Before hybridizing: 0.3154 sec
-After hybridizing: 0.1160 sec
+Before hybridizing: 0.3202 sec
+After hybridizing: 0.1177 sec
 </pre></div></div>
 </div>
 <p>Given a HybridBlock whose forward computation consists of going through other HybridBlocks, you can compile that section of the network by calling the HybridBlocks <code class="docutils literal notranslate"><span class="pre">.hybridize()</span></code> method.</p>
