@@ -492,6 +492,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log10.html">mxnet.np.log10</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log2.html">mxnet.np.log2</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log1p.html">mxnet.np.log1p</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.logaddexp.html">mxnet.np.logaddexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.i0.html">mxnet.np.i0</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.ldexp.html">mxnet.np.ldexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.signbit.html">mxnet.np.signbit</a></li>
@@ -499,6 +500,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.frexp.html">mxnet.np.frexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.spacing.html">mxnet.np.spacing</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.lcm.html">mxnet.np.lcm</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.gcd.html">mxnet.np.gcd</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.add.html">mxnet.np.add</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.reciprocal.html">mxnet.np.reciprocal</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.negative.html">mxnet.np.negative</a></li>
@@ -1084,6 +1086,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log10.html">mxnet.np.log10</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log2.html">mxnet.np.log2</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log1p.html">mxnet.np.log1p</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.logaddexp.html">mxnet.np.logaddexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.i0.html">mxnet.np.i0</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.ldexp.html">mxnet.np.ldexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.signbit.html">mxnet.np.signbit</a></li>
@@ -1091,6 +1094,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.frexp.html">mxnet.np.frexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.spacing.html">mxnet.np.spacing</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.lcm.html">mxnet.np.lcm</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.gcd.html">mxnet.np.gcd</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.add.html">mxnet.np.add</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.reciprocal.html">mxnet.np.reciprocal</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.negative.html">mxnet.np.negative</a></li>
@@ -1655,7 +1659,7 @@ methods exist, they’re suited to ‘fan-out’ situations where few parameters
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[17:01:12] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
+[22:57:31] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 <p>We’re ready for our first forward pass through the network, and we want <code class="docutils literal notranslate"><span class="pre">autograd</span></code> to record the computational graph so we can calculate gradients. One of the simplest ways to do this is by running the network (and loss) code in the scope of an <code class="docutils literal notranslate"><span class="pre">autograd.record</span></code> context.</p>

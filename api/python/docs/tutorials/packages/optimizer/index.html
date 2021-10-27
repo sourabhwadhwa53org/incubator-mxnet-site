@@ -492,6 +492,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log10.html">mxnet.np.log10</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log2.html">mxnet.np.log2</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log1p.html">mxnet.np.log1p</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.logaddexp.html">mxnet.np.logaddexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.i0.html">mxnet.np.i0</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.ldexp.html">mxnet.np.ldexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.signbit.html">mxnet.np.signbit</a></li>
@@ -499,6 +500,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.frexp.html">mxnet.np.frexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.spacing.html">mxnet.np.spacing</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.lcm.html">mxnet.np.lcm</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.gcd.html">mxnet.np.gcd</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.add.html">mxnet.np.add</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.reciprocal.html">mxnet.np.reciprocal</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.negative.html">mxnet.np.negative</a></li>
@@ -1084,6 +1086,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log10.html">mxnet.np.log10</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log2.html">mxnet.np.log2</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log1p.html">mxnet.np.log1p</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.logaddexp.html">mxnet.np.logaddexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.i0.html">mxnet.np.i0</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.ldexp.html">mxnet.np.ldexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.signbit.html">mxnet.np.signbit</a></li>
@@ -1091,6 +1094,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.frexp.html">mxnet.np.frexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.spacing.html">mxnet.np.spacing</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.lcm.html">mxnet.np.lcm</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.gcd.html">mxnet.np.gcd</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.add.html">mxnet.np.add</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.reciprocal.html">mxnet.np.reciprocal</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.negative.html">mxnet.np.negative</a></li>
@@ -1581,7 +1585,7 @@ parameters by calling <code class="docutils literal notranslate"><span class="pr
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[17:11:24] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
+[23:07:55] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 <p>In model training, the code snippet above would be followed by a training loop which, at every iteration performs a forward pass (to compute the loss), a backward pass (to compute the gradient of the loss with respect to the parameters) and a trainer step (which updates the parameters using the gradient). See the <a class="reference internal" href="../gluon/training/trainer.html"><span class="doc">Gluon Trainer guide</span></a> for a complete example.</p>

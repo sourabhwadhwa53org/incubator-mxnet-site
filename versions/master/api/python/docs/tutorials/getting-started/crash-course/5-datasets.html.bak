@@ -493,6 +493,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log10.html">mxnet.np.log10</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log2.html">mxnet.np.log2</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log1p.html">mxnet.np.log1p</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.logaddexp.html">mxnet.np.logaddexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.i0.html">mxnet.np.i0</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.ldexp.html">mxnet.np.ldexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.signbit.html">mxnet.np.signbit</a></li>
@@ -500,6 +501,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.frexp.html">mxnet.np.frexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.spacing.html">mxnet.np.spacing</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.lcm.html">mxnet.np.lcm</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.gcd.html">mxnet.np.gcd</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.add.html">mxnet.np.add</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.reciprocal.html">mxnet.np.reciprocal</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.negative.html">mxnet.np.negative</a></li>
@@ -1085,6 +1087,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log10.html">mxnet.np.log10</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log2.html">mxnet.np.log2</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log1p.html">mxnet.np.log1p</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.logaddexp.html">mxnet.np.logaddexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.i0.html">mxnet.np.i0</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.ldexp.html">mxnet.np.ldexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.signbit.html">mxnet.np.signbit</a></li>
@@ -1092,6 +1095,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.frexp.html">mxnet.np.frexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.spacing.html">mxnet.np.spacing</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.lcm.html">mxnet.np.lcm</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.gcd.html">mxnet.np.gcd</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.add.html">mxnet.np.add</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.reciprocal.html">mxnet.np.reciprocal</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.negative.html">mxnet.np.negative</a></li>
@@ -1615,7 +1619,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[16:02:05] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
+[21:59:03] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 <p>You get a tuple of a data sample and its corresponding label, which makes sense because you passed the data <code class="docutils literal notranslate"><span class="pre">X</span></code> and the labels <code class="docutils literal notranslate"><span class="pre">y</span></code> in that order when you instantiated the <code class="docutils literal notranslate"><span class="pre">ArrayDataset</span></code>. You don’t usually retrieve individual samples from <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> objects though (unless you’re quality checking the output samples). Instead you use a <code class="docutils literal notranslate"><span class="pre">DataLoader</span></code>.</p>
@@ -1716,7 +1720,7 @@ Label description: Bag
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;matplotlib.image.AxesImage at 0x7fa0c4934730&gt;
+<span></span>&lt;matplotlib.image.AxesImage at 0x7f294cd87b50&gt;
 </pre></div>
 </div>
 </div>
@@ -1838,7 +1842,7 @@ Label description: Faces_easy
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;matplotlib.image.AxesImage at 0x7fa080d3b340&gt;
+<span></span>&lt;matplotlib.image.AxesImage at 0x7f2908d3a6a0&gt;
 </pre></div>
 </div>
 </div>
@@ -1915,7 +1919,7 @@ Downloading /home/jenkins_slave/.mxnet/datasets/cifar10/cifar-10-binary.tar.gz f
 1563
 1563
 1563
-Elapsed time for backend dataloader: 8.031219244003296
+Elapsed time for backend dataloader: 8.455190896987915
 </pre></div></div>
 </div>
 </div>
@@ -1953,7 +1957,7 @@ Elapsed time for backend dataloader: 8.031219244003296
 1563
 1563
 1563
-Elapsed time for python dataloader: 8.926738977432251
+Elapsed time for python dataloader: 9.019112586975098
 </pre></div></div>
 </div>
 </div>

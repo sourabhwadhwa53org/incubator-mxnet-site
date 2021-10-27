@@ -493,6 +493,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log10.html">mxnet.np.log10</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log2.html">mxnet.np.log2</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log1p.html">mxnet.np.log1p</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.logaddexp.html">mxnet.np.logaddexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.i0.html">mxnet.np.i0</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.ldexp.html">mxnet.np.ldexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.signbit.html">mxnet.np.signbit</a></li>
@@ -500,6 +501,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.frexp.html">mxnet.np.frexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.spacing.html">mxnet.np.spacing</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.lcm.html">mxnet.np.lcm</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.gcd.html">mxnet.np.gcd</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.add.html">mxnet.np.add</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.reciprocal.html">mxnet.np.reciprocal</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.negative.html">mxnet.np.negative</a></li>
@@ -1085,6 +1087,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log10.html">mxnet.np.log10</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log2.html">mxnet.np.log2</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log1p.html">mxnet.np.log1p</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.logaddexp.html">mxnet.np.logaddexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.i0.html">mxnet.np.i0</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.ldexp.html">mxnet.np.ldexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.signbit.html">mxnet.np.signbit</a></li>
@@ -1092,6 +1095,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.frexp.html">mxnet.np.frexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.spacing.html">mxnet.np.spacing</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.lcm.html">mxnet.np.lcm</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.gcd.html">mxnet.np.gcd</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.add.html">mxnet.np.add</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.reciprocal.html">mxnet.np.reciprocal</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.negative.html">mxnet.np.negative</a></li>
@@ -1649,7 +1653,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[16:01:50] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
+[21:58:48] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 <p>Now that you have initialized your network, you can give it data. Passing data through a network is also called a forward pass. You can do a forward pass with random data, shown in the following example. First, you create a <code class="docutils literal notranslate"><span class="pre">(10,3)</span></code> shape random input <code class="docutils literal notranslate"><span class="pre">x</span></code> and feed the data into the layer to compute the output.</p>
@@ -2064,7 +2068,7 @@ Custom Lenet:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Downloading /home/jenkins_slave/.mxnet/models/resnet50_v2-ecdde353.zip9ba2c659-f7b6-4d9d-a49c-66838d7afe10 from https://apache-mxnet.s3-accelerate.dualstack.amazonaws.com/gluon/models/resnet50_v2-ecdde353.zip...
+Downloading /home/jenkins_slave/.mxnet/models/resnet50_v2-ecdde353.zip52d57f1b-ba47-4f7b-94ce-74eb0ce11fb3 from https://apache-mxnet.s3-accelerate.dualstack.amazonaws.com/gluon/models/resnet50_v2-ecdde353.zip...
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -2209,8 +2213,8 @@ Downloading /home/jenkins_slave/.mxnet/models/resnet50_v2-ecdde353.zip9ba2c659-f
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Before hybridizing: 0.3368 sec
-After hybridizing: 0.1322 sec
+Before hybridizing: 0.5899 sec
+After hybridizing: 0.2825 sec
 </pre></div></div>
 </div>
 <p>Peeling back another layer, you also have a <code class="docutils literal notranslate"><span class="pre">HybridBlock</span></code> which is the hybrid version of the <code class="docutils literal notranslate"><span class="pre">Block</span></code> API.</p>
@@ -2248,8 +2252,8 @@ After hybridizing: 0.1322 sec
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Before hybridizing: 0.3227 sec
-After hybridizing: 0.1184 sec
+Before hybridizing: 0.4147 sec
+After hybridizing: 0.1280 sec
 </pre></div></div>
 </div>
 <p>Given a HybridBlock whose forward computation consists of going through other HybridBlocks, you can compile that section of the network by calling the HybridBlocks <code class="docutils literal notranslate"><span class="pre">.hybridize()</span></code> method.</p>

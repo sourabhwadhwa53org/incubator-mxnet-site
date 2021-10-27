@@ -489,6 +489,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log10.html">mxnet.np.log10</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log2.html">mxnet.np.log2</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log1p.html">mxnet.np.log1p</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.logaddexp.html">mxnet.np.logaddexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.i0.html">mxnet.np.i0</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.ldexp.html">mxnet.np.ldexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.signbit.html">mxnet.np.signbit</a></li>
@@ -496,6 +497,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.frexp.html">mxnet.np.frexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.spacing.html">mxnet.np.spacing</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.lcm.html">mxnet.np.lcm</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.gcd.html">mxnet.np.gcd</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.add.html">mxnet.np.add</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.reciprocal.html">mxnet.np.reciprocal</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.negative.html">mxnet.np.negative</a></li>
@@ -1081,6 +1083,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log10.html">mxnet.np.log10</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log2.html">mxnet.np.log2</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.log1p.html">mxnet.np.log1p</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.logaddexp.html">mxnet.np.logaddexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.i0.html">mxnet.np.i0</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.ldexp.html">mxnet.np.ldexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.signbit.html">mxnet.np.signbit</a></li>
@@ -1088,6 +1091,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.frexp.html">mxnet.np.frexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.spacing.html">mxnet.np.spacing</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.lcm.html">mxnet.np.lcm</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.gcd.html">mxnet.np.gcd</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.add.html">mxnet.np.add</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.reciprocal.html">mxnet.np.reciprocal</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.negative.html">mxnet.np.negative</a></li>
@@ -3147,7 +3151,7 @@ Edit on Github
         <span class="k">return</span> <span class="n">Executor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">args_grad</span><span class="p">,</span> <span class="n">grad_req</span><span class="p">,</span> <span class="n">aux_states</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_bind</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">args_grad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">grad_req</span><span class="o">=</span><span class="s1">&#39;write&#39;</span><span class="p">,</span>
-              <span class="n">aux_states</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+              <span class="n">aux_states</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">static_alloc</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Binds the current symbol to an executor and returns it.</span>
 
 <span class="sd">        We first declare the computation and then bind to the data to run.</span>
@@ -3210,6 +3214,9 @@ Edit on Github
 <span class="sd">              `auxiliary_states` to the corresponding `NDArray`,</span>
 <span class="sd">            - In either case, all the auxiliary states need to be provided.</span>
 
+<span class="sd">        static_alloc : bool, default False</span>
+<span class="sd">            Statically allocate memory to improve speed. Memory usage may increase.</span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        executor : Executor</span>
@@ -3228,7 +3235,7 @@ Edit on Github
 <span class="sd">        gradient they interested in.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">grad_req</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">Executor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">args_grad</span><span class="p">,</span> <span class="n">grad_req</span><span class="p">,</span> <span class="n">aux_states</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Executor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">args_grad</span><span class="p">,</span> <span class="n">grad_req</span><span class="p">,</span> <span class="n">aux_states</span><span class="p">,</span> <span class="n">static_alloc</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Symbol.gradient"><a class="viewcode-back" href="../../../api/legacy/symbol/symbol.html#mxnet.symbol.Symbol.gradient">[docs]</a>    <span class="k">def</span> <span class="nf">gradient</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wrt</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Gets the autodiff of current symbol.</span>

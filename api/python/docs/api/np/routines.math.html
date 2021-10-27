@@ -493,6 +493,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="generated/mxnet.np.log10.html">mxnet.np.log10</a></li>
 <li class="toctree-l5"><a class="reference internal" href="generated/mxnet.np.log2.html">mxnet.np.log2</a></li>
 <li class="toctree-l5"><a class="reference internal" href="generated/mxnet.np.log1p.html">mxnet.np.log1p</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/mxnet.np.logaddexp.html">mxnet.np.logaddexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="generated/mxnet.np.i0.html">mxnet.np.i0</a></li>
 <li class="toctree-l5"><a class="reference internal" href="generated/mxnet.np.ldexp.html">mxnet.np.ldexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="generated/mxnet.np.signbit.html">mxnet.np.signbit</a></li>
@@ -500,6 +501,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="generated/mxnet.np.frexp.html">mxnet.np.frexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="generated/mxnet.np.spacing.html">mxnet.np.spacing</a></li>
 <li class="toctree-l5"><a class="reference internal" href="generated/mxnet.np.lcm.html">mxnet.np.lcm</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/mxnet.np.gcd.html">mxnet.np.gcd</a></li>
 <li class="toctree-l5"><a class="reference internal" href="generated/mxnet.np.add.html">mxnet.np.add</a></li>
 <li class="toctree-l5"><a class="reference internal" href="generated/mxnet.np.reciprocal.html">mxnet.np.reciprocal</a></li>
 <li class="toctree-l5"><a class="reference internal" href="generated/mxnet.np.negative.html">mxnet.np.negative</a></li>
@@ -1085,6 +1087,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="generated/mxnet.np.log10.html">mxnet.np.log10</a></li>
 <li class="toctree-l5"><a class="reference internal" href="generated/mxnet.np.log2.html">mxnet.np.log2</a></li>
 <li class="toctree-l5"><a class="reference internal" href="generated/mxnet.np.log1p.html">mxnet.np.log1p</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/mxnet.np.logaddexp.html">mxnet.np.logaddexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="generated/mxnet.np.i0.html">mxnet.np.i0</a></li>
 <li class="toctree-l5"><a class="reference internal" href="generated/mxnet.np.ldexp.html">mxnet.np.ldexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="generated/mxnet.np.signbit.html">mxnet.np.signbit</a></li>
@@ -1092,6 +1095,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="generated/mxnet.np.frexp.html">mxnet.np.frexp</a></li>
 <li class="toctree-l5"><a class="reference internal" href="generated/mxnet.np.spacing.html">mxnet.np.spacing</a></li>
 <li class="toctree-l5"><a class="reference internal" href="generated/mxnet.np.lcm.html">mxnet.np.lcm</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/mxnet.np.gcd.html">mxnet.np.gcd</a></li>
 <li class="toctree-l5"><a class="reference internal" href="generated/mxnet.np.add.html">mxnet.np.add</a></li>
 <li class="toctree-l5"><a class="reference internal" href="generated/mxnet.np.reciprocal.html">mxnet.np.reciprocal</a></li>
 <li class="toctree-l5"><a class="reference internal" href="generated/mxnet.np.negative.html">mxnet.np.negative</a></li>
@@ -1548,6 +1552,9 @@ Appropriate handling of ndarrays integral dtypes is in active development.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/mxnet.np.log1p.html#mxnet.np.log1p" title="mxnet.np.log1p"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log1p</span></code></a>(x[, out])</p></td>
 <td><p>Return the natural logarithm of one plus the input array, element-wise.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/mxnet.np.logaddexp.html#mxnet.np.logaddexp" title="mxnet.np.logaddexp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">logaddexp</span></code></a>(x1, x2[, out])</p></td>
+<td><p>Logarithm of the sum of exponentiations of the inputs.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -1601,6 +1608,9 @@ Appropriate handling of ndarrays integral dtypes is in active development.</p>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/mxnet.np.lcm.html#mxnet.np.lcm" title="mxnet.np.lcm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lcm</span></code></a>(x1, x2[, out])</p></td>
 <td><p>Returns the lowest common multiple of <code class="docutils literal notranslate"><span class="pre">|x1|</span></code> and <code class="docutils literal notranslate"><span class="pre">|x2|</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/mxnet.np.gcd.html#mxnet.np.gcd" title="mxnet.np.gcd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gcd</span></code></a>(x1, x2[, out])</p></td>
+<td><p>Returns the greatest common divisor of <code class="docutils literal notranslate"><span class="pre">|x1|</span></code> and <code class="docutils literal notranslate"><span class="pre">|x2|</span></code></p></td>
 </tr>
 </tbody>
 </table>
