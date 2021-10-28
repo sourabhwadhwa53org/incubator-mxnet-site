@@ -1604,7 +1604,7 @@ this by randomly shifting the colours of each image slightly and training your n
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[04:59:18] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
+[10:58:08] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -1612,7 +1612,7 @@ this by randomly shifting the colours of each image slightly and training your n
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;matplotlib.image.AxesImage at 0x7f5b0401fa60&gt;
+<span></span>&lt;matplotlib.image.AxesImage at 0x7f17c8045af0&gt;
 </pre></div>
 </div>
 </div>
