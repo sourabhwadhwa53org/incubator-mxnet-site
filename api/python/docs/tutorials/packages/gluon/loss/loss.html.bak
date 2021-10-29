@@ -518,6 +518,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="../../../../api/np/generated/mxnet.np.fmod.html">mxnet.np.fmod</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../../api/np/generated/mxnet.np.modf.html">mxnet.np.modf</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../../api/np/generated/mxnet.np.divmod.html">mxnet.np.divmod</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../api/np/generated/mxnet.np.floor_divide.html">mxnet.np.floor_divide</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../../api/np/generated/mxnet.np.clip.html">mxnet.np.clip</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../../api/np/generated/mxnet.np.sqrt.html">mxnet.np.sqrt</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../../api/np/generated/mxnet.np.cbrt.html">mxnet.np.cbrt</a></li>
@@ -1112,6 +1113,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="../../../../api/np/generated/mxnet.np.fmod.html">mxnet.np.fmod</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../../api/np/generated/mxnet.np.modf.html">mxnet.np.modf</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../../api/np/generated/mxnet.np.divmod.html">mxnet.np.divmod</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../api/np/generated/mxnet.np.floor_divide.html">mxnet.np.floor_divide</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../../api/np/generated/mxnet.np.clip.html">mxnet.np.clip</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../../api/np/generated/mxnet.np.sqrt.html">mxnet.np.sqrt</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../../api/np/generated/mxnet.np.cbrt.html">mxnet.np.cbrt</a></li>
@@ -1612,7 +1614,7 @@ MXNet Gluon provides a number of the most commonly used loss functions, and youâ
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[17:04:31] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
+[23:03:56] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1743,7 +1745,7 @@ MXNet Gluon provides a number of the most commonly used loss functions, and youâ
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/tmp/ipykernel_184649/841998161.py:2: DeprecationWarning: `set_matplotlib_formats` is deprecated since IPython 7.23, directly use `matplotlib_inline.backend_inline.set_matplotlib_formats()`
+/tmp/ipykernel_184642/841998161.py:2: DeprecationWarning: `set_matplotlib_formats` is deprecated since IPython 7.23, directly use `matplotlib_inline.backend_inline.set_matplotlib_formats()`
   display.set_matplotlib_formats(&#39;svg&#39;)
 </pre></div></div>
 </div>
@@ -1774,7 +1776,7 @@ MXNet Gluon provides a number of the most commonly used loss functions, and youâ
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/tmp/ipykernel_184649/841998161.py:2: DeprecationWarning: `set_matplotlib_formats` is deprecated since IPython 7.23, directly use `matplotlib_inline.backend_inline.set_matplotlib_formats()`
+/tmp/ipykernel_184642/841998161.py:2: DeprecationWarning: `set_matplotlib_formats` is deprecated since IPython 7.23, directly use `matplotlib_inline.backend_inline.set_matplotlib_formats()`
   display.set_matplotlib_formats(&#39;svg&#39;)
 </pre></div></div>
 </div>
@@ -1811,7 +1813,7 @@ MXNet Gluon provides a number of the most commonly used loss functions, and youâ
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/tmp/ipykernel_184649/841998161.py:2: DeprecationWarning: `set_matplotlib_formats` is deprecated since IPython 7.23, directly use `matplotlib_inline.backend_inline.set_matplotlib_formats()`
+/tmp/ipykernel_184642/841998161.py:2: DeprecationWarning: `set_matplotlib_formats` is deprecated since IPython 7.23, directly use `matplotlib_inline.backend_inline.set_matplotlib_formats()`
   display.set_matplotlib_formats(&#39;svg&#39;)
 </pre></div></div>
 </div>
@@ -1843,7 +1845,7 @@ MXNet Gluon provides a number of the most commonly used loss functions, and youâ
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/tmp/ipykernel_184649/841998161.py:2: DeprecationWarning: `set_matplotlib_formats` is deprecated since IPython 7.23, directly use `matplotlib_inline.backend_inline.set_matplotlib_formats()`
+/tmp/ipykernel_184642/841998161.py:2: DeprecationWarning: `set_matplotlib_formats` is deprecated since IPython 7.23, directly use `matplotlib_inline.backend_inline.set_matplotlib_formats()`
   display.set_matplotlib_formats(&#39;svg&#39;)
 </pre></div></div>
 </div>
@@ -1901,7 +1903,7 @@ MXNet Gluon provides a number of the most commonly used loss functions, and youâ
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/tmp/ipykernel_184649/841998161.py:2: DeprecationWarning: `set_matplotlib_formats` is deprecated since IPython 7.23, directly use `matplotlib_inline.backend_inline.set_matplotlib_formats()`
+/tmp/ipykernel_184642/841998161.py:2: DeprecationWarning: `set_matplotlib_formats` is deprecated since IPython 7.23, directly use `matplotlib_inline.backend_inline.set_matplotlib_formats()`
   display.set_matplotlib_formats(&#39;svg&#39;)
 </pre></div></div>
 </div>
@@ -1932,7 +1934,7 @@ MXNet Gluon provides a number of the most commonly used loss functions, and youâ
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/tmp/ipykernel_184649/841998161.py:2: DeprecationWarning: `set_matplotlib_formats` is deprecated since IPython 7.23, directly use `matplotlib_inline.backend_inline.set_matplotlib_formats()`
+/tmp/ipykernel_184642/841998161.py:2: DeprecationWarning: `set_matplotlib_formats` is deprecated since IPython 7.23, directly use `matplotlib_inline.backend_inline.set_matplotlib_formats()`
   display.set_matplotlib_formats(&#39;svg&#39;)
 </pre></div></div>
 </div>

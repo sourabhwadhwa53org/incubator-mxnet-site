@@ -517,6 +517,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.fmod.html">mxnet.np.fmod</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.modf.html">mxnet.np.modf</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.divmod.html">mxnet.np.divmod</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.floor_divide.html">mxnet.np.floor_divide</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.clip.html">mxnet.np.clip</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.sqrt.html">mxnet.np.sqrt</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.cbrt.html">mxnet.np.cbrt</a></li>
@@ -1111,6 +1112,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.fmod.html">mxnet.np.fmod</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.modf.html">mxnet.np.modf</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.divmod.html">mxnet.np.divmod</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.floor_divide.html">mxnet.np.floor_divide</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.clip.html">mxnet.np.clip</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.sqrt.html">mxnet.np.sqrt</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../../api/np/generated/mxnet.np.cbrt.html">mxnet.np.cbrt</a></li>
@@ -1619,7 +1621,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[15:59:24] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
+[21:58:58] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 <p>You get a tuple of a data sample and its corresponding label, which makes sense because you passed the data <code class="docutils literal notranslate"><span class="pre">X</span></code> and the labels <code class="docutils literal notranslate"><span class="pre">y</span></code> in that order when you instantiated the <code class="docutils literal notranslate"><span class="pre">ArrayDataset</span></code>. You don’t usually retrieve individual samples from <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> objects though (unless you’re quality checking the output samples). Instead you use a <code class="docutils literal notranslate"><span class="pre">DataLoader</span></code>.</p>
@@ -1720,7 +1722,7 @@ Label description: Bag
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;matplotlib.image.AxesImage at 0x7f75645deac0&gt;
+<span></span>&lt;matplotlib.image.AxesImage at 0x7fbcb8ac9f10&gt;
 </pre></div>
 </div>
 </div>
@@ -1842,7 +1844,7 @@ Label description: Faces_easy
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;matplotlib.image.AxesImage at 0x7f752453a670&gt;
+<span></span>&lt;matplotlib.image.AxesImage at 0x7fbc66d41a90&gt;
 </pre></div>
 </div>
 </div>
@@ -1919,7 +1921,7 @@ Downloading /home/jenkins_slave/.mxnet/datasets/cifar10/cifar-10-binary.tar.gz f
 1563
 1563
 1563
-Elapsed time for backend dataloader: 8.069098234176636
+Elapsed time for backend dataloader: 8.199858903884888
 </pre></div></div>
 </div>
 </div>
@@ -1957,7 +1959,7 @@ Elapsed time for backend dataloader: 8.069098234176636
 1563
 1563
 1563
-Elapsed time for python dataloader: 9.088792324066162
+Elapsed time for python dataloader: 8.881259441375732
 </pre></div></div>
 </div>
 </div>

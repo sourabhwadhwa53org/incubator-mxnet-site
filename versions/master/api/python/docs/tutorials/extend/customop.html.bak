@@ -516,6 +516,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="../../api/np/generated/mxnet.np.fmod.html">mxnet.np.fmod</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/np/generated/mxnet.np.modf.html">mxnet.np.modf</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/np/generated/mxnet.np.divmod.html">mxnet.np.divmod</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../api/np/generated/mxnet.np.floor_divide.html">mxnet.np.floor_divide</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/np/generated/mxnet.np.clip.html">mxnet.np.clip</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/np/generated/mxnet.np.sqrt.html">mxnet.np.sqrt</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/np/generated/mxnet.np.cbrt.html">mxnet.np.cbrt</a></li>
@@ -1110,6 +1111,7 @@ Edit on Github
 <li class="toctree-l5"><a class="reference internal" href="../../api/np/generated/mxnet.np.fmod.html">mxnet.np.fmod</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/np/generated/mxnet.np.modf.html">mxnet.np.modf</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/np/generated/mxnet.np.divmod.html">mxnet.np.divmod</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../api/np/generated/mxnet.np.floor_divide.html">mxnet.np.floor_divide</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/np/generated/mxnet.np.clip.html">mxnet.np.clip</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/np/generated/mxnet.np.sqrt.html">mxnet.np.sqrt</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/np/generated/mxnet.np.cbrt.html">mxnet.np.cbrt</a></li>
@@ -1688,7 +1690,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[15:58:55] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
+[21:58:29] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
