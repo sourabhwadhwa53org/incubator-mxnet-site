@@ -591,10 +591,6 @@ In this document, we address some tips for improving <em>MXNet</em> performance.
       <td style="text-align: left"><code class="highlighter-rouge">KMP_AFFINITY</code></td>
       <td style="text-align: left">Suggested value: <code class="highlighter-rouge">granularity=fine,compact,1,0</code>.  For more information, please see the guide for <a href="https://software.intel.com/en-us/node/522691">Thread Affinity Interface (Linux* and Windows*)</a>.</td>
     </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">MXNET_SUBGRAPH_BACKEND</code></td>
-      <td style="text-align: left">Set to ONEDNN to enable the <a href="https://cwiki.apache.org/confluence/display/MXNET/MXNet+Graph+Optimization+and+Quantization+based+on+subgraph+and+MKL-DNN">subgraph feature</a> for better performance. For more information please see <a href="https://mxnet.apache.org/api/python/docs/tutorials/performance/backend/dnnl/dnnl_readme.html">Build/Install MXNet with oneDNN</a></td>
-    </tr>
   </tbody>
 </table>
 

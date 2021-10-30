@@ -302,7 +302,7 @@ Edit on Github
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../performance/backend/index.html">Accelerated Backend Tools</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../performance/backend/dnnl/index.html">oneDNN</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../performance/backend/dnnl/dnnl_readme.html">Install MXNet with ONEDNN</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../performance/backend/dnnl/dnnl_readme.html">Install MXNet with oneDNN</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../performance/backend/tvm.html">Use TVM</a></li>
@@ -897,7 +897,7 @@ Edit on Github
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../performance/backend/index.html">Accelerated Backend Tools</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../performance/backend/dnnl/index.html">oneDNN</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../performance/backend/dnnl/dnnl_readme.html">Install MXNet with ONEDNN</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../performance/backend/dnnl/dnnl_readme.html">Install MXNet with oneDNN</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../performance/backend/tvm.html">Use TVM</a></li>
@@ -1594,7 +1594,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[09:52:51] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
+[15:55:58] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">

@@ -81,7 +81,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Profiling MXNet Models" href="profiler.html" />
-    <link rel="prev" title="Install MXNet with ONEDNN" href="dnnl/dnnl_readme.html" /> 
+    <link rel="prev" title="Install MXNet with oneDNN" href="dnnl/dnnl_readme.html" /> 
   </head>
 <body><header class="site-header" role="banner">
   <div class="wrapper">
@@ -302,7 +302,7 @@ Edit on Github
 </li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Accelerated Backend Tools</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="dnnl/index.html">oneDNN</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="dnnl/dnnl_readme.html">Install MXNet with ONEDNN</a></li>
+<li class="toctree-l5"><a class="reference internal" href="dnnl/dnnl_readme.html">Install MXNet with oneDNN</a></li>
 </ul>
 </li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Use TVM</a></li>
@@ -897,7 +897,7 @@ Edit on Github
 </li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Accelerated Backend Tools</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="dnnl/index.html">oneDNN</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="dnnl/dnnl_readme.html">Install MXNet with ONEDNN</a></li>
+<li class="toctree-l5"><a class="reference internal" href="dnnl/dnnl_readme.html">Install MXNet with oneDNN</a></li>
 </ul>
 </li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Use TVM</a></li>
@@ -1389,7 +1389,7 @@ Edit on Github
          <i class="pagenation-arrow-L fas fa-arrow-left fa-lg"></i>
          <div class="pagenation-text">
             <span class="pagenation-direction">Previous</span>
-            <div>Install MXNet with ONEDNN</div>
+            <div>Install MXNet with oneDNN</div>
          </div>
      </a>
      <a id="button-next" href="profiler.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">

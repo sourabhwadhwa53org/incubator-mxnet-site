@@ -902,12 +902,7 @@ There’re some built-in attributes that used by MXNet executor.</p>
 <span class="n">MXNET_REGISTER_SUBGRAPH_PROPERTY</span><span class="p">(</span><span class="n">SgTest</span><span class="p">,</span> <span class="n">SgProperty3</span><span class="p">);</span> <span class="c1">// Execution order 3.</span>
 </code></pre></div></div>
 
-<p>After compiling this subgraph mechanism into MXNet, we can use the environment variable <code class="highlighter-rouge">MXNET_SUBGRAPH_BACKEND</code> to activate it during symbol bind.</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">MXNET_SUBGRAPH_BACKEND</span><span class="o">=</span>SgTest
-</code></pre></div></div>
-
-<p>Or you can use python symbol API <code class="highlighter-rouge">get_backend_symbol</code> to run all properties registered for this backend and get returned symbol.</p>
+<p>After compiling this subgraph mechanism into MXNet you can use python symbol API <code class="highlighter-rouge">get_backend_symbol</code> to run all properties registered for this backend and get returned symbol.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sym</span><span class="p">,</span> <span class="n">arg_params</span><span class="p">,</span> <span class="n">aux_params</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">load_checkpoint</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">epoch</span><span class="p">)</span>
 <span class="n">sym</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">get_backend_symbol</span><span class="p">(</span><span class="s">'SgTest'</span><span class="p">)</span>

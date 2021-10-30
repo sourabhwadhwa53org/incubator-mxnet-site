@@ -301,7 +301,7 @@ Edit on Github
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../performance/backend/index.html">Accelerated Backend Tools</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../performance/backend/dnnl/index.html">oneDNN</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../performance/backend/dnnl/dnnl_readme.html">Install MXNet with ONEDNN</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../performance/backend/dnnl/dnnl_readme.html">Install MXNet with oneDNN</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../performance/backend/tvm.html">Use TVM</a></li>
@@ -896,7 +896,7 @@ Edit on Github
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../performance/backend/index.html">Accelerated Backend Tools</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../performance/backend/dnnl/index.html">oneDNN</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../performance/backend/dnnl/dnnl_readme.html">Install MXNet with ONEDNN</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../performance/backend/dnnl/dnnl_readme.html">Install MXNet with oneDNN</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../performance/backend/tvm.html">Use TVM</a></li>
@@ -1587,7 +1587,7 @@ parameters by calling <code class="docutils literal notranslate"><span class="pr
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[11:01:40] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
+[17:03:47] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 <p>In model training, the code snippet above would be followed by a training loop which, at every iteration performs a forward pass (to compute the loss), a backward pass (to compute the gradient of the loss with respect to the parameters) and a trainer step (which updates the parameters using the gradient). See the <a class="reference internal" href="../gluon/training/trainer.html"><span class="doc">Gluon Trainer guide</span></a> for a complete example.</p>

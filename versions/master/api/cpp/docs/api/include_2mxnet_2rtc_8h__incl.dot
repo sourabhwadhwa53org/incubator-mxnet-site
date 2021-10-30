@@ -184,11 +184,13 @@ digraph "/work/mxnet/include/mxnet/rtc.h"
   Node151 [label="./engine.h",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$engine_8h.html",tooltip="Engine that schedules all the operations according to dependency."];
   Node151 -> Node34 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node151 -> Node66 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node151 -> Node21 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node151 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node151 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node150 -> Node152 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node152 [label="./storage.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$storage_8h.html",tooltip="Storage manager across multiple devices."];
   Node152 -> Node66 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node152 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node152 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node152 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
 }

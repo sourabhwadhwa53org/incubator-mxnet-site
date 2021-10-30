@@ -1079,14 +1079,6 @@ of CUDNN convolution algorithms. Please see <a href="https://docs.nvidia.com/dee
       <li>This variable controls how many CuDNN dropout state resources to create for each GPU context for use in operator.</li>
     </ul>
   </li>
-  <li>MXNET_SUBGRAPH_BACKEND
-    <ul>
-      <li>Values: String <code class="highlighter-rouge">(default="ONEDNN")</code> if oneDNN is available, otherwise <code class="highlighter-rouge">(default="")</code></li>
-      <li>This variable controls the subgraph partitioning in MXNet.</li>
-      <li>This variable is used to perform oneDNN FP32 operator fusion and quantization. Please refer to the <a href="https://github.com/apache/incubator-mxnet/blob/v1.5.x/docs/tutorials/mkldnn/operator_list.md">oneDNN operator list</a> for how this variable is used and the list of fusion passes.</li>
-      <li>Set <code class="highlighter-rouge">MXNET_SUBGRAPH_BACKEND=NONE</code> to disable subgraph backend.</li>
-    </ul>
-  </li>
   <li>MXNET_SAFE_ACCUMULATION
     <ul>
       <li>Values: Values: 0(false) or 1(true) <code class="highlighter-rouge">(default=1)</code></li>

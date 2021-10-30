@@ -178,12 +178,14 @@ digraph "/work/mxnet/include/mxnet/runtime/ndarray_handle.h"
   Node150 -> Node36 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node150 -> Node50 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node150 -> Node59 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node150 -> Node21 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node150 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node150 -> Node60 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node2 -> Node151 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node151 [label="./storage.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$storage_8h.html",tooltip="Storage manager across multiple devices."];
   Node151 -> Node50 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node151 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node151 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node151 -> Node60 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node1 -> Node138 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
 }

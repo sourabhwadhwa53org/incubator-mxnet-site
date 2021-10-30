@@ -80,7 +80,7 @@
     <link rel="shortcut icon" href="../../../../_static/mxnet-icon.png"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Install MXNet with ONEDNN" href="dnnl_readme.html" />
+    <link rel="next" title="Install MXNet with oneDNN" href="dnnl_readme.html" />
     <link rel="prev" title="Accelerated Backend Tools" href="../index.html" /> 
   </head>
 <body><header class="site-header" role="banner">
@@ -302,7 +302,7 @@ Edit on Github
 </li>
 <li class="toctree-l3 current"><a class="reference internal" href="../index.html">Accelerated Backend Tools</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">oneDNN</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="dnnl_readme.html">Install MXNet with ONEDNN</a></li>
+<li class="toctree-l5"><a class="reference internal" href="dnnl_readme.html">Install MXNet with oneDNN</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../tvm.html">Use TVM</a></li>
@@ -897,7 +897,7 @@ Edit on Github
 </li>
 <li class="toctree-l3 current"><a class="reference internal" href="../index.html">Accelerated Backend Tools</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">oneDNN</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="dnnl_readme.html">Install MXNet with ONEDNN</a></li>
+<li class="toctree-l5"><a class="reference internal" href="dnnl_readme.html">Install MXNet with oneDNN</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../tvm.html">Use TVM</a></li>
@@ -1407,7 +1407,7 @@ Edit on Github
          <i class="pagenation-arrow-R fas fa-arrow-right fa-lg"></i>
         <div class="pagenation-text">
             <span class="pagenation-direction">Next</span>
-            <div>Install MXNet with ONEDNN</div>
+            <div>Install MXNet with oneDNN</div>
         </div>
      </a>
   </div>
