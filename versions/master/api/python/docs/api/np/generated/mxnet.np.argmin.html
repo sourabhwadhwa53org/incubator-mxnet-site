@@ -1366,7 +1366,7 @@ Edit on Github
 <h1>mxnet.np.argmin<a class="headerlink" href="#mxnet-np-argmin" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="mxnet.np.argmin">
-<code class="sig-name descname">argmin</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">axis=None</em>, <em class="sig-param">out=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.np.argmin" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">argmin</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">axis=None</em>, <em class="sig-param">out=None</em>, <em class="sig-param">keepdims=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.np.argmin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the indices of the minimum values along an axis.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1376,13 +1376,20 @@ Edit on Github
 along the specified axis.</p></li>
 <li><p><strong>out</strong> (<em>ndarray</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – If provided, the result will be inserted into this array. It should
 be of the appropriate shape and dtype.</p></li>
+<li><p><strong>keepdims</strong> (<em>bool</em>) – If True, the reduced axes (dimensions) must be included in the result as
+singleton dimensions, and, accordingly, the result must be compatible with
+the input array. Otherwise, if False, the reduced axes (dimensions) must
+not be included in the result. Default: False .</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul>
 <li><p><strong>index_array</strong> (<em>ndarray of indices whose dtype is same as the input ndarray.</em>) – Array of indices into the array. It has the same shape as <cite>a.shape</cite>
 with the dimension along <cite>axis</cite> removed.</p></li>
-<li><p><em>.. note::</em> – In case of multiple occurrences of the minimum values, the indices
+<li><p><em>.. note::</em> – <code class="docutils literal notranslate"><span class="pre">keepdims</span></code> param is part of request in data-api-standard
+&lt;<a class="reference external" href="https://data-apis.org/array-api/latest/API_specification/searching_functions.html#argmin-x-axis-none-keepdims-false">https://data-apis.org/array-api/latest/API_specification/searching_functions.html#argmin-x-axis-none-keepdims-false</a>&gt;`_,
+which is not the parameter in official NumPy</p>
+<p>In case of multiple occurrences of the minimum values, the indices
 corresponding to the first occurrence are returned.</p>
 <p>This function differs from the original <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.argmin.html">numpy.argmin</a> in
 the following aspects:</p>

@@ -2529,7 +2529,8 @@ information on the definition and the algorithm.</p>
 <p><cite>Concat</cite> is deprecated. Use <cite>concat</cite> instead.</p>
 </div>
 <p>The dimensions of the input arrays should be the same except the axis along
-which they will be concatenated.
+which they will be concatenated. With dimension parameter <code class="docutils literal notranslate"><span class="pre">None</span></code> input
+arrays are flattened before concatenating them along axis 0.
 The dimension of the output array along the concatenated axis will be equal
 to the sum of the corresponding dimensions of the input arrays.</p>
 <p>The storage type of <code class="docutils literal notranslate"><span class="pre">concat</span></code> output depends on storage types of inputs</p>
@@ -2551,6 +2552,11 @@ to the sum of the corresponding dimensions of the input arrays.</p>
                        <span class="p">[</span> <span class="mf">7.</span><span class="p">,</span>  <span class="mf">7.</span><span class="p">],</span>
                        <span class="p">[</span> <span class="mf">8.</span><span class="p">,</span>  <span class="mf">8.</span><span class="p">]]</span>
 
+<span class="n">concat</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">dim</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span>
+                          <span class="mf">3.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span>
+                          <span class="mf">5.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">,</span>
+                          <span class="mf">7.</span><span class="p">,</span> <span class="mf">7.</span><span class="p">,</span> <span class="mf">8.</span><span class="p">,</span> <span class="mf">8.</span><span class="p">]</span>
+
 <span class="n">Note</span> <span class="n">that</span> <span class="n">you</span> <span class="n">cannot</span> <span class="n">concat</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="n">along</span> <span class="n">dimension</span> <span class="mi">1</span> <span class="n">since</span> <span class="n">dimension</span>
 <span class="mi">0</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">the</span> <span class="n">same</span> <span class="k">for</span> <span class="nb">all</span> <span class="n">the</span> <span class="nb">input</span> <span class="n">arrays</span><span class="o">.</span>
 
@@ -2559,13 +2565,13 @@ to the sum of the corresponding dimensions of the input arrays.</p>
                       <span class="p">[</span> <span class="mf">5.</span><span class="p">,</span>  <span class="mf">5.</span><span class="p">,</span>  <span class="mf">8.</span><span class="p">,</span>  <span class="mf">8.</span><span class="p">]]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/nn/concat.cc:L386
+<p>Defined in /work/mxnet/src/operator/nn/concat.cc:L400
 This function support variable length of positional input.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>data</strong> (<a class="reference internal" href="../symbol.html#mxnet.symbol.Symbol" title="mxnet.symbol.Symbol"><em>Symbol</em></a><em>[</em><em>]</em>) – List of arrays to concatenate</p></li>
-<li><p><strong>dim</strong> (<em>int</em><em>, </em><em>optional</em><em>, </em><em>default='1'</em>) – the dimension to be concated.</p></li>
+<li><p><strong>dim</strong> (<em>int</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default='1'</em>) – the dimension to be concated.</p></li>
 <li><p><strong>name</strong> (<em>string</em><em>, </em><em>optional.</em>) – Name of the resulting symbol.</p></li>
 </ul>
 </dd>
@@ -6438,7 +6444,8 @@ Only 1-D, 2-D and 3-D of spatial dimension is supported in this operator.</p>
 <p><cite>Concat</cite> is deprecated. Use <cite>concat</cite> instead.</p>
 </div>
 <p>The dimensions of the input arrays should be the same except the axis along
-which they will be concatenated.
+which they will be concatenated. With dimension parameter <code class="docutils literal notranslate"><span class="pre">None</span></code> input
+arrays are flattened before concatenating them along axis 0.
 The dimension of the output array along the concatenated axis will be equal
 to the sum of the corresponding dimensions of the input arrays.</p>
 <p>The storage type of <code class="docutils literal notranslate"><span class="pre">concat</span></code> output depends on storage types of inputs</p>
@@ -6460,6 +6467,11 @@ to the sum of the corresponding dimensions of the input arrays.</p>
                        <span class="p">[</span> <span class="mf">7.</span><span class="p">,</span>  <span class="mf">7.</span><span class="p">],</span>
                        <span class="p">[</span> <span class="mf">8.</span><span class="p">,</span>  <span class="mf">8.</span><span class="p">]]</span>
 
+<span class="n">concat</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">dim</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span>
+                          <span class="mf">3.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span>
+                          <span class="mf">5.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">,</span>
+                          <span class="mf">7.</span><span class="p">,</span> <span class="mf">7.</span><span class="p">,</span> <span class="mf">8.</span><span class="p">,</span> <span class="mf">8.</span><span class="p">]</span>
+
 <span class="n">Note</span> <span class="n">that</span> <span class="n">you</span> <span class="n">cannot</span> <span class="n">concat</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="n">along</span> <span class="n">dimension</span> <span class="mi">1</span> <span class="n">since</span> <span class="n">dimension</span>
 <span class="mi">0</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">the</span> <span class="n">same</span> <span class="k">for</span> <span class="nb">all</span> <span class="n">the</span> <span class="nb">input</span> <span class="n">arrays</span><span class="o">.</span>
 
@@ -6468,13 +6480,13 @@ to the sum of the corresponding dimensions of the input arrays.</p>
                       <span class="p">[</span> <span class="mf">5.</span><span class="p">,</span>  <span class="mf">5.</span><span class="p">,</span>  <span class="mf">8.</span><span class="p">,</span>  <span class="mf">8.</span><span class="p">]]</span>
 </pre></div>
 </div>
-<p>Defined in /work/mxnet/src/operator/nn/concat.cc:L386
+<p>Defined in /work/mxnet/src/operator/nn/concat.cc:L400
 This function support variable length of positional input.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>data</strong> (<a class="reference internal" href="../symbol.html#mxnet.symbol.Symbol" title="mxnet.symbol.Symbol"><em>Symbol</em></a><em>[</em><em>]</em>) – List of arrays to concatenate</p></li>
-<li><p><strong>dim</strong> (<em>int</em><em>, </em><em>optional</em><em>, </em><em>default='1'</em>) – the dimension to be concated.</p></li>
+<li><p><strong>dim</strong> (<em>int</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default='1'</em>) – the dimension to be concated.</p></li>
 <li><p><strong>name</strong> (<em>string</em><em>, </em><em>optional.</em>) – Name of the resulting symbol.</p></li>
 </ul>
 </dd>

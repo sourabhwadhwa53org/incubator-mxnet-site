@@ -4233,13 +4233,13 @@ The dimension of the output array along the concatenated axis will be equal
 to the sum of the corresponding dimensions of the input arrays.
 All inputs with different min/max will be rescaled by using largest [min, max] pairs.
 If any input holds int8, then the output will be int8. Otherwise output will be uint8.</p>
-<p>Defined in /work/mxnet/src/operator/quantization/quantized_concat.cc:L112
+<p>Defined in /work/mxnet/src/operator/quantization/quantized_concat.cc:L113
 This function support variable length of positional input.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>data</strong> (<a class="reference internal" href="../symbol.html#mxnet.symbol.Symbol" title="mxnet.symbol.Symbol"><em>Symbol</em></a><em>[</em><em>]</em>) – List of arrays to concatenate</p></li>
-<li><p><strong>dim</strong> (<em>int</em><em>, </em><em>optional</em><em>, </em><em>default='1'</em>) – the dimension to be concated.</p></li>
+<li><p><strong>dim</strong> (<em>int</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default='1'</em>) – the dimension to be concated.</p></li>
 <li><p><strong>name</strong> (<em>string</em><em>, </em><em>optional.</em>) – Name of the resulting symbol.</p></li>
 </ul>
 </dd>
