@@ -1366,15 +1366,24 @@ Edit on Github
 <h1>mxnet.np.linalg.cholesky<a class="headerlink" href="#mxnet-np-linalg-cholesky" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="mxnet.np.linalg.cholesky">
-<code class="sig-name descname">cholesky</code><span class="sig-paren">(</span><em class="sig-param">a</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.np.linalg.cholesky" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cholesky</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">upper=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.np.linalg.cholesky" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cholesky decomposition.</p>
+<p class="rubric">Notes</p>
+<p><cite>upper</cite> param is requested by API standardization in
+<a class="reference external" href="https://data-apis.org/array-api/latest/extensions/linear_algebra_functions.html#linalg-cholesky-x-upper-false">https://data-apis.org/array-api/latest/extensions/linear_algebra_functions.html#linalg-cholesky-x-upper-false</a>
+instead of parameter in official NumPy operator.</p>
 <p>Return the Cholesky decomposition, <cite>L * L.T</cite>, of the square matrix <cite>a</cite>,
 where <cite>L</cite> is lower-triangular and .T is the transpose operator. <cite>a</cite> must be
 symmetric and positive-definite. Only <cite>L</cite> is actually returned. Complex-valued
 input is currently not supported.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>a</strong> (<em>(</em><em>..</em><em>, </em><em>M</em><em>, </em><em>M</em><em>) </em><em>ndarray</em>) – Symmetric, positive-definite input matrix.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>(</em><em>..</em><em>, </em><em>M</em><em>, </em><em>M</em><em>) </em><em>ndarray</em>) – Symmetric, positive-definite input matrix.</p></li>
+<li><p><strong>upper</strong> (<em>bool</em>) – If <cite>True</cite>, the result must be the upper-triangular Cholesky factor.
+If <cite>False</cite>, the result must be the lower-triangular Cholesky factor.
+Default: <cite>False</cite>.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>L</strong> – Lower-triangular Cholesky factor of <cite>a</cite>.</p>

@@ -1452,6 +1452,9 @@ Edit on Github
 <tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.wrap_np_unary_func" title="mxnet.util.wrap_np_unary_func"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wrap_np_unary_func</span></code></a>(func)</p></td>
 <td><p>A convenience decorator for wrapping numpy-compatible unary ufuncs to provide uniform error handling.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.wrap_sort_functions" title="mxnet.util.wrap_sort_functions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wrap_sort_functions</span></code></a>(func)</p></td>
+<td><p>A convenience decorator for wrapping sort functions</p></td>
+</tr>
 </tbody>
 </table>
 <dl class="function">
@@ -2281,6 +2284,23 @@ error handling.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A function wrapped with proper error handling.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../autograd/index.html#mxnet.autograd.Function" title="mxnet.autograd.Function">Function</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mxnet.util.wrap_sort_functions">
+<code class="sig-name descname">wrap_sort_functions</code><span class="sig-paren">(</span><em class="sig-param">func</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/util.html#wrap_sort_functions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.util.wrap_sort_functions" title="Permalink to this definition">¶</a></dt>
+<dd><p>A convenience decorator for wrapping sort functions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>func</strong> (<em>a numpy-compatible array creation function to be wrapped for parameter keyword change.</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A function wrapped with changed keywords.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference internal" href="../autograd/index.html#mxnet.autograd.Function" title="mxnet.autograd.Function">Function</a></p>

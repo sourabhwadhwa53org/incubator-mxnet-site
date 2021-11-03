@@ -1366,21 +1366,21 @@ Edit on Github
 <h1>mxnet.np.linalg.matrix_rank<a class="headerlink" href="#mxnet-np-linalg-matrix-rank" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="mxnet.np.linalg.matrix_rank">
-<code class="sig-name descname">matrix_rank</code><span class="sig-paren">(</span><em class="sig-param">M</em>, <em class="sig-param">tol=None</em>, <em class="sig-param">hermitian=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.np.linalg.matrix_rank" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">matrix_rank</code><span class="sig-paren">(</span><em class="sig-param">M</em>, <em class="sig-param">rtol=None</em>, <em class="sig-param">hermitian=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.np.linalg.matrix_rank" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return matrix rank of array using SVD method</p>
 <p>Rank of the array is the number of singular values of the array that are
-greater than <cite>tol</cite>.</p>
+greater than <cite>rtol</cite>.</p>
 <p class="rubric">Notes</p>
-<p><cite>matrix_rank</cite> is an alias for <cite>matrix_rank</cite>. It is a standard API in
+<p><cite>rtol</cite> param is requested in array-api-standard in
 <a class="reference external" href="https://data-apis.org/array-api/latest/extensions/linear_algebra_functions.html#linalg-matrix-rank-x-rtol-none">https://data-apis.org/array-api/latest/extensions/linear_algebra_functions.html#linalg-matrix-rank-x-rtol-none</a>
-instead of an official NumPy operator.</p>
+instead of a parameter in official NumPy operator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>M</strong> (<em>{</em><em>(</em><em>M</em><em>,</em><em>)</em><em>, </em><em>(</em><em>..</em><em>, </em><em>M</em><em>, </em><em>N</em><em>)</em><em>} ndarray</em>) – Input vector or stack of matrices.</p></li>
-<li><p><strong>tol</strong> (<em>(</em><em>..</em><em>) </em><em>ndarray</em><em>, </em><em>float</em><em>, </em><em>optional</em>) – Threshold below which SVD values are considered zero. If <cite>tol</cite> is
+<li><p><strong>rtol</strong> (<em>(</em><em>..</em><em>) </em><em>ndarray</em><em>, </em><em>float</em><em>, </em><em>optional</em>) – Threshold below which SVD values are considered zero. If <cite>rtol</cite> is
 None, and <code class="docutils literal notranslate"><span class="pre">S</span></code> is an array with singular values for <cite>M</cite>, and
-<code class="docutils literal notranslate"><span class="pre">eps</span></code> is the epsilon value for datatype of <code class="docutils literal notranslate"><span class="pre">S</span></code>, then <cite>tol</cite> is
+<code class="docutils literal notranslate"><span class="pre">eps</span></code> is the epsilon value for datatype of <code class="docutils literal notranslate"><span class="pre">S</span></code>, then <cite>rtol</cite> is
 set to <code class="docutils literal notranslate"><span class="pre">S.max()</span> <span class="pre">*</span> <span class="pre">max(M.shape)</span> <span class="pre">*</span> <span class="pre">eps</span></code>.</p></li>
 <li><p><strong>hermitian</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, <cite>M</cite> is assumed to be Hermitian (symmetric if real-valued),
 enabling a more efficient method for finding singular values.

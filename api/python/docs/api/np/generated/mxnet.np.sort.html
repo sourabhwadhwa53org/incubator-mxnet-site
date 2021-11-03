@@ -1366,17 +1366,23 @@ Edit on Github
 <h1>mxnet.np.sort<a class="headerlink" href="#mxnet-np-sort" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="mxnet.np.sort">
-<code class="sig-name descname">sort</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">axis=-1</em>, <em class="sig-param">kind=None</em>, <em class="sig-param">order=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.np.sort" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">sort</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">axis=-1</em>, <em class="sig-param">descending=False</em>, <em class="sig-param">stable=True</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.np.sort" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a sorted copy of an array.</p>
+<p class="rubric">Notes</p>
+<p><cite>sort</cite> is a standard API in
+<a class="reference external" href="https://data-apis.org/array-api/latest/API_specification/sorting_functions.html#sort-x-axis-1-descending-false-stable-true">https://data-apis.org/array-api/latest/API_specification/sorting_functions.html#sort-x-axis-1-descending-false-stable-true</a>
+instead of an official NumPy operator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>a</strong> (<em>ndarray</em>) – Array to be sorted.</p></li>
+<li><p><strong>a</strong> (<em>ndarray</em>) – Array to sort.</p></li>
 <li><p><strong>axis</strong> (<em>int</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Axis along which to sort.  The default is -1 (the last axis). If None,
 the flattened array is used.</p></li>
-<li><p><strong>kind</strong> (<em>string</em><em>, </em><em>optional</em>) – This argument can take any string, but it does not have any effect on the
-final result.</p></li>
-<li><p><strong>order</strong> (<em>str</em><em> or </em><em>list of str</em><em>, </em><em>optional</em>) – Not supported yet, will raise NotImplementedError if not None.</p></li>
+<li><p><strong>descending</strong> (<em>bool</em><em>, </em><em>optional</em>) – sort order. If <cite>True</cite>, the returned indices sort x in descending order (by value).
+If <cite>False</cite>, the returned indices sort x in ascending order (by value).Default: False.</p></li>
+<li><p><strong>stable</strong> (<em>bool</em><em>, </em><em>optional</em>) – sort stability. If <cite>True</cite>, the returned indices must maintain the relative order
+of x values which compare as equal. If <cite>False</cite>, the returned indices may or may not
+maintain the relative order of x values which compare as equal. Default: True.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
