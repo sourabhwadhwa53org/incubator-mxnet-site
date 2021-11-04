@@ -618,7 +618,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -736,7 +736,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1213,7 +1213,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1331,7 +1331,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1368,77 +1368,83 @@ Edit on Github
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.default_array" title="mxnet.util.default_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">default_array</span></code></a>(source_array[, ctx, dtype])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.default_array" title="mxnet.util.default_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">default_array</span></code></a>(source_array[, device, dtype])</p></td>
 <td><p>Creates an array from any object exposing the default(nd or np) array interface.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.get_cuda_compute_capability" title="mxnet.util.get_cuda_compute_capability"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cuda_compute_capability</span></code></a>(ctx)</p></td>
-<td><p>Returns the cuda compute capability of the input <cite>ctx</cite>.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.dtype_from_number" title="mxnet.util.dtype_from_number"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dtype_from_number</span></code></a>(number)</p></td>
+<td><p>Get the data type from the given int or float number</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.get_max_supported_compute_capability" title="mxnet.util.get_max_supported_compute_capability"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_max_supported_compute_capability</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.get_cuda_compute_capability" title="mxnet.util.get_cuda_compute_capability"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cuda_compute_capability</span></code></a>(device)</p></td>
+<td><p>Returns the cuda compute capability of the input <cite>device</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.get_max_supported_compute_capability" title="mxnet.util.get_max_supported_compute_capability"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_max_supported_compute_capability</span></code></a>()</p></td>
 <td><p>Get the maximum compute capability (SM arch) supported by the nvrtc compiler</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.get_rtc_compile_opts" title="mxnet.util.get_rtc_compile_opts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_rtc_compile_opts</span></code></a>(ctx)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.get_rtc_compile_opts" title="mxnet.util.get_rtc_compile_opts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_rtc_compile_opts</span></code></a>(device)</p></td>
 <td><p>Get the compile ops suitable for the context, given the toolkit/driver config</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.getenv" title="mxnet.util.getenv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getenv</span></code></a>(name)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.getenv" title="mxnet.util.getenv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getenv</span></code></a>(name)</p></td>
 <td><p>Get the setting of an environment variable from the C Runtime.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.is_np_array" title="mxnet.util.is_np_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_np_array</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.is_np_array" title="mxnet.util.is_np_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_np_array</span></code></a>()</p></td>
 <td><p>Checks whether the NumPy-array semantics is currently turned on.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.is_np_default_dtype" title="mxnet.util.is_np_default_dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_np_default_dtype</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.is_np_default_dtype" title="mxnet.util.is_np_default_dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_np_default_dtype</span></code></a>()</p></td>
 <td><p>Checks whether the NumPy default dtype semantics is currently turned on.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.is_np_shape" title="mxnet.util.is_np_shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_np_shape</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.is_np_shape" title="mxnet.util.is_np_shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_np_shape</span></code></a>()</p></td>
 <td><p>Checks whether the NumPy shape semantics is currently turned on.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.np_array" title="mxnet.util.np_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">np_array</span></code></a>([active])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.np_array" title="mxnet.util.np_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">np_array</span></code></a>([active])</p></td>
 <td><p>Returns an activated/deactivated NumPy-array scope to be used in ‘with’ statement and captures code that needs the NumPy-array semantics.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.np_default_dtype" title="mxnet.util.np_default_dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">np_default_dtype</span></code></a>([active])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.np_default_dtype" title="mxnet.util.np_default_dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">np_default_dtype</span></code></a>([active])</p></td>
 <td><p>Returns an activated/deactivated NumPy-default_dtype scope to be used in ‘with’ statement and captures code that needs the NumPy default dtype semantics.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.np_shape" title="mxnet.util.np_shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">np_shape</span></code></a>([active])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.np_shape" title="mxnet.util.np_shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">np_shape</span></code></a>([active])</p></td>
 <td><p>Returns an activated/deactivated NumPy shape scope to be used in ‘with’ statement and captures code that needs the NumPy shape semantics, i.e.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.np_ufunc_legal_option" title="mxnet.util.np_ufunc_legal_option"><code class="xref py py-obj docutils literal notranslate"><span class="pre">np_ufunc_legal_option</span></code></a>(key, value)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.np_ufunc_legal_option" title="mxnet.util.np_ufunc_legal_option"><code class="xref py py-obj docutils literal notranslate"><span class="pre">np_ufunc_legal_option</span></code></a>(key, value)</p></td>
 <td><p>Checking if ufunc arguments are legal inputs</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.numpy_fallback" title="mxnet.util.numpy_fallback"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy_fallback</span></code></a>(func)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.numpy_fallback" title="mxnet.util.numpy_fallback"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy_fallback</span></code></a>(func)</p></td>
 <td><p>decorator for falling back to offical numpy for a specific function</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.reset_np" title="mxnet.util.reset_np"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_np</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.reset_np" title="mxnet.util.reset_np"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_np</span></code></a>()</p></td>
 <td><p>Deactivate NumPy shape and array and deafult dtype semantics at the same time.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.set_flush_denorms" title="mxnet.util.set_flush_denorms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_flush_denorms</span></code></a>(value)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.set_flush_denorms" title="mxnet.util.set_flush_denorms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_flush_denorms</span></code></a>(value)</p></td>
 <td><p>Change floating-point calculations on CPU when dealing with denormalized values.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.set_module" title="mxnet.util.set_module"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_module</span></code></a>(module)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.set_module" title="mxnet.util.set_module"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_module</span></code></a>(module)</p></td>
 <td><p>Decorator for overriding __module__ on a function or class.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.set_np" title="mxnet.util.set_np"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_np</span></code></a>([shape, array, dtype])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.set_np" title="mxnet.util.set_np"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_np</span></code></a>([shape, array, dtype])</p></td>
 <td><p>Setting NumPy shape and array semantics at the same time.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.set_np_default_dtype" title="mxnet.util.set_np_default_dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_np_default_dtype</span></code></a>([is_np_default_dtype])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.set_np_default_dtype" title="mxnet.util.set_np_default_dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_np_default_dtype</span></code></a>([is_np_default_dtype])</p></td>
 <td><p>Turns on/off NumPy default dtype semantics, because mxnet.numpy.ndarray use 32 bit data storage as default (e.g.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.set_np_shape" title="mxnet.util.set_np_shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_np_shape</span></code></a>(active)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.set_np_shape" title="mxnet.util.set_np_shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_np_shape</span></code></a>(active)</p></td>
 <td><p>Turns on/off NumPy shape semantics, in which <cite>()</cite> represents the shape of scalar tensors, and tuples with <cite>0</cite> elements, for example, <cite>(0,)</cite>, <cite>(1, 0, 2)</cite>, represent the shapes of zero-size tensors.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.setenv" title="mxnet.util.setenv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setenv</span></code></a>(name, value)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.setenv" title="mxnet.util.setenv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setenv</span></code></a>(name, value)</p></td>
 <td><p>Set an environment variable in the C Runtime.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.use_np" title="mxnet.util.use_np"><code class="xref py py-obj docutils literal notranslate"><span class="pre">use_np</span></code></a>(func)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.use_np" title="mxnet.util.use_np"><code class="xref py py-obj docutils literal notranslate"><span class="pre">use_np</span></code></a>(func)</p></td>
 <td><p>A convenience decorator for wrapping user provided functions and classes in the scope of both NumPy-shape and NumPy-array semantics, which means that <code class="docutils literal notranslate"><span class="pre">(1)</span></code> empty tuples <code class="docutils literal notranslate"><span class="pre">()</span></code> and tuples with zeros, such as <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">1)</span></code>, <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">0,</span> <span class="pre">2)</span></code>, will be treated as scalar tensors’ shapes and zero-size tensors’ shapes in shape inference functions of operators, instead of as unknown in legacy mode; (2) ndarrays of type <code class="xref py py-class docutils literal notranslate"><span class="pre">mxnet.numpy.ndarray</span></code> should be created instead of <code class="xref py py-class docutils literal notranslate"><span class="pre">mx.nd.NDArray</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.use_np_array" title="mxnet.util.use_np_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">use_np_array</span></code></a>(func)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.use_np_array" title="mxnet.util.use_np_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">use_np_array</span></code></a>(func)</p></td>
 <td><p>A decorator wrapping Gluon <cite>Block`s and all its methods, properties, and static functions with the semantics of NumPy-array, which means that where ndarrays are created, `mxnet.numpy.ndarray`s should be created, instead of legacy ndarrays of type `mx.nd.NDArray</cite>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.use_np_default_dtype" title="mxnet.util.use_np_default_dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">use_np_default_dtype</span></code></a>(func)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.use_np_default_dtype" title="mxnet.util.use_np_default_dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">use_np_default_dtype</span></code></a>(func)</p></td>
 <td><p>A decorator wrapping a function or class with activated NumPy-default_dtype semantics.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.use_np_shape" title="mxnet.util.use_np_shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">use_np_shape</span></code></a>(func)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.use_np_shape" title="mxnet.util.use_np_shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">use_np_shape</span></code></a>(func)</p></td>
 <td><p>A decorator wrapping a function or class with activated NumPy-shape semantics.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.util.wrap_ctx_to_device_func" title="mxnet.util.wrap_ctx_to_device_func"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wrap_ctx_to_device_func</span></code></a>(func)</p></td>
+<td><p>A convenience decorator for converting ctx to device keyward backward compatibility</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.util.wrap_data_api_linalg_func" title="mxnet.util.wrap_data_api_linalg_func"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wrap_data_api_linalg_func</span></code></a>(func)</p></td>
 <td><p>A convenience decorator for wrapping data apis standardized linalg functions to provide context keyward backward compatibility :param func: :type func: a numpy-compatible array linalg function to be wrapped for context keyward change.</p></td>
@@ -1459,14 +1465,14 @@ Edit on Github
 </table>
 <dl class="function">
 <dt id="mxnet.util.default_array">
-<code class="sig-name descname">default_array</code><span class="sig-paren">(</span><em class="sig-param">source_array</em>, <em class="sig-param">ctx=None</em>, <em class="sig-param">dtype=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/util.html#default_array"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.util.default_array" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">default_array</code><span class="sig-paren">(</span><em class="sig-param">source_array</em>, <em class="sig-param">device=None</em>, <em class="sig-param">dtype=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/util.html#default_array"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.util.default_array" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates an array from any object exposing the default(nd or np) array interface.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>source_array</strong> (<em>array_like</em>) – An object exposing the array interface, an object whose <cite>__array__</cite>
 method returns an array, or any (nested) sequence.</p></li>
-<li><p><strong>ctx</strong> (<a class="reference internal" href="../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a><em>, </em><em>optional</em>) – Device context (default is the current default context).</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../device/index.html#mxnet.device.Device" title="mxnet.device.Device"><em>Device</em></a><em>, </em><em>optional</em>) – Device context (default is the current default context).</p></li>
 <li><p><strong>dtype</strong> (<em>str</em><em> or </em><em>numpy.dtype</em><em>, </em><em>optional</em>) – The data type of the output array. The default dtype is <code class="docutils literal notranslate"><span class="pre">source_array.dtype</span></code>
 if <cite>source_array</cite> is an <cite>NDArray</cite>, <cite>float32</cite> otherwise.</p></li>
 </ul>
@@ -1481,12 +1487,18 @@ if <cite>source_array</cite> is an <cite>NDArray</cite>, <cite>float32</cite> ot
 </dd></dl>
 
 <dl class="function">
+<dt id="mxnet.util.dtype_from_number">
+<code class="sig-name descname">dtype_from_number</code><span class="sig-paren">(</span><em class="sig-param">number</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/util.html#dtype_from_number"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.util.dtype_from_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the data type from the given int or float number</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="mxnet.util.get_cuda_compute_capability">
-<code class="sig-name descname">get_cuda_compute_capability</code><span class="sig-paren">(</span><em class="sig-param">ctx</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/util.html#get_cuda_compute_capability"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.util.get_cuda_compute_capability" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the cuda compute capability of the input <cite>ctx</cite>.</p>
+<code class="sig-name descname">get_cuda_compute_capability</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/util.html#get_cuda_compute_capability"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.util.get_cuda_compute_capability" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the cuda compute capability of the input <cite>device</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>ctx</strong> (<a class="reference internal" href="../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a>) – GPU context whose corresponding cuda compute capability is to be retrieved.</p>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../device/index.html#mxnet.device.Device" title="mxnet.device.Device"><em>Device</em></a>) – GPU context whose corresponding cuda compute capability is to be retrieved.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>cuda_compute_capability</strong> – CUDA compute capability. For example, it returns 70 for CUDA arch equal to <cite>sm_70</cite>.</p>
@@ -1507,7 +1519,7 @@ if <cite>source_array</cite> is an <cite>NDArray</cite>, <cite>float32</cite> ot
 
 <dl class="function">
 <dt id="mxnet.util.get_rtc_compile_opts">
-<code class="sig-name descname">get_rtc_compile_opts</code><span class="sig-paren">(</span><em class="sig-param">ctx</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/util.html#get_rtc_compile_opts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.util.get_rtc_compile_opts" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_rtc_compile_opts</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/util.html#get_rtc_compile_opts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.util.get_rtc_compile_opts" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the compile ops suitable for the context, given the toolkit/driver config</p>
 </dd></dl>
 
@@ -2215,6 +2227,23 @@ of the class are executed with the NumPy shape semantics.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference internal" href="../autograd/index.html#mxnet.autograd.Function" title="mxnet.autograd.Function">Function</a> or class</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mxnet.util.wrap_ctx_to_device_func">
+<code class="sig-name descname">wrap_ctx_to_device_func</code><span class="sig-paren">(</span><em class="sig-param">func</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/util.html#wrap_ctx_to_device_func"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.util.wrap_ctx_to_device_func" title="Permalink to this definition">¶</a></dt>
+<dd><p>A convenience decorator for converting ctx to device keyward backward compatibility</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>func</strong> (<em>a function to be wrapped for context keyward change.</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A function wrapped with context keyward changes.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../autograd/index.html#mxnet.autograd.Function" title="mxnet.autograd.Function">Function</a></p>
 </dd>
 </dl>
 </dd></dl>

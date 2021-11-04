@@ -617,7 +617,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -735,7 +735,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1212,7 +1212,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1330,7 +1330,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1383,7 +1383,7 @@ Edit on Github
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;RNN&#39;</span><span class="p">,</span> <span class="s1">&#39;LSTM&#39;</span><span class="p">,</span> <span class="s1">&#39;GRU&#39;</span><span class="p">]</span>
 
-<span class="kn">from</span> <span class="nn">...</span> <span class="k">import</span> <span class="n">np</span><span class="p">,</span> <span class="n">npx</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">initializer</span>
+<span class="kn">from</span> <span class="nn">...</span> <span class="k">import</span> <span class="n">np</span><span class="p">,</span> <span class="n">npx</span><span class="p">,</span> <span class="n">initializer</span><span class="p">,</span> <span class="n">cpu</span>
 <span class="kn">from</span> <span class="nn">..</span> <span class="k">import</span> <span class="n">HybridBlock</span><span class="p">,</span> <span class="n">tensor_types</span>
 <span class="kn">from</span> <span class="nn">..parameter</span> <span class="k">import</span> <span class="n">Parameter</span>
 <span class="kn">from</span> <span class="nn">...util</span> <span class="k">import</span> <span class="n">use_np</span>
@@ -1485,7 +1485,7 @@ Edit on Github
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">info</span> <span class="o">=</span> <span class="n">kwargs</span>
             <span class="n">state</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">info</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;shape&quot;</span><span class="p">,</span> <span class="p">()),</span>
-                         <span class="n">ctx</span><span class="o">=</span><span class="n">info</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;ctx&quot;</span><span class="p">,</span> <span class="n">context</span><span class="o">.</span><span class="n">cpu</span><span class="p">()),</span>
+                         <span class="n">device</span><span class="o">=</span><span class="n">info</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;device&quot;</span><span class="p">,</span> <span class="n">cpu</span><span class="p">()),</span>
                          <span class="n">dtype</span><span class="o">=</span><span class="n">info</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;dtype&quot;</span><span class="p">,</span> <span class="s2">&quot;float32&quot;</span><span class="p">))</span>
             <span class="n">states</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">states</span>
@@ -1494,7 +1494,7 @@ Edit on Github
         <span class="bp">self</span><span class="o">.</span><span class="n">skip_states</span> <span class="o">=</span> <span class="n">states</span> <span class="ow">is</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="n">states</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">batch_size</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_layout</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">)]</span>
-            <span class="n">states</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">begin_state</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">inputs</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">inputs</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+            <span class="n">states</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">begin_state</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">inputs</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">inputs</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">states</span><span class="p">,</span> <span class="n">tensor_types</span><span class="p">):</span>
             <span class="n">states</span> <span class="o">=</span> <span class="p">[</span><span class="n">states</span><span class="p">]</span>
 
@@ -1536,7 +1536,7 @@ Edit on Github
 
     <span class="k">def</span> <span class="nf">_forward_kernel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">states</span><span class="p">,</span> <span class="n">sequence_length</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; forward using CUDNN or CPU kenrel&quot;&quot;&quot;</span>
-        <span class="n">ctx</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">ctx</span>
+        <span class="n">device</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">device</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_layout</span> <span class="o">==</span> <span class="s1">&#39;NTC&#39;</span><span class="p">:</span>
             <span class="n">inputs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
@@ -1545,12 +1545,12 @@ Edit on Github
         <span class="k">else</span><span class="p">:</span>
             <span class="n">rnn_args</span> <span class="o">=</span> <span class="n">states</span>
 
-        <span class="n">rnn_args_ctx</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">rnn_args_device</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">args</span> <span class="ow">in</span> <span class="n">rnn_args</span><span class="p">:</span>
-            <span class="n">new_args</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">as_in_ctx</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
-            <span class="n">rnn_args_ctx</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_args</span><span class="p">)</span>
+            <span class="n">new_args</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">rnn_args_device</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_args</span><span class="p">)</span>
 
-        <span class="n">rnn</span> <span class="o">=</span> <span class="n">npx</span><span class="o">.</span><span class="n">rnn</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rnn_param</span><span class="o">.</span><span class="n">data</span><span class="p">()</span><span class="o">.</span><span class="n">as_in_ctx</span><span class="p">(</span><span class="n">ctx</span><span class="p">),</span> <span class="o">*</span><span class="n">rnn_args_ctx</span><span class="p">,</span>
+        <span class="n">rnn</span> <span class="o">=</span> <span class="n">npx</span><span class="o">.</span><span class="n">rnn</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rnn_param</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="o">*</span><span class="n">rnn_args_device</span><span class="p">,</span>
                       <span class="n">use_sequence_length</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_use_sequence_length</span><span class="p">,</span>
                       <span class="n">state_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_hidden_size</span><span class="p">,</span> <span class="n">projection_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_projection_size</span><span class="p">,</span>
                       <span class="n">num_layers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_layers</span><span class="p">,</span> <span class="n">bidirectional</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_dir</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span>

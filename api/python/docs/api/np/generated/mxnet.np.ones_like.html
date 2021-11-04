@@ -622,7 +622,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -740,7 +740,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1217,7 +1217,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1335,7 +1335,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1366,7 +1366,7 @@ Edit on Github
 <h1>mxnet.np.ones_like<a class="headerlink" href="#mxnet-np-ones-like" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="mxnet.np.ones_like">
-<code class="sig-name descname">ones_like</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">dtype=None</em>, <em class="sig-param">order='C'</em>, <em class="sig-param">ctx=None</em>, <em class="sig-param">out=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.np.ones_like" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">ones_like</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">dtype=None</em>, <em class="sig-param">order='C'</em>, <em class="sig-param">device=None</em>, <em class="sig-param">out=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.np.ones_like" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an array of ones with the same shape and type as a given array.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1377,7 +1377,8 @@ the returned array.</p></li>
 Temporarily do not support boolean type.</p></li>
 <li><p><strong>order</strong> (<em>{'C'}</em><em>, </em><em>optional</em>) – Whether to store multidimensional data in C- or Fortran-contiguous
 (row- or column-wise) order in memory. Currently only supports C order.</p></li>
-<li><p><strong>ctx</strong> (<em>to specify the device</em><em>, </em><em>e.g. the i-th GPU.</em>) – </p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device/index.html#mxnet.device.Device" title="mxnet.device.Device"><em>Device</em></a><em>, </em><em>optional</em>) – Device context on which the memory is allocated. Default is
+<cite>mxnet.device.current_device()</cite>.</p></li>
 <li><p><strong>out</strong> (<em>ndarray</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – A location into which the result is stored.
 If provided, it must have the same shape and dtype as input ndarray.
 If not provided or <cite>None</cite>, a freshly-allocated array is returned.</p></li>

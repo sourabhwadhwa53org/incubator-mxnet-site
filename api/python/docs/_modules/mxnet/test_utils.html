@@ -617,7 +617,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -735,7 +735,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1212,7 +1212,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1330,7 +1330,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1405,7 +1405,7 @@ Edit on Github
     <span class="c1"># in rare cases requests may be not installed</span>
     <span class="k">pass</span>
 <span class="kn">import</span> <span class="nn">mxnet</span> <span class="k">as</span> <span class="nn">mx</span>
-<span class="kn">from</span> <span class="nn">.context</span> <span class="k">import</span> <span class="n">current_context</span>
+<span class="kn">from</span> <span class="nn">.device</span> <span class="k">import</span> <span class="n">current_device</span>
 <span class="kn">from</span> <span class="nn">.ndarray.ndarray</span> <span class="k">import</span> <span class="n">_STORAGE_TYPE_STR_TO_ID</span>
 <span class="kn">from</span> <span class="nn">.symbol</span> <span class="k">import</span> <span class="n">Symbol</span>
 <span class="kn">from</span> <span class="nn">.symbol.numpy</span> <span class="k">import</span> <span class="n">_Symbol</span> <span class="k">as</span> <span class="n">np_symbol</span>
@@ -1415,16 +1415,16 @@ Edit on Github
 <span class="kn">from</span> <span class="nn">.numpy_extension</span> <span class="k">import</span> <span class="n">get_cuda_compute_capability</span>
 
 
-<div class="viewcode-block" id="default_context"><a class="viewcode-back" href="../../api/test_utils/index.html#mxnet.test_utils.default_context">[docs]</a><span class="k">def</span> <span class="nf">default_context</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;Get default context for regression test.&quot;&quot;&quot;</span>
-    <span class="c1"># _TODO: get context from environment variable to support</span>
+<div class="viewcode-block" id="default_device"><a class="viewcode-back" href="../../api/test_utils/index.html#mxnet.test_utils.default_device">[docs]</a><span class="k">def</span> <span class="nf">default_device</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Get default device for regression test.&quot;&quot;&quot;</span>
+    <span class="c1"># _TODO: get device from environment variable to support</span>
     <span class="c1"># testing with GPUs</span>
-    <span class="k">return</span> <span class="n">current_context</span><span class="p">()</span></div>
+    <span class="k">return</span> <span class="n">current_device</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="set_default_context"><a class="viewcode-back" href="../../api/test_utils/index.html#mxnet.test_utils.set_default_context">[docs]</a><span class="k">def</span> <span class="nf">set_default_context</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Set default context.&quot;&quot;&quot;</span>
-    <span class="n">mx</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">_current</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span></div>
+<div class="viewcode-block" id="set_default_device"><a class="viewcode-back" href="../../api/test_utils/index.html#mxnet.test_utils.set_default_device">[docs]</a><span class="k">def</span> <span class="nf">set_default_device</span><span class="p">(</span><span class="n">device</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Set default device.&quot;&quot;&quot;</span>
+    <span class="n">mx</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">_current</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">device</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="default_dtype"><a class="viewcode-back" href="../../api/test_utils/index.html#mxnet.test_utils.default_dtype">[docs]</a><span class="k">def</span> <span class="nf">default_dtype</span><span class="p">():</span>
@@ -1476,25 +1476,25 @@ Edit on Github
     <span class="c1"># inputs to be of comparable precision to a float16, so float16 becomes the</span>
     <span class="c1"># &#39;effective dtype&#39; for tolerance tests involving such op outputs.</span>
 
-    <span class="c1"># Is TF32 enabled in the ctx (the default on arch 80 GPUs)</span>
-    <span class="k">def</span> <span class="nf">is_TF32_enabled</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+    <span class="c1"># Is TF32 enabled in the device (the default on arch 80 GPUs)</span>
+    <span class="k">def</span> <span class="nf">is_TF32_enabled</span><span class="p">(</span><span class="n">device</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="k">return</span> <span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">device_type</span> <span class="o">==</span> <span class="s1">&#39;gpu&#39;</span> <span class="ow">and</span>
-                    <span class="n">get_cuda_compute_capability</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span> <span class="o">==</span> <span class="mi">80</span> <span class="ow">and</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">device</span><span class="o">.</span><span class="n">device_type</span> <span class="o">==</span> <span class="s1">&#39;gpu&#39;</span> <span class="ow">and</span>
+                    <span class="n">get_cuda_compute_capability</span><span class="p">(</span><span class="n">device</span><span class="p">)</span> <span class="o">==</span> <span class="mi">80</span> <span class="ow">and</span>
                     <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;NVIDIA_TF32_OVERRIDE&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span>
         <span class="k">except</span><span class="p">:</span>  <span class="c1"># pylint: disable=bare-except</span>
             <span class="k">return</span> <span class="kc">False</span>
 
-    <span class="n">ctx</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">ctx</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="s1">&#39;ctx&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="n">device</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">device</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="s1">&#39;device&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
     <span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">dat</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="ow">and</span> <span class="n">is_TF32_enabled</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="ow">and</span> <span class="n">is_TF32_enabled</span><span class="p">(</span><span class="n">device</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float16</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">dtype</span></div>
 
 
 <div class="viewcode-block" id="get_tolerance"><a class="viewcode-back" href="../../api/test_utils/index.html#mxnet.test_utils.get_tolerance">[docs]</a><span class="k">def</span> <span class="nf">get_tolerance</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="n">tol</span><span class="p">,</span> <span class="n">default_tol</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Return the tolerance to be used for dat comparisons based on the given tol, datatype and context.</span>
+    <span class="sd">&quot;&quot;&quot; Return the tolerance to be used for dat comparisons based on the given tol, datatype and device.</span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    dat : np.ndarray or mx.nd.array or mx.np.ndarray</span>
@@ -1797,7 +1797,7 @@ Edit on Github
 <span class="sd">    &gt;&gt;&gt; assert(row4nnz == 2*row3nnz)</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">ctx</span> <span class="o">=</span> <span class="n">ctx</span> <span class="k">if</span> <span class="n">ctx</span> <span class="k">else</span> <span class="n">default_context</span><span class="p">()</span>
+    <span class="n">ctx</span> <span class="o">=</span> <span class="n">ctx</span> <span class="k">if</span> <span class="n">ctx</span> <span class="k">else</span> <span class="n">default_device</span><span class="p">()</span>
     <span class="n">density</span> <span class="o">=</span> <span class="n">rnd</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="k">if</span> <span class="n">density</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">density</span>
     <span class="n">dtype</span> <span class="o">=</span> <span class="n">default_dtype</span><span class="p">()</span> <span class="k">if</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">dtype</span>
     <span class="n">distribution</span> <span class="o">=</span> <span class="s2">&quot;uniform&quot;</span> <span class="k">if</span> <span class="n">distribution</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">distribution</span>
@@ -1845,7 +1845,7 @@ Edit on Github
 <div class="viewcode-block" id="rand_ndarray"><a class="viewcode-back" href="../../api/test_utils/index.html#mxnet.test_utils.rand_ndarray">[docs]</a><span class="k">def</span> <span class="nf">rand_ndarray</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">stype</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">modifier_func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">shuffle_csr_indices</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">distribution</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Generate a random sparse ndarray. Returns the generated ndarray.&quot;&quot;&quot;</span>
-    <span class="n">ctx</span> <span class="o">=</span> <span class="n">ctx</span> <span class="k">if</span> <span class="n">ctx</span> <span class="k">else</span> <span class="n">default_context</span><span class="p">()</span>
+    <span class="n">ctx</span> <span class="o">=</span> <span class="n">ctx</span> <span class="k">if</span> <span class="n">ctx</span> <span class="k">else</span> <span class="n">default_device</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">stype</span> <span class="o">==</span> <span class="s1">&#39;default&#39;</span><span class="p">:</span>
         <span class="n">arr</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">random_arrays</span><span class="p">(</span><span class="n">shape</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
@@ -2043,7 +2043,7 @@ Edit on Github
         <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">()</span>
     <span class="n">use_np_allclose</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">use_np_allclose</span><span class="p">:</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s1">&#39;ctx&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="s1">&#39;ctx&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">a</span><span class="o">.</span><span class="n">ctx</span> <span class="o">==</span> <span class="n">b</span><span class="o">.</span><span class="n">ctx</span> <span class="ow">and</span> <span class="n">a</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">b</span><span class="o">.</span><span class="n">dtype</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s1">&#39;ctx&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="s1">&#39;ctx&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">a</span><span class="o">.</span><span class="n">device</span> <span class="o">==</span> <span class="n">b</span><span class="o">.</span><span class="n">device</span> <span class="ow">and</span> <span class="n">a</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">b</span><span class="o">.</span><span class="n">dtype</span><span class="p">):</span>
             <span class="n">use_np_allclose</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">NDArray</span><span class="p">):</span>
                 <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">()</span>
@@ -2222,7 +2222,7 @@ Edit on Github
 <span class="sd">        - if type is dict of str -&gt; `np.ndarray`</span>
 <span class="sd">            maps the name of arguments to the corresponding `np.ndarray`.</span>
 <span class="sd">        *In either case, value of all the arguments must be provided.*</span>
-<span class="sd">    ctx : Context</span>
+<span class="sd">    ctx : Device</span>
 <span class="sd">        Device context.</span>
 <span class="sd">    dtype: &quot;asnumpy&quot; or np.float16 or np.float32 or np.float64</span>
 <span class="sd">        If dtype is &quot;asnumpy&quot; then the mx.nd.array created will have the same</span>
@@ -2282,7 +2282,7 @@ Edit on Github
 <span class="sd">        - if type is dict of str -&gt; `np.ndarray`</span>
 <span class="sd">            maps the name of arguments to the corresponding `np.ndarray`.</span>
 <span class="sd">        *In either case, all aux states of `sym` must be provided.*</span>
-<span class="sd">    ctx : Context</span>
+<span class="sd">    ctx : Device</span>
 <span class="sd">        Device context.</span>
 <span class="sd">    dtype: &quot;asnumpy&quot; or np.float16 or np.float32 or np.float64</span>
 <span class="sd">        If dtype is &quot;asnumpy&quot; then the mx.nd.array created will have the same</span>
@@ -2447,7 +2447,7 @@ Edit on Github
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">assert</span> <span class="n">dtype</span> <span class="ow">in</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float16</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">ctx</span> <span class="o">=</span> <span class="n">default_context</span><span class="p">()</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="n">default_device</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">random_projection</span><span class="p">(</span><span class="n">shape</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Get a random weight matrix with not too small elements</span>
@@ -2584,7 +2584,7 @@ Edit on Github
 <span class="sd">            Contains all the NumPy arrays corresponding to sym.list_auxiliary_states</span>
 <span class="sd">        - if type is dict of str to np.ndarray</span>
 <span class="sd">            Contains the mapping between names of auxiliary states and their values.</span>
-<span class="sd">    ctx : Context, optional</span>
+<span class="sd">    device : Device, optional</span>
 <span class="sd">        running context</span>
 <span class="sd">    dtype: &quot;asnumpy&quot; or np.float16 or np.float32 or np.float64</span>
 <span class="sd">        If dtype is &quot;asnumpy&quot; then the mx.nd.array created will have the same</span>
@@ -2608,7 +2608,7 @@ Edit on Github
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">assert</span> <span class="n">dtype</span> <span class="o">==</span> <span class="s2">&quot;asnumpy&quot;</span> <span class="ow">or</span> <span class="n">dtype</span> <span class="ow">in</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float16</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">ctx</span> <span class="o">=</span> <span class="n">default_context</span><span class="p">()</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="n">default_device</span><span class="p">()</span>
 
     <span class="n">location</span> <span class="o">=</span> <span class="n">_parse_location</span><span class="p">(</span><span class="n">sym</span><span class="o">=</span><span class="n">sym</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="n">location</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
     <span class="n">aux_states</span> <span class="o">=</span> <span class="n">_parse_aux_states</span><span class="p">(</span><span class="n">sym</span><span class="o">=</span><span class="n">sym</span><span class="p">,</span> <span class="n">aux_states</span><span class="o">=</span><span class="n">aux_states</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">,</span>
@@ -2690,7 +2690,7 @@ Edit on Github
 <span class="sd">    &gt;&gt;&gt; mat2 = np.array([[5, 6], [7, 8]])</span>
 <span class="sd">    &gt;&gt;&gt; grad1 = mx.nd.zeros(shape)</span>
 <span class="sd">    &gt;&gt;&gt; grad2 = mx.nd.zeros(shape)</span>
-<span class="sd">    &gt;&gt;&gt; exec_add = sym_add._bind(default_context(), args={&#39;lhs&#39;: mat1, &#39;rhs&#39;: mat2},</span>
+<span class="sd">    &gt;&gt;&gt; exec_add = sym_add._bind(default_device(), args={&#39;lhs&#39;: mat1, &#39;rhs&#39;: mat2},</span>
 <span class="sd">    ... args_grad={&#39;lhs&#39;: grad1, &#39;rhs&#39;: grad2}, grad_req={&#39;lhs&#39;: &#39;write&#39;, &#39;rhs&#39;: &#39;write&#39;})</span>
 <span class="sd">    &gt;&gt;&gt; exec_add.forward(is_train=True)</span>
 <span class="sd">    &gt;&gt;&gt; ograd = mx.nd.ones(shape)</span>
@@ -2699,7 +2699,7 @@ Edit on Github
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">assert</span> <span class="n">dtype</span> <span class="o">==</span> <span class="s1">&#39;asnumpy&#39;</span> <span class="ow">or</span> <span class="n">dtype</span> <span class="ow">in</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float16</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">ctx</span> <span class="o">=</span> <span class="n">default_context</span><span class="p">()</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="n">default_device</span><span class="p">()</span>
 
     <span class="n">location</span> <span class="o">=</span> <span class="n">_parse_location</span><span class="p">(</span><span class="n">sym</span><span class="o">=</span><span class="n">sym</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="n">location</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
     <span class="n">aux_states</span> <span class="o">=</span> <span class="n">_parse_aux_states</span><span class="p">(</span><span class="n">sym</span><span class="o">=</span><span class="n">sym</span><span class="p">,</span> <span class="n">aux_states</span><span class="o">=</span><span class="n">aux_states</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">,</span>
@@ -2799,7 +2799,7 @@ Edit on Github
 <span class="sd">            Only test the forward speed.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">ctx</span> <span class="o">=</span> <span class="n">default_context</span><span class="p">()</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="n">default_device</span><span class="p">()</span>
 
     <span class="k">if</span> <span class="n">grad_req</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">grad_req</span> <span class="o">=</span> <span class="s1">&#39;write&#39;</span>
@@ -2999,7 +2999,7 @@ Edit on Github
                           <span class="k">for</span> <span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">exe_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">outputs</span><span class="p">,</span> <span class="n">least_precise_dtype</span><span class="p">)]</span>
         <span class="c1"># Perform backward()</span>
         <span class="k">for</span> <span class="n">exe</span> <span class="ow">in</span> <span class="n">exe_list</span><span class="p">:</span>
-            <span class="n">out_grads</span> <span class="o">=</span> <span class="p">[</span><span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">golden_np</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">exe</span><span class="o">.</span><span class="n">_ctx</span><span class="p">,</span>
+            <span class="n">out_grads</span> <span class="o">=</span> <span class="p">[</span><span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">golden_np</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">exe</span><span class="o">.</span><span class="n">_device</span><span class="p">,</span>
                                      <span class="n">dtype</span><span class="o">=</span><span class="n">out</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">tostype</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">stype</span><span class="p">)</span>
                          <span class="k">for</span> <span class="p">(</span><span class="n">golden_np</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">golden_data_np</span><span class="p">,</span> <span class="n">exe</span><span class="o">.</span><span class="n">outputs</span><span class="p">)]</span>
             <span class="n">exe</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="n">out_grads</span><span class="p">)</span>
@@ -3033,8 +3033,8 @@ Edit on Github
                     <span class="n">assert_almost_equal</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">gtarr</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="n">rt</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="n">at</span><span class="p">,</span> <span class="n">equal_nan</span><span class="o">=</span><span class="n">equal_nan</span><span class="p">)</span>
                 <span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
                     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Train Err: </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1"> ctx </span><span class="si">{}</span><span class="s1"> vs </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1"> ctx </span><span class="si">{}</span><span class="s1"> at </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                        <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">arr</span><span class="o">.</span><span class="n">ctx</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span>
-                        <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">gtarr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">gtarr</span><span class="o">.</span><span class="n">ctx</span><span class="p">,</span> <span class="n">gt_idx</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+                        <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">arr</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span>
+                        <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">gtarr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">gtarr</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">gt_idx</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
                     <span class="n">traceback</span><span class="o">.</span><span class="n">print_exc</span><span class="p">()</span>
                     <span class="k">if</span> <span class="n">raise_on_err</span><span class="p">:</span>
                         <span class="k">raise</span> <span class="n">e</span>
@@ -3613,19 +3613,19 @@ Edit on Github
     <span class="n">s1_list</span><span class="p">,</span> <span class="n">s2_list</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">shape</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">shapes</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">w_stype</span> <span class="o">==</span> <span class="s1">&#39;default&#39;</span><span class="p">:</span>
-            <span class="n">w2</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">default_context</span><span class="p">(),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
-            <span class="n">w1</span> <span class="o">=</span> <span class="n">w2</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">default_context</span><span class="p">())</span>
+            <span class="n">w2</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">default_device</span><span class="p">(),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+            <span class="n">w1</span> <span class="o">=</span> <span class="n">w2</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">default_device</span><span class="p">())</span>
         <span class="k">elif</span> <span class="n">w_stype</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;row_sparse&#39;</span><span class="p">,</span> <span class="s1">&#39;csr&#39;</span><span class="p">):</span>
             <span class="n">w2</span> <span class="o">=</span> <span class="n">rand_ndarray</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">w_stype</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
-            <span class="n">w1</span> <span class="o">=</span> <span class="n">w2</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">default_context</span><span class="p">())</span><span class="o">.</span><span class="n">tostype</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
+            <span class="n">w1</span> <span class="o">=</span> <span class="n">w2</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">default_device</span><span class="p">())</span><span class="o">.</span><span class="n">tostype</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;type not supported yet&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">g_stype</span> <span class="o">==</span> <span class="s1">&#39;default&#39;</span><span class="p">:</span>
-            <span class="n">g2</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">default_context</span><span class="p">(),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
-            <span class="n">g1</span> <span class="o">=</span> <span class="n">g2</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">default_context</span><span class="p">())</span>
+            <span class="n">g2</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">default_device</span><span class="p">(),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+            <span class="n">g1</span> <span class="o">=</span> <span class="n">g2</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">default_device</span><span class="p">())</span>
         <span class="k">elif</span> <span class="n">g_stype</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;row_sparse&#39;</span><span class="p">,</span> <span class="s1">&#39;csr&#39;</span><span class="p">):</span>
             <span class="n">g2</span> <span class="o">=</span> <span class="n">rand_ndarray</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">g_stype</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
-            <span class="n">g1</span> <span class="o">=</span> <span class="n">g2</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">default_context</span><span class="p">())</span><span class="o">.</span><span class="n">tostype</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
+            <span class="n">g1</span> <span class="o">=</span> <span class="n">g2</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">default_device</span><span class="p">())</span><span class="o">.</span><span class="n">tostype</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;type not supported yet&quot;</span><span class="p">)</span>
         <span class="n">s1</span> <span class="o">=</span> <span class="n">opt1</span><span class="o">.</span><span class="n">create_state_multi_precision</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">w1</span><span class="p">)</span>
@@ -3661,19 +3661,19 @@ Edit on Github
     <span class="n">s1_list</span><span class="p">,</span> <span class="n">s2_list</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">shape</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">shapes</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">w_stype</span> <span class="o">==</span> <span class="s1">&#39;default&#39;</span><span class="p">:</span>
-            <span class="n">w2</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">default_context</span><span class="p">(),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
-            <span class="n">w1</span> <span class="o">=</span> <span class="n">w2</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">default_context</span><span class="p">())</span>
+            <span class="n">w2</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">default_device</span><span class="p">(),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+            <span class="n">w1</span> <span class="o">=</span> <span class="n">w2</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">default_device</span><span class="p">())</span>
         <span class="k">elif</span> <span class="n">w_stype</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;row_sparse&#39;</span><span class="p">,</span> <span class="s1">&#39;csr&#39;</span><span class="p">):</span>
             <span class="n">w2</span> <span class="o">=</span> <span class="n">rand_ndarray</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">w_stype</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
-            <span class="n">w1</span> <span class="o">=</span> <span class="n">w2</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">default_context</span><span class="p">())</span><span class="o">.</span><span class="n">tostype</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
+            <span class="n">w1</span> <span class="o">=</span> <span class="n">w2</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">default_device</span><span class="p">())</span><span class="o">.</span><span class="n">tostype</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;type not supported yet&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">g_stype</span> <span class="o">==</span> <span class="s1">&#39;default&#39;</span><span class="p">:</span>
-            <span class="n">g2</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">default_context</span><span class="p">(),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
-            <span class="n">g1</span> <span class="o">=</span> <span class="n">g2</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">default_context</span><span class="p">())</span>
+            <span class="n">g2</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">default_device</span><span class="p">(),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+            <span class="n">g1</span> <span class="o">=</span> <span class="n">g2</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">default_device</span><span class="p">())</span>
         <span class="k">elif</span> <span class="n">g_stype</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;row_sparse&#39;</span><span class="p">,</span> <span class="s1">&#39;csr&#39;</span><span class="p">):</span>
             <span class="n">g2</span> <span class="o">=</span> <span class="n">rand_ndarray</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">g_stype</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
-            <span class="n">g1</span> <span class="o">=</span> <span class="n">g2</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">default_context</span><span class="p">())</span><span class="o">.</span><span class="n">tostype</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
+            <span class="n">g1</span> <span class="o">=</span> <span class="n">g2</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">default_device</span><span class="p">())</span><span class="o">.</span><span class="n">tostype</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;type not supported yet&quot;</span><span class="p">)</span>
         <span class="n">s1</span> <span class="o">=</span> <span class="n">opt1</span><span class="o">.</span><span class="n">create_state_multi_precision</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">w1</span><span class="p">)</span>
@@ -3821,13 +3821,13 @@ Edit on Github
 <span class="sd">    is GPU, it only returns True for CUDA compute capability &gt; 52 where FP16 is supported.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">built_with_tvm_op</span> <span class="o">=</span> <span class="n">_features</span><span class="o">.</span><span class="n">is_enabled</span><span class="p">(</span><span class="s2">&quot;TVM_OP&quot;</span><span class="p">)</span>
-    <span class="n">ctx</span> <span class="o">=</span> <span class="n">current_context</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">ctx</span><span class="o">.</span><span class="n">device_type</span> <span class="o">==</span> <span class="s1">&#39;gpu&#39;</span><span class="p">:</span>
+    <span class="n">device</span> <span class="o">=</span> <span class="n">current_device</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">device</span><span class="o">.</span><span class="n">device_type</span> <span class="o">==</span> <span class="s1">&#39;gpu&#39;</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">cc</span> <span class="o">=</span> <span class="n">get_cuda_compute_capability</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+            <span class="n">cc</span> <span class="o">=</span> <span class="n">get_cuda_compute_capability</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
         <span class="k">except</span><span class="p">:</span>  <span class="c1"># pylint: disable=bare-except</span>
             <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Failed to get CUDA compute capability for context </span><span class="si">{}</span><span class="s1">. The operators &#39;</span>
-                  <span class="s1">&#39;built with USE_TVM_OP=1 will not be run in unit tests.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ctx</span><span class="p">))</span>
+                  <span class="s1">&#39;built with USE_TVM_OP=1 will not be run in unit tests.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">device</span><span class="p">))</span>
             <span class="k">return</span> <span class="kc">False</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Cuda arch compute capability: sm_</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">cc</span><span class="p">)))</span>
         <span class="k">return</span> <span class="n">built_with_tvm_op</span> <span class="ow">and</span> <span class="n">cc</span> <span class="o">&gt;=</span> <span class="mi">53</span>
@@ -3839,16 +3839,16 @@ Edit on Github
 <span class="sd">    1. Built with USE_TVM_OP=0.</span>
 <span class="sd">    2. Built with USE_TVM_OP=1, but with compute capability &gt;= 53.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">ctx</span> <span class="o">=</span> <span class="n">current_context</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">ctx</span><span class="o">.</span><span class="n">device_type</span> <span class="o">==</span> <span class="s1">&#39;gpu&#39;</span><span class="p">:</span>
+    <span class="n">device</span> <span class="o">=</span> <span class="n">current_device</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">device</span><span class="o">.</span><span class="n">device_type</span> <span class="o">==</span> <span class="s1">&#39;gpu&#39;</span><span class="p">:</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">_features</span><span class="o">.</span><span class="n">is_enabled</span><span class="p">(</span><span class="s2">&quot;TVM_OP&quot;</span><span class="p">):</span>
             <span class="k">return</span> <span class="kc">True</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
-                <span class="n">cc</span> <span class="o">=</span> <span class="n">get_cuda_compute_capability</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+                <span class="n">cc</span> <span class="o">=</span> <span class="n">get_cuda_compute_capability</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
             <span class="k">except</span><span class="p">:</span>  <span class="c1"># pylint: disable=bare-except</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Failed to get CUDA compute capability for context </span><span class="si">{}</span><span class="s1">. The operators &#39;</span>
-                      <span class="s1">&#39;built with USE_TVM_OP=1 will not be run in unit tests.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ctx</span><span class="p">))</span>
+                      <span class="s1">&#39;built with USE_TVM_OP=1 will not be run in unit tests.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">device</span><span class="p">))</span>
                 <span class="k">return</span> <span class="kc">False</span>
             <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Cuda arch compute capability: sm_</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">cc</span><span class="p">)))</span>
             <span class="k">return</span> <span class="n">cc</span> <span class="o">&gt;=</span> <span class="mi">53</span>

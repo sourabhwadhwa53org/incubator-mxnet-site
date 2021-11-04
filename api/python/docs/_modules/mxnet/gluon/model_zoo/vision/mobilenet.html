@@ -618,7 +618,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -736,7 +736,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1213,7 +1213,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1331,7 +1331,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1389,10 +1389,10 @@ Edit on Github
 <span class="kn">import</span> <span class="nn">os</span>
 
 <span class="kn">from</span> <span class="nn">...</span> <span class="k">import</span> <span class="n">nn</span>
-<span class="kn">from</span> <span class="nn">....context</span> <span class="k">import</span> <span class="n">cpu</span>
+<span class="kn">from</span> <span class="nn">....device</span> <span class="k">import</span> <span class="n">cpu</span>
 <span class="kn">from</span> <span class="nn">...block</span> <span class="k">import</span> <span class="n">HybridBlock</span>
 <span class="kn">from</span> <span class="nn">....</span> <span class="k">import</span> <span class="n">base</span><span class="p">,</span> <span class="n">np</span>
-<span class="kn">from</span> <span class="nn">....util</span> <span class="k">import</span> <span class="n">use_np</span>
+<span class="kn">from</span> <span class="nn">....util</span> <span class="k">import</span> <span class="n">use_np</span><span class="p">,</span> <span class="n">wrap_ctx_to_device_func</span>
 
 
 <span class="c1"># Helpers</span>
@@ -1548,7 +1548,8 @@ Edit on Github
 
 
 <span class="c1"># Constructor</span>
-<div class="viewcode-block" id="get_mobilenet"><a class="viewcode-back" href="../../../../../api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.get_mobilenet">[docs]</a><span class="k">def</span> <span class="nf">get_mobilenet</span><span class="p">(</span><span class="n">multiplier</span><span class="p">,</span> <span class="n">pretrained</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">cpu</span><span class="p">(),</span>
+<div class="viewcode-block" id="get_mobilenet"><a class="viewcode-back" href="../../../../../api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.get_mobilenet">[docs]</a><span class="nd">@wrap_ctx_to_device_func</span>
+<span class="k">def</span> <span class="nf">get_mobilenet</span><span class="p">(</span><span class="n">multiplier</span><span class="p">,</span> <span class="n">pretrained</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">cpu</span><span class="p">(),</span>
                   <span class="n">root</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">data_dir</span><span class="p">(),</span> <span class="s1">&#39;models&#39;</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;MobileNet model from the</span>
 <span class="sd">    `&quot;MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications&quot;</span>
@@ -1562,8 +1563,8 @@ Edit on Github
 <span class="sd">        channel size multiplied by this multiplier.</span>
 <span class="sd">    pretrained : bool, default False</span>
 <span class="sd">        Whether to load the pretrained weights for model.</span>
-<span class="sd">    ctx : Context, default CPU</span>
-<span class="sd">        The context in which to load the pretrained weights.</span>
+<span class="sd">    device : Device, default CPU</span>
+<span class="sd">        The device in which to load the pretrained weights.</span>
 <span class="sd">    root : str, default $MXNET_HOME/models</span>
 <span class="sd">        Location for keeping the model parameters.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1575,11 +1576,12 @@ Edit on Github
         <span class="k">if</span> <span class="n">version_suffix</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;1.00&#39;</span><span class="p">,</span> <span class="s1">&#39;0.50&#39;</span><span class="p">):</span>
             <span class="n">version_suffix</span> <span class="o">=</span> <span class="n">version_suffix</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">net</span><span class="o">.</span><span class="n">load_parameters</span><span class="p">(</span>
-            <span class="n">get_model_file</span><span class="p">(</span><span class="s1">&#39;mobilenet</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">version_suffix</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="n">root</span><span class="p">),</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
+            <span class="n">get_model_file</span><span class="p">(</span><span class="s1">&#39;mobilenet</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">version_suffix</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="n">root</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">net</span></div>
 
 
-<div class="viewcode-block" id="get_mobilenet_v2"><a class="viewcode-back" href="../../../../../api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.get_mobilenet_v2">[docs]</a><span class="k">def</span> <span class="nf">get_mobilenet_v2</span><span class="p">(</span><span class="n">multiplier</span><span class="p">,</span> <span class="n">pretrained</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">cpu</span><span class="p">(),</span>
+<div class="viewcode-block" id="get_mobilenet_v2"><a class="viewcode-back" href="../../../../../api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.get_mobilenet_v2">[docs]</a><span class="nd">@wrap_ctx_to_device_func</span>
+<span class="k">def</span> <span class="nf">get_mobilenet_v2</span><span class="p">(</span><span class="n">multiplier</span><span class="p">,</span> <span class="n">pretrained</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">cpu</span><span class="p">(),</span>
                      <span class="n">root</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">data_dir</span><span class="p">(),</span> <span class="s1">&#39;models&#39;</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;MobileNetV2 model from the</span>
 <span class="sd">    `&quot;Inverted Residuals and Linear Bottlenecks:</span>
@@ -1594,8 +1596,8 @@ Edit on Github
 <span class="sd">        channel size multiplied by this multiplier.</span>
 <span class="sd">    pretrained : bool, default False</span>
 <span class="sd">        Whether to load the pretrained weights for model.</span>
-<span class="sd">    ctx : Context, default CPU</span>
-<span class="sd">        The context in which to load the pretrained weights.</span>
+<span class="sd">    device : Device, default CPU</span>
+<span class="sd">        The device in which to load the pretrained weights.</span>
 <span class="sd">    root : str, default $MXNET_HOME/models</span>
 <span class="sd">        Location for keeping the model parameters.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1607,11 +1609,12 @@ Edit on Github
         <span class="k">if</span> <span class="n">version_suffix</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;1.00&#39;</span><span class="p">,</span> <span class="s1">&#39;0.50&#39;</span><span class="p">):</span>
             <span class="n">version_suffix</span> <span class="o">=</span> <span class="n">version_suffix</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">net</span><span class="o">.</span><span class="n">load_parameters</span><span class="p">(</span>
-            <span class="n">get_model_file</span><span class="p">(</span><span class="s1">&#39;mobilenetv2_</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">version_suffix</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="n">root</span><span class="p">),</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
+            <span class="n">get_model_file</span><span class="p">(</span><span class="s1">&#39;mobilenetv2_</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">version_suffix</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="n">root</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">net</span></div>
 
 
-<div class="viewcode-block" id="mobilenet1_0"><a class="viewcode-back" href="../../../../../api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.mobilenet1_0">[docs]</a><span class="k">def</span> <span class="nf">mobilenet1_0</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="mobilenet1_0"><a class="viewcode-back" href="../../../../../api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.mobilenet1_0">[docs]</a><span class="nd">@wrap_ctx_to_device_func</span>
+<span class="k">def</span> <span class="nf">mobilenet1_0</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;MobileNet model from the</span>
 <span class="sd">    `&quot;MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications&quot;</span>
 <span class="sd">    &lt;https://arxiv.org/abs/1704.04861&gt;`_ paper, with width multiplier 1.0.</span>
@@ -1620,13 +1623,14 @@ Edit on Github
 <span class="sd">    ----------</span>
 <span class="sd">    pretrained : bool, default False</span>
 <span class="sd">        Whether to load the pretrained weights for model.</span>
-<span class="sd">    ctx : Context, default CPU</span>
-<span class="sd">        The context in which to load the pretrained weights.</span>
+<span class="sd">    device : Device, default CPU</span>
+<span class="sd">        The device in which to load the pretrained weights.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">get_mobilenet</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="mobilenet_v2_1_0"><a class="viewcode-back" href="../../../../../api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.mobilenet_v2_1_0">[docs]</a><span class="k">def</span> <span class="nf">mobilenet_v2_1_0</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="mobilenet_v2_1_0"><a class="viewcode-back" href="../../../../../api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.mobilenet_v2_1_0">[docs]</a><span class="nd">@wrap_ctx_to_device_func</span>
+<span class="k">def</span> <span class="nf">mobilenet_v2_1_0</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;MobileNetV2 model from the</span>
 <span class="sd">    `&quot;Inverted Residuals and Linear Bottlenecks:</span>
 <span class="sd">    Mobile Networks for Classification, Detection and Segmentation&quot;</span>
@@ -1636,13 +1640,14 @@ Edit on Github
 <span class="sd">    ----------</span>
 <span class="sd">    pretrained : bool, default False</span>
 <span class="sd">        Whether to load the pretrained weights for model.</span>
-<span class="sd">    ctx : Context, default CPU</span>
-<span class="sd">        The context in which to load the pretrained weights.</span>
+<span class="sd">    device : Device, default CPU</span>
+<span class="sd">        The device in which to load the pretrained weights.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">get_mobilenet_v2</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="mobilenet0_75"><a class="viewcode-back" href="../../../../../api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.mobilenet0_75">[docs]</a><span class="k">def</span> <span class="nf">mobilenet0_75</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="mobilenet0_75"><a class="viewcode-back" href="../../../../../api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.mobilenet0_75">[docs]</a><span class="nd">@wrap_ctx_to_device_func</span>
+<span class="k">def</span> <span class="nf">mobilenet0_75</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;MobileNet model from the</span>
 <span class="sd">    `&quot;MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications&quot;</span>
 <span class="sd">    &lt;https://arxiv.org/abs/1704.04861&gt;`_ paper, with width multiplier 0.75.</span>
@@ -1651,13 +1656,14 @@ Edit on Github
 <span class="sd">    ----------</span>
 <span class="sd">    pretrained : bool, default False</span>
 <span class="sd">        Whether to load the pretrained weights for model.</span>
-<span class="sd">    ctx : Context, default CPU</span>
-<span class="sd">        The context in which to load the pretrained weights.</span>
+<span class="sd">    device : Device, default CPU</span>
+<span class="sd">        The device in which to load the pretrained weights.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">get_mobilenet</span><span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="mobilenet_v2_0_75"><a class="viewcode-back" href="../../../../../api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.mobilenet_v2_0_75">[docs]</a><span class="k">def</span> <span class="nf">mobilenet_v2_0_75</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="mobilenet_v2_0_75"><a class="viewcode-back" href="../../../../../api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.mobilenet_v2_0_75">[docs]</a><span class="nd">@wrap_ctx_to_device_func</span>
+<span class="k">def</span> <span class="nf">mobilenet_v2_0_75</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;MobileNetV2 model from the</span>
 <span class="sd">    `&quot;Inverted Residuals and Linear Bottlenecks:</span>
 <span class="sd">    Mobile Networks for Classification, Detection and Segmentation&quot;</span>
@@ -1667,13 +1673,14 @@ Edit on Github
 <span class="sd">    ----------</span>
 <span class="sd">    pretrained : bool, default False</span>
 <span class="sd">        Whether to load the pretrained weights for model.</span>
-<span class="sd">    ctx : Context, default CPU</span>
-<span class="sd">        The context in which to load the pretrained weights.</span>
+<span class="sd">    device : Device, default CPU</span>
+<span class="sd">        The device in which to load the pretrained weights.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">get_mobilenet_v2</span><span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="mobilenet0_5"><a class="viewcode-back" href="../../../../../api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.mobilenet0_5">[docs]</a><span class="k">def</span> <span class="nf">mobilenet0_5</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="mobilenet0_5"><a class="viewcode-back" href="../../../../../api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.mobilenet0_5">[docs]</a><span class="nd">@wrap_ctx_to_device_func</span>
+<span class="k">def</span> <span class="nf">mobilenet0_5</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;MobileNet model from the</span>
 <span class="sd">    `&quot;MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications&quot;</span>
 <span class="sd">    &lt;https://arxiv.org/abs/1704.04861&gt;`_ paper, with width multiplier 0.5.</span>
@@ -1682,13 +1689,14 @@ Edit on Github
 <span class="sd">    ----------</span>
 <span class="sd">    pretrained : bool, default False</span>
 <span class="sd">        Whether to load the pretrained weights for model.</span>
-<span class="sd">    ctx : Context, default CPU</span>
-<span class="sd">        The context in which to load the pretrained weights.</span>
+<span class="sd">    device : Device, default CPU</span>
+<span class="sd">        The device in which to load the pretrained weights.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">get_mobilenet</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="mobilenet_v2_0_5"><a class="viewcode-back" href="../../../../../api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.mobilenet_v2_0_5">[docs]</a><span class="k">def</span> <span class="nf">mobilenet_v2_0_5</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="mobilenet_v2_0_5"><a class="viewcode-back" href="../../../../../api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.mobilenet_v2_0_5">[docs]</a><span class="nd">@wrap_ctx_to_device_func</span>
+<span class="k">def</span> <span class="nf">mobilenet_v2_0_5</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;MobileNetV2 model from the</span>
 <span class="sd">    `&quot;Inverted Residuals and Linear Bottlenecks:</span>
 <span class="sd">    Mobile Networks for Classification, Detection and Segmentation&quot;</span>
@@ -1698,13 +1706,14 @@ Edit on Github
 <span class="sd">    ----------</span>
 <span class="sd">    pretrained : bool, default False</span>
 <span class="sd">        Whether to load the pretrained weights for model.</span>
-<span class="sd">    ctx : Context, default CPU</span>
-<span class="sd">        The context in which to load the pretrained weights.</span>
+<span class="sd">    device : Device, default CPU</span>
+<span class="sd">        The device in which to load the pretrained weights.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">get_mobilenet_v2</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="mobilenet0_25"><a class="viewcode-back" href="../../../../../api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.mobilenet0_25">[docs]</a><span class="k">def</span> <span class="nf">mobilenet0_25</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="mobilenet0_25"><a class="viewcode-back" href="../../../../../api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.mobilenet0_25">[docs]</a><span class="nd">@wrap_ctx_to_device_func</span>
+<span class="k">def</span> <span class="nf">mobilenet0_25</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;MobileNet model from the</span>
 <span class="sd">    `&quot;MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications&quot;</span>
 <span class="sd">    &lt;https://arxiv.org/abs/1704.04861&gt;`_ paper, with width multiplier 0.25.</span>
@@ -1713,13 +1722,14 @@ Edit on Github
 <span class="sd">    ----------</span>
 <span class="sd">    pretrained : bool, default False</span>
 <span class="sd">        Whether to load the pretrained weights for model.</span>
-<span class="sd">    ctx : Context, default CPU</span>
-<span class="sd">        The context in which to load the pretrained weights.</span>
+<span class="sd">    device : Device, default CPU</span>
+<span class="sd">        The device in which to load the pretrained weights.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">get_mobilenet</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="mobilenet_v2_0_25"><a class="viewcode-back" href="../../../../../api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.mobilenet_v2_0_25">[docs]</a><span class="k">def</span> <span class="nf">mobilenet_v2_0_25</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="mobilenet_v2_0_25"><a class="viewcode-back" href="../../../../../api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.mobilenet_v2_0_25">[docs]</a><span class="nd">@wrap_ctx_to_device_func</span>
+<span class="k">def</span> <span class="nf">mobilenet_v2_0_25</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;MobileNetV2 model from the</span>
 <span class="sd">    `&quot;Inverted Residuals and Linear Bottlenecks:</span>
 <span class="sd">    Mobile Networks for Classification, Detection and Segmentation&quot;</span>
@@ -1729,8 +1739,8 @@ Edit on Github
 <span class="sd">    ----------</span>
 <span class="sd">    pretrained : bool, default False</span>
 <span class="sd">        Whether to load the pretrained weights for model.</span>
-<span class="sd">    ctx : Context, default CPU</span>
-<span class="sd">        The context in which to load the pretrained weights.</span>
+<span class="sd">    device : Device, default CPU</span>
+<span class="sd">        The device in which to load the pretrained weights.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">get_mobilenet_v2</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 </pre></div>

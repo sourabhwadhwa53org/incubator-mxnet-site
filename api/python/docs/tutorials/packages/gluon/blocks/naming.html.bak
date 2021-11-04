@@ -622,7 +622,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -740,7 +740,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1217,7 +1217,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1335,7 +1335,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1691,7 +1691,7 @@ bias
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[10:47:38] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
+[16:58:01] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1756,7 +1756,7 @@ dict_keys([&#39;dense0.bias&#39;, &#39;dense0.weight&#39;, &#39;dense1.bias&#39;
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/work/mxnet/python/mxnet/gluon/block.py:1901: UserWarning: Cannot decide type for the following arguments. Consider providing them as input:
+/work/mxnet/python/mxnet/gluon/block.py:1918: UserWarning: Cannot decide type for the following arguments. Consider providing them as input:
         data: None
   input_sym_arg_type = in_param.infer_type()[0]
 </pre></div></div>

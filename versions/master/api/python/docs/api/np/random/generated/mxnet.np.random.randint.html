@@ -622,7 +622,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -740,7 +740,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1217,7 +1217,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1335,7 +1335,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1366,7 +1366,7 @@ Edit on Github
 <h1>mxnet.np.random.randint<a class="headerlink" href="#mxnet-np-random-randint" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="mxnet.np.random.randint">
-<code class="sig-name descname">randint</code><span class="sig-paren">(</span><em class="sig-param">low</em>, <em class="sig-param">high=None</em>, <em class="sig-param">size=None</em>, <em class="sig-param">dtype=None</em>, <em class="sig-param">ctx=None</em>, <em class="sig-param">out=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.np.random.randint" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">randint</code><span class="sig-paren">(</span><em class="sig-param">low</em>, <em class="sig-param">high=None</em>, <em class="sig-param">size=None</em>, <em class="sig-param">dtype=None</em>, <em class="sig-param">device=None</em>, <em class="sig-param">out=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.np.random.randint" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return random integers from <cite>low</cite> (inclusive) to <cite>high</cite> (exclusive).</p>
 <p>Return random integers from the “discrete uniform” distribution of
 the specified dtype in the “half-open” interval [<cite>low</cite>, <cite>high</cite>). If
@@ -1386,7 +1386,7 @@ single value is returned.</p></li>
 name, i.e., ‘int64’, ‘int’, etc, so byteorder is not available
 and a specific precision may have different C types depending
 on the platform. The default value is ‘np.int’.</p></li>
-<li><p><strong>ctx</strong> (<a class="reference internal" href="../../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a><em>, </em><em>optional</em>) – Device context of output. Default is current context.</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../../device/index.html#mxnet.device.Device" title="mxnet.device.Device"><em>Device</em></a><em>, </em><em>optional</em>) – Device context of output. Default is current device.</p></li>
 <li><p><strong>out</strong> (<em>ndarray</em><em>, </em><em>optional</em>) – The output ndarray (default is <cite>None</cite>).</p></li>
 </ul>
 </dd>

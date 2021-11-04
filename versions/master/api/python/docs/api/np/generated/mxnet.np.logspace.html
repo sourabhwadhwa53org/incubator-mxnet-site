@@ -622,7 +622,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -740,7 +740,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1217,7 +1217,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1335,7 +1335,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1366,7 +1366,7 @@ Edit on Github
 <h1>mxnet.np.logspace<a class="headerlink" href="#mxnet-np-logspace" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="mxnet.np.logspace">
-<code class="sig-name descname">logspace</code><span class="sig-paren">(</span><em class="sig-param">start</em>, <em class="sig-param">stop</em>, <em class="sig-param">num=50</em>, <em class="sig-param">endpoint=True</em>, <em class="sig-param">base=10.0</em>, <em class="sig-param">dtype=None</em>, <em class="sig-param">axis=0</em>, <em class="sig-param">ctx=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.np.logspace" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">logspace</code><span class="sig-paren">(</span><em class="sig-param">start</em>, <em class="sig-param">stop</em>, <em class="sig-param">num=50</em>, <em class="sig-param">endpoint=True</em>, <em class="sig-param">base=10.0</em>, <em class="sig-param">dtype=None</em>, <em class="sig-param">axis=0</em>, <em class="sig-param">device=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.np.logspace" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return numbers spaced evenly on a log scale.</p>
 <p>In linear space, the sequence starts at <code class="docutils literal notranslate"><span class="pre">base</span> <span class="pre">**</span> <span class="pre">start</span></code>
 (<cite>base</cite> to the power of <cite>start</cite>) and ends with <code class="docutils literal notranslate"><span class="pre">base</span> <span class="pre">**</span> <span class="pre">stop</span></code>
@@ -1393,7 +1393,8 @@ type from the other input arguments.</p></li>
 <li><p><strong>axis</strong> (<em>int</em><em>, </em><em>optional</em>) – The axis in the result to store the samples.  Relevant only if start
 or stop are array-like.  By default (0), the samples will be along a
 new axis inserted at the beginning. Now, axis only support axis = 0.</p></li>
-<li><p><strong>ctx</strong> (<a class="reference internal" href="../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a><em>, </em><em>optional</em>) – An optional device context (default is the current default context).</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device/index.html#mxnet.device.Device" title="mxnet.device.Device"><em>Device</em></a><em>, </em><em>optional</em>) – Device context on which the memory is allocated. Default is
+<cite>mxnet.device.current_device()</cite>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1429,8 +1430,8 @@ new axis inserted at the beginning. Now, axis only support axis = 0.</p></li>
 <span class="go">array([4.       , 5.0396843, 6.349604 , 8.       ])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
 <span class="go">array([4, 5, 6, 8], dtype=int32)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">npx</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
-<span class="go">array([ 100.     ,  215.44347,  464.15887, 1000.     ], ctx=gpu(0))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">npx</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="go">array([ 100.     ,  215.44347,  464.15887, 1000.     ], device=gpu(0))</span>
 </pre></div>
 </div>
 </dd></dl>

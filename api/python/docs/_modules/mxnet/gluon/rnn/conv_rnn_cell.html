@@ -617,7 +617,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -735,7 +735,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1212,7 +1212,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1330,7 +1330,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1506,24 +1506,24 @@ Edit on Github
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_gate_names</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_conv_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">states</span><span class="p">):</span>
-        <span class="n">ctx</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">ctx</span>
+        <span class="n">device</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">device</span>
         <span class="n">i2h</span> <span class="o">=</span> <span class="n">npx</span><span class="o">.</span><span class="n">convolution</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">inputs</span><span class="p">,</span>
                               <span class="n">num_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_hidden_channels</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_gates</span><span class="p">,</span>
                               <span class="n">kernel</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_i2h_kernel</span><span class="p">,</span>
                               <span class="n">stride</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_stride</span><span class="p">,</span>
                               <span class="n">pad</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_i2h_pad</span><span class="p">,</span>
                               <span class="n">dilate</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_i2h_dilate</span><span class="p">,</span>
-                              <span class="n">weight</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">i2h_weight</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">ctx</span><span class="p">),</span>
-                              <span class="n">bias</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">i2h_bias</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">ctx</span><span class="p">),</span>
+                              <span class="n">weight</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">i2h_weight</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">device</span><span class="p">),</span>
+                              <span class="n">bias</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">i2h_bias</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">device</span><span class="p">),</span>
                               <span class="n">layout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_conv_layout</span><span class="p">)</span>
-        <span class="n">h2h</span> <span class="o">=</span> <span class="n">npx</span><span class="o">.</span><span class="n">convolution</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">states</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">as_in_ctx</span><span class="p">(</span><span class="n">ctx</span><span class="p">),</span>
+        <span class="n">h2h</span> <span class="o">=</span> <span class="n">npx</span><span class="o">.</span><span class="n">convolution</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">states</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">device</span><span class="p">),</span>
                               <span class="n">num_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_hidden_channels</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_gates</span><span class="p">,</span>
                               <span class="n">kernel</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_h2h_kernel</span><span class="p">,</span>
                               <span class="n">dilate</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_h2h_dilate</span><span class="p">,</span>
                               <span class="n">pad</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_h2h_pad</span><span class="p">,</span>
                               <span class="n">stride</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_stride</span><span class="p">,</span>
-                              <span class="n">weight</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">h2h_weight</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">ctx</span><span class="p">),</span>
-                              <span class="n">bias</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">h2h_bias</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">ctx</span><span class="p">),</span>
+                              <span class="n">weight</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">h2h_weight</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">device</span><span class="p">),</span>
+                              <span class="n">bias</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">h2h_bias</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">device</span><span class="p">),</span>
                               <span class="n">layout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_conv_layout</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">i2h</span><span class="p">,</span> <span class="n">h2h</span>
 
@@ -1803,7 +1803,7 @@ Edit on Github
         <span class="n">forget_gate</span> <span class="o">=</span> <span class="n">npx</span><span class="o">.</span><span class="n">activation</span><span class="p">(</span><span class="n">slice_gates</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">act_type</span><span class="o">=</span><span class="s2">&quot;sigmoid&quot;</span><span class="p">)</span>
         <span class="n">in_transform</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_activation</span><span class="p">(</span><span class="n">slice_gates</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_activation</span><span class="p">)</span>
         <span class="n">out_gate</span> <span class="o">=</span> <span class="n">npx</span><span class="o">.</span><span class="n">activation</span><span class="p">(</span><span class="n">slice_gates</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">act_type</span><span class="o">=</span><span class="s2">&quot;sigmoid&quot;</span><span class="p">)</span>
-        <span class="n">next_c</span> <span class="o">=</span> <span class="n">forget_gate</span> <span class="o">*</span> <span class="n">states</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">as_in_ctx</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">ctx</span><span class="p">)</span> <span class="o">+</span> <span class="n">in_gate</span> <span class="o">*</span> <span class="n">in_transform</span>
+        <span class="n">next_c</span> <span class="o">=</span> <span class="n">forget_gate</span> <span class="o">*</span> <span class="n">states</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">device</span><span class="p">)</span> <span class="o">+</span> <span class="n">in_gate</span> <span class="o">*</span> <span class="n">in_transform</span>
         <span class="n">next_h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">out_gate</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_activation</span><span class="p">(</span><span class="n">next_c</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_activation</span><span class="p">))</span>
 
         <span class="k">return</span> <span class="n">next_h</span><span class="p">,</span> <span class="p">[</span><span class="n">next_h</span><span class="p">,</span> <span class="n">next_c</span><span class="p">]</span>
@@ -2066,7 +2066,7 @@ Edit on Github
         <span class="n">next_h_tmp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_activation</span><span class="p">(</span><span class="n">i2h</span> <span class="o">+</span> <span class="n">reset_gate</span> <span class="o">*</span> <span class="n">h2h</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_activation</span><span class="p">)</span>
 
         <span class="n">next_h</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">update_gate</span><span class="p">)</span> <span class="o">*</span> <span class="n">next_h_tmp</span> <span class="o">+</span> <span class="n">update_gate</span> <span class="o">*</span> \
-            <span class="n">states</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">as_in_ctx</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">ctx</span><span class="p">)</span>
+            <span class="n">states</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">next_h</span><span class="p">,</span> <span class="p">[</span><span class="n">next_h</span><span class="p">]</span>
 

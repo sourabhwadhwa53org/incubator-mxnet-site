@@ -623,7 +623,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -741,7 +741,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1218,7 +1218,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1336,7 +1336,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1726,7 +1726,7 @@ rate of the 250th iteration will be 1 and the 251st iteration will be 0.5.</p>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Use GPU if one exists, else use CPU</span>
-<span class="n">ctx</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">gpu</span><span class="p">()</span> <span class="k">if</span> <span class="n">mx</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">num_gpus</span><span class="p">()</span> <span class="k">else</span> <span class="n">mx</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">gpu</span><span class="p">()</span> <span class="k">if</span> <span class="n">mx</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">num_gpus</span><span class="p">()</span> <span class="k">else</span> <span class="n">mx</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
 
 <span class="c1"># MNIST images are 28x28. Total pixels in input layer is 28x28 = 784</span>
 <span class="n">num_inputs</span> <span class="o">=</span> <span class="mi">784</span>
@@ -1765,7 +1765,7 @@ rate of the 250th iteration will be 1 and the 251st iteration will be 0.5.</p>
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[10:55:08] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
+[17:05:48] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 <p>We then initialize our network (technically deferred until we pass the first batch) and define the loss.</p>
@@ -1775,7 +1775,7 @@ rate of the 250th iteration will be 1 and the 251st iteration will be 0.5.</p>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Initialize the parameters with Xavier initializer</span>
-<span class="n">net</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">mx</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">Xavier</span><span class="p">(),</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
+<span class="n">net</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">mx</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">Xavier</span><span class="p">(),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
 <span class="c1"># Use cross entropy loss</span>
 <span class="n">softmax_cross_entropy</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">gluon</span><span class="o">.</span><span class="n">loss</span><span class="o">.</span><span class="n">SoftmaxCrossEntropyLoss</span><span class="p">()</span>
 </pre></div>
@@ -1786,7 +1786,7 @@ rate of the 250th iteration will be 1 and the 251st iteration will be 0.5.</p>
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[10:55:12] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for GPU
+[17:05:52] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for GPU
 </pre></div></div>
 </div>
 <p>We’re now ready to create our schedule, and in this example we opt for a stepwise decay schedule using <code class="docutils literal notranslate"><span class="pre">MultiFactorScheduler</span></code>. Since we’re only training a demonstration model for a limited number of epochs (10 in total) we will exaggerate the schedule and drop the learning rate by 90% after the 4th, 7th and 9th epochs. We call these steps, and the drop occurs <em>after</em> the step index. Schedules are defined for iterations (i.e. training batches), so we must represent our steps in iterations too.</p>
@@ -1863,8 +1863,8 @@ learning rate from ``lr_scheduler`` has been overwritten by ``learning_rate`` in
     <span class="c1"># Iterate through the images and labels in the training data</span>
     <span class="k">for</span> <span class="n">batch_num</span><span class="p">,</span> <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_dataloader</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="c1"># get the images and labels</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">as_in_context</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
-        <span class="n">label</span> <span class="o">=</span> <span class="n">label</span><span class="o">.</span><span class="n">as_in_context</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">label</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
         <span class="c1"># Ask autograd to record the forward pass</span>
         <span class="k">with</span> <span class="n">mx</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">record</span><span class="p">():</span>
             <span class="c1"># Run the forward pass</span>
@@ -1889,7 +1889,7 @@ learning rate from ``lr_scheduler`` has been overwritten by ``learning_rate`` in
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[10:55:14] /work/mxnet/src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:106: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+[17:05:54] /work/mxnet/src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:106: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1898,15 +1898,15 @@ learning rate from ``lr_scheduler`` has been overwritten by ``learning_rate`` in
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Epoch: 1; Batch 1; Loss 2.304708; LR 0.030000
-Epoch: 2; Batch 1; Loss 0.087779; LR 0.030000
-Epoch: 3; Batch 1; Loss 0.166894; LR 0.030000
-Epoch: 4; Batch 1; Loss 0.107249; LR 0.030000
-Epoch: 5; Batch 1; Loss 0.082088; LR 0.003000
-Epoch: 6; Batch 1; Loss 0.022665; LR 0.003000
-Epoch: 7; Batch 1; Loss 0.016416; LR 0.003000
-Epoch: 8; Batch 1; Loss 0.042105; LR 0.000300
-Epoch: 9; Batch 1; Loss 0.034941; LR 0.000300
-Epoch: 10; Batch 1; Loss 0.018378; LR 0.000030
+Epoch: 2; Batch 1; Loss 0.092175; LR 0.030000
+Epoch: 3; Batch 1; Loss 0.172801; LR 0.030000
+Epoch: 4; Batch 1; Loss 0.107213; LR 0.030000
+Epoch: 5; Batch 1; Loss 0.084014; LR 0.003000
+Epoch: 6; Batch 1; Loss 0.021397; LR 0.003000
+Epoch: 7; Batch 1; Loss 0.017058; LR 0.003000
+Epoch: 8; Batch 1; Loss 0.036917; LR 0.000300
+Epoch: 9; Batch 1; Loss 0.034541; LR 0.000300
+Epoch: 10; Batch 1; Loss 0.018389; LR 0.000030
 </pre></div></div>
 </div>
 <p>Epoch: 1; Batch 1; Loss 2.304071; LR 0.030000</p>
@@ -1930,7 +1930,7 @@ Epoch: 10; Batch 1; Loss 0.018378; LR 0.000030
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="n">net</span> <span class="o">=</span> <span class="n">build_cnn</span><span class="p">()</span>
-<span class="n">net</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">mx</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">Xavier</span><span class="p">(),</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
+<span class="n">net</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">mx</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">Xavier</span><span class="p">(),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
 
 <span class="n">schedule</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">lr_scheduler</span><span class="o">.</span><span class="n">MultiFactorScheduler</span><span class="p">(</span><span class="n">step</span><span class="o">=</span><span class="n">steps_iterations</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
 <span class="n">schedule</span><span class="o">.</span><span class="n">base_lr</span> <span class="o">=</span> <span class="mf">0.03</span>
@@ -1944,8 +1944,8 @@ Epoch: 10; Batch 1; Loss 0.018378; LR 0.000030
     <span class="c1"># Iterate through the images and labels in the training data</span>
     <span class="k">for</span> <span class="n">batch_num</span><span class="p">,</span> <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_dataloader</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="c1"># get the images and labels</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">as_in_context</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
-        <span class="n">label</span> <span class="o">=</span> <span class="n">label</span><span class="o">.</span><span class="n">as_in_context</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">label</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
         <span class="c1"># Ask autograd to record the forward pass</span>
         <span class="k">with</span> <span class="n">mx</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">record</span><span class="p">():</span>
             <span class="c1"># Run the forward pass</span>
@@ -1974,15 +1974,15 @@ Epoch: 10; Batch 1; Loss 0.018378; LR 0.000030
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Epoch: 1; Batch 1; Loss 2.279933; LR 0.030000
-Epoch: 2; Batch 1; Loss 0.101873; LR 0.030000
-Epoch: 3; Batch 1; Loss 0.024525; LR 0.030000
-Epoch: 4; Batch 1; Loss 0.018785; LR 0.030000
-Epoch: 5; Batch 1; Loss 0.026384; LR 0.003000
-Epoch: 6; Batch 1; Loss 0.028631; LR 0.003000
-Epoch: 7; Batch 1; Loss 0.034792; LR 0.003000
-Epoch: 8; Batch 1; Loss 0.014243; LR 0.000300
-Epoch: 9; Batch 1; Loss 0.019437; LR 0.000300
-Epoch: 10; Batch 1; Loss 0.021855; LR 0.000030
+Epoch: 2; Batch 1; Loss 0.104256; LR 0.030000
+Epoch: 3; Batch 1; Loss 0.023893; LR 0.030000
+Epoch: 4; Batch 1; Loss 0.020734; LR 0.030000
+Epoch: 5; Batch 1; Loss 0.027430; LR 0.003000
+Epoch: 6; Batch 1; Loss 0.028425; LR 0.003000
+Epoch: 7; Batch 1; Loss 0.034357; LR 0.003000
+Epoch: 8; Batch 1; Loss 0.013505; LR 0.000300
+Epoch: 9; Batch 1; Loss 0.019225; LR 0.000300
+Epoch: 10; Batch 1; Loss 0.022522; LR 0.000030
 </pre></div></div>
 </div>
 <p>Epoch: 1; Batch 1; Loss 2.334119; LR 0.030000</p>

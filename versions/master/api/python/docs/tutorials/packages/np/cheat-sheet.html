@@ -621,7 +621,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -739,7 +739,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1216,7 +1216,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1334,7 +1334,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1591,7 +1591,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[10:56:59] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
+[17:07:44] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -2821,7 +2821,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="n">gpu_0</span> <span class="o">=</span> <span class="n">npx</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="k">if</span> <span class="n">npx</span><span class="o">.</span><span class="n">num_gpus</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">npx</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
-<span class="n">g0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">ctx</span><span class="o">=</span><span class="n">gpu_0</span><span class="p">)</span>  <span class="c1"># Create array on GPU 0</span>
+<span class="n">g0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">gpu_0</span><span class="p">)</span>  <span class="c1"># Create array on GPU 0</span>
 <span class="n">g0</span>
 </pre></div>
 </div>
@@ -2842,7 +2842,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="n">gpu_1</span> <span class="o">=</span> <span class="n">npx</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">npx</span><span class="o">.</span><span class="n">num_gpus</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="k">else</span> <span class="n">npx</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
-<span class="n">g1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">ctx</span><span class="o">=</span><span class="n">gpu_1</span><span class="p">)</span>  <span class="c1"># Create array on GPU 1</span>
+<span class="n">g1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">gpu_1</span><span class="p">)</span>  <span class="c1"># Create array on GPU 1</span>
 <span class="n">g1</span>
 </pre></div>
 </div>
@@ -2882,7 +2882,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Return itself if matching the context, otherwise copy</span>
+<span></span><span class="c1"># Return itself if matching the device, otherwise copy</span>
 <span class="n">g1</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">gpu_0</span><span class="p">),</span> <span class="n">g1</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">gpu_0</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2904,7 +2904,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="n">g1</span><span class="o">.</span><span class="n">context</span>  <span class="c1"># Query the device an array is on</span>
+<span></span><span class="n">g1</span><span class="o">.</span><span class="n">device</span>  <span class="c1"># Query the device an array is on</span>
 </pre></div>
 </div>
 </div>

@@ -617,7 +617,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -735,7 +735,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1212,7 +1212,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1330,7 +1330,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1400,7 +1400,7 @@ Edit on Github
 <span class="kn">from</span> <span class="nn">..dlpack</span> <span class="k">import</span> <span class="n">ndarray_to_dlpack_for_read</span><span class="p">,</span> <span class="n">ndarray_to_dlpack_for_write</span>
 <span class="kn">from</span> <span class="nn">..dlpack</span> <span class="k">import</span> <span class="n">ndarray_from_dlpack</span><span class="p">,</span> <span class="n">ndarray_from_numpy</span>
 <span class="kn">from</span> <span class="nn">..runtime</span> <span class="k">import</span> <span class="n">Features</span>
-<span class="kn">from</span> <span class="nn">..context</span> <span class="k">import</span> <span class="n">Context</span><span class="p">,</span> <span class="n">current_context</span>
+<span class="kn">from</span> <span class="nn">..device</span> <span class="k">import</span> <span class="n">Device</span><span class="p">,</span> <span class="n">current_device</span>
 <span class="kn">from</span> <span class="nn">..util</span> <span class="k">import</span> <span class="n">is_np_array</span>
 <span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">_internal</span>
 <span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">op</span>
@@ -3859,7 +3859,7 @@ Edit on Github
 <span class="sd">        &gt;&gt;&gt; x.context</span>
 <span class="sd">        cpu(0)</span>
 <span class="sd">        &gt;&gt;&gt; type(x.context)</span>
-<span class="sd">        &lt;class &#39;mxnet.context.Context&#39;&gt;</span>
+<span class="sd">        &lt;class &#39;mxnet.device.Device&#39;&gt;</span>
 <span class="sd">        &gt;&gt;&gt; y = mx.nd.zeros((2,3), mx.gpu(0))</span>
 <span class="sd">        &gt;&gt;&gt; y.context</span>
 <span class="sd">        gpu(0)</span>
@@ -3868,7 +3868,7 @@ Edit on Github
         <span class="n">dev_id</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">()</span>
         <span class="n">check_call</span><span class="p">(</span><span class="n">_LIB</span><span class="o">.</span><span class="n">MXNDArrayGetContext</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">handle</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="n">dev_typeid</span><span class="p">),</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="n">dev_id</span><span class="p">)))</span>
-        <span class="k">return</span> <span class="n">Context</span><span class="p">(</span><span class="n">Context</span><span class="o">.</span><span class="n">devtype2str</span><span class="p">[</span><span class="n">dev_typeid</span><span class="o">.</span><span class="n">value</span><span class="p">],</span> <span class="n">dev_id</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Device</span><span class="p">(</span><span class="n">Device</span><span class="o">.</span><span class="n">devtype2str</span><span class="p">[</span><span class="n">dev_typeid</span><span class="o">.</span><span class="n">value</span><span class="p">],</span> <span class="n">dev_id</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">ctx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -3883,6 +3883,23 @@ Edit on Github
 <span class="sd">        &lt;class &#39;mxnet.context.Context&#39;&gt;</span>
 <span class="sd">        &gt;&gt;&gt; y = mx.nd.zeros((2,3), mx.gpu(0))</span>
 <span class="sd">        &gt;&gt;&gt; y.ctx</span>
+<span class="sd">        gpu(0)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">device</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Device context of the array. Has the same meaning as context.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; x = mx.nd.array([1, 2, 3, 4])</span>
+<span class="sd">        &gt;&gt;&gt; x.device</span>
+<span class="sd">        cpu(0)</span>
+<span class="sd">        &gt;&gt;&gt; type(x.device)</span>
+<span class="sd">        &lt;class &#39;mxnet.device.Device&#39;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; y = mx.nd.zeros((2,3), mx.gpu(0))</span>
+<span class="sd">        &gt;&gt;&gt; y.device</span>
 <span class="sd">        gpu(0)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span>
@@ -4081,7 +4098,7 @@ Edit on Github
                 <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;You are attempting to copy an array to itself&#39;</span><span class="p">,</span> <span class="ne">RuntimeWarning</span><span class="p">)</span>
                 <span class="k">return</span> <span class="kc">False</span>
             <span class="k">return</span> <span class="n">_internal</span><span class="o">.</span><span class="n">_copyto</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">other</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Context</span><span class="p">):</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Device</span><span class="p">):</span>
             <span class="n">hret</span> <span class="o">=</span> <span class="n">NDArray</span><span class="p">(</span><span class="n">_new_alloc_handle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">))</span>
             <span class="k">return</span> <span class="n">_internal</span><span class="o">.</span><span class="n">_copyto</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">hret</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
@@ -4714,7 +4731,7 @@ Edit on Github
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># pylint: disable= unused-argument</span>
     <span class="k">if</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">ctx</span> <span class="o">=</span> <span class="n">current_context</span><span class="p">()</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="n">current_device</span><span class="p">()</span>
     <span class="n">dtype</span> <span class="o">=</span> <span class="n">mx_real_t</span> <span class="k">if</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">dtype</span>
     <span class="c1"># pylint: disable= no-member, protected-access</span>
     <span class="k">return</span> <span class="n">_internal</span><span class="o">.</span><span class="n">_ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
@@ -4898,7 +4915,7 @@ Edit on Github
         <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;`infer_range` argument has been deprecated&#39;</span><span class="p">,</span>
                       <span class="ne">DeprecationWarning</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">ctx</span> <span class="o">=</span> <span class="n">current_context</span><span class="p">()</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="n">current_device</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">_internal</span><span class="o">.</span><span class="n">_arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">step</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="n">repeat</span><span class="p">,</span>
                              <span class="n">infer_range</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">ctx</span><span class="p">))</span></div>
 <span class="c1"># pylint: enable= no-member, protected-access, too-many-arguments</span>
@@ -4944,7 +4961,7 @@ Edit on Github
 <span class="sd">    array([ 2.,  2.2.,  2.4,  2.6,  2.8], dtype=float32)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">ctx</span> <span class="o">=</span> <span class="n">current_context</span><span class="p">()</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="n">current_device</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">_internal</span><span class="o">.</span><span class="n">_linspace</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">stop</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="n">num</span><span class="p">,</span>
                                <span class="n">endpoint</span><span class="o">=</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">ctx</span><span class="p">))</span></div>
 <span class="c1"># pylint: disable= no-member, protected-access, too-many-arguments</span>
@@ -6176,7 +6193,7 @@ Edit on Github
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># pylint: disable= unused-argument</span>
     <span class="k">if</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">ctx</span> <span class="o">=</span> <span class="n">current_context</span><span class="p">()</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="n">current_device</span><span class="p">()</span>
     <span class="n">dtype</span> <span class="o">=</span> <span class="n">mx_real_t</span> <span class="k">if</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">dtype</span>
     <span class="c1"># pylint: disable= no-member, protected-access</span>
     <span class="k">return</span> <span class="n">_internal</span><span class="o">.</span><span class="n">_zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -6218,7 +6235,7 @@ Edit on Github
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># pylint: disable= unused-argument</span>
     <span class="k">if</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">ctx</span> <span class="o">=</span> <span class="n">current_context</span><span class="p">()</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="n">current_device</span><span class="p">()</span>
     <span class="n">dtype</span> <span class="o">=</span> <span class="n">mx_real_t</span> <span class="k">if</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">dtype</span>
     <span class="c1"># pylint: disable= no-member, protected-access</span>
     <span class="k">return</span> <span class="n">_internal</span><span class="o">.</span><span class="n">_eye</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="n">M</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
@@ -6246,7 +6263,7 @@ Edit on Github
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
         <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="p">)</span>
     <span class="k">if</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">ctx</span> <span class="o">=</span> <span class="n">current_context</span><span class="p">()</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="n">current_device</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">dtype</span> <span class="o">=</span> <span class="n">mx_real_t</span>
     <span class="k">return</span> <span class="n">NDArray</span><span class="p">(</span><span class="n">handle</span><span class="o">=</span><span class="n">_new_alloc_handle</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="p">))</span>

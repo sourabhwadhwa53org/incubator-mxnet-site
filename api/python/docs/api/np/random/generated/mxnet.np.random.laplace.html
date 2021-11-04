@@ -622,7 +622,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -740,7 +740,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1217,7 +1217,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1335,7 +1335,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1366,7 +1366,7 @@ Edit on Github
 <h1>mxnet.np.random.laplace<a class="headerlink" href="#mxnet-np-random-laplace" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="mxnet.np.random.laplace">
-<code class="sig-name descname">laplace</code><span class="sig-paren">(</span><em class="sig-param">loc=0.0</em>, <em class="sig-param">scale=1.0</em>, <em class="sig-param">size=None</em>, <em class="sig-param">dtype=None</em>, <em class="sig-param">ctx=None</em>, <em class="sig-param">out=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.np.random.laplace" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">laplace</code><span class="sig-paren">(</span><em class="sig-param">loc=0.0</em>, <em class="sig-param">scale=1.0</em>, <em class="sig-param">size=None</em>, <em class="sig-param">dtype=None</em>, <em class="sig-param">device=None</em>, <em class="sig-param">out=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.np.random.laplace" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw random samples from a Laplace distribution.</p>
 <p>Samples are distributed according to a Laplace distribution parametrized
 by <em>loc</em> (mean) and <em>scale</em> (the exponential decay).</p>
@@ -1378,7 +1378,7 @@ by <em>loc</em> (mean) and <em>scale</em> (the exponential decay).</p>
 <li><p><strong>size</strong> (<em>int</em><em> or </em><em>tuple of ints</em><em>, </em><em>optional. Output shape.</em>) – If the given shape is, e.g., (m, n, k), then m * n * k samples are drawn.
 Default is None, in which case a single value is returned.</p></li>
 <li><p><strong>dtype</strong> (<em>{'float16'</em><em>, </em><em>'float32'</em><em>, </em><em>'float64'}</em><em>, </em><em>optional</em>) – Data type of output samples. Default is ‘float32’</p></li>
-<li><p><strong>ctx</strong> (<a class="reference internal" href="../../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a><em>, </em><em>optional</em>) – Device context of output. Default is current context.</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../../device/index.html#mxnet.device.Device" title="mxnet.device.Device"><em>Device</em></a><em>, </em><em>optional</em>) – Device context of output. Default is current device.</p></li>
 <li><p><strong>out</strong> (<code class="docutils literal notranslate"><span class="pre">ndarray</span></code>, optional) – Store output to an existing <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>.</p></li>
 </ul>
 </dd>

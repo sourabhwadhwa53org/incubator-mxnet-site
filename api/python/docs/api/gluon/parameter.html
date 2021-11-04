@@ -620,7 +620,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -738,7 +738,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1215,7 +1215,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1333,7 +1333,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1367,16 +1367,16 @@ Edit on Github
 <em class="property">class </em><code class="sig-name descname">Parameter</code><span class="sig-paren">(</span><em class="sig-param">name='weight'</em>, <em class="sig-param">grad_req='write'</em>, <em class="sig-param">shape=None</em>, <em class="sig-param">dtype=&lt;class 'numpy.float32'&gt;</em>, <em class="sig-param">lr_mult=1.0</em>, <em class="sig-param">wd_mult=1.0</em>, <em class="sig-param">init=None</em>, <em class="sig-param">allow_deferred_init=False</em>, <em class="sig-param">differentiable=True</em>, <em class="sig-param">stype='default'</em>, <em class="sig-param">grad_stype='default'</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/gluon/parameter.html#Parameter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.gluon.Parameter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A Container holding parameters (weights) of Blocks.</p>
-<p><a class="reference internal" href="#mxnet.gluon.Parameter" title="mxnet.gluon.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a> holds a copy of the parameter on each <code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code> after
+<p><a class="reference internal" href="#mxnet.gluon.Parameter" title="mxnet.gluon.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a> holds a copy of the parameter on each <code class="xref py py-class docutils literal notranslate"><span class="pre">Device</span></code> after
 it is initialized with <code class="docutils literal notranslate"><span class="pre">Parameter.initialize(...)</span></code>. If <a class="reference internal" href="#mxnet.gluon.Parameter.grad_req" title="mxnet.gluon.Parameter.grad_req"><code class="xref py py-attr docutils literal notranslate"><span class="pre">grad_req</span></code></a> is
-not <code class="docutils literal notranslate"><span class="pre">'null'</span></code>, it will also hold a gradient array on each <code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ctx</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">16</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
+not <code class="docutils literal notranslate"><span class="pre">'null'</span></code>, it will also hold a gradient array on each <code class="xref py py-class docutils literal notranslate"><span class="pre">Device</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">device</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">16</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
 <span class="n">w</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">gluon</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;fc_weight&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">init</span><span class="o">=</span><span class="n">mx</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">Xavier</span><span class="p">())</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">gluon</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;fc_bias&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">64</span><span class="p">,),</span> <span class="n">init</span><span class="o">=</span><span class="n">mx</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">Zero</span><span class="p">())</span>
-<span class="n">w</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
-<span class="n">b</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
-<span class="n">out</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">npx</span><span class="o">.</span><span class="n">fully_connected</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">ctx</span><span class="p">),</span> <span class="n">b</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">ctx</span><span class="p">),</span> <span class="n">num_hidden</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
+<span class="n">w</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">npx</span><span class="o">.</span><span class="n">fully_connected</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">b</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">num_hidden</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>Methods</strong></p>
@@ -1389,41 +1389,47 @@ not <code class="docutils literal notranslate"><span class="pre">'null'</span></
 <tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.gluon.Parameter.cast" title="mxnet.gluon.Parameter.cast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cast</span></code></a>(dtype)</p></td>
 <td><p>Cast data and gradient of this Parameter to a new data type.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.gluon.Parameter.data" title="mxnet.gluon.Parameter.data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data</span></code></a>([ctx])</p></td>
-<td><p>Returns a copy of this parameter on one context.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.gluon.Parameter.data" title="mxnet.gluon.Parameter.data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data</span></code></a>([device])</p></td>
+<td><p>Returns a copy of this parameter on one device.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.gluon.Parameter.grad" title="mxnet.gluon.Parameter.grad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">grad</span></code></a>([ctx])</p></td>
-<td><p>Returns a gradient buffer for this parameter on one context.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.gluon.Parameter.grad" title="mxnet.gluon.Parameter.grad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">grad</span></code></a>([device])</p></td>
+<td><p>Returns a gradient buffer for this parameter on one device.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.gluon.Parameter.initialize" title="mxnet.gluon.Parameter.initialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialize</span></code></a>([init, ctx, default_init, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.gluon.Parameter.initialize" title="mxnet.gluon.Parameter.initialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialize</span></code></a>([init, device, default_init, …])</p></td>
 <td><p>Initializes parameter and gradient arrays.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.gluon.Parameter.list_ctx" title="mxnet.gluon.Parameter.list_ctx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_ctx</span></code></a>()</p></td>
-<td><p>Returns a list of contexts this parameter is initialized on.</p></td>
+<td><p>This function has been deprecated.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#mxnet.gluon.Parameter.list_data" title="mxnet.gluon.Parameter.list_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_data</span></code></a>()</p></td>
-<td><p>Returns copies of this parameter on all contexts, in the same order as creation.</p></td>
+<td><p>Returns copies of this parameter on all devices, in the same order as creation.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.gluon.Parameter.list_grad" title="mxnet.gluon.Parameter.list_grad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_grad</span></code></a>()</p></td>
-<td><p>Returns gradient buffers on all contexts, in the same order as <code class="xref py py-meth docutils literal notranslate"><span class="pre">values()</span></code>.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.gluon.Parameter.list_device" title="mxnet.gluon.Parameter.list_device"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_device</span></code></a>()</p></td>
+<td><p>Returns a list of devices this parameter is initialized on.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.gluon.Parameter.list_row_sparse_data" title="mxnet.gluon.Parameter.list_row_sparse_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_row_sparse_data</span></code></a>(row_id)</p></td>
-<td><p>Returns copies of the ‘row_sparse’ parameter on all contexts, in the same order as creation.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.gluon.Parameter.list_grad" title="mxnet.gluon.Parameter.list_grad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_grad</span></code></a>()</p></td>
+<td><p>Returns gradient buffers on all devices, in the same order as <code class="xref py py-meth docutils literal notranslate"><span class="pre">values()</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.gluon.Parameter.reset_ctx" title="mxnet.gluon.Parameter.reset_ctx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_ctx</span></code></a>(ctx)</p></td>
-<td><p>Re-assign Parameter to other contexts.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.gluon.Parameter.list_row_sparse_data" title="mxnet.gluon.Parameter.list_row_sparse_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_row_sparse_data</span></code></a>(row_id)</p></td>
+<td><p>Returns copies of the ‘row_sparse’ parameter on all devices, in the same order as creation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.gluon.Parameter.reset_ctx" title="mxnet.gluon.Parameter.reset_ctx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_ctx</span></code></a>(ctx)</p></td>
+<td><p>This function has been deprecated.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.gluon.Parameter.reset_device" title="mxnet.gluon.Parameter.reset_device"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_device</span></code></a>(device)</p></td>
+<td><p>Re-assign Parameter to other devices.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#mxnet.gluon.Parameter.row_sparse_data" title="mxnet.gluon.Parameter.row_sparse_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">row_sparse_data</span></code></a>(row_id)</p></td>
-<td><p>Returns a copy of the ‘row_sparse’ parameter on the same context as row_id’s.</p></td>
+<td><p>Returns a copy of the ‘row_sparse’ parameter on the same device as row_id’s.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.gluon.Parameter.set_data" title="mxnet.gluon.Parameter.set_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_data</span></code></a>(data)</p></td>
-<td><p>Sets this parameter’s value on all contexts.</p></td>
+<td><p>Sets this parameter’s value on all devices.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#mxnet.gluon.Parameter.var" title="mxnet.gluon.Parameter.var"><code class="xref py py-obj docutils literal notranslate"><span class="pre">var</span></code></a>()</p></td>
 <td><p>Returns a symbol representing this parameter.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.gluon.Parameter.zero_grad" title="mxnet.gluon.Parameter.zero_grad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zero_grad</span></code></a>()</p></td>
-<td><p>Sets gradient buffer on all contexts to 0.</p></td>
+<td><p>Sets gradient buffer on all devices to 0.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1519,19 +1525,19 @@ is calculated with <code class="docutils literal notranslate"><span class="pre">
 
 <dl class="method">
 <dt id="mxnet.gluon.Parameter.data">
-<code class="sig-name descname">data</code><span class="sig-paren">(</span><em class="sig-param">ctx=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/gluon/parameter.html#Parameter.data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.gluon.Parameter.data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a copy of this parameter on one context. Must have been
-initialized on this context before. For sparse parameters, use
+<code class="sig-name descname">data</code><span class="sig-paren">(</span><em class="sig-param">device=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/gluon/parameter.html#Parameter.data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.gluon.Parameter.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a copy of this parameter on one device. Must have been
+initialized on this device before. For sparse parameters, use
 <a class="reference internal" href="#mxnet.gluon.Parameter.row_sparse_data" title="mxnet.gluon.Parameter.row_sparse_data"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Parameter.row_sparse_data()</span></code></a> instead.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>ctx</strong> (<a class="reference internal" href="../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a>) – Desired context.</p>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../device/index.html#mxnet.device.Device" title="mxnet.device.Device"><em>Device</em></a>) – Desired device.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p></p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>NDArray on ctx</p>
+<dd class="field-odd"><p>NDArray on device</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1545,25 +1551,25 @@ initialized on this context before. For sparse parameters, use
 
 <dl class="method">
 <dt id="mxnet.gluon.Parameter.grad">
-<code class="sig-name descname">grad</code><span class="sig-paren">(</span><em class="sig-param">ctx=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/gluon/parameter.html#Parameter.grad"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.gluon.Parameter.grad" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a gradient buffer for this parameter on one context.</p>
+<code class="sig-name descname">grad</code><span class="sig-paren">(</span><em class="sig-param">device=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/gluon/parameter.html#Parameter.grad"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.gluon.Parameter.grad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a gradient buffer for this parameter on one device.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>ctx</strong> (<a class="reference internal" href="../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a>) – Desired context.</p>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../device/index.html#mxnet.device.Device" title="mxnet.device.Device"><em>Device</em></a>) – Desired device.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="mxnet.gluon.Parameter.initialize">
-<code class="sig-name descname">initialize</code><span class="sig-paren">(</span><em class="sig-param">init=None</em>, <em class="sig-param">ctx=None</em>, <em class="sig-param">default_init=&lt;mxnet.initializer.Uniform object&gt;</em>, <em class="sig-param">force_reinit=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/gluon/parameter.html#Parameter.initialize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.gluon.Parameter.initialize" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">initialize</code><span class="sig-paren">(</span><em class="sig-param">init=None</em>, <em class="sig-param">device=None</em>, <em class="sig-param">default_init=&lt;mxnet.initializer.Uniform object&gt;</em>, <em class="sig-param">force_reinit=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/gluon/parameter.html#Parameter.initialize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.gluon.Parameter.initialize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initializes parameter and gradient arrays. Only used for <code class="xref py py-class docutils literal notranslate"><span class="pre">NDArray</span></code> API.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>init</strong> (<a class="reference internal" href="../initializer/index.html#mxnet.initializer.Initializer" title="mxnet.initializer.Initializer"><em>Initializer</em></a>) – The initializer to use. Overrides <code class="xref py py-meth docutils literal notranslate"><span class="pre">Parameter.init()</span></code> and default_init.</p></li>
-<li><p><strong>ctx</strong> (Context or list of Context, defaults to <code class="xref py py-meth docutils literal notranslate"><span class="pre">context.current_context()</span></code>.) – <p>Initialize Parameter on given context. If ctx is a list of Context, a
-copy will be made for each context.</p>
+<li><p><strong>device</strong> (Device or list of Device, default <code class="xref py py-meth docutils literal notranslate"><span class="pre">device.current_device()</span></code>.) – <p>Assign Parameter to given device. If device is a list of Device, a
+copy will be made for each device.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Copies are independent arrays. User is responsible for keeping
@@ -1579,7 +1585,7 @@ and <code class="xref py py-meth docutils literal notranslate"><span class="pre"
 </dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">weight</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">gluon</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">weight</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">ctx</span><span class="o">=</span><span class="n">mx</span><span class="o">.</span><span class="n">cpu</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">weight</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">mx</span><span class="o">.</span><span class="n">cpu</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="p">()</span>
 <span class="go">[[-0.01068833  0.01729892]</span>
 <span class="go"> [ 0.02042518 -0.01618656]]</span>
@@ -1588,7 +1594,7 @@ and <code class="xref py py-meth docutils literal notranslate"><span class="pre"
 <span class="go">[[ 0.  0.]</span>
 <span class="go"> [ 0.  0.]]</span>
 <span class="go">&lt;NDArray 2x2 @cpu(0)&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">weight</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">ctx</span><span class="o">=</span><span class="p">[</span><span class="n">mx</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">mx</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="mi">1</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">weight</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="p">[</span><span class="n">mx</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">mx</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="mi">1</span><span class="p">)])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">mx</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 <span class="go">[[-0.00873779 -0.02834515]</span>
 <span class="go"> [ 0.05484822 -0.06206018]]</span>
@@ -1604,13 +1610,13 @@ and <code class="xref py py-meth docutils literal notranslate"><span class="pre"
 <dl class="method">
 <dt id="mxnet.gluon.Parameter.list_ctx">
 <code class="sig-name descname">list_ctx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/gluon/parameter.html#Parameter.list_ctx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.gluon.Parameter.list_ctx" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a list of contexts this parameter is initialized on.</p>
+<dd><p>This function has been deprecated. Please refer to <code class="docutils literal notranslate"><span class="pre">Parameter.list_device</span></code>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mxnet.gluon.Parameter.list_data">
 <code class="sig-name descname">list_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/gluon/parameter.html#Parameter.list_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.gluon.Parameter.list_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns copies of this parameter on all contexts, in the same order
+<dd><p>Returns copies of this parameter on all devices, in the same order
 as creation. For sparse parameters, use <a class="reference internal" href="#mxnet.gluon.Parameter.list_row_sparse_data" title="mxnet.gluon.Parameter.list_row_sparse_data"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Parameter.list_row_sparse_data()</span></code></a>
 instead.</p>
 <dl class="field-list simple">
@@ -1624,16 +1630,22 @@ instead.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="mxnet.gluon.Parameter.list_device">
+<code class="sig-name descname">list_device</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/gluon/parameter.html#Parameter.list_device"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.gluon.Parameter.list_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of devices this parameter is initialized on.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="mxnet.gluon.Parameter.list_grad">
 <code class="sig-name descname">list_grad</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/gluon/parameter.html#Parameter.list_grad"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.gluon.Parameter.list_grad" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns gradient buffers on all contexts, in the same order
+<dd><p>Returns gradient buffers on all devices, in the same order
 as <code class="xref py py-meth docutils literal notranslate"><span class="pre">values()</span></code>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mxnet.gluon.Parameter.list_row_sparse_data">
 <code class="sig-name descname">list_row_sparse_data</code><span class="sig-paren">(</span><em class="sig-param">row_id</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/gluon/parameter.html#Parameter.list_row_sparse_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.gluon.Parameter.list_row_sparse_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns copies of the ‘row_sparse’ parameter on all contexts, in the same order
+<dd><p>Returns copies of the ‘row_sparse’ parameter on all devices, in the same order
 as creation. The copy only retains rows whose ids occur in provided row ids.
 The parameter must have been initialized before.</p>
 <dl class="field-list simple">
@@ -1652,11 +1664,17 @@ The parameter must have been initialized before.</p>
 <dl class="method">
 <dt id="mxnet.gluon.Parameter.reset_ctx">
 <code class="sig-name descname">reset_ctx</code><span class="sig-paren">(</span><em class="sig-param">ctx</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/gluon/parameter.html#Parameter.reset_ctx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.gluon.Parameter.reset_ctx" title="Permalink to this definition">¶</a></dt>
-<dd><p>Re-assign Parameter to other contexts.</p>
+<dd><p>This function has been deprecated. Please refer to <code class="docutils literal notranslate"><span class="pre">Parameter.reset_device</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mxnet.gluon.Parameter.reset_device">
+<code class="sig-name descname">reset_device</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/gluon/parameter.html#Parameter.reset_device"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.gluon.Parameter.reset_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Re-assign Parameter to other devices.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>ctx</strong> (Context or list of Context, default <code class="docutils literal notranslate"><span class="pre">context.current_context()</span></code>.) – Assign Parameter to given context. If ctx is a list of Context, a
-copy will be made for each context.</p>
+<dd class="field-odd"><p><strong>device</strong> (Device or list of Device, default <code class="docutils literal notranslate"><span class="pre">device.current_device()</span></code>.) – Assign Parameter to given device. If device is a list of Device, a
+copy will be made for each device.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1664,9 +1682,9 @@ copy will be made for each context.</p>
 <dl class="method">
 <dt id="mxnet.gluon.Parameter.row_sparse_data">
 <code class="sig-name descname">row_sparse_data</code><span class="sig-paren">(</span><em class="sig-param">row_id</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/gluon/parameter.html#Parameter.row_sparse_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.gluon.Parameter.row_sparse_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a copy of the ‘row_sparse’ parameter on the same context as row_id’s.
+<dd><p>Returns a copy of the ‘row_sparse’ parameter on the same device as row_id’s.
 The copy only retains rows whose ids occur in provided row ids.
-The parameter must have been initialized on this context before.</p>
+The parameter must have been initialized on this device before.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>row_id</strong> (<a class="reference internal" href="../legacy/ndarray/ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a>) – Row ids to retain for the ‘row_sparse’ parameter.</p>
@@ -1675,7 +1693,7 @@ The parameter must have been initialized on this context before.</p>
 <dd class="field-even"><p></p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>NDArray on row_id’s context</p>
+<dd class="field-odd"><p>NDArray on row_id’s device</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1683,7 +1701,7 @@ The parameter must have been initialized on this context before.</p>
 <dl class="method">
 <dt id="mxnet.gluon.Parameter.set_data">
 <code class="sig-name descname">set_data</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/gluon/parameter.html#Parameter.set_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.gluon.Parameter.set_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets this parameter’s value on all contexts.</p>
+<dd><p>Sets this parameter’s value on all devices.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1703,7 +1721,7 @@ is turned on, unknown dimension size is -1.</p>
 <dl class="method">
 <dt id="mxnet.gluon.Parameter.zero_grad">
 <code class="sig-name descname">zero_grad</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mxnet/gluon/parameter.html#Parameter.zero_grad"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.gluon.Parameter.zero_grad" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets gradient buffer on all contexts to 0. No action is taken if
+<dd><p>Sets gradient buffer on all devices to 0. No action is taken if
 parameter is uninitialized or doesn’t require gradient.</p>
 </dd></dl>
 

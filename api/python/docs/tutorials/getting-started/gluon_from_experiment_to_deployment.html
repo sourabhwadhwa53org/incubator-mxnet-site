@@ -620,7 +620,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -738,7 +738,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1215,7 +1215,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1333,7 +1333,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1649,10 +1649,10 @@ Downloading ./data/setid.mat from http://www.robots.ox.ac.uk/~vgg/data/flowers/1
 <span class="c1"># learning rate change at following epochs</span>
 <span class="n">lr_epochs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
 
-<span class="n">num_gpus</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">num_gpus</span><span class="p">()</span>
+<span class="n">num_gpus</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">num_gpus</span><span class="p">()</span>
 <span class="c1"># you can replace num_workers with the number of cores on you device</span>
 <span class="n">num_workers</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="n">ctx</span> <span class="o">=</span> <span class="p">[</span><span class="n">mx</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_gpus</span><span class="p">)]</span> <span class="k">if</span> <span class="n">num_gpus</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">[</span><span class="n">mx</span><span class="o">.</span><span class="n">cpu</span><span class="p">()]</span>
+<span class="n">device</span> <span class="o">=</span> <span class="p">[</span><span class="n">mx</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_gpus</span><span class="p">)]</span> <span class="k">if</span> <span class="n">num_gpus</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">[</span><span class="n">mx</span><span class="o">.</span><span class="n">cpu</span><span class="p">()]</span>
 <span class="n">batch_size</span> <span class="o">=</span> <span class="n">per_device_batch_size</span> <span class="o">*</span> <span class="nb">max</span><span class="p">(</span><span class="n">num_gpus</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1718,7 +1718,7 @@ API</span></a> to load the images and apply the following data augmentations: 1.
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[10:45:45] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
+[16:56:08] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 </div>
@@ -1733,11 +1733,11 @@ tutorial</span></a>.</p>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># load pre-trained resnet50_v2 from model zoo</span>
-<span class="n">finetune_net</span> <span class="o">=</span> <span class="n">resnet50_v2</span><span class="p">(</span><span class="n">pretrained</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
+<span class="n">finetune_net</span> <span class="o">=</span> <span class="n">resnet50_v2</span><span class="p">(</span><span class="n">pretrained</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
 
 <span class="c1"># change last softmax layer since number of classes are different</span>
 <span class="n">finetune_net</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">classes</span><span class="p">)</span>
-<span class="n">finetune_net</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">init</span><span class="o">.</span><span class="n">Xavier</span><span class="p">(),</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
+<span class="n">finetune_net</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">init</span><span class="o">.</span><span class="n">Xavier</span><span class="p">(),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
 <span class="c1"># hybridize for better performance</span>
 <span class="n">finetune_net</span><span class="o">.</span><span class="n">hybridize</span><span class="p">()</span>
 
@@ -1761,7 +1761,7 @@ tutorial</span></a>.</p>
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[10:45:49] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for GPU
+[16:56:12] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for GPU
 </pre></div></div>
 </div>
 </div>
@@ -1773,11 +1773,11 @@ tutorial</span></a>.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">val_data</span><span class="p">,</span> <span class="n">ctx</span><span class="p">):</span>
+<span></span><span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">val_data</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
     <span class="n">metric</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">gluon</span><span class="o">.</span><span class="n">metric</span><span class="o">.</span><span class="n">Accuracy</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">val_data</span><span class="p">):</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">split_and_load</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">ctx_list</span><span class="o">=</span><span class="n">ctx</span><span class="p">,</span> <span class="n">even_split</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-        <span class="n">label</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">split_and_load</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">ctx_list</span><span class="o">=</span><span class="n">ctx</span><span class="p">,</span> <span class="n">even_split</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">split_and_load</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">even_split</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">split_and_load</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">even_split</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
         <span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">net</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]</span>
         <span class="n">metric</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">outputs</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">metric</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
@@ -1793,8 +1793,8 @@ tutorial</span></a>.</p>
 
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_data</span><span class="p">):</span>
         <span class="c1"># get the images and labels</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">split_and_load</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">ctx_list</span><span class="o">=</span><span class="n">ctx</span><span class="p">,</span> <span class="n">even_split</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-        <span class="n">label</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">split_and_load</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">ctx_list</span><span class="o">=</span><span class="n">ctx</span><span class="p">,</span> <span class="n">even_split</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">split_and_load</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">even_split</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">split_and_load</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">even_split</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
         <span class="k">with</span> <span class="n">autograd</span><span class="o">.</span><span class="n">record</span><span class="p">():</span>
             <span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">finetune_net</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]</span>
             <span class="n">loss</span> <span class="o">=</span> <span class="p">[</span><span class="n">softmax_cross_entropy</span><span class="p">(</span><span class="n">yhat</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">yhat</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">label</span><span class="p">)]</span>
@@ -1807,12 +1807,12 @@ tutorial</span></a>.</p>
 
     <span class="n">_</span><span class="p">,</span> <span class="n">train_acc</span> <span class="o">=</span> <span class="n">metric</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
     <span class="n">train_loss</span> <span class="o">/=</span> <span class="n">num_batch</span>
-    <span class="n">_</span><span class="p">,</span> <span class="n">val_acc</span> <span class="o">=</span> <span class="n">test</span><span class="p">(</span><span class="n">finetune_net</span><span class="p">,</span> <span class="n">val_data</span><span class="p">,</span> <span class="n">ctx</span><span class="p">)</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">val_acc</span> <span class="o">=</span> <span class="n">test</span><span class="p">(</span><span class="n">finetune_net</span><span class="p">,</span> <span class="n">val_data</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
 
     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;[Epoch </span><span class="si">%d</span><span class="s1">] Train-acc: </span><span class="si">%.3f</span><span class="s1">, loss: </span><span class="si">%.3f</span><span class="s1"> | Val-acc: </span><span class="si">%.3f</span><span class="s1"> | learning-rate: </span><span class="si">%.3E</span><span class="s1"> | time: </span><span class="si">%.1f</span><span class="s1">&#39;</span> <span class="o">%</span>
           <span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">train_acc</span><span class="p">,</span> <span class="n">train_loss</span><span class="p">,</span> <span class="n">val_acc</span><span class="p">,</span> <span class="n">trainer</span><span class="o">.</span><span class="n">learning_rate</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">tic</span><span class="p">))</span>
 
-<span class="n">_</span><span class="p">,</span> <span class="n">test_acc</span> <span class="o">=</span> <span class="n">test</span><span class="p">(</span><span class="n">finetune_net</span><span class="p">,</span> <span class="n">test_data</span><span class="p">,</span> <span class="n">ctx</span><span class="p">)</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">test_acc</span> <span class="o">=</span> <span class="n">test</span><span class="p">(</span><span class="n">finetune_net</span><span class="p">,</span> <span class="n">test_data</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;[Finished] Test-acc: </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">test_acc</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1822,8 +1822,8 @@ tutorial</span></a>.</p>
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[10:45:51] /work/mxnet/src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:106: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
-[10:46:58] /work/mxnet/src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:106: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+[16:56:15] /work/mxnet/src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:106: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+[16:57:20] /work/mxnet/src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:106: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1831,8 +1831,8 @@ tutorial</span></a>.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[Epoch 1] Train-acc: 0.337, loss: 3.251 | Val-acc: 0.483 | learning-rate: 1.000E-03 | time: 68.7
-[Finished] Test-acc: 0.464
+[Epoch 1] Train-acc: 0.332, loss: 3.276 | Val-acc: 0.474 | learning-rate: 1.000E-03 | time: 67.4
+[Finished] Test-acc: 0.450
 </pre></div></div>
 </div>
 <p>Following is the training result:</p>

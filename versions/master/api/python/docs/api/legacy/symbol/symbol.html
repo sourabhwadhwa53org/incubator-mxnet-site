@@ -621,7 +621,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -739,7 +739,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1216,7 +1216,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1334,7 +1334,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -14261,7 +14261,7 @@ This function allows simpler syntax for less cumbersome introspection.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ctx</strong> (<a class="reference internal" href="../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a>) – The device context the generated executor to run on.</p></li>
+<li><p><strong>ctx</strong> (<em>Context</em>) – The device context the generated executor to run on.</p></li>
 <li><p><strong>kwargs</strong> (Keyword arguments of type <cite>NDArray</cite>) – Input arguments to the symbol. All the arguments must be provided.</p></li>
 </ul>
 </dd>
@@ -14934,7 +14934,7 @@ don’t have to be specified in the dict.</p></li>
 <li><p><strong>aux</strong> (<em>dict of str to NDArray</em><em>, </em><em>optional</em>) – Input auxiliary arguments to the symbol
 If type is a dict of str to <code class="xref py py-class docutils literal notranslate"><span class="pre">NDArray</span></code>, then it maps the name of arguments
 to the corresponding <code class="xref py py-class docutils literal notranslate"><span class="pre">NDArray</span></code>.</p></li>
-<li><p><strong>ctx</strong> (<a class="reference internal" href="../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a><em>, </em><em>optional</em>) – Device context, used to infer stypes</p></li>
+<li><p><strong>ctx</strong> (<em>Context</em><em>, </em><em>optional</em>) – Device context, used to infer stypes</p></li>
 <li><p><strong>shape_dict</strong> (<em>Dict of str-&gt;tuple</em><em>, </em><em>optional</em>) – Input shape dictionary.
 Used iff input <code class="xref py py-class docutils literal notranslate"><span class="pre">NDArray</span></code> is not in <code class="docutils literal notranslate"><span class="pre">args</span></code>.</p></li>
 <li><p><strong>type_dict</strong> (<em>Dict of str-&gt;numpy.dtype</em><em>, </em><em>optional</em>) – Input type dictionary.

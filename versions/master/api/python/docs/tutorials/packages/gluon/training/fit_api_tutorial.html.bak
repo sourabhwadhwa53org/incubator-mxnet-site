@@ -622,7 +622,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -740,7 +740,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1217,7 +1217,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1335,7 +1335,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1585,8 +1585,8 @@ div.rendered_html tbody tr:hover {
 <span class="kn">from</span> <span class="nn">mxnet.gluon.contrib.estimator</span> <span class="kn">import</span> <span class="n">estimator</span>
 <span class="kn">from</span> <span class="nn">mxnet.gluon.contrib.estimator.event_handler</span> <span class="kn">import</span> <span class="n">TrainBegin</span><span class="p">,</span> <span class="n">TrainEnd</span><span class="p">,</span> <span class="n">EpochEnd</span><span class="p">,</span> <span class="n">CheckpointHandler</span>
 
-<span class="n">gpu_count</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">num_gpus</span><span class="p">()</span>
-<span class="n">ctx</span> <span class="o">=</span> <span class="p">[</span><span class="n">mx</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">gpu_count</span><span class="p">)]</span> <span class="k">if</span> <span class="n">gpu_count</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">mx</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
+<span class="n">gpu_count</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">num_gpus</span><span class="p">()</span>
+<span class="n">device</span> <span class="o">=</span> <span class="p">[</span><span class="n">mx</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">gpu_count</span><span class="p">)]</span> <span class="k">if</span> <span class="n">gpu_count</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">mx</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1661,7 +1661,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="n">resnet_18_v1</span> <span class="o">=</span> <span class="n">vision</span><span class="o">.</span><span class="n">resnet18_v1</span><span class="p">(</span><span class="n">pretrained</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">classes</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
-<span class="n">resnet_18_v1</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">init</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">Xavier</span><span class="p">(),</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
+<span class="n">resnet_18_v1</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">init</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">Xavier</span><span class="p">(),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1702,12 +1702,12 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="n">train_acc</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">gluon</span><span class="o">.</span><span class="n">metric</span><span class="o">.</span><span class="n">Accuracy</span><span class="p">()</span> <span class="c1"># Metric to monitor</span>
 
-<span class="c1"># Define the estimator, by passing to it the model, loss function, metrics, trainer object and context</span>
+<span class="c1"># Define the estimator, by passing to it the model, loss function, metrics, trainer object and device</span>
 <span class="n">est</span> <span class="o">=</span> <span class="n">estimator</span><span class="o">.</span><span class="n">Estimator</span><span class="p">(</span><span class="n">net</span><span class="o">=</span><span class="n">resnet_18_v1</span><span class="p">,</span>
                           <span class="n">loss</span><span class="o">=</span><span class="n">loss_fn</span><span class="p">,</span>
                           <span class="n">train_metrics</span><span class="o">=</span><span class="n">train_acc</span><span class="p">,</span>
                           <span class="n">trainer</span><span class="o">=</span><span class="n">trainer</span><span class="p">,</span>
-                          <span class="n">context</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
+                          <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
 
 <span class="c1"># ignore warnings for nightly test on CI only</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
@@ -1778,7 +1778,7 @@ handlers</a> including: <code class="docutils literal notranslate"><span class="
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Let&#39;s reset the model, trainer and accuracy objects from above</span>
 
-<span class="n">resnet_18_v1</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">force_reinit</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">init</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">Xavier</span><span class="p">(),</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
+<span class="n">resnet_18_v1</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">force_reinit</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">init</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">Xavier</span><span class="p">(),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
 <span class="n">trainer</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">Trainer</span><span class="p">(</span><span class="n">resnet_18_v1</span><span class="o">.</span><span class="n">collect_params</span><span class="p">(),</span>
                         <span class="s1">&#39;sgd&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="n">learning_rate</span><span class="p">})</span>
 <span class="n">train_acc</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">gluon</span><span class="o">.</span><span class="n">metric</span><span class="o">.</span><span class="n">Accuracy</span><span class="p">()</span>
@@ -1790,12 +1790,12 @@ handlers</a> including: <code class="docutils literal notranslate"><span class="
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Define the estimator, by passing to it the model, loss function, metrics, trainer object and context</span>
+<span></span><span class="c1"># Define the estimator, by passing to it the model, loss function, metrics, trainer object and device</span>
 <span class="n">est</span> <span class="o">=</span> <span class="n">estimator</span><span class="o">.</span><span class="n">Estimator</span><span class="p">(</span><span class="n">net</span><span class="o">=</span><span class="n">resnet_18_v1</span><span class="p">,</span>
                           <span class="n">loss</span><span class="o">=</span><span class="n">loss_fn</span><span class="p">,</span>
                           <span class="n">train_metrics</span><span class="o">=</span><span class="n">train_acc</span><span class="p">,</span>
                           <span class="n">trainer</span><span class="o">=</span><span class="n">trainer</span><span class="p">,</span>
-                          <span class="n">context</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
+                          <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
 
 <span class="c1"># Define the handlers, let&#39;s say in built Checkpointhandler</span>
 <span class="n">checkpoint_handler</span> <span class="o">=</span> <span class="n">CheckpointHandler</span><span class="p">(</span><span class="n">model_dir</span><span class="o">=</span><span class="s1">&#39;./&#39;</span><span class="p">,</span>
@@ -1837,7 +1837,7 @@ Epoch 2, loss 0.3229 &lt;!--notebook-skip-line--&gt;
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="n">resnet_18_v1</span> <span class="o">=</span> <span class="n">vision</span><span class="o">.</span><span class="n">resnet18_v1</span><span class="p">(</span><span class="n">pretrained</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">resnet_18_v1</span><span class="o">.</span><span class="n">load_parameters</span><span class="p">(</span><span class="s1">&#39;./my_model-best.params&#39;</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
+<span class="n">resnet_18_v1</span><span class="o">.</span><span class="n">load_parameters</span><span class="p">(</span><span class="s1">&#39;./my_model-best.params&#39;</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

@@ -617,7 +617,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -735,7 +735,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1212,7 +1212,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1330,7 +1330,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1381,7 +1381,12 @@ Edit on Github
 <span class="kn">import</span> <span class="nn">inspect</span>
 <span class="kn">import</span> <span class="nn">threading</span>
 
-<span class="kn">from</span> <span class="nn">.base</span> <span class="k">import</span> <span class="n">_LIB</span><span class="p">,</span> <span class="n">check_call</span><span class="p">,</span> <span class="n">c_str</span><span class="p">,</span> <span class="n">py_str</span>
+<span class="kn">from</span> <span class="nn">struct</span> <span class="k">import</span> <span class="n">calcsize</span>
+<span class="kn">from</span> <span class="nn">.base</span> <span class="k">import</span> <span class="p">(</span><span class="n">_LIB</span><span class="p">,</span> <span class="n">check_call</span><span class="p">,</span> <span class="n">c_str</span><span class="p">,</span> <span class="n">py_str</span><span class="p">,</span>
+                   <span class="n">numeric_types</span><span class="p">,</span> <span class="n">integer_types</span><span class="p">,</span>
+                   <span class="n">_MAX_VALUE_64_BIT_UNSIGNED_</span><span class="p">,</span>
+                   <span class="n">_MAX_VALUE_64_BIT_SIGNED_</span><span class="p">,</span>
+                   <span class="n">_MAX_VALUE_FLOAT32_REPRESENT_</span><span class="p">)</span>
 
 
 <span class="n">_np_ufunc_default_kwargs</span> <span class="o">=</span> <span class="p">{</span>
@@ -2086,55 +2091,77 @@ Edit on Github
     <span class="k">return</span> <span class="n">_wrap_sort_func</span>
 
 
+<span class="k">def</span> <span class="nf">wrap_ctx_to_device_func</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A convenience decorator for converting ctx to device keyward backward compatibility</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    func : a function to be wrapped for context keyward change.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Function</span>
+<span class="sd">        A function wrapped with context keyward changes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">_wrap_func_with_ctx</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">device</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;ctx&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">device</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;device&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">device</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_wrap_func_with_ctx</span>
+
+
 <span class="c1"># pylint: disable=exec-used</span>
 <span class="k">def</span> <span class="nf">numpy_fallback</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;decorator for falling back to offical numpy for a specific function&quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">get_ctx</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">new_ctx</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">new_ctx</span>
+    <span class="k">def</span> <span class="nf">get_device</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">new_device</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">device</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">new_device</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">new_ctx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">new_ctx</span> <span class="o">=</span> <span class="n">ctx</span>
-            <span class="k">assert</span> <span class="n">ctx</span> <span class="o">==</span> <span class="n">new_ctx</span><span class="p">,</span> <span class="s2">&quot;inconsistent context </span><span class="si">%s</span><span class="s2"> and </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ctx</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">new_ctx</span><span class="p">))</span>
-            <span class="k">return</span> <span class="n">ctx</span>
+            <span class="k">if</span> <span class="n">new_device</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">new_device</span> <span class="o">=</span> <span class="n">device</span>
+            <span class="k">assert</span> <span class="n">device</span> <span class="o">==</span> <span class="n">new_device</span><span class="p">,</span> <span class="s2">&quot;inconsistent device </span><span class="si">%s</span><span class="s2"> and </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">new_device</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">device</span>
 
     <span class="k">def</span> <span class="nf">_as_official_np_array</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-        <span class="n">ctx</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">device</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="s1">&#39;asnumpy&#39;</span><span class="p">):</span>
-            <span class="k">return</span> <span class="nb">object</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">(),</span> <span class="nb">object</span><span class="o">.</span><span class="n">ctx</span>
+            <span class="k">return</span> <span class="nb">object</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">(),</span> <span class="nb">object</span><span class="o">.</span><span class="n">device</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
             <span class="n">tmp</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="k">for</span> <span class="n">arr</span> <span class="ow">in</span> <span class="nb">object</span><span class="p">:</span>
-                <span class="n">new_arr</span><span class="p">,</span> <span class="n">new_ctx</span> <span class="o">=</span> <span class="n">_as_official_np_array</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-                <span class="n">ctx</span> <span class="o">=</span> <span class="n">get_ctx</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">new_ctx</span><span class="p">)</span>
+                <span class="n">new_arr</span><span class="p">,</span> <span class="n">new_device</span> <span class="o">=</span> <span class="n">_as_official_np_array</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+                <span class="n">device</span> <span class="o">=</span> <span class="n">get_device</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">new_device</span><span class="p">)</span>
                 <span class="n">tmp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_arr</span><span class="p">)</span>
-            <span class="k">return</span> <span class="nb">object</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">tmp</span><span class="p">),</span> <span class="n">ctx</span>
+            <span class="k">return</span> <span class="nb">object</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">tmp</span><span class="p">),</span> <span class="n">device</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
             <span class="n">tmp</span> <span class="o">=</span> <span class="p">{}</span>
             <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">object</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                <span class="n">new_v</span><span class="p">,</span> <span class="n">new_ctx</span> <span class="o">=</span> <span class="n">_as_official_np_array</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-                <span class="n">ctx</span> <span class="o">=</span> <span class="n">get_ctx</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">new_ctx</span><span class="p">)</span>
+                <span class="n">new_v</span><span class="p">,</span> <span class="n">new_device</span> <span class="o">=</span> <span class="n">_as_official_np_array</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+                <span class="n">device</span> <span class="o">=</span> <span class="n">get_device</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">new_device</span><span class="p">)</span>
                 <span class="n">tmp</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_v</span>
-            <span class="k">return</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">ctx</span>
+            <span class="k">return</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">device</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="nb">object</span><span class="p">,</span> <span class="kc">None</span>
 
     <span class="kn">from</span> <span class="nn">.ndarray</span> <span class="k">import</span> <span class="n">from_numpy</span>
     <span class="kn">from</span> <span class="nn">.numpy</span> <span class="k">import</span> <span class="n">array</span>
-    <span class="kn">from</span> <span class="nn">.context</span> <span class="k">import</span> <span class="n">current_context</span>
-    <span class="k">def</span> <span class="nf">_as_mx_np_array</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">current_context</span><span class="p">()):</span>
+    <span class="kn">from</span> <span class="nn">.device</span> <span class="k">import</span> <span class="n">current_device</span>
+    <span class="k">def</span> <span class="nf">_as_mx_np_array</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">current_device</span><span class="p">()):</span>
         <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">_np</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">_np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">ret</span> <span class="o">=</span> <span class="n">from_numpy</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span><span class="o">.</span><span class="n">as_np_ndarray</span><span class="p">()</span>
             <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-                <span class="n">ret</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
-            <span class="k">return</span> <span class="p">(</span><span class="n">ret</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;cpu&#39;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">ctx</span><span class="p">))</span> <span class="k">else</span> <span class="n">ret</span><span class="o">.</span><span class="n">as_in_ctx</span><span class="p">(</span><span class="n">ctx</span><span class="p">))</span>
+                <span class="n">ret</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">ret</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;cpu&#39;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">device</span><span class="p">))</span> <span class="k">else</span> <span class="n">ret</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">device</span><span class="p">))</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
-            <span class="n">tmp</span> <span class="o">=</span> <span class="p">[</span><span class="n">_as_mx_np_array</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">ctx</span><span class="p">)</span> <span class="k">for</span> <span class="n">arr</span> <span class="ow">in</span> <span class="nb">object</span><span class="p">]</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="p">[</span><span class="n">_as_mx_np_array</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span> <span class="k">for</span> <span class="n">arr</span> <span class="ow">in</span> <span class="nb">object</span><span class="p">]</span>
             <span class="k">return</span> <span class="nb">object</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
-            <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">_as_mx_np_array</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">ctx</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">object</span><span class="p">}</span>
+            <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">_as_mx_np_array</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">object</span><span class="p">}</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="nb">object</span>
 
@@ -2160,13 +2187,13 @@ Edit on Github
     <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">_fallback_to_official_np</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="c1"># for every ndarray input, fallback</span>
-        <span class="n">new_args</span><span class="p">,</span> <span class="n">ctx0</span> <span class="o">=</span> <span class="n">_as_official_np_array</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
-        <span class="n">new_kwargs</span><span class="p">,</span> <span class="n">ctx1</span> <span class="o">=</span> <span class="n">_as_official_np_array</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="n">ctx</span> <span class="o">=</span> <span class="n">get_ctx</span><span class="p">(</span><span class="n">ctx0</span><span class="p">,</span> <span class="n">ctx1</span><span class="p">)</span>
+        <span class="n">new_args</span><span class="p">,</span> <span class="n">device0</span> <span class="o">=</span> <span class="n">_as_official_np_array</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+        <span class="n">new_kwargs</span><span class="p">,</span> <span class="n">device1</span> <span class="o">=</span> <span class="n">_as_official_np_array</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">device</span> <span class="o">=</span> <span class="n">get_device</span><span class="p">(</span><span class="n">device0</span><span class="p">,</span> <span class="n">device1</span><span class="p">)</span>
         <span class="n">ret</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">new_args</span><span class="p">,</span> <span class="o">**</span><span class="n">new_kwargs</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">ret</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Only functions with return values are allowed to use this decorator&quot;</span><span class="p">)</span>
-        <span class="n">ret</span> <span class="o">=</span> <span class="n">_as_mx_np_array</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">_as_mx_np_array</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">ret</span>
 
     <span class="k">return</span> <span class="n">_fallback_to_official_np</span>
@@ -2294,12 +2321,12 @@ Edit on Github
 <span class="n">_CUDA_SUCCESS</span> <span class="o">=</span> <span class="mi">0</span>
 
 
-<span class="k">def</span> <span class="nf">get_cuda_compute_capability</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Returns the cuda compute capability of the input `ctx`.</span>
+<span class="k">def</span> <span class="nf">get_cuda_compute_capability</span><span class="p">(</span><span class="n">device</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns the cuda compute capability of the input `device`.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    ctx : Context</span>
+<span class="sd">    device : Device</span>
 <span class="sd">        GPU context whose corresponding cuda compute capability is to be retrieved.</span>
 
 <span class="sd">    Returns</span>
@@ -2311,9 +2338,9 @@ Edit on Github
 <span class="sd">    ----------</span>
 <span class="sd">    https://gist.github.com/f0k/63a664160d016a491b2cbea15913d549#file-cuda_check-py</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">ctx</span><span class="o">.</span><span class="n">device_type</span> <span class="o">!=</span> <span class="s1">&#39;gpu&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">device</span><span class="o">.</span><span class="n">device_type</span> <span class="o">!=</span> <span class="s1">&#39;gpu&#39;</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Expecting a gpu context to get cuda compute capability, &#39;</span>
-                         <span class="s1">&#39;while received ctx </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ctx</span><span class="p">)))</span>
+                         <span class="s1">&#39;while received device </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">device</span><span class="p">)))</span>
 
     <span class="n">libnames</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;libcuda.so&#39;</span><span class="p">,</span> <span class="s1">&#39;libcuda.dylib&#39;</span><span class="p">,</span> <span class="s1">&#39;nvcuda.dll&#39;</span><span class="p">,</span> <span class="s1">&#39;cuda.dll&#39;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">libname</span> <span class="ow">in</span> <span class="n">libnames</span><span class="p">:</span>
@@ -2330,7 +2357,7 @@ Edit on Github
 
     <span class="n">cc_major</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">()</span>
     <span class="n">cc_minor</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">()</span>
-    <span class="n">device</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">()</span>
+    <span class="n">cuda_device</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">()</span>
     <span class="n">error_str</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_char_p</span><span class="p">()</span>
 
     <span class="n">ret</span> <span class="o">=</span> <span class="n">cuda</span><span class="o">.</span><span class="n">cuInit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -2339,12 +2366,12 @@ Edit on Github
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;cuInit failed with erro code </span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span>
                            <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="n">error_str</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">decode</span><span class="p">()))</span>
 
-    <span class="n">ret</span> <span class="o">=</span> <span class="n">cuda</span><span class="o">.</span><span class="n">cuDeviceGet</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">ctx</span><span class="o">.</span><span class="n">device_id</span><span class="p">)</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">cuda</span><span class="o">.</span><span class="n">cuDeviceGet</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="n">cuda_device</span><span class="p">),</span> <span class="n">device</span><span class="o">.</span><span class="n">device_id</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">ret</span> <span class="o">!=</span> <span class="n">_CUDA_SUCCESS</span><span class="p">:</span>
         <span class="n">cuda</span><span class="o">.</span><span class="n">cuGetErrorString</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="n">error_str</span><span class="p">))</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;cuDeviceGet failed with error code </span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span>
                            <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="n">error_str</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">decode</span><span class="p">()))</span>
-    <span class="n">ret</span> <span class="o">=</span> <span class="n">cuda</span><span class="o">.</span><span class="n">cuDeviceComputeCapability</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="n">cc_major</span><span class="p">),</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="n">cc_minor</span><span class="p">),</span> <span class="n">device</span><span class="p">)</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">cuda</span><span class="o">.</span><span class="n">cuDeviceComputeCapability</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="n">cc_major</span><span class="p">),</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="n">cc_minor</span><span class="p">),</span> <span class="n">cuda_device</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">ret</span> <span class="o">!=</span> <span class="n">_CUDA_SUCCESS</span><span class="p">:</span>
         <span class="n">cuda</span><span class="o">.</span><span class="n">cuGetErrorString</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="n">error_str</span><span class="p">))</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;cuDeviceComputeCapability failed with error code </span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span>
@@ -2352,7 +2379,7 @@ Edit on Github
     <span class="k">return</span> <span class="n">cc_major</span><span class="o">.</span><span class="n">value</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="n">cc_minor</span><span class="o">.</span><span class="n">value</span>
 
 
-<span class="k">def</span> <span class="nf">default_array</span><span class="p">(</span><span class="n">source_array</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">default_array</span><span class="p">(</span><span class="n">source_array</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Creates an array from any object exposing the default(nd or np) array interface.</span>
 
 <span class="sd">    Parameters</span>
@@ -2360,7 +2387,7 @@ Edit on Github
 <span class="sd">    source_array : array_like</span>
 <span class="sd">        An object exposing the array interface, an object whose `__array__`</span>
 <span class="sd">        method returns an array, or any (nested) sequence.</span>
-<span class="sd">    ctx : Context, optional</span>
+<span class="sd">    device : Device, optional</span>
 <span class="sd">        Device context (default is the current default context).</span>
 <span class="sd">    dtype : str or numpy.dtype, optional</span>
 <span class="sd">        The data type of the output array. The default dtype is ``source_array.dtype``</span>
@@ -2374,9 +2401,9 @@ Edit on Github
     <span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">nd</span> <span class="k">as</span> <span class="n">_mx_nd</span>
     <span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">np</span> <span class="k">as</span> <span class="n">_mx_np</span>
     <span class="k">if</span> <span class="n">is_np_array</span><span class="p">():</span>
-        <span class="k">return</span> <span class="n">_mx_np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">source_array</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_mx_np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">source_array</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">_mx_nd</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">source_array</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_mx_nd</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">source_array</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
 
 <span class="k">class</span> <span class="nc">_NumpyDefaultDtypeScope</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Scope for managing NumPy default dtype semantics.</span>
@@ -2626,10 +2653,10 @@ Edit on Github
     <span class="k">return</span> <span class="n">max_supported_cc</span><span class="o">.</span><span class="n">value</span>
 
 
-<span class="k">def</span> <span class="nf">get_rtc_compile_opts</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">get_rtc_compile_opts</span><span class="p">(</span><span class="n">device</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Get the compile ops suitable for the context, given the toolkit/driver config</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">device_cc</span> <span class="o">=</span> <span class="n">get_cuda_compute_capability</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+    <span class="n">device_cc</span> <span class="o">=</span> <span class="n">get_cuda_compute_capability</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
     <span class="n">max_supported_cc</span> <span class="o">=</span> <span class="n">get_max_supported_compute_capability</span><span class="p">()</span>
 
     <span class="c1"># CUDA toolkits starting with 11.1 (first to support arch 86) can compile directly to SASS</span>
@@ -2664,6 +2691,28 @@ Edit on Github
     <span class="n">passed_value</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_bool</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
     <span class="n">check_call</span><span class="p">(</span><span class="n">_LIB</span><span class="o">.</span><span class="n">MXSetFlushDenorms</span><span class="p">(</span><span class="n">passed_value</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="n">ret</span><span class="p">)))</span>
     <span class="k">return</span> <span class="n">ret</span><span class="o">.</span><span class="n">value</span>
+
+
+<span class="k">def</span> <span class="nf">dtype_from_number</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get the data type from the given int or float number</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">numeric_types</span><span class="p">),</span>\
+        <span class="s2">&quot;The input number should be either int for float types&quot;</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">_np</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">integer_types</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="n">_MAX_VALUE_64_BIT_UNSIGNED_</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">OverflowError</span><span class="p">(</span><span class="s2">&quot;Integer out of bounds&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="n">_MAX_VALUE_64_BIT_SIGNED_</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_np</span><span class="o">.</span><span class="n">uint64</span>
+        <span class="k">elif</span> <span class="n">calcsize</span><span class="p">(</span><span class="s2">&quot;P&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_np</span><span class="o">.</span><span class="n">int64</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_np</span><span class="o">.</span><span class="n">int32</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">_MAX_VALUE_FLOAT32_REPRESENT_</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_np</span><span class="o">.</span><span class="n">float64</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_np</span><span class="o">.</span><span class="n">float64</span> <span class="k">if</span> <span class="n">is_np_default_dtype</span><span class="p">()</span> <span class="k">else</span> <span class="n">_np</span><span class="o">.</span><span class="n">float32</span>
 </pre></div>
 
         <hr class="feedback-hr-top" />

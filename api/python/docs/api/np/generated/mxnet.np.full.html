@@ -622,7 +622,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -740,7 +740,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1217,7 +1217,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1335,7 +1335,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1366,18 +1366,21 @@ Edit on Github
 <h1>mxnet.np.full<a class="headerlink" href="#mxnet-np-full" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="mxnet.np.full">
-<code class="sig-name descname">full</code><span class="sig-paren">(</span><em class="sig-param">shape</em>, <em class="sig-param">fill_value</em>, <em class="sig-param">dtype=None</em>, <em class="sig-param">order='C'</em>, <em class="sig-param">ctx=None</em>, <em class="sig-param">out=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.np.full" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">full</code><span class="sig-paren">(</span><em class="sig-param">shape</em>, <em class="sig-param">fill_value</em>, <em class="sig-param">dtype=None</em>, <em class="sig-param">order='C'</em>, <em class="sig-param">device=None</em>, <em class="sig-param">out=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.np.full" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a new array of given shape and type, filled with <cite>fill_value</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>shape</strong> (<em>int</em><em> or </em><em>sequence of ints</em>) – Shape of the new array, e.g., <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">3)</span></code> or <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p></li>
 <li><p><strong>fill_value</strong> (<em>scalar</em><em> or </em><em>ndarray</em>) – Fill value.</p></li>
-<li><p><strong>dtype</strong> (<em>data-type</em><em>, </em><em>optional</em>) – The desired data-type for the array. The default, <cite>None</cite>, means
-<cite>np.array(fill_value).dtype</cite>.</p></li>
+<li><p><strong>dtype</strong> (<em>data-type</em><em>, </em><em>optional</em>) – If dtype is None, the output array data type must be inferred from fill_value.
+If it’s an int, the output array dtype must be the default integer dtype;
+If it’s a float, then the output array dtype must be the default floating-point data type;
+If it’s a bool then the output array must have boolean dtype. Default: None.</p></li>
 <li><p><strong>order</strong> (<em>{'C'}</em><em>, </em><em>optional</em>) – Whether to store multidimensional data in C- or Fortran-contiguous
 (row- or column-wise) order in memory. Currently only supports C order.</p></li>
-<li><p><strong>ctx</strong> (<a class="reference internal" href="../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>mxnet.context.Context</em></a>) – The device, e.g. the i-th GPU.</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device/index.html#mxnet.device.Device" title="mxnet.device.Device"><em>Device</em></a><em>, </em><em>optional</em>) – Device context on which the memory is allocated. Default is
+<cite>mxnet.device.current_device()</cite>.</p></li>
 <li><p><strong>out</strong> (<em>ndarray</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – A location into which the result is stored.
 If provided, it must have the same shape and dtype as input ndarray.
 If not provided or <cite>None</cite>, a freshly-allocated array is returned.</p></li>
@@ -1386,11 +1389,11 @@ If not provided or <cite>None</cite>, a freshly-allocated array is returned.</p>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><strong>out</strong> (<em>ndarray</em>) – Array of <cite>fill_value</cite> with the given shape, dtype, and order.
-If <cite>fill_value</cite> is an ndarray, out will have the same context as <cite>fill_value</cite>
-regardless of the provided <cite>ctx</cite>.</p></li>
+If <cite>fill_value</cite> is an ndarray, out will have the same device as <cite>fill_value</cite>
+regardless of the provided <cite>device</cite>.</p></li>
 <li><p><em>.. note::</em> – This function differs from the original numpy.full in the following way(s):</p>
 <ul>
-<li><p>Has an additional <cite>ctx</cite> argument to specify the device</p></li>
+<li><p>Has an additional <cite>device</cite> argument to specify the device</p></li>
 <li><p>Has an additional <cite>out</cite> argument</p></li>
 <li><p>Currently does not support <cite>order</cite> selection</p></li>
 </ul>
@@ -1414,7 +1417,7 @@ regardless of the provided <cite>ctx</cite>.</p></li>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span>
 <span class="go">array([[10., 10.],</span>
 <span class="go">       [10., 10.]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">mx</span><span class="o">.</span><span class="n">cpu</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">mx</span><span class="o">.</span><span class="n">cpu</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 <span class="go">array([[2, 2],</span>
 <span class="go">       [2, 2]], dtype=int32)</span>
 </pre></div>

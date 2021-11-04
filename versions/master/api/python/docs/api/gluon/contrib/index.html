@@ -620,7 +620,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -738,7 +738,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1215,7 +1215,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1333,7 +1333,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1574,7 +1574,7 @@ handler will try to use min or max based on the monitored metric name.</p></li>
 
 <dl class="class">
 <dt id="mxnet.gluon.contrib.estimator.Estimator">
-<em class="property">class </em><code class="sig-name descname">Estimator</code><span class="sig-paren">(</span><em class="sig-param">net</em>, <em class="sig-param">loss</em>, <em class="sig-param">train_metrics=None</em>, <em class="sig-param">val_metrics=None</em>, <em class="sig-param">initializer=None</em>, <em class="sig-param">trainer=None</em>, <em class="sig-param">context=None</em>, <em class="sig-param">val_net=None</em>, <em class="sig-param">val_loss=None</em>, <em class="sig-param">batch_processor=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mxnet/gluon/contrib/estimator/estimator.html#Estimator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.gluon.contrib.estimator.Estimator" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">Estimator</code><span class="sig-paren">(</span><em class="sig-param">net</em>, <em class="sig-param">loss</em>, <em class="sig-param">train_metrics=None</em>, <em class="sig-param">val_metrics=None</em>, <em class="sig-param">initializer=None</em>, <em class="sig-param">trainer=None</em>, <em class="sig-param">device=None</em>, <em class="sig-param">val_net=None</em>, <em class="sig-param">val_loss=None</em>, <em class="sig-param">batch_processor=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mxnet/gluon/contrib/estimator/estimator.html#Estimator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.gluon.contrib.estimator.Estimator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Estimator Class for easy model training</p>
 <p><a class="reference internal" href="#mxnet.gluon.contrib.estimator.Estimator" title="mxnet.gluon.contrib.estimator.Estimator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Estimator</span></code></a> can be used to facilitate the training &amp; validation process</p>
@@ -1587,7 +1587,7 @@ handler will try to use min or max based on the monitored metric name.</p></li>
 <li><p><strong>val_metrics</strong> (<a class="reference internal" href="../metric/index.html#mxnet.gluon.metric.EvalMetric" title="mxnet.gluon.metric.EvalMetric"><em>EvalMetric</em></a><em> or </em><em>list of EvalMetric</em>) – Validation metrics for evaluating models on validation dataset.</p></li>
 <li><p><strong>initializer</strong> (<a class="reference internal" href="../../initializer/index.html#mxnet.initializer.Initializer" title="mxnet.initializer.Initializer"><em>Initializer</em></a>) – Initializer to initialize the network.</p></li>
 <li><p><strong>trainer</strong> (<a class="reference internal" href="../trainer.html#mxnet.gluon.Trainer" title="mxnet.gluon.Trainer"><em>Trainer</em></a>) – Trainer to apply optimizer on network parameters.</p></li>
-<li><p><strong>context</strong> (<a class="reference internal" href="../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a><em> or </em><em>list of Context</em>) – Device(s) to run the training on.</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device/index.html#mxnet.device.Device" title="mxnet.device.Device"><em>Device</em></a><em> or </em><em>list of Device</em>) – Device(s) to run the training on.</p></li>
 <li><p><strong>val_net</strong> (<a class="reference internal" href="../block.html#mxnet.gluon.Block" title="mxnet.gluon.Block"><em>gluon.Block</em></a>) – <p>The model used for validation. The validation model does not necessarily belong to
 the same model class as the training model. But the two models typically share the
 same architecture. Therefore the validation model can reuse parameters of the
@@ -1597,7 +1597,7 @@ the training net is given below:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">_get_train_network</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">val_net</span> <span class="o">=</span> <span class="n">_get_test_network</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">val_net</span><span class="o">.</span><span class="n">share_parameters</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">collect_params</span><span class="p">())</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">est</span> <span class="o">=</span> <span class="n">Estimator</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">val_net</span><span class="o">=</span><span class="n">val_net</span><span class="p">)</span>
 </pre></div>
 </div>

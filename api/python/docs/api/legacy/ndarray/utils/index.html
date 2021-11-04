@@ -621,7 +621,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -739,7 +739,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1216,7 +1216,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1334,7 +1334,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1399,7 +1399,7 @@ Edit on Github
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>shape</strong> (<em>int</em><em> or </em><em>tuple of int</em>) – The shape of the empty array</p></li>
-<li><p><strong>ctx</strong> (<a class="reference internal" href="../../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a><em>, </em><em>optional</em>) – An optional device context (default is the current default context)</p></li>
+<li><p><strong>ctx</strong> (<em>Context</em><em>, </em><em>optional</em>) – An optional device context (default is the current default context)</p></li>
 <li><p><strong>dtype</strong> (<em>str</em><em> or </em><em>numpy.dtype</em><em>, </em><em>optional</em>) – An optional value type (default is <cite>float32</cite>)</p></li>
 <li><p><strong>stype</strong> (<em>string</em><em>, </em><em>optional</em>) – The storage type of the empty array, such as ‘row_sparse’, ‘csr’, etc.</p></li>
 </ul>
@@ -1428,7 +1428,7 @@ Edit on Github
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>shape</strong> (<em>int</em><em> or </em><em>tuple of int</em>) – The shape of the empty array.</p></li>
-<li><p><strong>ctx</strong> (<a class="reference internal" href="../../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a><em>, </em><em>optional</em>) – An optional device context (default is the current default context).</p></li>
+<li><p><strong>ctx</strong> (<em>Context</em><em>, </em><em>optional</em>) – An optional device context (default is the current default context).</p></li>
 <li><p><strong>dtype</strong> (<em>str</em><em> or </em><em>numpy.dtype</em><em>, </em><em>optional</em>) – An optional value type (default is <cite>float32</cite>).</p></li>
 <li><p><strong>stype</strong> (<em>str</em><em>, </em><em>optional</em>) – An optional storage type (default is <cite>default</cite>).</p></li>
 </ul>
@@ -1462,7 +1462,7 @@ Edit on Github
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>source_array</strong> (<em>array_like</em>) – An object exposing the array interface, an object whose <cite>__array__</cite>
 method returns an array, or any (nested) sequence.</p></li>
-<li><p><strong>ctx</strong> (<a class="reference internal" href="../../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a><em>, </em><em>optional</em>) – Device context (default is the current default context).</p></li>
+<li><p><strong>ctx</strong> (<em>Context</em><em>, </em><em>optional</em>) – Device context (default is the current default context).</p></li>
 <li><p><strong>dtype</strong> (<em>str</em><em> or </em><em>numpy.dtype</em><em>, </em><em>optional</em>) – The data type of the output array. The default dtype is <code class="docutils literal notranslate"><span class="pre">source_array.dtype</span></code>
 if <cite>source_array</cite> is an <cite>NDArray</cite>, <cite>float32</cite> otherwise.</p></li>
 </ul>

@@ -617,7 +617,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -735,7 +735,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1212,7 +1212,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1330,7 +1330,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1395,7 +1395,7 @@ Edit on Github
 <span class="kn">from</span> <span class="nn">..base</span> <span class="k">import</span> <span class="n">mx_uint</span><span class="p">,</span> <span class="n">py_str</span><span class="p">,</span> <span class="n">string_types</span><span class="p">,</span> <span class="n">integer_types</span><span class="p">,</span> <span class="n">mx_int</span><span class="p">,</span> <span class="n">mx_int64</span>
 <span class="kn">from</span> <span class="nn">..base</span> <span class="k">import</span> <span class="n">NDArrayHandle</span><span class="p">,</span> <span class="n">SymbolHandle</span>
 <span class="kn">from</span> <span class="nn">..base</span> <span class="k">import</span> <span class="n">check_call</span><span class="p">,</span> <span class="n">MXNetError</span><span class="p">,</span> <span class="n">NotImplementedForSymbol</span>
-<span class="kn">from</span> <span class="nn">..context</span> <span class="k">import</span> <span class="n">Context</span><span class="p">,</span> <span class="n">current_context</span>
+<span class="kn">from</span> <span class="nn">..device</span> <span class="k">import</span> <span class="n">Device</span><span class="p">,</span> <span class="n">current_device</span>
 <span class="kn">from</span> <span class="nn">..ndarray</span> <span class="k">import</span> <span class="n">NDArray</span><span class="p">,</span> <span class="n">_DTYPE_NP_TO_MX</span><span class="p">,</span> <span class="n">_DTYPE_MX_TO_NP</span>
 <span class="kn">from</span> <span class="nn">..ndarray.ndarray</span> <span class="k">import</span> <span class="n">_STORAGE_TYPE_STR_TO_ID</span><span class="p">,</span> <span class="n">_int64_enabled</span><span class="p">,</span> <span class="n">_SIGNED_INT32_UPPER_LIMIT</span>
 <span class="kn">from</span> <span class="nn">..executor</span> <span class="k">import</span> <span class="n">Executor</span>
@@ -2897,8 +2897,8 @@ Edit on Github
             <span class="n">aux_handle</span><span class="p">,</span> <span class="n">aux_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_ndarray_inputs</span><span class="p">(</span><span class="s1">&#39;aux_states&#39;</span><span class="p">,</span> <span class="n">aux</span><span class="p">,</span>
                                                         <span class="bp">self</span><span class="o">.</span><span class="n">list_auxiliary_states</span><span class="p">(),</span> <span class="kc">True</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">ctx</span> <span class="o">=</span> <span class="n">current_context</span><span class="p">()</span>
-        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">Context</span><span class="p">)</span>
+            <span class="n">ctx</span> <span class="o">=</span> <span class="n">current_device</span><span class="p">()</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">Device</span><span class="p">)</span>
 
 
         <span class="c1"># parse input data shape dict</span>
@@ -3303,7 +3303,7 @@ Edit on Github
 <span class="sd">        the result will be a list with one element.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">ctx</span> <span class="o">=</span> <span class="n">current_context</span><span class="p">()</span>
+            <span class="n">ctx</span> <span class="o">=</span> <span class="n">current_device</span><span class="p">()</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bind</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">forward</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Symbol.reshape"><a class="viewcode-back" href="../../../api/legacy/symbol/symbol.html#mxnet.symbol.Symbol.reshape">[docs]</a>    <span class="k">def</span> <span class="nf">reshape</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>

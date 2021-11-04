@@ -617,7 +617,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -735,7 +735,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1212,7 +1212,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1330,7 +1330,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -3055,8 +3055,6 @@ Edit on Github
         <li><a href="api/initializer/index.html#mxnet.initializer.Constant">(class in mxnet.initializer)</a>
 </li>
       </ul></li>
-      <li><a href="api/context/index.html#mxnet.context.Context">Context (class in mxnet.context)</a>
-</li>
       <li><a href="api/legacy/ndarray/ndarray.html#mxnet.ndarray.NDArray.context">context() (NDArray property)</a>
 </li>
       <li><a href="api/np/arrays.ndarray.html#index-2">contiguous</a>
@@ -3203,13 +3201,13 @@ Edit on Github
 </li>
       <li><a href="api/np/generated/mxnet.np.cov.html#mxnet.np.cov">cov() (in module mxnet.np)</a>
 </li>
-      <li><a href="api/context/index.html#mxnet.context.cpu">cpu() (in module mxnet.context)</a>
+      <li><a href="api/device/index.html#mxnet.device.cpu">cpu() (in module mxnet.device)</a>
 
       <ul>
         <li><a href="api/npx/generated/mxnet.npx.cpu.html#mxnet.npx.cpu">(in module mxnet.npx)</a>
 </li>
       </ul></li>
-      <li><a href="api/context/index.html#mxnet.context.cpu_pinned">cpu_pinned() (in module mxnet.context)</a>
+      <li><a href="api/device/index.html#mxnet.device.cpu_pinned">cpu_pinned() (in module mxnet.device)</a>
 
       <ul>
         <li><a href="api/npx/generated/mxnet.npx.cpu_pinned.html#mxnet.npx.cpu_pinned">(in module mxnet.npx)</a>
@@ -3367,10 +3365,10 @@ Edit on Github
         <li><a href="api/legacy/symbol/op/index.html#mxnet.symbol.op.cumsum">(in module mxnet.symbol.op)</a>
 </li>
       </ul></li>
-      <li><a href="api/context/index.html#mxnet.context.current_context">current_context() (in module mxnet.context)</a>
+      <li><a href="api/device/index.html#mxnet.device.current_device">current_device() (in module mxnet.device)</a>
 
       <ul>
-        <li><a href="api/npx/generated/mxnet.npx.current_context.html#mxnet.npx.current_context">(in module mxnet.npx)</a>
+        <li><a href="api/npx/generated/mxnet.npx.current_device.html#mxnet.npx.current_device">(in module mxnet.npx)</a>
 </li>
       </ul></li>
       <li><a href="api/legacy/ndarray/ndarray.html#mxnet.ndarray.Custom">Custom() (in module mxnet.ndarray)</a>
@@ -3433,7 +3431,7 @@ Edit on Github
 </li>
       <li><a href="api/test_utils/index.html#mxnet.test_utils.default_atols">default_atols() (in module mxnet.test_utils)</a>
 </li>
-      <li><a href="api/test_utils/index.html#mxnet.test_utils.default_context">default_context() (in module mxnet.test_utils)</a>
+      <li><a href="api/test_utils/index.html#mxnet.test_utils.default_device">default_device() (in module mxnet.test_utils)</a>
 </li>
       <li><a href="api/test_utils/index.html#mxnet.test_utils.default_dtype">default_dtype() (in module mxnet.test_utils)</a>
 </li>
@@ -3535,7 +3533,11 @@ Edit on Github
 </li>
       <li><a href="api/legacy/image/index.html#mxnet.image.DetRandomSelectAug">DetRandomSelectAug (class in mxnet.image)</a>
 </li>
-      <li><a href="api/context/index.html#mxnet.context.Context.device_type">device_type() (Context property)</a>
+      <li><a href="api/device/index.html#mxnet.device.Device">Device (class in mxnet.device)</a>
+</li>
+      <li><a href="api/legacy/ndarray/ndarray.html#mxnet.ndarray.NDArray.device">device() (NDArray property)</a>
+</li>
+      <li><a href="api/device/index.html#mxnet.device.Device.device_type">device_type() (Device property)</a>
 </li>
       <li><a href="api/contrib/ndarray/index.html#mxnet.contrib.ndarray.dgl_adjacency">dgl_adjacency() (in module mxnet.contrib.ndarray)</a>
 
@@ -3557,6 +3559,8 @@ Edit on Github
         <li><a href="api/legacy/symbol/contrib/index.html#mxnet.symbol.contrib.dgl_csr_neighbor_non_uniform_sample">(in module mxnet.symbol.contrib)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/contrib/ndarray/index.html#mxnet.contrib.ndarray.dgl_csr_neighbor_uniform_sample">dgl_csr_neighbor_uniform_sample() (in module mxnet.contrib.ndarray)</a>
 
       <ul>
@@ -3567,8 +3571,6 @@ Edit on Github
         <li><a href="api/legacy/symbol/contrib/index.html#mxnet.symbol.contrib.dgl_csr_neighbor_uniform_sample">(in module mxnet.symbol.contrib)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/contrib/ndarray/index.html#mxnet.contrib.ndarray.dgl_graph_compact">dgl_graph_compact() (in module mxnet.contrib.ndarray)</a>
 
       <ul>
@@ -3703,6 +3705,8 @@ Edit on Github
         <li><a href="api/gluon/parameter.html#mxnet.gluon.Parameter.dtype">(Parameter property)</a>
 </li>
       </ul></li>
+      <li><a href="api/util/index.html#mxnet.util.dtype_from_number">dtype_from_number() (in module mxnet.util)</a>
+</li>
       <li><a href="api/test_utils/index.html#mxnet.test_utils.DummyIter">DummyIter (class in mxnet.test_utils)</a>
 </li>
       <li><a href="api/profiler/index.html#mxnet.profiler.dump">dump() (in module mxnet.profiler)</a>
@@ -3871,7 +3875,7 @@ Edit on Github
         <li><a href="api/np/generated/mxnet.np.empty.html#mxnet.np.empty">(in module mxnet.np)</a>
 </li>
       </ul></li>
-      <li><a href="api/context/index.html#mxnet.context.Context.empty_cache">empty_cache() (Context method)</a>
+      <li><a href="api/device/index.html#mxnet.device.Device.empty_cache">empty_cache() (Device method)</a>
 </li>
       <li><a href="api/runtime/generated/mxnet.runtime.Feature.html#mxnet.runtime.Feature.enabled">enabled() (Feature property)</a>
 </li>
@@ -4941,13 +4945,13 @@ Edit on Github
 </li>
       <li><a href="api/gluon/nn/index.html#mxnet.gluon.nn.GlobalMaxPool3D">GlobalMaxPool3D (class in mxnet.gluon.nn)</a>
 </li>
-      <li><a href="api/context/index.html#mxnet.context.gpu">gpu() (in module mxnet.context)</a>
+      <li><a href="api/device/index.html#mxnet.device.gpu">gpu() (in module mxnet.device)</a>
 
       <ul>
         <li><a href="api/npx/generated/mxnet.npx.gpu.html#mxnet.npx.gpu">(in module mxnet.npx)</a>
 </li>
       </ul></li>
-      <li><a href="api/context/index.html#mxnet.context.gpu_memory_info">gpu_memory_info() (in module mxnet.context)</a>
+      <li><a href="api/device/index.html#mxnet.device.gpu_memory_info">gpu_memory_info() (in module mxnet.device)</a>
 
       <ul>
         <li><a href="api/npx/generated/mxnet.npx.gpu_memory_info.html#mxnet.npx.gpu_memory_info">(in module mxnet.npx)</a>
@@ -6339,6 +6343,12 @@ Edit on Github
         <li><a href="api/gluon/parameter.html#mxnet.gluon.Parameter.list_data">(Parameter method)</a>
 </li>
       </ul></li>
+      <li><a href="api/gluon/constant.html#mxnet.gluon.Constant.list_device">list_device() (Constant method)</a>
+
+      <ul>
+        <li><a href="api/gluon/parameter.html#mxnet.gluon.Parameter.list_device">(Parameter method)</a>
+</li>
+      </ul></li>
       <li><a href="api/test_utils/index.html#mxnet.test_utils.list_gpus">list_gpus() (in module mxnet.test_utils)</a>
 </li>
       <li><a href="api/gluon/constant.html#mxnet.gluon.Constant.list_grad">list_grad() (Constant method)</a>
@@ -7513,8 +7523,6 @@ Edit on Github
 </li>
       <li><a href="api/legacy/callback/index.html#module-mxnet.callback">mxnet.callback (module)</a>
 </li>
-      <li><a href="api/context/index.html#module-mxnet.context">mxnet.context (module)</a>
-</li>
       <li><a href="api/contrib/index.html#module-mxnet.contrib">mxnet.contrib (module)</a>
 </li>
       <li><a href="api/contrib/io/index.html#module-mxnet.contrib.io">mxnet.contrib.io (module)</a>
@@ -7530,6 +7538,8 @@ Edit on Github
       <li><a href="api/contrib/tensorrt/index.html#module-mxnet.contrib.tensorrt">mxnet.contrib.tensorrt (module)</a>
 </li>
       <li><a href="api/contrib/text/index.html#module-mxnet.contrib.text">mxnet.contrib.text (module)</a>
+</li>
+      <li><a href="api/device/index.html#module-mxnet.device">mxnet.device (module)</a>
 </li>
       <li><a href="api/engine/index.html#module-mxnet.engine">mxnet.engine (module)</a>
 </li>
@@ -7849,7 +7859,7 @@ Edit on Github
 </li>
       <li><a href="api/util/index.html#mxnet.util.np_ufunc_legal_option">np_ufunc_legal_option() (in module mxnet.util)</a>
 </li>
-      <li><a href="api/context/index.html#mxnet.context.num_gpus">num_gpus() (in module mxnet.context)</a>
+      <li><a href="api/device/index.html#mxnet.device.num_gpus">num_gpus() (in module mxnet.device)</a>
 
       <ul>
         <li><a href="api/npx/generated/mxnet.npx.num_gpus.html#mxnet.npx.num_gpus">(in module mxnet.npx)</a>
@@ -9793,6 +9803,158 @@ Edit on Github
         <li><a href="api/gluon/rnn/index.html#mxnet.gluon.rnn.ZoneoutCell.reset_ctx">(ZoneoutCell method)</a>
 </li>
       </ul></li>
+      <li><a href="api/gluon/nn/index.html#mxnet.gluon.nn.Activation.reset_device">reset_device() (Activation method)</a>
+
+      <ul>
+        <li><a href="api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.AlexNet.reset_device">(AlexNet method)</a>
+</li>
+        <li><a href="api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.BasicBlockV1.reset_device">(BasicBlockV1 method)</a>
+</li>
+        <li><a href="api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.BasicBlockV2.reset_device">(BasicBlockV2 method)</a>
+</li>
+        <li><a href="api/gluon/rnn/index.html#mxnet.gluon.rnn.BidirectionalCell.reset_device">(BidirectionalCell method)</a>
+</li>
+        <li><a href="api/gluon/block.html#mxnet.gluon.Block.reset_device">(Block method)</a>, <a href="api/gluon/nn/index.html#mxnet.gluon.nn.Block.reset_device">[1]</a>
+</li>
+        <li><a href="api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.BottleneckV1.reset_device">(BottleneckV1 method)</a>
+</li>
+        <li><a href="api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.BottleneckV2.reset_device">(BottleneckV2 method)</a>
+</li>
+        <li><a href="api/gluon/data/vision/transforms/index.html#mxnet.gluon.data.vision.transforms.Cast.reset_device">(Cast method)</a>
+</li>
+        <li><a href="api/gluon/nn/index.html#mxnet.gluon.nn.Concatenate.reset_device">(Concatenate method)</a>
+</li>
+        <li><a href="api/gluon/constant.html#mxnet.gluon.Constant.reset_device">(Constant method)</a>
+</li>
+        <li><a href="api/gluon/loss/index.html#mxnet.gluon.loss.CosineEmbeddingLoss.reset_device">(CosineEmbeddingLoss method)</a>
+</li>
+        <li><a href="api/gluon/loss/index.html#mxnet.gluon.loss.CTCLoss.reset_device">(CTCLoss method)</a>
+</li>
+        <li><a href="api/gluon/nn/index.html#mxnet.gluon.nn.DeformableConvolution.reset_device">(DeformableConvolution method)</a>
+</li>
+        <li><a href="api/gluon/nn/index.html#mxnet.gluon.nn.Dense.reset_device">(Dense method)</a>
+</li>
+        <li><a href="api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.DenseNet.reset_device">(DenseNet method)</a>
+</li>
+        <li><a href="api/gluon/nn/index.html#mxnet.gluon.nn.Dropout.reset_device">(Dropout method)</a>
+</li>
+        <li><a href="api/gluon/rnn/index.html#mxnet.gluon.rnn.DropoutCell.reset_device">(DropoutCell method)</a>
+</li>
+        <li><a href="api/gluon/nn/index.html#mxnet.gluon.nn.ELU.reset_device">(ELU method)</a>
+</li>
+        <li><a href="api/gluon/nn/index.html#mxnet.gluon.nn.Embedding.reset_device">(Embedding method)</a>
+</li>
+        <li><a href="api/gluon/nn/index.html#mxnet.gluon.nn.Flatten.reset_device">(Flatten method)</a>
+</li>
+        <li><a href="api/gluon/nn/index.html#mxnet.gluon.nn.GELU.reset_device">(GELU method)</a>
+</li>
+        <li><a href="api/gluon/nn/index.html#mxnet.gluon.nn.GroupNorm.reset_device">(GroupNorm method)</a>
+</li>
+        <li><a href="api/gluon/rnn/index.html#mxnet.gluon.rnn.GRUCell.reset_device">(GRUCell method)</a>
+</li>
+        <li><a href="api/gluon/loss/index.html#mxnet.gluon.loss.HingeLoss.reset_device">(HingeLoss method)</a>
+</li>
+        <li><a href="api/gluon/loss/index.html#mxnet.gluon.loss.HuberLoss.reset_device">(HuberLoss method)</a>
+</li>
+        <li><a href="api/gluon/hybrid_block.html#mxnet.gluon.HybridBlock.reset_device">(HybridBlock method)</a>, <a href="api/gluon/nn/index.html#mxnet.gluon.nn.HybridBlock.reset_device">[1]</a>
+</li>
+        <li><a href="api/gluon/nn/index.html#mxnet.gluon.nn.HybridConcatenate.reset_device">(HybridConcatenate method)</a>
+</li>
+        <li><a href="api/gluon/nn/index.html#mxnet.gluon.nn.HybridLambda.reset_device">(HybridLambda method)</a>
+</li>
+        <li><a href="api/gluon/rnn/index.html#mxnet.gluon.rnn.HybridRecurrentCell.reset_device">(HybridRecurrentCell method)</a>
+</li>
+        <li><a href="api/gluon/nn/index.html#mxnet.gluon.nn.HybridSequential.reset_device">(HybridSequential method)</a>
+</li>
+        <li><a href="api/gluon/rnn/index.html#mxnet.gluon.rnn.HybridSequentialRNNCell.reset_device">(HybridSequentialRNNCell method)</a>
+</li>
+        <li><a href="api/gluon/nn/index.html#mxnet.gluon.nn.Identity.reset_device">(Identity method)</a>
+</li>
+        <li><a href="api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.Inception3.reset_device">(Inception3 method)</a>
+</li>
+        <li><a href="api/gluon/nn/index.html#mxnet.gluon.nn.InstanceNorm.reset_device">(InstanceNorm method)</a>
+</li>
+        <li><a href="api/gluon/loss/index.html#mxnet.gluon.loss.KLDivLoss.reset_device">(KLDivLoss method)</a>
+</li>
+        <li><a href="api/gluon/loss/index.html#mxnet.gluon.loss.L1Loss.reset_device">(L1Loss method)</a>
+</li>
+        <li><a href="api/gluon/loss/index.html#mxnet.gluon.loss.L2Loss.reset_device">(L2Loss method)</a>
+</li>
+        <li><a href="api/gluon/nn/index.html#mxnet.gluon.nn.LayerNorm.reset_device">(LayerNorm method)</a>
+</li>
+        <li><a href="api/gluon/nn/index.html#mxnet.gluon.nn.LeakyReLU.reset_device">(LeakyReLU method)</a>
+</li>
+        <li><a href="api/gluon/loss/index.html#mxnet.gluon.loss.LogisticLoss.reset_device">(LogisticLoss method)</a>
+</li>
+        <li><a href="api/gluon/loss/index.html#mxnet.gluon.loss.Loss.reset_device">(Loss method)</a>
+</li>
+        <li><a href="api/gluon/rnn/index.html#mxnet.gluon.rnn.LSTMCell.reset_device">(LSTMCell method)</a>
+</li>
+        <li><a href="api/gluon/rnn/index.html#mxnet.gluon.rnn.LSTMPCell.reset_device">(LSTMPCell method)</a>
+</li>
+        <li><a href="api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.MobileNet.reset_device">(MobileNet method)</a>
+</li>
+        <li><a href="api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.MobileNetV2.reset_device">(MobileNetV2 method)</a>
+</li>
+        <li><a href="api/gluon/rnn/index.html#mxnet.gluon.rnn.ModifierCell.reset_device">(ModifierCell method)</a>
+</li>
+        <li><a href="api/gluon/nn/index.html#mxnet.gluon.nn.ModulatedDeformableConvolution.reset_device">(ModulatedDeformableConvolution method)</a>
+</li>
+        <li><a href="api/gluon/parameter.html#mxnet.gluon.Parameter.reset_device">(Parameter method)</a>
+</li>
+        <li><a href="api/gluon/nn/index.html#mxnet.gluon.nn.PixelShuffle1D.reset_device">(PixelShuffle1D method)</a>
+</li>
+        <li><a href="api/gluon/nn/index.html#mxnet.gluon.nn.PixelShuffle2D.reset_device">(PixelShuffle2D method)</a>
+</li>
+        <li><a href="api/gluon/nn/index.html#mxnet.gluon.nn.PixelShuffle3D.reset_device">(PixelShuffle3D method)</a>
+</li>
+        <li><a href="api/gluon/loss/index.html#mxnet.gluon.loss.PoissonNLLLoss.reset_device">(PoissonNLLLoss method)</a>
+</li>
+        <li><a href="api/gluon/nn/index.html#mxnet.gluon.nn.PReLU.reset_device">(PReLU method)</a>
+</li>
+        <li><a href="api/gluon/rnn/index.html#mxnet.gluon.rnn.RecurrentCell.reset_device">(RecurrentCell method)</a>
+</li>
+        <li><a href="api/gluon/nn/index.html#mxnet.gluon.nn.ReflectionPad2D.reset_device">(ReflectionPad2D method)</a>
+</li>
+        <li><a href="api/gluon/rnn/index.html#mxnet.gluon.rnn.ResidualCell.reset_device">(ResidualCell method)</a>
+</li>
+        <li><a href="api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.ResNetV1.reset_device">(ResNetV1 method)</a>
+</li>
+        <li><a href="api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.ResNetV2.reset_device">(ResNetV2 method)</a>
+</li>
+        <li><a href="api/gluon/rnn/index.html#mxnet.gluon.rnn.RNNCell.reset_device">(RNNCell method)</a>
+</li>
+        <li><a href="api/gluon/loss/index.html#mxnet.gluon.loss.SDMLLoss.reset_device">(SDMLLoss method)</a>
+</li>
+        <li><a href="api/gluon/nn/index.html#mxnet.gluon.nn.SELU.reset_device">(SELU method)</a>
+</li>
+        <li><a href="api/gluon/rnn/index.html#mxnet.gluon.rnn.SequentialRNNCell.reset_device">(SequentialRNNCell method)</a>
+</li>
+        <li><a href="api/gluon/loss/index.html#mxnet.gluon.loss.SigmoidBinaryCrossEntropyLoss.reset_device">(SigmoidBinaryCrossEntropyLoss method)</a>
+</li>
+        <li><a href="api/gluon/nn/index.html#mxnet.gluon.nn.SiLU.reset_device">(SiLU method)</a>
+</li>
+        <li><a href="api/gluon/loss/index.html#mxnet.gluon.loss.SoftmaxCrossEntropyLoss.reset_device">(SoftmaxCrossEntropyLoss method)</a>
+</li>
+        <li><a href="api/gluon/loss/index.html#mxnet.gluon.loss.SquaredHingeLoss.reset_device">(SquaredHingeLoss method)</a>
+</li>
+        <li><a href="api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.SqueezeNet.reset_device">(SqueezeNet method)</a>
+</li>
+        <li><a href="api/gluon/nn/index.html#mxnet.gluon.nn.Swish.reset_device">(Swish method)</a>
+</li>
+        <li><a href="api/gluon/symbol_block.html#mxnet.gluon.SymbolBlock.reset_device">(SymbolBlock method)</a>
+</li>
+        <li><a href="api/gluon/nn/index.html#mxnet.gluon.nn.SyncBatchNorm.reset_device">(SyncBatchNorm method)</a>
+</li>
+        <li><a href="api/gluon/loss/index.html#mxnet.gluon.loss.TripletLoss.reset_device">(TripletLoss method)</a>
+</li>
+        <li><a href="api/gluon/rnn/index.html#mxnet.gluon.rnn.VariationalDropoutCell.reset_device">(VariationalDropoutCell method)</a>
+</li>
+        <li><a href="api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.VGG.reset_device">(VGG method)</a>
+</li>
+        <li><a href="api/gluon/rnn/index.html#mxnet.gluon.rnn.ZoneoutCell.reset_device">(ZoneoutCell method)</a>
+</li>
+      </ul></li>
       <li><a href="api/npx/generated/mxnet.npx.reset_np.html#mxnet.npx.reset_np">reset_np() (in module mxnet.npx)</a>
 
       <ul>
@@ -10559,7 +10721,7 @@ Edit on Github
         <li><a href="api/gluon/parameter.html#mxnet.gluon.Parameter.set_data">(Parameter method)</a>
 </li>
       </ul></li>
-      <li><a href="api/test_utils/index.html#mxnet.test_utils.set_default_context">set_default_context() (in module mxnet.test_utils)</a>
+      <li><a href="api/test_utils/index.html#mxnet.test_utils.set_default_device">set_default_device() (in module mxnet.test_utils)</a>
 </li>
       <li><a href="api/util/index.html#mxnet.util.set_flush_denorms">set_flush_denorms() (in module mxnet.util)</a>
 </li>
@@ -12381,6 +12543,8 @@ Edit on Github
         <li><a href="api/legacy/symbol/contrib/index.html#mxnet.symbol.contrib.while_loop">(in module mxnet.symbol.contrib)</a>
 </li>
       </ul></li>
+      <li><a href="api/util/index.html#mxnet.util.wrap_ctx_to_device_func">wrap_ctx_to_device_func() (in module mxnet.util)</a>
+</li>
       <li><a href="api/util/index.html#mxnet.util.wrap_data_api_linalg_func">wrap_data_api_linalg_func() (in module mxnet.util)</a>
 </li>
       <li><a href="api/util/index.html#mxnet.util.wrap_data_api_statical_func">wrap_data_api_statical_func() (in module mxnet.util)</a>

@@ -56,7 +56,7 @@
     }
     </style>
     
-    <title>mxnet.npx.current_context &#8212; Apache MXNet  documentation</title>
+    <title>mxnet.npx.current_device &#8212; Apache MXNet  documentation</title>
 
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -132,7 +132,7 @@
         <nav class="mdl-navigation breadcrumb">
             <a class="mdl-navigation__link" href="../../index.html">Python API</a><i class="material-icons">navigate_next</i>
             <a class="mdl-navigation__link" href="../index.html">NPX: NumPy Neural Network Extension</a><i class="material-icons">navigate_next</i>
-            <a class="mdl-navigation__link is-active">mxnet.npx.current_context</a>
+            <a class="mdl-navigation__link is-active">mxnet.npx.current_device</a>
         </nav>
         <div class="mdl-layout-spacer"></div>
         <nav class="mdl-navigation">
@@ -154,7 +154,7 @@
 </form>
         
 <a id="button-show-github"
-    href="https://github.com/apache/mxnet/edit/master/docs/python_docs/python/api/npx/generated/mxnet.npx.current_context.rst" class="mdl-button mdl-js-button mdl-button--icon">
+    href="https://github.com/apache/mxnet/edit/master/docs/python_docs/python/api/npx/generated/mxnet.npx.current_device.rst" class="mdl-button mdl-js-button mdl-button--icon">
 <i class="material-icons">edit</i>
 </a>
 <div class="mdl-tooltip" data-mdl-for="button-show-github">
@@ -620,7 +620,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">mxnet.npx.current_context</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -738,7 +738,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1215,7 +1215,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">mxnet.npx.current_context</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1333,7 +1333,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1360,32 +1360,32 @@ Edit on Github
     <div class="document">
         <div class="page-content" role="main">
         
-  <div class="section" id="mxnet-npx-current-context">
-<h1>mxnet.npx.current_context<a class="headerlink" href="#mxnet-npx-current-context" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="mxnet-npx-current-device">
+<h1>mxnet.npx.current_device<a class="headerlink" href="#mxnet-npx-current-device" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
-<dt id="mxnet.npx.current_context">
-<code class="sig-name descname">current_context</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.npx.current_context" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the current context.</p>
+<dt id="mxnet.npx.current_device">
+<code class="sig-name descname">current_device</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.npx.current_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current device.</p>
 <p>By default, <cite>mx.cpu()</cite> is used for all the computations
-and it can be overridden by using <cite>with mx.Context(x)</cite> statement where
+and it can be overridden by using <cite>with mx.Device(x)</cite> statement where
 x can be cpu(device_id) or gpu(device_id).</p>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mx</span><span class="o">.</span><span class="n">current_context</span><span class="p">()</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mx</span><span class="o">.</span><span class="n">current_device</span><span class="p">()</span>
 <span class="go">cpu(0)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">mx</span><span class="o">.</span><span class="n">Context</span><span class="p">(</span><span class="s1">&#39;gpu&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>  <span class="c1"># Context changed in `with` block.</span>
-<span class="gp">... </span>   <span class="n">mx</span><span class="o">.</span><span class="n">current_context</span><span class="p">()</span>  <span class="c1"># Computation done here will be on gpu(1).</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">mx</span><span class="o">.</span><span class="n">Device</span><span class="p">(</span><span class="s1">&#39;gpu&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>  <span class="c1"># Device changed in `with` block.</span>
+<span class="gp">... </span>   <span class="n">mx</span><span class="o">.</span><span class="n">current_device</span><span class="p">()</span>  <span class="c1"># Computation done here will be on gpu(1).</span>
 <span class="gp">...</span>
 <span class="go">gpu(1)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mx</span><span class="o">.</span><span class="n">current_context</span><span class="p">()</span> <span class="c1"># Back to default context.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mx</span><span class="o">.</span><span class="n">current_device</span><span class="p">()</span> <span class="c1"># Back to default device.</span>
 <span class="go">cpu(0)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>default_ctx</strong></p>
+<dd class="field-odd"><p><strong>default_device</strong></p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="../../context/index.html#mxnet.context.Context" title="mxnet.context.Context">Context</a></p>
+<dd class="field-even"><p><a class="reference internal" href="../../device/index.html#mxnet.device.Device" title="mxnet.device.Device">Device</a></p>
 </dd>
 </dl>
 </dd></dl>

@@ -617,7 +617,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -735,7 +735,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1212,7 +1212,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1330,7 +1330,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1393,7 +1393,7 @@ Edit on Github
 
 <span class="kn">from</span> <span class="nn">..base</span> <span class="k">import</span> <span class="n">mx_real_t</span><span class="p">,</span> <span class="n">MXNetError</span><span class="p">,</span> <span class="n">NDArrayHandle</span><span class="p">,</span> <span class="n">SymbolHandle</span><span class="p">,</span> <span class="n">py_str</span><span class="p">,</span> <span class="n">check_call</span><span class="p">,</span> <span class="n">_LIB</span>
 <span class="kn">from</span> <span class="nn">..</span> <span class="k">import</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">,</span> <span class="n">initializer</span><span class="p">,</span> <span class="n">autograd</span><span class="p">,</span> <span class="n">_deferred_compute</span> <span class="k">as</span> <span class="n">dc</span><span class="p">,</span> <span class="n">name</span> <span class="k">as</span> <span class="n">_name</span><span class="p">,</span> \
-    <span class="n">profiler</span> <span class="k">as</span> <span class="n">_profiler</span><span class="p">,</span> <span class="n">context</span> <span class="k">as</span> <span class="n">_context</span>
+    <span class="n">profiler</span> <span class="k">as</span> <span class="n">_profiler</span><span class="p">,</span> <span class="n">device</span> <span class="k">as</span> <span class="n">_device</span>
 <span class="kn">from</span> <span class="nn">..symbol.numpy</span> <span class="k">import</span> <span class="n">_symbol</span> <span class="k">as</span> <span class="n">np_symbol</span>
 <span class="kn">from</span> <span class="nn">..symbol</span> <span class="k">import</span> <span class="n">Symbol</span><span class="p">,</span> <span class="n">fromjson</span>
 <span class="kn">from</span> <span class="nn">..ndarray</span> <span class="k">import</span> <span class="n">NDArray</span>
@@ -1402,7 +1402,7 @@ Edit on Github
 <span class="kn">from</span> <span class="nn">.utils</span> <span class="k">import</span> <span class="n">_check_same_symbol_type</span><span class="p">,</span> <span class="n">_check_all_np_ndarrays</span><span class="p">,</span> <span class="n">_check_block_input_np_ndarrays</span>
 <span class="kn">from</span> <span class="nn">..</span> <span class="k">import</span> <span class="n">numpy_extension</span> <span class="k">as</span> <span class="n">_mx_npx</span>
 <span class="kn">from</span> <span class="nn">..</span> <span class="k">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">_mx_np</span><span class="p">,</span> <span class="n">ndarray</span> <span class="k">as</span> <span class="n">nd</span>
-<span class="kn">from</span> <span class="nn">..</span> <span class="n">util</span> <span class="kn">import</span> <span class="nn">is_np_array</span><span class="o">,</span> <span class="nn">np_shape</span><span class="o">,</span> <span class="nn">np_array</span>
+<span class="kn">from</span> <span class="nn">..</span> <span class="n">util</span> <span class="kn">import</span> <span class="nn">is_np_array</span><span class="o">,</span> <span class="nn">np_shape</span><span class="o">,</span> <span class="nn">np_array</span><span class="o">,</span> <span class="nn">wrap_ctx_to_device_func</span>
 
 
 <span class="n">_naming_counter</span> <span class="o">=</span> <span class="n">contextvars</span><span class="o">.</span><span class="n">ContextVar</span><span class="p">(</span><span class="s1">&#39;namecounter&#39;</span><span class="p">)</span>
@@ -1427,11 +1427,11 @@ Edit on Github
     <span class="n">_prefix</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span><span class="n">prefix_token</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">_gather_type_ctx_info</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">_gather_type_device_info</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Analyze the elements inside the nested args object and find:</span>
 <span class="sd">        - If there exists ndarray</span>
 <span class="sd">        - If there exists symbol</span>
-<span class="sd">        - All contexts appearing in args</span>
+<span class="sd">        - All devices appearing in args</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1444,32 +1444,32 @@ Edit on Github
 <span class="sd">        Whether the elements in args contains symbols</span>
 <span class="sd">    has_ndarray : bool</span>
 <span class="sd">        Whether the elements in args contains ndarrays</span>
-<span class="sd">    ctx_set : set of mxnet.context.Context</span>
-<span class="sd">        Contains all possible contexts of the inner ndarrays in args. Can be empty if there is no</span>
+<span class="sd">    device_set : set of mxnet.device.Device</span>
+<span class="sd">        Contains all possible devices of the inner ndarrays in args. Can be empty if there is no</span>
 <span class="sd">        ndarray inside args.</span>
-<span class="sd">    first_ctx : mxnet.context.Context or None</span>
-<span class="sd">        Context of the first appeared NDArray (for backward-compatibility)</span>
+<span class="sd">    first_device : mxnet.device.Device or None</span>
+<span class="sd">        Device of the first appeared NDArray (for backward-compatibility)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">NDArray</span><span class="p">):</span>
-        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="p">{</span><span class="n">args</span><span class="o">.</span><span class="n">ctx</span><span class="p">},</span> <span class="n">args</span><span class="o">.</span><span class="n">ctx</span>
+        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="p">{</span><span class="n">args</span><span class="o">.</span><span class="n">device</span><span class="p">},</span> <span class="n">args</span><span class="o">.</span><span class="n">device</span>
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">Symbol</span><span class="p">):</span>
         <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="nb">set</span><span class="p">(),</span> <span class="kc">None</span>
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
         <span class="n">has_symbol</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="n">has_ndarray</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="n">ctx_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-        <span class="n">first_ctx</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">device_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="n">first_device</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">for</span> <span class="n">ele</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
-            <span class="n">ele_has_sym</span><span class="p">,</span> <span class="n">ele_has_nd</span><span class="p">,</span> <span class="n">ele_ctx_set</span><span class="p">,</span> <span class="n">ele_first_ctx</span> <span class="o">=</span>\
-                <span class="n">_gather_type_ctx_info</span><span class="p">(</span><span class="n">ele</span><span class="p">)</span>
+            <span class="n">ele_has_sym</span><span class="p">,</span> <span class="n">ele_has_nd</span><span class="p">,</span> <span class="n">ele_device_set</span><span class="p">,</span> <span class="n">ele_first_device</span> <span class="o">=</span>\
+                <span class="n">_gather_type_device_info</span><span class="p">(</span><span class="n">ele</span><span class="p">)</span>
             <span class="n">has_symbol</span> <span class="o">=</span> <span class="n">has_symbol</span> <span class="ow">or</span> <span class="n">ele_has_sym</span>
             <span class="n">has_ndarray</span> <span class="o">=</span> <span class="n">has_ndarray</span> <span class="ow">or</span> <span class="n">ele_has_nd</span>
-            <span class="k">if</span> <span class="n">first_ctx</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">ele_first_ctx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">first_ctx</span> <span class="o">=</span> <span class="n">ele_first_ctx</span>
-            <span class="n">ctx_set</span> <span class="o">=</span> <span class="n">ctx_set</span> <span class="o">|</span> <span class="n">ele_ctx_set</span>
+            <span class="k">if</span> <span class="n">first_device</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">ele_first_device</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">first_device</span> <span class="o">=</span> <span class="n">ele_first_device</span>
+            <span class="n">device_set</span> <span class="o">=</span> <span class="n">device_set</span> <span class="o">|</span> <span class="n">ele_device_set</span>
             <span class="k">if</span> <span class="n">has_symbol</span> <span class="ow">and</span> <span class="n">has_ndarray</span><span class="p">:</span>
                 <span class="k">break</span>
-        <span class="k">return</span> <span class="n">has_symbol</span><span class="p">,</span> <span class="n">has_ndarray</span><span class="p">,</span> <span class="n">ctx_set</span><span class="p">,</span> <span class="n">first_ctx</span>
+        <span class="k">return</span> <span class="n">has_symbol</span><span class="p">,</span> <span class="n">has_ndarray</span><span class="p">,</span> <span class="n">device_set</span><span class="p">,</span> <span class="n">first_device</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="nb">set</span><span class="p">(),</span> <span class="kc">None</span>
 
@@ -1580,8 +1580,8 @@ Edit on Github
 <span class="sd">                return mx.npx.relu(self.dense1(x))</span>
 
 <span class="sd">        model = Model()</span>
-<span class="sd">        model.initialize(ctx=mx.cpu(0))</span>
-<span class="sd">        model(mx.np.zeros((10, 10), ctx=mx.cpu(0)))</span>
+<span class="sd">        model.initialize(device=mx.cpu(0))</span>
+<span class="sd">        model(mx.np.zeros((10, 10), device=mx.cpu(0)))</span>
 
 
 <span class="sd">    Child :py:class:`Block` assigned this way will be registered and :py:meth:`collect_params`</span>
@@ -1735,7 +1735,8 @@ Edit on Github
         <span class="k">else</span><span class="p">:</span>
             <span class="n">ndarray</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">arg_dict</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Block.load_parameters"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.load_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">load_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">allow_missing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<div class="viewcode-block" id="Block.load_parameters"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.load_parameters">[docs]</a>    <span class="nd">@wrap_ctx_to_device_func</span>
+    <span class="k">def</span> <span class="nf">load_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">allow_missing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                         <span class="n">ignore_extra</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cast_dtype</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype_source</span><span class="o">=</span><span class="s1">&#39;current&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Load parameters from file previously saved by `save_parameters`.</span>
 
@@ -1743,8 +1744,8 @@ Edit on Github
 <span class="sd">        ----------</span>
 <span class="sd">        filename : str</span>
 <span class="sd">            Path to parameter file.</span>
-<span class="sd">        ctx : Context or list of Context, default cpu()</span>
-<span class="sd">            Context(s) to initialize loaded parameters on.</span>
+<span class="sd">        device : Device or list of Device, default cpu()</span>
+<span class="sd">            Device(s) to initialize loaded parameters on.</span>
 <span class="sd">        allow_missing : bool, default False</span>
 <span class="sd">            Whether to silently skip loading parameters not represents in the file.</span>
 <span class="sd">        ignore_extra : bool, default False</span>
@@ -1788,9 +1789,9 @@ Edit on Github
         <span class="k">if</span> <span class="ow">not</span> <span class="n">loaded</span><span class="p">:</span>
             <span class="k">return</span>
         <span class="n">full_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="n">loaded</span><span class="p">,</span> <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="n">filename</span><span class="p">}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">load_dict</span><span class="p">(</span><span class="n">full_dict</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">allow_missing</span><span class="p">,</span> <span class="n">ignore_extra</span><span class="p">,</span> <span class="n">cast_dtype</span><span class="p">,</span> <span class="n">dtype_source</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_dict</span><span class="p">(</span><span class="n">full_dict</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">allow_missing</span><span class="p">,</span> <span class="n">ignore_extra</span><span class="p">,</span> <span class="n">cast_dtype</span><span class="p">,</span> <span class="n">dtype_source</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Block.load_dict"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.load_dict">[docs]</a>    <span class="k">def</span> <span class="nf">load_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param_dict</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">allow_missing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<div class="viewcode-block" id="Block.load_dict"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.load_dict">[docs]</a>    <span class="k">def</span> <span class="nf">load_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param_dict</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">allow_missing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                   <span class="n">ignore_extra</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cast_dtype</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype_source</span><span class="o">=</span><span class="s2">&quot;current&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Load parameters from dict</span>
 
@@ -1798,8 +1799,9 @@ Edit on Github
 <span class="sd">        ----------</span>
 <span class="sd">        param_dict : dict</span>
 <span class="sd">            Dictionary containing model parameters</span>
-<span class="sd">        ctx : Context or list of Context</span>
-<span class="sd">            Context(s) initialize loaded parameters on.</span>
+<span class="sd">        device : Device, optional</span>
+<span class="sd">            Device context on which the memory is allocated. Default is</span>
+<span class="sd">            `mxnet.device.current_device()`.</span>
 <span class="sd">        allow_missing : bool, default False</span>
 <span class="sd">            Whether to silently skip loading parameters not represented in the file.</span>
 <span class="sd">        ignore_extra : bool, default False</span>
@@ -1835,8 +1837,8 @@ Edit on Github
                     <span class="s2">&quot;Set allow_missing=True to ignore missing parameters.&quot;</span><span class="o">%</span><span class="p">(</span>
                         <span class="n">name</span><span class="p">,</span> <span class="n">error_str</span><span class="p">,</span> <span class="n">_brief_print_list</span><span class="p">(</span><span class="n">loaded</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
 
-        <span class="k">if</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">ctx</span> <span class="o">=</span> <span class="n">_context</span><span class="o">.</span><span class="n">current_context</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">device</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">device</span> <span class="o">=</span> <span class="n">_device</span><span class="o">.</span><span class="n">current_device</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">loaded</span><span class="p">:</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">ignore_extra</span> <span class="ow">and</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
@@ -1847,7 +1849,7 @@ Edit on Github
                 <span class="n">param</span> <span class="o">=</span> <span class="n">loaded</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
                 <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
                     <span class="n">param</span> <span class="o">=</span> <span class="n">_mx_np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">param</span><span class="p">)</span> <span class="k">if</span> <span class="n">is_np_array</span><span class="p">()</span> <span class="k">else</span> <span class="n">nd</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>
-                <span class="n">params</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">_load_init</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">cast_dtype</span><span class="o">=</span><span class="n">cast_dtype</span><span class="p">,</span> <span class="n">dtype_source</span><span class="o">=</span><span class="n">dtype_source</span><span class="p">)</span></div>
+                <span class="n">params</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">_load_init</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">cast_dtype</span><span class="o">=</span><span class="n">cast_dtype</span><span class="p">,</span> <span class="n">dtype_source</span><span class="o">=</span><span class="n">dtype_source</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Block.register_child"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.register_child">[docs]</a>    <span class="k">def</span> <span class="nf">register_child</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Registers block as a child of self. :py:class:`Block` s assigned to self as</span>
@@ -1911,7 +1913,8 @@ Edit on Github
         <span class="n">fn</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="Block.initialize"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.initialize">[docs]</a>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="n">initializer</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(),</span> <span class="n">ctx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<div class="viewcode-block" id="Block.initialize"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.initialize">[docs]</a>    <span class="nd">@wrap_ctx_to_device_func</span>
+    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="n">initializer</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(),</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                    <span class="n">force_reinit</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Initializes :py:class:`Parameter` s of this :py:class:`Block` and its children.</span>
 
@@ -1920,8 +1923,8 @@ Edit on Github
 <span class="sd">        init : Initializer</span>
 <span class="sd">            Global default Initializer to be used when :py:meth:`Parameter.init` is ``None``.</span>
 <span class="sd">            Otherwise, :py:meth:`Parameter.init` takes precedence.</span>
-<span class="sd">        ctx : Context or list of Context</span>
-<span class="sd">            Keeps a copy of Parameters on one or many context(s).</span>
+<span class="sd">        device : Device or list of Device</span>
+<span class="sd">            Keeps a copy of Parameters on one or many device(s).</span>
 <span class="sd">        verbose : bool, default False</span>
 <span class="sd">            Whether to verbosely print out details on initialization.</span>
 <span class="sd">        force_reinit : bool, default False</span>
@@ -1931,7 +1934,7 @@ Edit on Github
         <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
             <span class="n">init</span><span class="o">.</span><span class="n">set_verbosity</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
-            <span class="n">v</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">init</span><span class="p">,</span> <span class="n">force_reinit</span><span class="o">=</span><span class="n">force_reinit</span><span class="p">)</span></div>
+            <span class="n">v</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">init</span><span class="p">,</span> <span class="n">force_reinit</span><span class="o">=</span><span class="n">force_reinit</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Block.save"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Save the model architecture and parameters to load again later</span>
@@ -2091,7 +2094,7 @@ Edit on Github
 
 <div class="viewcode-block" id="Block.zero_grad"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.zero_grad">[docs]</a>    <span class="k">def</span> <span class="nf">zero_grad</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Sets all Parameters&#39; gradient buffer to 0.&quot;&quot;&quot;</span>
-        <span class="c1"># collect gradient arrays for each ctx</span>
+        <span class="c1"># collect gradient arrays for each device</span>
         <span class="n">arrays</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
         <span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">collect_params</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
@@ -2102,9 +2105,9 @@ Edit on Github
                     <span class="n">ndarray</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">g</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="k">if</span> <span class="n">is_np_array</span><span class="p">():</span>
-                        <span class="n">arrays</span><span class="p">[</span><span class="n">g</span><span class="o">.</span><span class="n">ctx</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">as_nd_ndarray</span><span class="p">())</span>
+                        <span class="n">arrays</span><span class="p">[</span><span class="n">g</span><span class="o">.</span><span class="n">device</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">as_nd_ndarray</span><span class="p">())</span>
                     <span class="k">else</span><span class="p">:</span>
-                        <span class="n">arrays</span><span class="p">[</span><span class="n">g</span><span class="o">.</span><span class="n">ctx</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+                        <span class="n">arrays</span><span class="p">[</span><span class="n">g</span><span class="o">.</span><span class="n">device</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">arrays</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">return</span>
@@ -2112,18 +2115,24 @@ Edit on Github
         <span class="k">for</span> <span class="n">arr</span> <span class="ow">in</span> <span class="n">arrays</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
             <span class="n">ndarray</span><span class="o">.</span><span class="n">reset_arrays</span><span class="p">(</span><span class="o">*</span><span class="n">arr</span><span class="p">,</span> <span class="n">num_arrays</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Block.reset_ctx"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.reset_ctx">[docs]</a>    <span class="k">def</span> <span class="nf">reset_ctx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Re-assign all Parameters to other contexts.</span>
+<div class="viewcode-block" id="Block.reset_device"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.reset_device">[docs]</a>    <span class="k">def</span> <span class="nf">reset_device</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Re-assign all Parameters to other devices.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        ctx : Context or list of Context, default :py:meth:`context.current_context()`.</span>
-<span class="sd">            Assign Parameter to given context. If ctx is a list of Context, a</span>
-<span class="sd">            copy will be made for each context.</span>
+<span class="sd">        device : Device or list of Device, default :py:meth:`device.current_device()`.</span>
+<span class="sd">            Assign Parameter to given device. If device is a list of Device, a</span>
+<span class="sd">            copy will be made for each device.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">collect_params</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
-            <span class="n">i</span><span class="o">.</span><span class="n">reset_ctx</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span></div>
+            <span class="n">i</span><span class="o">.</span><span class="n">reset_device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Block.reset_ctx"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.reset_ctx">[docs]</a>    <span class="k">def</span> <span class="nf">reset_ctx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This function has been deprecated. Please refer to ``Block.reset_device``.&quot;&quot;&quot;</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Block.reset_ctx has been renamed to&#39;</span>
+                      <span class="s1">&#39; Block.reset_device&#39;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reset_device</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Block.setattr"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.Block.setattr">[docs]</a>    <span class="k">def</span> <span class="nf">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Set an attribute to a new value for all Parameters.</span>
@@ -2373,9 +2382,9 @@ Edit on Github
 <span class="sd">                return mx.npx.relu(self.dense1(x))</span>
 
 <span class="sd">        model = Model()</span>
-<span class="sd">        model.initialize(ctx=mx.cpu(0))</span>
+<span class="sd">        model.initialize(device=mx.cpu(0))</span>
 <span class="sd">        model.hybridize()</span>
-<span class="sd">        model(mx.np.zeros((10, 10), ctx=mx.cpu(0)))</span>
+<span class="sd">        model(mx.np.zeros((10, 10), device=mx.cpu(0)))</span>
 
 <span class="sd">    Forward computation in :py:class:`HybridBlock` must be static to work with :py:class:`Symbol` s,</span>
 <span class="sd">    i.e. you cannot call :py:meth:`NDArray.asnumpy`, :py:attr:`NDArray.shape`,</span>
@@ -2490,9 +2499,9 @@ Edit on Github
 
         <span class="n">arg_dict</span><span class="p">,</span> <span class="n">aux_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(),</span> <span class="nb">dict</span><span class="p">()</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="p">:</span>
-            <span class="c1"># set context for inputs</span>
-            <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">ctx_set</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_gather_type_ctx_info</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
-            <span class="n">ctx</span> <span class="o">=</span> <span class="n">ctx_set</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ctx_set</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="kc">None</span>
+            <span class="c1"># set device for inputs</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">device_set</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_gather_type_device_info</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+            <span class="n">device</span> <span class="o">=</span> <span class="n">device_set</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">device_set</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="kc">None</span>
             <span class="c1"># get list of params in the order of out.list_arguments</span>
             <span class="n">input_shapes</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
             <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">out</span><span class="o">.</span><span class="n">list_arguments</span><span class="p">():</span>
@@ -2518,7 +2527,7 @@ Edit on Github
                     <span class="n">aux_dict</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">()</span>
 
             <span class="c1"># Partition the graph</span>
-            <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">optimize_for</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="p">,</span> <span class="n">arg_dict</span><span class="p">,</span> <span class="n">aux_dict</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">input_shapes</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_backend_opts</span><span class="p">)</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">optimize_for</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="p">,</span> <span class="n">arg_dict</span><span class="p">,</span> <span class="n">aux_dict</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">input_shapes</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_backend_opts</span><span class="p">)</span>
 
             <span class="c1">#update cached graph with partitioned graph</span>
             <span class="k">if</span> <span class="n">update_graph</span><span class="p">:</span>
@@ -2558,7 +2567,7 @@ Edit on Github
                     <span class="n">param</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">param_data</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
                     <span class="n">param</span><span class="o">.</span><span class="n">_var_name</span> <span class="o">=</span> <span class="n">name</span>
                     <span class="n">serialization_name</span> <span class="o">=</span> <span class="n">name</span>  <span class="c1"># HybridBlock.export</span>
-                    <span class="n">param</span><span class="o">.</span><span class="n">_load_init</span><span class="p">(</span><span class="n">param_data</span><span class="p">,</span> <span class="n">param_data</span><span class="o">.</span><span class="n">context</span><span class="p">)</span>
+                    <span class="n">param</span><span class="o">.</span><span class="n">_load_init</span><span class="p">(</span><span class="n">param_data</span><span class="p">,</span> <span class="n">param_data</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
                 <span class="n">triple</span> <span class="o">=</span> <span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="n">serialization_name</span><span class="p">,</span> <span class="n">param</span><span class="p">)</span>
 
             <span class="bp">self</span><span class="o">.</span><span class="n">_cached_op_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">triple</span><span class="p">)</span>
@@ -2694,16 +2703,16 @@ Edit on Github
                            <span class="n">inline_limit</span><span class="p">,</span> <span class="n">forward_bulk_size</span><span class="p">,</span> <span class="n">backward_bulk_size</span><span class="p">)</span>
 
         <span class="c1"># do part of forward API call</span>
-        <span class="n">has_symbol</span><span class="p">,</span> <span class="n">has_ndarray</span><span class="p">,</span> <span class="n">ctx_set</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_gather_type_ctx_info</span><span class="p">([</span><span class="n">x</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+        <span class="n">has_symbol</span><span class="p">,</span> <span class="n">has_ndarray</span><span class="p">,</span> <span class="n">device_set</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_gather_type_device_info</span><span class="p">([</span><span class="n">x</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">has_symbol</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">has_ndarray</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;In HybridBlock, there must be one NDArray or one Symbol in the input.&#39;</span>
                              <span class="s1">&#39; Please check the type of the args.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ctx_set</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Found multiple contexts in the input, &#39;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">device_set</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Found multiple devices in the input, &#39;</span>
                              <span class="s1">&#39;After hybridized, the HybridBlock only supports one input &#39;</span>
-                             <span class="s1">&#39;context. You can print the ele.ctx in the &#39;</span>
-                             <span class="s1">&#39;input arguments to inspect their contexts. &#39;</span>
-                             <span class="s1">&#39;Find all contexts = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ctx_set</span><span class="p">))</span>
+                             <span class="s1">&#39;device. You can print the ele.device in the &#39;</span>
+                             <span class="s1">&#39;input arguments to inspect their devices. &#39;</span>
+                             <span class="s1">&#39;Find all devices = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">device_set</span><span class="p">))</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_build_cache</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cached_op</span><span class="p">,</span> <span class="s2">&quot;Gluon failed to build the cache. &quot;</span> \
@@ -2940,18 +2949,18 @@ Edit on Github
             <span class="s1">&#39;Must define </span><span class="si">{name}</span><span class="s1">.forward. &#39;</span>
             <span class="s1">&#39;Defining </span><span class="si">{name}</span><span class="s1">.hybrid_forward is deprecated.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
 
-        <span class="n">_</span><span class="p">,</span> <span class="n">has_ndarray</span><span class="p">,</span> <span class="n">ctx_set</span><span class="p">,</span> <span class="n">first_ctx</span> <span class="o">=</span> <span class="n">_gather_type_ctx_info</span><span class="p">([</span><span class="n">x</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">has_ndarray</span><span class="p">,</span> <span class="n">device_set</span><span class="p">,</span> <span class="n">first_device</span> <span class="o">=</span> <span class="n">_gather_type_device_info</span><span class="p">([</span><span class="n">x</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">has_ndarray</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;In HybridBlock, there must be one NDArray in the input.&#39;</span>
                              <span class="s1">&#39; Please check the type of the args.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_active</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">dc</span><span class="o">.</span><span class="n">is_deferred_compute</span><span class="p">():</span>
             <span class="c1"># Do not call CachedOp if not hybridized or inside deferred compute mode.</span>
-            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ctx_set</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Find multiple contexts in the input, &#39;</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">device_set</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Find multiple devices in the input, &#39;</span>
                                  <span class="s1">&#39;After hybridized, the HybridBlock only supports one input &#39;</span>
-                                 <span class="s1">&#39;context. You can print the ele.ctx in the &#39;</span>
-                                 <span class="s1">&#39;input arguments to inspect their contexts. &#39;</span>
-                                 <span class="s1">&#39;Find all contexts = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ctx_set</span><span class="p">))</span>
+                                 <span class="s1">&#39;device. You can print the ele.device in the &#39;</span>
+                                 <span class="s1">&#39;input arguments to inspect their devices. &#39;</span>
+                                 <span class="s1">&#39;Find all devices = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">device_set</span><span class="p">))</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_called_infer_shape_already</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">infer_shape</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
@@ -2968,7 +2977,7 @@ Edit on Github
             <span class="c1"># HybridBlock is a child block of a HybridBlock that has been hybridized.</span>
             <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__call__</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
 
-        <span class="k">with</span> <span class="n">first_ctx</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">first_device</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_cached_op</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
 
 <div class="viewcode-block" id="HybridBlock.forward"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.HybridBlock.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
@@ -2977,23 +2986,30 @@ Edit on Github
 
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
-<div class="viewcode-block" id="HybridBlock.reset_ctx"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.HybridBlock.reset_ctx">[docs]</a>    <span class="k">def</span> <span class="nf">reset_ctx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Re-assign all Parameters to other contexts. If the Block is hybridized, it will reset the _cached_op_args.</span>
+<div class="viewcode-block" id="HybridBlock.reset_device"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.HybridBlock.reset_device">[docs]</a>    <span class="k">def</span> <span class="nf">reset_device</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Re-assign all Parameters to other devices. If the Block is hybridized, it will reset the _cached_op_args.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        ctx : Context or list of Context, default :py:meth:`context.current_context()`.</span>
-<span class="sd">            Assign Parameter to given context. If ctx is a list of Context, a</span>
-<span class="sd">            copy will be made for each context.</span>
+<span class="sd">        device : Device or list of Device, default :py:meth:`device.current_device()`.</span>
+<span class="sd">            Assign Parameter to given device. If device is a list of Device, a</span>
+<span class="sd">            copy will be made for each device.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">collect_params</span><span class="p">()</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cached_op</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cached_op_args</span><span class="p">:</span>
                 <span class="c1"># resetting parameters creating by the partitioning backend</span>
                 <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
-                    <span class="n">p</span><span class="o">.</span><span class="n">reset_ctx</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+                    <span class="n">p</span><span class="o">.</span><span class="n">reset_device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
-            <span class="n">p</span><span class="o">.</span><span class="n">reset_ctx</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span></div></div>
+            <span class="n">p</span><span class="o">.</span><span class="n">reset_device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="HybridBlock.reset_ctx"><a class="viewcode-back" href="../../../api/gluon/nn/index.html#mxnet.gluon.data.vision.transforms.HybridBlock.reset_ctx">[docs]</a>    <span class="k">def</span> <span class="nf">reset_ctx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This function has been deprecated. Please refer to ``HybridBlock.reset_device``.&quot;&quot;&quot;</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;HybridBlock.reset_ctx has been renamed to&#39;</span>
+                      <span class="s1">&#39; HybridBlock.reset_device&#39;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reset_device</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span></div></div>
+
 
 <div class="viewcode-block" id="SymbolBlock"><a class="viewcode-back" href="../../../api/gluon/symbol_block.html#mxnet.gluon.data.vision.transforms.SymbolBlock">[docs]</a><span class="k">class</span> <span class="nc">SymbolBlock</span><span class="p">(</span><span class="n">HybridBlock</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Construct block from symbol. This is useful for using pre-trained models</span>
@@ -3013,7 +3029,7 @@ Edit on Github
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; # To extract the feature from fc1 and fc2 layers of AlexNet:</span>
-<span class="sd">    &gt;&gt;&gt; alexnet = gluon.model_zoo.vision.alexnet(pretrained=True, ctx=mx.cpu())</span>
+<span class="sd">    &gt;&gt;&gt; alexnet = gluon.model_zoo.vision.alexnet(pretrained=True, device=mx.cpu())</span>
 <span class="sd">    &gt;&gt;&gt; inputs = mx.sym.var(&#39;data&#39;)</span>
 <span class="sd">    &gt;&gt;&gt; out = alexnet(inputs)</span>
 <span class="sd">    &gt;&gt;&gt; internals = out.get_internals()</span>
@@ -3027,7 +3043,8 @@ Edit on Github
 <span class="sd">    &gt;&gt;&gt; print(feat_model(x))</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 <div class="viewcode-block" id="SymbolBlock.imports"><a class="viewcode-back" href="../../../api/gluon/symbol_block.html#mxnet.gluon.data.vision.transforms.SymbolBlock.imports">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">imports</span><span class="p">(</span><span class="n">symbol_file</span><span class="p">,</span> <span class="n">input_names</span><span class="p">,</span> <span class="n">param_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">allow_missing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="nd">@wrap_ctx_to_device_func</span>
+    <span class="k">def</span> <span class="nf">imports</span><span class="p">(</span><span class="n">symbol_file</span><span class="p">,</span> <span class="n">input_names</span><span class="p">,</span> <span class="n">param_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">allow_missing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                 <span class="n">ignore_extra</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Import model previously saved by `gluon.HybridBlock.export`</span>
 <span class="sd">        as a `gluon.SymbolBlock` for use in Gluon.</span>
@@ -3040,8 +3057,8 @@ Edit on Github
 <span class="sd">            List of input variable names</span>
 <span class="sd">        param_file : str, optional</span>
 <span class="sd">            Path to parameter file.</span>
-<span class="sd">        ctx : Context, default None</span>
-<span class="sd">            The context to initialize `gluon.SymbolBlock` on.</span>
+<span class="sd">        device : Device, default None</span>
+<span class="sd">            The device to initialize `gluon.SymbolBlock` on.</span>
 <span class="sd">        allow_missing : bool, default False</span>
 <span class="sd">            Whether to silently skip loading parameters not represents in the file.</span>
 <span class="sd">        ignore_extra : bool, default False</span>
@@ -3079,7 +3096,7 @@ Edit on Github
             <span class="n">inputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">symbol</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">as_np_ndarray</span><span class="p">()</span> <span class="k">if</span> <span class="n">is_np_array</span><span class="p">()</span> <span class="k">else</span> <span class="n">symbol</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">input_names</span><span class="p">]</span>
         <span class="n">ret</span> <span class="o">=</span> <span class="n">SymbolBlock</span><span class="p">(</span><span class="n">sym</span><span class="p">,</span> <span class="n">inputs</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">param_file</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">ret</span><span class="o">.</span><span class="n">load_parameters</span><span class="p">(</span><span class="n">param_file</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">allow_missing</span><span class="p">,</span> <span class="n">ignore_extra</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;saved&#39;</span><span class="p">)</span>
+            <span class="n">ret</span><span class="o">.</span><span class="n">load_parameters</span><span class="p">(</span><span class="n">param_file</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">allow_missing</span><span class="p">,</span> <span class="n">ignore_extra</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;saved&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">ret</span></div>
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -3177,7 +3194,7 @@ Edit on Github
                                <span class="s1">&#39;is not yet supported in Gluon 2.&#39;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">NDArray</span><span class="p">):</span>
-            <span class="k">with</span> <span class="n">x</span><span class="o">.</span><span class="n">ctx</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">x</span><span class="o">.</span><span class="n">device</span><span class="p">:</span>
                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_cached_op</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
 
         <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">Symbol</span><span class="p">),</span> \

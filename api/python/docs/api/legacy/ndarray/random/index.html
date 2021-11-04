@@ -621,7 +621,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -739,7 +739,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1216,7 +1216,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1334,7 +1334,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1445,7 +1445,7 @@ less than high. The default value is 1.0.</p></li>
 are NDArrays with shape, e.g., <cite>(x, y)</cite>, then output will have shape
 <cite>(x, y, m, n)</cite>, where <cite>m*n</cite> samples are drawn for each <cite>[low, high)</cite> pair.</p></li>
 <li><p><strong>dtype</strong> (<em>{'float16'</em><em>, </em><em>'float32'</em><em>, </em><em>'float64'}</em><em>, </em><em>optional</em>) – Data type of output samples. Default is ‘float32’</p></li>
-<li><p><strong>ctx</strong> (<a class="reference internal" href="../../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a><em>, </em><em>optional</em>) – Device context of output. Default is current context. Overridden by
+<li><p><strong>ctx</strong> (<em>Context</em><em>, </em><em>optional</em>) – Device context of output. Default is current context. Overridden by
 <cite>low.context</cite> when <cite>low</cite> is an NDArray.</p></li>
 <li><p><strong>out</strong> (<a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a><em>, </em><em>optional</em>) – Store output to an existing NDArray.</p></li>
 </ul>
@@ -1498,7 +1498,7 @@ by <em>loc</em> (mean) and <em>scale</em> (standard deviation).</p>
 are NDArrays with shape, e.g., <cite>(x, y)</cite>, then output will have shape
 <cite>(x, y, m, n)</cite>, where <cite>m*n</cite> samples are drawn for each <cite>[loc, scale)</cite> pair.</p></li>
 <li><p><strong>dtype</strong> (<em>{'float16'</em><em>, </em><em>'float32'</em><em>, </em><em>'float64'}</em><em>, </em><em>optional</em>) – Data type of output samples. Default is ‘float32’</p></li>
-<li><p><strong>ctx</strong> (<a class="reference internal" href="../../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a><em>, </em><em>optional</em>) – Device context of output. Default is current context. Overridden by
+<li><p><strong>ctx</strong> (<em>Context</em><em>, </em><em>optional</em>) – Device context of output. Default is current context. Overridden by
 <cite>loc.context</cite> when <cite>loc</cite> is an NDArray.</p></li>
 <li><p><strong>out</strong> (<a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a><em>, </em><em>optional</em>) – Store output to an existing NDArray.</p></li>
 </ul>
@@ -1550,7 +1550,7 @@ by <em>loc</em> (mean) and <em>scale</em> (standard deviation).</p>
 are NDArrays with shape, e.g., <cite>(x, y)</cite>, then output will have shape
 <cite>(x, y, m, n)</cite>, where <cite>m*n</cite> samples are drawn for each <cite>[loc, scale)</cite> pair.</p></li>
 <li><p><strong>dtype</strong> (<em>{'float16'</em><em>, </em><em>'float32'</em><em>, </em><em>'float64'}</em>) – Data type of output samples. Default is ‘float32’</p></li>
-<li><p><strong>ctx</strong> (<a class="reference internal" href="../../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a>) – Device context of output. Default is current context. Overridden by
+<li><p><strong>ctx</strong> (<em>Context</em>) – Device context of output. Default is current context. Overridden by
 <cite>loc.context</cite> when <cite>loc</cite> is an NDArray.</p></li>
 <li><p><strong>out</strong> (<a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a>) – Store output to an existing NDArray.</p></li>
 </ul>
@@ -1596,7 +1596,7 @@ a scalar, output shape will be <cite>(m, n)</cite>. If <cite>lam</cite>
 is an NDArray with shape, e.g., <cite>(x, y)</cite>, then output will have shape
 <cite>(x, y, m, n)</cite>, where <cite>m*n</cite> samples are drawn for each entry in <cite>lam</cite>.</p></li>
 <li><p><strong>dtype</strong> (<em>{'float16'</em><em>, </em><em>'float32'</em><em>, </em><em>'float64'}</em><em>, </em><em>optional</em>) – Data type of output samples. Default is ‘float32’</p></li>
-<li><p><strong>ctx</strong> (<a class="reference internal" href="../../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a><em>, </em><em>optional</em>) – Device context of output. Default is current context. Overridden by
+<li><p><strong>ctx</strong> (<em>Context</em><em>, </em><em>optional</em>) – Device context of output. Default is current context. Overridden by
 <cite>lam.context</cite> when <cite>lam</cite> is an NDArray.</p></li>
 <li><p><strong>out</strong> (<a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a><em>, </em><em>optional</em>) – Store output to an existing NDArray.</p></li>
 </ul>
@@ -1646,7 +1646,7 @@ a scalar, output shape will be <cite>(m, n)</cite>. If <cite>scale</cite>
 is an NDArray with shape, e.g., <cite>(x, y)</cite>, then output will have shape
 <cite>(x, y, m, n)</cite>, where <cite>m*n</cite> samples are drawn for each entry in <cite>scale</cite>.</p></li>
 <li><p><strong>dtype</strong> (<em>{'float16'</em><em>, </em><em>'float32'</em><em>, </em><em>'float64'}</em><em>, </em><em>optional</em>) – Data type of output samples. Default is ‘float32’</p></li>
-<li><p><strong>ctx</strong> (<a class="reference internal" href="../../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a><em>, </em><em>optional</em>) – Device context of output. Default is current context. Overridden by
+<li><p><strong>ctx</strong> (<em>Context</em><em>, </em><em>optional</em>) – Device context of output. Default is current context. Overridden by
 <cite>scale.context</cite> when <cite>scale</cite> is an NDArray.</p></li>
 <li><p><strong>out</strong> (<a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a><em>, </em><em>optional</em>) – Store output to an existing NDArray.</p></li>
 </ul>
@@ -1694,7 +1694,7 @@ Default is equal to 1.</p></li>
 are NDArrays with shape, e.g., <cite>(x, y)</cite>, then output will have shape
 <cite>(x, y, m, n)</cite>, where <cite>m*n</cite> samples are drawn for each <cite>[alpha, beta)</cite> pair.</p></li>
 <li><p><strong>dtype</strong> (<em>{'float16'</em><em>, </em><em>'float32'</em><em>, </em><em>'float64'}</em><em>, </em><em>optional</em>) – Data type of output samples. Default is ‘float32’</p></li>
-<li><p><strong>ctx</strong> (<a class="reference internal" href="../../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a><em>, </em><em>optional</em>) – Device context of output. Default is current context. Overridden by
+<li><p><strong>ctx</strong> (<em>Context</em><em>, </em><em>optional</em>) – Device context of output. Default is current context. Overridden by
 <cite>alpha.context</cite> when <cite>alpha</cite> is an NDArray.</p></li>
 <li><p><strong>out</strong> (<a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a><em>, </em><em>optional</em>) – Store output to an existing NDArray.</p></li>
 </ul>
@@ -1810,7 +1810,7 @@ floating point data type.</p>
 are NDArrays with shape, e.g., <cite>(x, y)</cite>, then output will have shape
 <cite>(x, y, m, n)</cite>, where <cite>m*n</cite> samples are drawn for each <cite>[k, p)</cite> pair.</p></li>
 <li><p><strong>dtype</strong> (<em>{'float16'</em><em>, </em><em>'float32'</em><em>, </em><em>'float64'}</em><em>, </em><em>optional</em>) – Data type of output samples. Default is ‘float32’</p></li>
-<li><p><strong>ctx</strong> (<a class="reference internal" href="../../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a><em>, </em><em>optional</em>) – Device context of output. Default is current context. Overridden by
+<li><p><strong>ctx</strong> (<em>Context</em><em>, </em><em>optional</em>) – Device context of output. Default is current context. Overridden by
 <cite>k.context</cite> when <cite>k</cite> is an NDArray.</p></li>
 <li><p><strong>out</strong> (<a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a><em>, </em><em>optional</em>) – Store output to an existing NDArray.</p></li>
 </ul>
@@ -1861,7 +1861,7 @@ Samples will always be returned as a floating point data type.</p>
 are NDArrays with shape, e.g., <cite>(x, y)</cite>, then output will have shape
 <cite>(x, y, m, n)</cite>, where <cite>m*n</cite> samples are drawn for each <cite>[mu, alpha)</cite> pair.</p></li>
 <li><p><strong>dtype</strong> (<em>{'float16'</em><em>, </em><em>'float32'</em><em>, </em><em>'float64'}</em><em>, </em><em>optional</em>) – Data type of output samples. Default is ‘float32’</p></li>
-<li><p><strong>ctx</strong> (<a class="reference internal" href="../../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a><em>, </em><em>optional</em>) – Device context of output. Default is current context. Overridden by
+<li><p><strong>ctx</strong> (<em>Context</em><em>, </em><em>optional</em>) – Device context of output. Default is current context. Overridden by
 <cite>mu.context</cite> when <cite>mu</cite> is an NDArray.</p></li>
 <li><p><strong>out</strong> (<a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a><em>, </em><em>optional</em>) – Store output to an existing NDArray.</p></li>
 </ul>
@@ -1950,7 +1950,7 @@ less than high.</p></li>
 <li><p><strong>shape</strong> (<em>int</em><em> or </em><em>tuple of ints</em><em>, </em><em>optional</em>) – The number of samples to draw. If shape is, e.g., <cite>(m, n)</cite> and <cite>low</cite> and
 <cite>high</cite> are scalars, output shape will be <cite>(m, n)</cite>.</p></li>
 <li><p><strong>dtype</strong> (<em>{'int32'</em><em>, </em><em>'int64'}</em><em>, </em><em>optional</em>) – Data type of output samples. Default is ‘int32’</p></li>
-<li><p><strong>ctx</strong> (<a class="reference internal" href="../../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a><em>, </em><em>optional</em>) – Device context of output. Default is current context. Overridden by
+<li><p><strong>ctx</strong> (<em>Context</em><em>, </em><em>optional</em>) – Device context of output. Default is current context. Overridden by
 <cite>low.context</cite> when <cite>low</cite> is an NDArray.</p></li>
 <li><p><strong>out</strong> (<a class="reference internal" href="../ndarray.html#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a><em>, </em><em>optional</em>) – Store output to an existing NDArray.</p></li>
 </ul>

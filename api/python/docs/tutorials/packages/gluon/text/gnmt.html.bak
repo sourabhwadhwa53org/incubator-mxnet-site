@@ -622,7 +622,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -740,7 +740,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1217,7 +1217,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1335,7 +1335,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1391,7 +1391,7 @@ model, and 4) write training epochs.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">mx</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
-<span class="n">ctx</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># parameters for dataset</span>
 <span class="n">dataset</span> <span class="o">=</span> <span class="s1">&#39;IWSLT2015&#39;</span>
@@ -1649,7 +1649,7 @@ allows computation to be done using the symbolic backend.</p>
                                                      <span class="n">num_bi_layers</span><span class="o">=</span><span class="n">num_bi_layers</span><span class="p">)</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">nmt</span><span class="o">.</span><span class="n">translation</span><span class="o">.</span><span class="n">NMTModel</span><span class="p">(</span><span class="n">src_vocab</span><span class="o">=</span><span class="n">src_vocab</span><span class="p">,</span> <span class="n">tgt_vocab</span><span class="o">=</span><span class="n">tgt_vocab</span><span class="p">,</span> <span class="n">encoder</span><span class="o">=</span><span class="n">encoder</span><span class="p">,</span> <span class="n">decoder</span><span class="o">=</span><span class="n">decoder</span><span class="p">,</span>
                                  <span class="n">embed_size</span><span class="o">=</span><span class="n">num_hidden</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;gnmt_&#39;</span><span class="p">)</span>
-<span class="n">model</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="n">mx</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="mf">0.1</span><span class="p">),</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="n">mx</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="mf">0.1</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
 <span class="n">static_alloc</span> <span class="o">=</span> <span class="bp">True</span>
 <span class="n">model</span><span class="o">.</span><span class="n">hybridize</span><span class="p">(</span><span class="n">static_alloc</span><span class="o">=</span><span class="n">static_alloc</span><span class="p">)</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
@@ -1690,10 +1690,10 @@ testing datasets.</p>
     <span class="n">avg_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="p">(</span><span class="n">src_seq</span><span class="p">,</span> <span class="n">tgt_seq</span><span class="p">,</span> <span class="n">src_valid_length</span><span class="p">,</span> <span class="n">tgt_valid_length</span><span class="p">,</span> <span class="n">inst_ids</span><span class="p">)</span> \
             <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data_loader</span><span class="p">):</span>
-        <span class="n">src_seq</span> <span class="o">=</span> <span class="n">src_seq</span><span class="o">.</span><span class="n">as_in_context</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
-        <span class="n">tgt_seq</span> <span class="o">=</span> <span class="n">tgt_seq</span><span class="o">.</span><span class="n">as_in_context</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
-        <span class="n">src_valid_length</span> <span class="o">=</span> <span class="n">src_valid_length</span><span class="o">.</span><span class="n">as_in_context</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
-        <span class="n">tgt_valid_length</span> <span class="o">=</span> <span class="n">tgt_valid_length</span><span class="o">.</span><span class="n">as_in_context</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+        <span class="n">src_seq</span> <span class="o">=</span> <span class="n">src_seq</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">tgt_seq</span> <span class="o">=</span> <span class="n">tgt_seq</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">src_valid_length</span> <span class="o">=</span> <span class="n">src_valid_length</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">tgt_valid_length</span> <span class="o">=</span> <span class="n">tgt_valid_length</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
         <span class="c1"># Calculating Loss</span>
         <span class="n">out</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">src_seq</span><span class="p">,</span> <span class="n">tgt_seq</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">src_valid_length</span><span class="p">,</span> <span class="n">tgt_valid_length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
         <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_function</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">tgt_seq</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:],</span> <span class="n">tgt_valid_length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">asscalar</span><span class="p">()</span>
@@ -1734,7 +1734,7 @@ that uses ADAM optimzier.</p>
 <p>We can then write the training loop. During the training, we evaluate on
 the validation and testing datasets every epoch, and record the
 parameters that give the hightest BLEU score on the validation dataset.
-Before performing forward and backward, we first use <code class="docutils literal notranslate"><span class="pre">as_in_context</span></code>
+Before performing forward and backward, we first use <code class="docutils literal notranslate"><span class="pre">to_device</span></code>
 function to copy the mini-batch to GPU. The statement
 <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">mx.autograd.record()</span></code> tells Gluon backend to compute the
 gradients for the part inside the block.</p>
@@ -1747,16 +1747,16 @@ gradients for the part inside the block.</p>
     <span class="k">for</span> <span class="n">batch_id</span><span class="p">,</span> <span class="p">(</span><span class="n">src_seq</span><span class="p">,</span> <span class="n">tgt_seq</span><span class="p">,</span> <span class="n">src_valid_length</span><span class="p">,</span> <span class="n">tgt_valid_length</span><span class="p">)</span>\
             <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_data_loader</span><span class="p">):</span>
         <span class="c1"># logging.info(src_seq.context) Context suddenly becomes GPU.</span>
-        <span class="n">src_seq</span> <span class="o">=</span> <span class="n">src_seq</span><span class="o">.</span><span class="n">as_in_context</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
-        <span class="n">tgt_seq</span> <span class="o">=</span> <span class="n">tgt_seq</span><span class="o">.</span><span class="n">as_in_context</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
-        <span class="n">src_valid_length</span> <span class="o">=</span> <span class="n">src_valid_length</span><span class="o">.</span><span class="n">as_in_context</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
-        <span class="n">tgt_valid_length</span> <span class="o">=</span> <span class="n">tgt_valid_length</span><span class="o">.</span><span class="n">as_in_context</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+        <span class="n">src_seq</span> <span class="o">=</span> <span class="n">src_seq</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">tgt_seq</span> <span class="o">=</span> <span class="n">tgt_seq</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">src_valid_length</span> <span class="o">=</span> <span class="n">src_valid_length</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">tgt_valid_length</span> <span class="o">=</span> <span class="n">tgt_valid_length</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
         <span class="k">with</span> <span class="n">mx</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">record</span><span class="p">():</span>
             <span class="n">out</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">src_seq</span><span class="p">,</span> <span class="n">tgt_seq</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">src_valid_length</span><span class="p">,</span> <span class="n">tgt_valid_length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
             <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_function</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">tgt_seq</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:],</span> <span class="n">tgt_valid_length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
             <span class="n">loss</span> <span class="o">=</span> <span class="n">loss</span> <span class="o">*</span> <span class="p">(</span><span class="n">tgt_seq</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">tgt_valid_length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
             <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
-        <span class="n">grads</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">grad</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">collect_params</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+        <span class="n">grads</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">grad</span><span class="p">(</span><span class="n">device</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">collect_params</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
         <span class="n">gnorm</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">clip_global_norm</span><span class="p">(</span><span class="n">grads</span><span class="p">,</span> <span class="n">clip</span><span class="p">)</span>
         <span class="n">trainer</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">src_wc</span> <span class="o">=</span> <span class="n">src_valid_length</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">asscalar</span><span class="p">()</span>

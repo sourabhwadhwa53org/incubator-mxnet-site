@@ -617,7 +617,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -735,7 +735,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1212,7 +1212,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1330,7 +1330,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1394,13 +1394,13 @@ Edit on Github
 <span class="sd">    &gt;&gt;&gt; c = 2 * a + b</span>
 <span class="sd">    &gt;&gt;&gt; texec = c._bind(mx.cpu(), {&#39;a&#39;: mx.nd.array([1,2]), &#39;b&#39;:mx.nd.array([2,3])})</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sym</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">args_grad</span><span class="p">,</span> <span class="n">grad_req</span><span class="p">,</span> <span class="n">aux_states</span><span class="p">,</span> <span class="n">static_alloc</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sym</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">args_grad</span><span class="p">,</span> <span class="n">grad_req</span><span class="p">,</span> <span class="n">aux_states</span><span class="p">,</span> <span class="n">static_alloc</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_input_names</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">list_inputs</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_aux_names</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">list_auxiliary_states</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_arg_names</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">list_arguments</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_output_names</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">list_outputs</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_ctx</span> <span class="o">=</span> <span class="n">ctx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_device</span> <span class="o">=</span> <span class="n">device</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_grad_req</span> <span class="o">=</span> <span class="n">grad_req</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">static_alloc</span> <span class="o">=</span> <span class="n">static_alloc</span>
         <span class="c1"># grad_req</span>
@@ -1424,7 +1424,7 @@ Edit on Github
             <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">args</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
                 <span class="k">try</span><span class="p">:</span>
                     <span class="n">i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_names</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
                 <span class="c1"># ignore provided arg which is not present in</span>
                 <span class="c1"># input_names</span>
                 <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
@@ -1434,7 +1434,7 @@ Edit on Github
             <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">arg</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
                 <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_arg_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
                 <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_names</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">arg</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">arg</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
 
         <span class="c1"># aux states</span>
         <span class="k">if</span> <span class="n">aux_states</span><span class="p">:</span>
@@ -1442,12 +1442,12 @@ Edit on Github
                 <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">aux_states</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
                     <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_aux_names</span><span class="p">:</span>
                         <span class="n">i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_names</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">aux_states</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">))</span>
                 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">aux_states</span><span class="p">):</span>
                     <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_names</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_aux_names</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
 
         <span class="c1"># arg grad</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_args_grad</span><span class="p">:</span>
@@ -1462,7 +1462,7 @@ Edit on Github
                             <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">grad_req</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
                             <span class="n">req</span> <span class="o">=</span> <span class="n">grad_req</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
                         <span class="k">if</span> <span class="n">req</span> <span class="o">!=</span> <span class="s1">&#39;null&#39;</span><span class="p">:</span>
-                            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ctx</span><span class="p">:</span>
+                            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="p">:</span>
                                 <span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">attach_grad</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">stype</span><span class="o">=</span><span class="n">g</span><span class="o">.</span><span class="n">stype</span><span class="p">)</span>
                                 <span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">grad</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">g</span>
                     <span class="c1"># ignore provided arg which is not present in</span>
@@ -1479,7 +1479,7 @@ Edit on Github
                         <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">grad_req</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
                         <span class="n">req</span> <span class="o">=</span> <span class="n">grad_req</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_input_names</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
                     <span class="k">if</span> <span class="n">req</span> <span class="o">!=</span> <span class="s1">&#39;null&#39;</span><span class="p">:</span>
-                        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ctx</span><span class="p">:</span>
+                        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="p">:</span>
                             <span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">attach_grad</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">stype</span><span class="o">=</span><span class="n">g</span><span class="o">.</span><span class="n">stype</span><span class="p">)</span>
                             <span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">grad</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">g</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_cached_op</span> <span class="o">=</span> <span class="n">ndarray</span><span class="o">.</span><span class="n">CachedOp</span><span class="p">(</span><span class="n">sym</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;static_alloc&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">static_alloc</span><span class="p">)])</span>
@@ -1522,7 +1522,7 @@ Edit on Github
             <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">array</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
                 <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_names</span><span class="p">:</span>
                     <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_names</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-                    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ctx</span><span class="p">:</span>
+                    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="p">:</span>
                         <span class="n">arr</span> <span class="o">=</span> <span class="n">ndarray</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">array</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
                         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                             <span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span>
@@ -1533,16 +1533,16 @@ Edit on Github
                                 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_grad_req</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
                                 <span class="n">req</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_grad_req</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
                             <span class="k">if</span> <span class="n">req</span> <span class="o">!=</span> <span class="s1">&#39;null&#39;</span><span class="p">:</span>
-                                <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ctx</span><span class="p">:</span>
+                                <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="p">:</span>
                                     <span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">attach_grad</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
                         <span class="k">else</span><span class="p">:</span>
                             <span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">[</span><span class="n">index</span><span class="p">][:]</span> <span class="o">=</span> <span class="n">arr</span>
 
         <span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">autograd</span>
-        <span class="n">default_ctx</span> <span class="o">=</span> <span class="kc">None</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_names</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ctx</span>
+        <span class="n">default_device</span> <span class="o">=</span> <span class="kc">None</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_names</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_device</span>
         <span class="k">with</span> <span class="n">autograd</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="n">train_mode</span><span class="o">=</span><span class="n">is_train</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cached_op</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">,</span>
-                                           <span class="n">default_ctx</span><span class="o">=</span><span class="n">default_ctx</span><span class="p">)</span>
+                                           <span class="n">default_device</span><span class="o">=</span><span class="n">default_device</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">]</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span></div>
@@ -1566,7 +1566,7 @@ Edit on Github
         <span class="k">if</span> <span class="n">out_grads</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">out_grads</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
                 <span class="n">out_grads</span> <span class="o">=</span> <span class="p">[</span><span class="n">out_grads</span><span class="p">]</span>
-            <span class="n">out_grads</span> <span class="o">=</span> <span class="p">[</span><span class="n">o</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ctx</span><span class="p">)</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">out_grads</span><span class="p">]</span>
+            <span class="n">out_grads</span> <span class="o">=</span> <span class="p">[</span><span class="n">o</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="p">)</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">out_grads</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_requires_grad</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>

@@ -620,7 +620,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -738,7 +738,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1215,7 +1215,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1333,7 +1333,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1365,19 +1365,19 @@ Edit on Github
 <dl class="function">
 <dt id="mxnet.npx.gpu">
 <code class="sig-name descname">gpu</code><span class="sig-paren">(</span><em class="sig-param">device_id=0</em><span class="sig-paren">)</span><a class="headerlink" href="#mxnet.npx.gpu" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a GPU context.</p>
-<p>This function is a short cut for Context(‘gpu’, device_id).
+<dd><p>Returns a GPU device.</p>
+<p>This function is a short cut for Device(‘gpu’, device_id).
 The K GPUs on a node are typically numbered as 0,…,K-1.</p>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cpu_array</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">cpu_array</span><span class="o">.</span><span class="n">context</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cpu_array</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cpu_array</span><span class="o">.</span><span class="n">device</span>
 <span class="go">cpu(0)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">mx</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="n">gpu_array</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">gpu_array</span><span class="o">.</span><span class="n">context</span>
+<span class="gp">... </span>    <span class="n">gpu_array</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gpu_array</span><span class="o">.</span><span class="n">device</span>
 <span class="go">gpu(1)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">gpu_array</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">ctx</span><span class="o">=</span><span class="n">mx</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">gpu_array</span><span class="o">.</span><span class="n">context</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gpu_array</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">ctx</span><span class="o">=</span><span class="n">mx</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gpu_array</span><span class="o">.</span><span class="n">device</span>
 <span class="go">gpu(1)</span>
 </pre></div>
 </div>
@@ -1386,10 +1386,10 @@ The K GPUs on a node are typically numbered as 0,…,K-1.</p>
 <dd class="field-odd"><p><strong>device_id</strong> (<em>int</em><em>, </em><em>optional</em>) – The device id of the device, needed for GPU.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>context</strong> – The corresponding GPU context.</p>
+<dd class="field-even"><p><strong>device</strong> – The corresponding GPU device.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../context/index.html#mxnet.context.Context" title="mxnet.context.Context">Context</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="../../device/index.html#mxnet.device.Device" title="mxnet.device.Device">Device</a></p>
 </dd>
 </dl>
 </dd></dl>

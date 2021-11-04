@@ -621,7 +621,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -739,7 +739,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1216,7 +1216,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1334,7 +1334,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -13711,22 +13711,25 @@ fixed-size items.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.ndarray.NDArray.ctx" title="mxnet.ndarray.NDArray.ctx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ctx</span></code></a></p></td>
 <td><p>Device context of the array.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.NDArray.dtype" title="mxnet.ndarray.NDArray.dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dtype</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.NDArray.device" title="mxnet.ndarray.NDArray.device"><code class="xref py py-obj docutils literal notranslate"><span class="pre">device</span></code></a></p></td>
+<td><p>Device context of the array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.ndarray.NDArray.dtype" title="mxnet.ndarray.NDArray.dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dtype</span></code></a></p></td>
 <td><p>Data-type of the array’s elements.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.ndarray.NDArray.grad" title="mxnet.ndarray.NDArray.grad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">grad</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.NDArray.grad" title="mxnet.ndarray.NDArray.grad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">grad</span></code></a></p></td>
 <td><p>Returns gradient buffer attached to this NDArray.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.NDArray.ndim" title="mxnet.ndarray.NDArray.ndim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndim</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.ndarray.NDArray.ndim" title="mxnet.ndarray.NDArray.ndim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndim</span></code></a></p></td>
 <td><p>Returns the number of dimensions of this array</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.ndarray.NDArray.shape" title="mxnet.ndarray.NDArray.shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.NDArray.shape" title="mxnet.ndarray.NDArray.shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape</span></code></a></p></td>
 <td><p>Tuple of array dimensions.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.NDArray.size" title="mxnet.ndarray.NDArray.size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">size</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.ndarray.NDArray.size" title="mxnet.ndarray.NDArray.size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">size</span></code></a></p></td>
 <td><p>Number of elements in the array.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mxnet.ndarray.NDArray.stype" title="mxnet.ndarray.NDArray.stype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stype</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mxnet.ndarray.NDArray.stype" title="mxnet.ndarray.NDArray.stype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stype</span></code></a></p></td>
 <td><p>Storage-type of the array.</p></td>
 </tr>
 </tbody>
@@ -14166,7 +14169,7 @@ this array as data.</p>
 returned.  Otherwise, a copy is made.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>context</strong> (<a class="reference internal" href="../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a>) – The target context.</p>
+<dd class="field-odd"><p><strong>context</strong> (<em>Context</em>) – The target context.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The target array.</p>
@@ -14423,7 +14426,7 @@ this array as data.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">context</span>
 <span class="go">cpu(0)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">context</span><span class="p">)</span>
-<span class="go">&lt;class &#39;mxnet.context.Context&#39;&gt;</span>
+<span class="go">&lt;class &#39;mxnet.device.Device&#39;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">mx</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="o">.</span><span class="n">context</span>
 <span class="go">gpu(0)</span>
@@ -14464,7 +14467,7 @@ this array as data.</p>
 the target context, and the value of <code class="docutils literal notranslate"><span class="pre">self</span></code> is copied.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a><em> or </em><a class="reference internal" href="../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a>) – The destination array or context.</p>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a><em> or </em><em>Context</em>) – The destination array or context.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The copied array. If <code class="docutils literal notranslate"><span class="pre">other</span></code> is an <code class="docutils literal notranslate"><span class="pre">NDArray</span></code>, then the return value
@@ -14542,6 +14545,23 @@ this array as data.</p>
 <dt id="mxnet.ndarray.NDArray.detach">
 <code class="sig-name descname">detach</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mxnet/ndarray/ndarray.html#NDArray.detach"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mxnet.ndarray.NDArray.detach" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new NDArray, detached from the current graph.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mxnet.ndarray.NDArray.device">
+<em class="property">property </em><code class="sig-name descname">device</code><a class="headerlink" href="#mxnet.ndarray.NDArray.device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Device context of the array. Has the same meaning as context.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">device</span>
+<span class="go">cpu(0)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+<span class="go">&lt;class &#39;mxnet.device.Device&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">mx</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="o">.</span><span class="n">device</span>
+<span class="go">gpu(0)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -15520,7 +15540,7 @@ the first dimension. They also must have the same data type.</p></li>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>shape</strong> (<em>int</em><em> or </em><em>tuple of int</em><em> or </em><em>list of int</em>) – The shape of the empty array.</p></li>
-<li><p><strong>ctx</strong> (<a class="reference internal" href="../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a><em>, </em><em>optional</em>) – An optional device context.
+<li><p><strong>ctx</strong> (<em>Context</em><em>, </em><em>optional</em>) – An optional device context.
 Defaults to the current default context (<code class="docutils literal notranslate"><span class="pre">mxnet.context.current_context()</span></code>).</p></li>
 <li><p><strong>dtype</strong> (<em>str</em><em> or </em><em>numpy.dtype</em><em>, </em><em>optional</em>) – An optional value type (default is <cite>float32</cite>).</p></li>
 <li><p><strong>out</strong> (<a class="reference internal" href="#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a><em>, </em><em>optional</em>) – The output NDArray (default is <cite>None</cite>).</p></li>
@@ -15616,7 +15636,7 @@ but returns an <cite>NDArray</cite>.</p>
 <li><p><strong>repeat</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of times to repeat each element. The default repeat count is 1.</p></li>
 <li><p><strong>infer_range</strong> (<em>boolean</em><em>, </em><em>optional</em>) – Infer the stop position from the start, step, repeat, and output tensor size.
 Deprecated. Only False is supported.</p></li>
-<li><p><strong>ctx</strong> (<a class="reference internal" href="../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a><em>, </em><em>optional</em>) – Device context. Default context is the current default context.</p></li>
+<li><p><strong>ctx</strong> (<em>Context</em><em>, </em><em>optional</em>) – Device context. Default context is the current default context.</p></li>
 <li><p><strong>dtype</strong> (<em>str</em><em> or </em><em>numpy.dtype</em><em>, </em><em>optional</em>) – The data type of the <cite>NDArray</cite>. The default datatype is <cite>np.float32</cite>.</p></li>
 </ul>
 </dd>
@@ -15660,7 +15680,7 @@ when endpoint is False.</p></li>
 <li><p><strong>num</strong> (<em>number</em>) – Number of samples to generate. Must be non-negative.</p></li>
 <li><p><strong>endpoint</strong> (<em>bool</em>) – If True, stop is the last sample. Otherwise, it is not included.
 The default is True.</p></li>
-<li><p><strong>ctx</strong> (<a class="reference internal" href="../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a><em>, </em><em>optional</em>) – Device context. Default context is the current default context.</p></li>
+<li><p><strong>ctx</strong> (<em>Context</em><em>, </em><em>optional</em>) – Device context. Default context is the current default context.</p></li>
 <li><p><strong>dtype</strong> (<em>str</em><em> or </em><em>numpy.dtype</em><em>, </em><em>optional</em>) – The data type of the <cite>NDArray</cite>. The default datatype is <cite>np.float32</cite>.</p></li>
 </ul>
 </dd>
@@ -15692,7 +15712,7 @@ The default is True.</p></li>
 <li><p><strong>k</strong> (<em>int</em><em>, </em><em>optional</em>) – Index of the diagonal: 0 (the default) refers to the main diagonal,
 a positive value refers to an upper diagonal,
 and a negative value to a lower diagonal.</p></li>
-<li><p><strong>ctx</strong> (<a class="reference internal" href="../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a><em>, </em><em>optional</em>) – An optional device context (default is the current default context)</p></li>
+<li><p><strong>ctx</strong> (<em>Context</em><em>, </em><em>optional</em>) – An optional device context (default is the current default context)</p></li>
 <li><p><strong>dtype</strong> (<em>str</em><em> or </em><em>numpy.dtype</em><em>, </em><em>optional</em>) – An optional value type (default is <cite>float32</cite>)</p></li>
 </ul>
 </dd>
@@ -15831,7 +15851,7 @@ broadcastable to a common shape.</p></li>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>shape</strong> (<em>int</em><em> or </em><em>tuple of int</em>) – The shape of the new array.</p></li>
 <li><p><strong>val</strong> (<em>scalar</em>) – Fill value.</p></li>
-<li><p><strong>ctx</strong> (<a class="reference internal" href="../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a><em>, </em><em>optional</em>) – Device context (default is the current default context).</p></li>
+<li><p><strong>ctx</strong> (<em>Context</em><em>, </em><em>optional</em>) – Device context (default is the current default context).</p></li>
 <li><p><strong>dtype</strong> (<cite>str</cite> or <cite>numpy.dtype</cite>, optional) – The data type of the returned <cite>NDArray</cite>. The default datatype is <cite>float32</cite>.</p></li>
 <li><p><strong>out</strong> (<a class="reference internal" href="#mxnet.ndarray.NDArray" title="mxnet.ndarray.NDArray"><em>NDArray</em></a><em>, </em><em>optional</em>) – The output NDArray (default is <cite>None</cite>).</p></li>
 </ul>
@@ -16878,7 +16898,7 @@ This is only available for c-contiguous arrays, i.e. array.flags[C_CONTIGUOUS] =
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>shape</strong> (<em>int</em><em> or </em><em>tuple of int</em>) – The shape of the empty array</p></li>
-<li><p><strong>ctx</strong> (<a class="reference internal" href="../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a><em>, </em><em>optional</em>) – An optional device context (default is the current default context)</p></li>
+<li><p><strong>ctx</strong> (<em>Context</em><em>, </em><em>optional</em>) – An optional device context (default is the current default context)</p></li>
 <li><p><strong>dtype</strong> (<em>str</em><em> or </em><em>numpy.dtype</em><em>, </em><em>optional</em>) – An optional value type (default is <cite>float32</cite>)</p></li>
 <li><p><strong>stype</strong> (<em>string</em><em>, </em><em>optional</em>) – The storage type of the empty array, such as ‘row_sparse’, ‘csr’, etc.</p></li>
 </ul>
@@ -16944,7 +16964,7 @@ This basically implements the infer shape logic of op gather_nd.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>shape</strong> (<em>int</em><em> or </em><em>tuple of int</em>) – The shape of the empty array</p></li>
-<li><p><strong>ctx</strong> (<a class="reference internal" href="../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a><em>, </em><em>optional</em>) – An optional device context (default is the current default context)</p></li>
+<li><p><strong>ctx</strong> (<em>Context</em><em>, </em><em>optional</em>) – An optional device context (default is the current default context)</p></li>
 <li><p><strong>dtype</strong> (<em>str</em><em> or </em><em>numpy.dtype</em><em>, </em><em>optional</em>) – An optional value type (default is <cite>float32</cite>)</p></li>
 <li><p><strong>stype</strong> (<em>string</em><em>, </em><em>optional</em>) – The storage type of the empty array, such as ‘row_sparse’, ‘csr’, etc.</p></li>
 </ul>
@@ -16973,7 +16993,7 @@ This basically implements the infer shape logic of op gather_nd.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>shape</strong> (<em>int</em><em> or </em><em>tuple of int</em>) – The shape of the empty array.</p></li>
-<li><p><strong>ctx</strong> (<a class="reference internal" href="../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a><em>, </em><em>optional</em>) – An optional device context (default is the current default context).</p></li>
+<li><p><strong>ctx</strong> (<em>Context</em><em>, </em><em>optional</em>) – An optional device context (default is the current default context).</p></li>
 <li><p><strong>dtype</strong> (<em>str</em><em> or </em><em>numpy.dtype</em><em>, </em><em>optional</em>) – An optional value type (default is <cite>float32</cite>).</p></li>
 <li><p><strong>stype</strong> (<em>str</em><em>, </em><em>optional</em>) – An optional storage type (default is <cite>default</cite>).</p></li>
 </ul>
@@ -17007,7 +17027,7 @@ This basically implements the infer shape logic of op gather_nd.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>source_array</strong> (<em>array_like</em>) – An object exposing the array interface, an object whose <cite>__array__</cite>
 method returns an array, or any (nested) sequence.</p></li>
-<li><p><strong>ctx</strong> (<a class="reference internal" href="../../context/index.html#mxnet.context.Context" title="mxnet.context.Context"><em>Context</em></a><em>, </em><em>optional</em>) – Device context (default is the current default context).</p></li>
+<li><p><strong>ctx</strong> (<em>Context</em><em>, </em><em>optional</em>) – Device context (default is the current default context).</p></li>
 <li><p><strong>dtype</strong> (<em>str</em><em> or </em><em>numpy.dtype</em><em>, </em><em>optional</em>) – The data type of the output array. The default dtype is <code class="docutils literal notranslate"><span class="pre">source_array.dtype</span></code>
 if <cite>source_array</cite> is an <cite>NDArray</cite>, <cite>float32</cite> otherwise.</p></li>
 </ul>

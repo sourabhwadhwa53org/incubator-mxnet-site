@@ -619,7 +619,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -737,7 +737,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1214,7 +1214,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1332,7 +1332,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1395,19 +1395,19 @@ Edit on Github
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/mxnet.npx.cpu.html#mxnet.npx.cpu" title="mxnet.npx.cpu"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cpu</span></code></a>([device_id])</p></td>
-<td><p>Returns a CPU context.</p></td>
+<td><p>Returns a CPU device.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/mxnet.npx.cpu_pinned.html#mxnet.npx.cpu_pinned" title="mxnet.npx.cpu_pinned"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cpu_pinned</span></code></a>([device_id])</p></td>
-<td><p>Returns a CPU pinned memory context.</p></td>
+<td><p>Returns a CPU pinned memory device.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/mxnet.npx.gpu.html#mxnet.npx.gpu" title="mxnet.npx.gpu"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gpu</span></code></a>([device_id])</p></td>
-<td><p>Returns a GPU context.</p></td>
+<td><p>Returns a GPU device.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/mxnet.npx.gpu_memory_info.html#mxnet.npx.gpu_memory_info" title="mxnet.npx.gpu_memory_info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gpu_memory_info</span></code></a>([device_id])</p></td>
 <td><p>Query CUDA for the free and total bytes of GPU global memory.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/mxnet.npx.current_context.html#mxnet.npx.current_context" title="mxnet.npx.current_context"><code class="xref py py-obj docutils literal notranslate"><span class="pre">current_context</span></code></a>()</p></td>
-<td><p>Returns the current context.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/mxnet.npx.current_device.html#mxnet.npx.current_device" title="mxnet.npx.current_device"><code class="xref py py-obj docutils literal notranslate"><span class="pre">current_device</span></code></a>()</p></td>
+<td><p>Returns the current device.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/mxnet.npx.num_gpus.html#mxnet.npx.num_gpus" title="mxnet.npx.num_gpus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">num_gpus</span></code></a>()</p></td>
 <td><p>Query CUDA for the number of GPUs present.</p></td>

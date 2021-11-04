@@ -621,7 +621,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -739,7 +739,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1216,7 +1216,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1334,7 +1334,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1608,7 +1608,7 @@ sudo pip3 install mxnet_cu102-1.6.0-py2.py3-none-linux_aarch64.whl
 </div>
 <div class="section" id="Running-a-pre-trained-ResNet-50-model-on-Jetson">
 <h2>Running a pre-trained ResNet-50 model on Jetson<a class="headerlink" href="#Running-a-pre-trained-ResNet-50-model-on-Jetson" title="Permalink to this headline">¶</a></h2>
-<p>We are now ready to run a pre-trained model and run inference on a Jetson module. In this tutorial we are using ResNet-50 model trained on Imagenet dataset. We run the following classification script with either cpu/gpu context using python3.</p>
+<p>We are now ready to run a pre-trained model and run inference on a Jetson module. In this tutorial we are using ResNet-50 model trained on Imagenet dataset. We run the following classification script with either cpu/gpu device using python3.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -1617,12 +1617,12 @@ sudo pip3 install mxnet_cu102-1.6.0-py2.py3-none-linux_aarch64.whl
 <span></span><span class="kn">from</span> <span class="nn">mxnet</span> <span class="kn">import</span> <span class="n">gluon</span>
 <span class="kn">import</span> <span class="nn">mxnet</span> <span class="kn">as</span> <span class="nn">mx</span>
 
-<span class="c1"># set context</span>
+<span class="c1"># set device</span>
 <span class="n">gpus</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">test_utils</span><span class="o">.</span><span class="n">list_gpus</span><span class="p">()</span>
-<span class="n">ctx</span> <span class="o">=</span>  <span class="n">mx</span><span class="o">.</span><span class="n">gpu</span><span class="p">()</span> <span class="k">if</span> <span class="n">gpus</span> <span class="k">else</span> <span class="n">mx</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
+<span class="n">device</span> <span class="o">=</span>  <span class="n">mx</span><span class="o">.</span><span class="n">gpu</span><span class="p">()</span> <span class="k">if</span> <span class="n">gpus</span> <span class="k">else</span> <span class="n">mx</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
 
 <span class="c1"># load pre-trained model</span>
-<span class="n">net</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">model_zoo</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">resnet50_v1</span><span class="p">(</span><span class="n">pretrained</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
+<span class="n">net</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">model_zoo</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">resnet50_v1</span><span class="p">(</span><span class="n">pretrained</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
 <span class="n">net</span><span class="o">.</span><span class="n">hybridize</span><span class="p">(</span><span class="n">static_alloc</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">static_shape</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 <span class="c1"># load labels</span>
@@ -1639,7 +1639,7 @@ sudo pip3 install mxnet_cu102-1.6.0-py2.py3-none-linux_aarch64.whl
                                <span class="n">std</span><span class="o">=</span><span class="n">mx</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.229</span><span class="p">,</span> <span class="mf">0.224</span><span class="p">,</span> <span class="mf">0.225</span><span class="p">]))</span> <span class="c1"># normalize</span>
 <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">transpose</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="c1"># channel first</span>
 <span class="n">img</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># batchify</span>
-<span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">as_in_ctx</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
 
 <span class="n">prob</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">npx</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">net</span><span class="p">(</span><span class="n">img</span><span class="p">))</span> <span class="c1"># predict and normalize output</span>
 <span class="n">idx</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">npx</span><span class="o">.</span><span class="n">topk</span><span class="p">(</span><span class="n">prob</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># get top 5 result</span>
@@ -1654,7 +1654,7 @@ sudo pip3 install mxnet_cu102-1.6.0-py2.py3-none-linux_aarch64.whl
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Downloading /home/jenkins_slave/.mxnet/models/resnet50_v1-0aee57f9.zip981e5de0-7cb0-41e0-9b7e-fbfbc20182c0 from https://apache-mxnet.s3-accelerate.dualstack.amazonaws.com/gluon/models/resnet50_v1-0aee57f9.zip...
+Downloading /home/jenkins_slave/.mxnet/models/resnet50_v1-0aee57f9.zip3a296bd1-8098-47c5-901a-fe1ae4c11ad3 from https://apache-mxnet.s3-accelerate.dualstack.amazonaws.com/gluon/models/resnet50_v1-0aee57f9.zip...
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -1662,8 +1662,8 @@ Downloading /home/jenkins_slave/.mxnet/models/resnet50_v1-0aee57f9.zip981e5de0-7
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[09:49:18] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
-[09:49:22] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for GPU
+[15:58:30] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
+[15:58:35] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for GPU
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -1680,7 +1680,7 @@ Downloading cat.jpg?raw=true from https://github.com/dmlc/web-data/blob/master/m
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[09:49:25] /work/mxnet/src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:106: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+[15:58:37] /work/mxnet/src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:106: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">

@@ -617,7 +617,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -735,7 +735,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1212,7 +1212,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1330,7 +1330,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1389,11 +1389,11 @@ Edit on Github
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">from</span> <span class="nn">..base</span> <span class="k">import</span> <span class="n">mx_real_t</span><span class="p">,</span> <span class="n">MXNetError</span>
-<span class="kn">from</span> <span class="nn">..</span> <span class="k">import</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">,</span> <span class="n">initializer</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">_deferred_compute</span> <span class="k">as</span> <span class="n">dc</span>
-<span class="kn">from</span> <span class="nn">..context</span> <span class="k">import</span> <span class="n">Context</span><span class="p">,</span> <span class="n">cpu</span>
+<span class="kn">from</span> <span class="nn">..</span> <span class="k">import</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">,</span> <span class="n">initializer</span><span class="p">,</span> <span class="n">device</span> <span class="k">as</span> <span class="n">_device</span><span class="p">,</span> <span class="n">_deferred_compute</span> <span class="k">as</span> <span class="n">dc</span>
+<span class="kn">from</span> <span class="nn">..device</span> <span class="k">import</span> <span class="n">Device</span><span class="p">,</span> <span class="n">cpu</span>
 <span class="kn">from</span> <span class="nn">..</span> <span class="k">import</span> <span class="n">autograd</span>
 <span class="kn">from</span> <span class="nn">.utils</span> <span class="k">import</span> <span class="n">shape_is_known</span>
-<span class="kn">from</span> <span class="nn">..util</span> <span class="k">import</span> <span class="n">is_np_shape</span><span class="p">,</span> <span class="n">is_np_array</span>
+<span class="kn">from</span> <span class="nn">..util</span> <span class="k">import</span> <span class="n">is_np_shape</span><span class="p">,</span> <span class="n">is_np_array</span><span class="p">,</span> <span class="n">wrap_ctx_to_device_func</span>
 <span class="kn">from</span> <span class="nn">..</span> <span class="k">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">_mx_np</span>  <span class="c1"># pylint: disable=reimported</span>
 
 <span class="c1"># pylint: disable= invalid-name</span>
@@ -1407,17 +1407,17 @@ Edit on Github
 <div class="viewcode-block" id="Parameter"><a class="viewcode-back" href="../../../api/gluon/parameter.html#mxnet.gluon.Parameter">[docs]</a><span class="k">class</span> <span class="nc">Parameter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;A Container holding parameters (weights) of Blocks.</span>
 
-<span class="sd">    :py:class:`Parameter` holds a copy of the parameter on each :py:class:`Context` after</span>
+<span class="sd">    :py:class:`Parameter` holds a copy of the parameter on each :py:class:`Device` after</span>
 <span class="sd">    it is initialized with ``Parameter.initialize(...)``. If :py:attr:`grad_req` is</span>
-<span class="sd">    not ``&#39;null&#39;``, it will also hold a gradient array on each :py:class:`Context`::</span>
+<span class="sd">    not ``&#39;null&#39;``, it will also hold a gradient array on each :py:class:`Device`::</span>
 
-<span class="sd">        ctx = mx.gpu(0)</span>
-<span class="sd">        x = mx.np.zeros((16, 100), ctx=ctx)</span>
+<span class="sd">        device = mx.gpu(0)</span>
+<span class="sd">        x = mx.np.zeros((16, 100), device=device)</span>
 <span class="sd">        w = mx.gluon.Parameter(&#39;fc_weight&#39;, shape=(64, 100), init=mx.init.Xavier())</span>
 <span class="sd">        b = mx.gluon.Parameter(&#39;fc_bias&#39;, shape=(64,), init=mx.init.Zero())</span>
-<span class="sd">        w.initialize(ctx=ctx)</span>
-<span class="sd">        b.initialize(ctx=ctx)</span>
-<span class="sd">        out = mx.npx.fully_connected(x, w.data(ctx), b.data(ctx), num_hidden=64)</span>
+<span class="sd">        w.initialize(device=device)</span>
+<span class="sd">        b.initialize(device=device)</span>
+<span class="sd">        out = mx.npx.fully_connected(x, w.data(device), b.data(device), num_hidden=64)</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1471,8 +1471,8 @@ Edit on Github
         <span class="bp">self</span><span class="o">.</span><span class="n">_var_name</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_grad</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_ctx_list</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_ctx_map</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_device_list</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_device_map</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_trainer</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_deferred_init</span> <span class="o">=</span> <span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_differentiable</span> <span class="o">=</span> <span class="n">differentiable</span>
@@ -1578,24 +1578,24 @@ Edit on Github
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_trainer</span> <span class="o">=</span> <span class="n">trainer</span>
 
-    <span class="k">def</span> <span class="nf">_check_and_get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr_list</span><span class="p">,</span> <span class="n">ctx</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_check_and_get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr_list</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">arr_list</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">device</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">arr_list</span>
-            <span class="k">if</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">device</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr_list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
                     <span class="k">return</span> <span class="n">arr_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">ctx</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">current_context</span><span class="p">()</span>
-            <span class="n">ctx_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ctx_map</span><span class="p">[</span><span class="n">ctx</span><span class="o">.</span><span class="n">device_typeid</span><span class="o">&amp;</span><span class="mi">1</span><span class="p">]</span>
-            <span class="k">if</span> <span class="n">ctx</span><span class="o">.</span><span class="n">device_id</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">ctx_list</span><span class="p">):</span>
-                <span class="n">idx</span> <span class="o">=</span> <span class="n">ctx_list</span><span class="p">[</span><span class="n">ctx</span><span class="o">.</span><span class="n">device_id</span><span class="p">]</span>
+                    <span class="n">device</span> <span class="o">=</span> <span class="n">_device</span><span class="o">.</span><span class="n">current_device</span><span class="p">()</span>
+            <span class="n">device_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_device_map</span><span class="p">[</span><span class="n">device</span><span class="o">.</span><span class="n">device_typeid</span><span class="o">&amp;</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">device</span><span class="o">.</span><span class="n">device_id</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">device_list</span><span class="p">):</span>
+                <span class="n">idx</span> <span class="o">=</span> <span class="n">device_list</span><span class="p">[</span><span class="n">device</span><span class="o">.</span><span class="n">device_id</span><span class="p">]</span>
                 <span class="k">if</span> <span class="n">idx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                     <span class="k">return</span> <span class="n">arr_list</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
-                <span class="s2">&quot;Parameter &#39;</span><span class="si">%s</span><span class="s2">&#39; was not initialized on context </span><span class="si">%s</span><span class="s2">. &quot;</span>
+                <span class="s2">&quot;Parameter &#39;</span><span class="si">%s</span><span class="s2">&#39; was not initialized on device </span><span class="si">%s</span><span class="s2">. &quot;</span>
                 <span class="s2">&quot;It was only initialized on </span><span class="si">%s</span><span class="s2">.&quot;</span><span class="o">%</span><span class="p">(</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">ctx</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ctx_list</span><span class="p">)))</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_device_list</span><span class="p">)))</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deferred_init</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">DeferredInitializationError</span><span class="p">(</span>
                 <span class="s2">&quot;Parameter &#39;</span><span class="si">%s</span><span class="s2">&#39; has not been initialized yet because initialization was &quot;</span> \
@@ -1610,7 +1610,8 @@ Edit on Github
             <span class="s2">&quot;because the later does not include Parameters of &quot;</span> \
             <span class="s2">&quot;nested child Blocks&quot;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
 
-    <span class="k">def</span> <span class="nf">_get_row_sparse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr_list</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">row_id</span><span class="p">):</span>
+    <span class="nd">@wrap_ctx_to_device_func</span>
+    <span class="k">def</span> <span class="nf">_get_row_sparse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr_list</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">row_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Get row_sparse data from row_sparse parameters based on row_id. &quot;&quot;&quot;</span>
         <span class="c1"># get row sparse params based on row ids</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">row_id</span><span class="p">,</span> <span class="n">ndarray</span><span class="o">.</span><span class="n">NDArray</span><span class="p">):</span>
@@ -1619,21 +1620,22 @@ Edit on Github
         <span class="k">if</span> <span class="ow">not</span> <span class="n">trainer</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Cannot get row_sparse data for Parameter &#39;</span><span class="si">%s</span><span class="s2">&#39; when no &quot;</span> \
                                <span class="s2">&quot;Trainer is created with it.&quot;</span><span class="o">%</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-        <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_and_get</span><span class="p">(</span><span class="n">arr_list</span><span class="p">,</span> <span class="n">ctx</span><span class="p">)</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_and_get</span><span class="p">(</span><span class="n">arr_list</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
 
         <span class="c1"># fetch row sparse params from the trainer</span>
         <span class="n">trainer</span><span class="o">.</span><span class="n">_row_sparse_pull</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">row_id</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">results</span>
 
-    <span class="k">def</span> <span class="nf">_load_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">cast_dtype</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype_source</span><span class="o">=</span><span class="s1">&#39;current&#39;</span><span class="p">):</span>
+    <span class="nd">@wrap_ctx_to_device_func</span>
+    <span class="k">def</span> <span class="nf">_load_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">cast_dtype</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype_source</span><span class="o">=</span><span class="s1">&#39;current&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        (Re)initializes by loading from data.</span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        data : NDArray</span>
 <span class="sd">            The data to load</span>
-<span class="sd">        ctx : Context or list of Context</span>
-<span class="sd">            Context(s) initialize loaded parameters on.</span>
+<span class="sd">        device : Device or list of Device</span>
+<span class="sd">            Device(s) initialize loaded parameters on.</span>
 <span class="sd">        cast_dtype : bool, default False</span>
 <span class="sd">            Cast the data type of the parameter</span>
 <span class="sd">        dtype_source : str, default &#39;current&#39;</span>
@@ -1673,23 +1675,23 @@ Edit on Github
                         <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">dtype</span><span class="p">))</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stype</span> <span class="o">!=</span> <span class="n">data</span><span class="o">.</span><span class="n">stype</span><span class="p">:</span>
             <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">tostype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_stype</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">Context</span><span class="p">):</span>
-            <span class="n">ctx</span> <span class="o">=</span> <span class="p">[</span><span class="n">ctx</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">Device</span><span class="p">):</span>
+            <span class="n">device</span> <span class="o">=</span> <span class="p">[</span><span class="n">device</span><span class="p">]</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deferred_init</span><span class="p">:</span>
-                <span class="k">assert</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">set</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span> <span class="o">==</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_deferred_init</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> \
+                <span class="k">assert</span> <span class="n">device</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">set</span><span class="p">(</span><span class="n">device</span><span class="p">)</span> <span class="o">==</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_deferred_init</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> \
                     <span class="s2">&quot;Failed to load Parameter &#39;</span><span class="si">%s</span><span class="s2">&#39; on </span><span class="si">%s</span><span class="s2"> because it was &quot;</span> \
                     <span class="s2">&quot;previous initialized on </span><span class="si">%s</span><span class="s2">.&quot;</span><span class="o">%</span><span class="p">(</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">ctx</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list_ctx</span><span class="p">()))</span>
-                <span class="n">ctx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deferred_init</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-            <span class="k">elif</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">ctx</span> <span class="o">=</span> <span class="p">[</span><span class="n">cpu</span><span class="p">()]</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_init_impl</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">ctx</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list_device</span><span class="p">()))</span>
+                <span class="n">device</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deferred_init</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">device</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">device</span> <span class="o">=</span> <span class="p">[</span><span class="n">cpu</span><span class="p">()]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_init_impl</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">assert</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">set</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span> <span class="o">==</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list_ctx</span><span class="p">()),</span> \
+            <span class="k">assert</span> <span class="n">device</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">set</span><span class="p">(</span><span class="n">device</span><span class="p">)</span> <span class="o">==</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list_device</span><span class="p">()),</span> \
                 <span class="s2">&quot;Failed to load Parameter &#39;</span><span class="si">%s</span><span class="s2">&#39; on </span><span class="si">%s</span><span class="s2"> because it was &quot;</span> \
                 <span class="s2">&quot;previous initialized on </span><span class="si">%s</span><span class="s2">.&quot;</span><span class="o">%</span><span class="p">(</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">ctx</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list_ctx</span><span class="p">()))</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list_device</span><span class="p">()))</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_deferred_init</span> <span class="o">=</span> <span class="p">()</span>
 
@@ -1697,7 +1699,7 @@ Edit on Github
         <span class="sd">&quot;&quot;&quot;Finishes deferred initialization.&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deferred_init</span><span class="p">:</span>
             <span class="k">return</span>
-        <span class="n">init</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">default_init</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deferred_init</span>
+        <span class="n">init</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">default_init</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deferred_init</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_deferred_init</span> <span class="o">=</span> <span class="p">()</span>
 
         <span class="k">assert</span> <span class="n">shape_is_known</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> \
@@ -1708,32 +1710,33 @@ Edit on Github
 
         <span class="k">with</span> <span class="n">autograd</span><span class="o">.</span><span class="n">pause</span><span class="p">(),</span> <span class="n">dc</span><span class="o">.</span><span class="n">context</span><span class="p">(</span><span class="kc">False</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;shape&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s1">&#39;dtype&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="s1">&#39;ctx&#39;</span><span class="p">:</span> <span class="n">context</span><span class="o">.</span><span class="n">cpu</span><span class="p">()}</span>
                 <span class="k">if</span> <span class="n">is_np_array</span><span class="p">():</span>
+                    <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;shape&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s1">&#39;dtype&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="s1">&#39;device&#39;</span><span class="p">:</span> <span class="n">cpu</span><span class="p">()}</span>
                     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stype</span> <span class="o">!=</span> <span class="s1">&#39;default&#39;</span><span class="p">:</span>
                         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Currently stype </span><span class="si">{}</span><span class="s2"> is not supported in NumPy interface and Gluon2.0&quot;</span>
                                          <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_stype</span><span class="p">))</span>
                     <span class="n">zeros_fn</span> <span class="o">=</span> <span class="n">_mx_np</span><span class="o">.</span><span class="n">zeros</span>
                 <span class="k">else</span><span class="p">:</span>
+                    <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;shape&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s1">&#39;dtype&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="s1">&#39;ctx&#39;</span><span class="p">:</span> <span class="n">cpu</span><span class="p">()}</span>
                     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;stype&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stype</span>
                     <span class="n">zeros_fn</span> <span class="o">=</span> <span class="n">ndarray</span><span class="o">.</span><span class="n">zeros</span>
                 <span class="n">data</span> <span class="o">=</span> <span class="n">zeros_fn</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
                 <span class="n">initializer</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">default_init</span><span class="p">)(</span>
                     <span class="n">initializer</span><span class="o">.</span><span class="n">InitDesc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;__init__&#39;</span><span class="p">:</span> <span class="n">init</span><span class="p">}),</span> <span class="n">data</span><span class="p">)</span>
 
-            <span class="bp">self</span><span class="o">.</span><span class="n">_init_impl</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">ctx</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_init_impl</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_init_impl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">ctx_list</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_init_impl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">device_list</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Sets data and grad.&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_ctx_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ctx_list</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_ctx_map</span> <span class="o">=</span> <span class="p">[[],</span> <span class="p">[]]</span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ctx</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ctx_list</span><span class="p">):</span>
-            <span class="n">dev_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ctx_map</span><span class="p">[</span><span class="n">ctx</span><span class="o">.</span><span class="n">device_typeid</span><span class="o">&amp;</span><span class="mi">1</span><span class="p">]</span>
-            <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">dev_list</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">device_id</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_device_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">device_list</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_device_map</span> <span class="o">=</span> <span class="p">[[],</span> <span class="p">[]]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">device</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_device_list</span><span class="p">):</span>
+            <span class="n">dev_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_device_map</span><span class="p">[</span><span class="n">device</span><span class="o">.</span><span class="n">device_typeid</span><span class="o">&amp;</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">dev_list</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">device</span><span class="o">.</span><span class="n">device_id</span><span class="p">:</span>
                 <span class="n">dev_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-            <span class="n">dev_list</span><span class="p">[</span><span class="n">ctx</span><span class="o">.</span><span class="n">device_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+            <span class="n">dev_list</span><span class="p">[</span><span class="n">device</span><span class="o">.</span><span class="n">device_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span> <span class="k">for</span> <span class="n">ctx</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ctx_list</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">device</span><span class="p">)</span> <span class="k">for</span> <span class="n">device</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_device_list</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_init_grad</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">_init_grad</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1746,31 +1749,31 @@ Edit on Github
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_grad_stype</span> <span class="o">!=</span> <span class="s1">&#39;default&#39;</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Currently stype </span><span class="si">{}</span><span class="s2"> is not supported in NumPy interface and Gluon2.0&quot;</span>
                                  <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_grad_stype</span><span class="p">))</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_grad</span> <span class="o">=</span> <span class="p">[</span><span class="n">_mx_np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">i</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">i</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">i</span><span class="o">.</span><span class="n">ctx</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_grad</span> <span class="o">=</span> <span class="p">[</span><span class="n">_mx_np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">i</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">i</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">i</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
                           <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_grad</span> <span class="o">=</span> <span class="p">[</span><span class="n">ndarray</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">i</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">i</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">i</span><span class="o">.</span><span class="n">ctx</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_grad</span> <span class="o">=</span> <span class="p">[</span><span class="n">ndarray</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">i</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">i</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">i</span><span class="o">.</span><span class="n">context</span><span class="p">,</span>
                                         <span class="n">stype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_grad_stype</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">]</span>
 
         <span class="n">autograd</span><span class="o">.</span><span class="n">mark_variables</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_check_and_get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">,</span> <span class="nb">list</span><span class="p">),</span>
                                 <span class="bp">self</span><span class="o">.</span><span class="n">_grad</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">grad_req</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_reduce</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Reduce data from multiple context to cpu.&quot;&quot;&quot;</span>
-        <span class="n">ctx</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
+        <span class="sd">&quot;&quot;&quot;Reduce data from multiple device to cpu.&quot;&quot;&quot;</span>
+        <span class="n">device</span> <span class="o">=</span> <span class="n">cpu</span><span class="p">()</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stype</span> <span class="o">==</span> <span class="s1">&#39;default&#39;</span><span class="p">:</span>
             <span class="n">block</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_data</span><span class="p">()</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">block</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">is_np_array</span><span class="p">():</span>
-                    <span class="n">data</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">w</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">block</span><span class="p">])</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">block</span><span class="p">)</span>
+                    <span class="n">data</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">w</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">device</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">block</span><span class="p">])</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">block</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">data</span> <span class="o">=</span> <span class="n">ndarray</span><span class="o">.</span><span class="n">add_n</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">block</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">block</span><span class="p">)</span>
+                    <span class="n">data</span> <span class="o">=</span> <span class="n">ndarray</span><span class="o">.</span><span class="n">add_n</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">device</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">block</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">block</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">()</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">()</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="c1"># fetch all rows for &#39;row_sparse&#39; param</span>
-            <span class="n">all_row_ids</span> <span class="o">=</span> <span class="n">ndarray</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int64&#39;</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
-            <span class="n">data</span> <span class="o">=</span> <span class="n">ndarray</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">stype</span><span class="o">=</span><span class="s1">&#39;row_sparse&#39;</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
+            <span class="n">all_row_ids</span> <span class="o">=</span> <span class="n">ndarray</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int64&#39;</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">ndarray</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">stype</span><span class="o">=</span><span class="s1">&#39;row_sparse&#39;</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
             <span class="n">trainer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trainer</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trainer</span> <span class="k">else</span> <span class="kc">None</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">trainer</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Cannot reduce row_sparse data for Parameter &#39;</span><span class="si">%s</span><span class="s2">&#39; when no &quot;</span> \
@@ -1778,7 +1781,8 @@ Edit on Github
             <span class="n">trainer</span><span class="o">.</span><span class="n">_row_sparse_pull</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">all_row_ids</span><span class="p">,</span> <span class="n">full_idx</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">data</span>
 
-<div class="viewcode-block" id="Parameter.initialize"><a class="viewcode-back" href="../../../api/gluon/parameter.html#mxnet.gluon.Parameter.initialize">[docs]</a>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">default_init</span><span class="o">=</span><span class="n">initializer</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(),</span>
+<div class="viewcode-block" id="Parameter.initialize"><a class="viewcode-back" href="../../../api/gluon/parameter.html#mxnet.gluon.Parameter.initialize">[docs]</a>    <span class="nd">@wrap_ctx_to_device_func</span>
+    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">default_init</span><span class="o">=</span><span class="n">initializer</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(),</span>
                    <span class="n">force_reinit</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Initializes parameter and gradient arrays. Only used for :py:class:`NDArray` API.</span>
 
@@ -1786,9 +1790,9 @@ Edit on Github
 <span class="sd">        ----------</span>
 <span class="sd">        init : Initializer</span>
 <span class="sd">            The initializer to use. Overrides :py:meth:`Parameter.init` and default_init.</span>
-<span class="sd">        ctx : Context or list of Context, defaults to :py:meth:`context.current_context()`.</span>
-<span class="sd">            Initialize Parameter on given context. If ctx is a list of Context, a</span>
-<span class="sd">            copy will be made for each context.</span>
+<span class="sd">        device : Device or list of Device, default :py:meth:`device.current_device()`.</span>
+<span class="sd">            Assign Parameter to given device. If device is a list of Device, a</span>
+<span class="sd">            copy will be made for each device.</span>
 
 <span class="sd">            .. note::</span>
 <span class="sd">                Copies are independent arrays. User is responsible for keeping</span>
@@ -1803,7 +1807,7 @@ Edit on Github
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
 <span class="sd">        &gt;&gt;&gt; weight = mx.gluon.Parameter(&#39;weight&#39;, shape=(2, 2))</span>
-<span class="sd">        &gt;&gt;&gt; weight.initialize(ctx=mx.cpu(0))</span>
+<span class="sd">        &gt;&gt;&gt; weight.initialize(device=mx.cpu(0))</span>
 <span class="sd">        &gt;&gt;&gt; weight.data()</span>
 <span class="sd">        [[-0.01068833  0.01729892]</span>
 <span class="sd">         [ 0.02042518 -0.01618656]]</span>
@@ -1812,7 +1816,7 @@ Edit on Github
 <span class="sd">        [[ 0.  0.]</span>
 <span class="sd">         [ 0.  0.]]</span>
 <span class="sd">        &lt;NDArray 2x2 @cpu(0)&gt;</span>
-<span class="sd">        &gt;&gt;&gt; weight.initialize(ctx=[mx.gpu(0), mx.gpu(1)])</span>
+<span class="sd">        &gt;&gt;&gt; weight.initialize(device=[mx.gpu(0), mx.gpu(1)])</span>
 <span class="sd">        &gt;&gt;&gt; weight.data(mx.gpu(0))</span>
 <span class="sd">        [[-0.00873779 -0.02834515]</span>
 <span class="sd">         [ 0.05484822 -0.06206018]]</span>
@@ -1828,10 +1832,10 @@ Edit on Github
                           <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
             <span class="k">return</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_grad</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="k">if</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">ctx</span> <span class="o">=</span> <span class="p">[</span><span class="n">context</span><span class="o">.</span><span class="n">current_context</span><span class="p">()]</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">Context</span><span class="p">):</span>
-            <span class="n">ctx</span> <span class="o">=</span> <span class="p">[</span><span class="n">ctx</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">device</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">device</span> <span class="o">=</span> <span class="p">[</span><span class="n">_device</span><span class="o">.</span><span class="n">current_device</span><span class="p">()]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">Device</span><span class="p">):</span>
+            <span class="n">device</span> <span class="o">=</span> <span class="p">[</span><span class="n">device</span><span class="p">]</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">init</span><span class="p">,</span> <span class="n">initializer</span><span class="o">.</span><span class="n">RNNFused</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">set_initializer</span><span class="p">(</span><span class="n">init</span> <span class="k">if</span> <span class="n">init</span> <span class="k">else</span> <span class="n">default_init</span><span class="p">)</span>
             <span class="n">init</span> <span class="o">=</span> <span class="n">default_init</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">init</span>
@@ -1839,40 +1843,46 @@ Edit on Github
             <span class="n">init</span> <span class="o">=</span> <span class="n">default_init</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">init</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">init</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">shape_is_known</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">):</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_deferred_init</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_deferred_init</span> <span class="o">=</span> <span class="p">(</span><span class="n">init</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">default_init</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_deferred_init</span> <span class="o">=</span> <span class="p">(</span><span class="n">init</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">default_init</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
                 <span class="k">return</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot initialize Parameter &#39;</span><span class="si">%s</span><span class="s2">&#39; because it has &quot;</span> \
                              <span class="s2">&quot;invalid shape: </span><span class="si">%s</span><span class="s2">.&quot;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">)))</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_deferred_init</span> <span class="o">=</span> <span class="p">(</span><span class="n">init</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">default_init</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_deferred_init</span> <span class="o">=</span> <span class="p">(</span><span class="n">init</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">default_init</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_finish_deferred_init</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Parameter.reset_ctx"><a class="viewcode-back" href="../../../api/gluon/parameter.html#mxnet.gluon.Parameter.reset_ctx">[docs]</a>    <span class="k">def</span> <span class="nf">reset_ctx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Re-assign Parameter to other contexts.</span>
+<div class="viewcode-block" id="Parameter.reset_device"><a class="viewcode-back" href="../../../api/gluon/parameter.html#mxnet.gluon.Parameter.reset_device">[docs]</a>    <span class="k">def</span> <span class="nf">reset_device</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Re-assign Parameter to other devices.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        ctx : Context or list of Context, default ``context.current_context()``.</span>
-<span class="sd">            Assign Parameter to given context. If ctx is a list of Context, a</span>
-<span class="sd">            copy will be made for each context.</span>
+<span class="sd">        device : Device or list of Device, default ``device.current_device()``.</span>
+<span class="sd">            Assign Parameter to given device. If device is a list of Device, a</span>
+<span class="sd">            copy will be made for each device.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">ctx</span> <span class="o">=</span> <span class="p">[</span><span class="n">context</span><span class="o">.</span><span class="n">current_context</span><span class="p">()]</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">Context</span><span class="p">):</span>
-            <span class="n">ctx</span> <span class="o">=</span> <span class="p">[</span><span class="n">ctx</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">device</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">device</span> <span class="o">=</span> <span class="p">[</span><span class="n">_device</span><span class="o">.</span><span class="n">current_device</span><span class="p">()]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">Device</span><span class="p">):</span>
+            <span class="n">device</span> <span class="o">=</span> <span class="p">[</span><span class="n">device</span><span class="p">]</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">:</span>
             <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reduce</span><span class="p">()</span>
             <span class="k">with</span> <span class="n">autograd</span><span class="o">.</span><span class="n">pause</span><span class="p">():</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_init_impl</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">ctx</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_init_impl</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deferred_init</span><span class="p">:</span>
             <span class="n">init</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">default_init</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deferred_init</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_deferred_init</span> <span class="o">=</span> <span class="p">(</span><span class="n">init</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">default_init</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_deferred_init</span> <span class="o">=</span> <span class="p">(</span><span class="n">init</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">default_init</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot reset context for Parameter &#39;</span><span class="si">%s</span><span class="s2">&#39; because it &quot;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot reset device for Parameter &#39;</span><span class="si">%s</span><span class="s2">&#39; because it &quot;</span>
                              <span class="s2">&quot;has not been initialized.&quot;</span><span class="o">%</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span></div>
 
+<div class="viewcode-block" id="Parameter.reset_ctx"><a class="viewcode-back" href="../../../api/gluon/parameter.html#mxnet.gluon.Parameter.reset_ctx">[docs]</a>    <span class="k">def</span> <span class="nf">reset_ctx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This function has been deprecated. Please refer to ``Parameter.reset_device``.&quot;&quot;&quot;</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Parameter.reset_ctx has been renamed to&#39;</span>
+                      <span class="s1">&#39; Parameter.reset_device&#39;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reset_device</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span></div>
+
 <div class="viewcode-block" id="Parameter.set_data"><a class="viewcode-back" href="../../../api/gluon/parameter.html#mxnet.gluon.Parameter.set_data">[docs]</a>    <span class="k">def</span> <span class="nf">set_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Sets this parameter&#39;s value on all contexts.&quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;Sets this parameter&#39;s value on all devices.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1891,9 +1901,9 @@ Edit on Github
             <span class="n">arr</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">data</span></div>
 
 <div class="viewcode-block" id="Parameter.row_sparse_data"><a class="viewcode-back" href="../../../api/gluon/parameter.html#mxnet.gluon.Parameter.row_sparse_data">[docs]</a>    <span class="k">def</span> <span class="nf">row_sparse_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">row_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Returns a copy of the &#39;row_sparse&#39; parameter on the same context as row_id&#39;s.</span>
+        <span class="sd">&quot;&quot;&quot;Returns a copy of the &#39;row_sparse&#39; parameter on the same device as row_id&#39;s.</span>
 <span class="sd">        The copy only retains rows whose ids occur in provided row ids.</span>
-<span class="sd">        The parameter must have been initialized on this context before.</span>
+<span class="sd">        The parameter must have been initialized on this device before.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -1902,16 +1912,16 @@ Edit on Github
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        NDArray on row_id&#39;s context</span>
+<span class="sd">        NDArray on row_id&#39;s device</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stype</span> <span class="o">!=</span> <span class="s1">&#39;row_sparse&#39;</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Cannot return a copy of Parameter </span><span class="si">%s</span><span class="s2"> via row_sparse_data() &quot;</span> \
                                <span class="s2">&quot;because its storage type is </span><span class="si">%s</span><span class="s2">. Please use data() instead.&quot;</span> \
                                <span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stype</span><span class="p">))</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_row_sparse</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">,</span> <span class="n">row_id</span><span class="o">.</span><span class="n">ctx</span><span class="p">,</span> <span class="n">row_id</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_row_sparse</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">,</span> <span class="n">row_id</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">row_id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Parameter.list_row_sparse_data"><a class="viewcode-back" href="../../../api/gluon/parameter.html#mxnet.gluon.Parameter.list_row_sparse_data">[docs]</a>    <span class="k">def</span> <span class="nf">list_row_sparse_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">row_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Returns copies of the &#39;row_sparse&#39; parameter on all contexts, in the same order</span>
+        <span class="sd">&quot;&quot;&quot;Returns copies of the &#39;row_sparse&#39; parameter on all devices, in the same order</span>
 <span class="sd">        as creation. The copy only retains rows whose ids occur in provided row ids.</span>
 <span class="sd">        The parameter must have been initialized before.</span>
 
@@ -1925,35 +1935,36 @@ Edit on Github
 <span class="sd">        list of NDArrays</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stype</span> <span class="o">!=</span> <span class="s1">&#39;row_sparse&#39;</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Cannot return copies of Parameter &#39;</span><span class="si">%s</span><span class="s2">&#39; on all contexts via &quot;</span> \
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Cannot return copies of Parameter &#39;</span><span class="si">%s</span><span class="s2">&#39; on all devices via &quot;</span> \
                                <span class="s2">&quot;list_row_sparse_data() because its storage type is </span><span class="si">%s</span><span class="s2">. Please &quot;</span> \
                                <span class="s2">&quot;use data() instead.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stype</span><span class="p">))</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_row_sparse</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="n">row_id</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Parameter.data"><a class="viewcode-back" href="../../../api/gluon/parameter.html#mxnet.gluon.Parameter.data">[docs]</a>    <span class="k">def</span> <span class="nf">data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Returns a copy of this parameter on one context. Must have been</span>
-<span class="sd">        initialized on this context before. For sparse parameters, use</span>
+<div class="viewcode-block" id="Parameter.data"><a class="viewcode-back" href="../../../api/gluon/parameter.html#mxnet.gluon.Parameter.data">[docs]</a>    <span class="nd">@wrap_ctx_to_device_func</span>
+    <span class="k">def</span> <span class="nf">data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns a copy of this parameter on one device. Must have been</span>
+<span class="sd">        initialized on this device before. For sparse parameters, use</span>
 <span class="sd">        :py:meth:`Parameter.row_sparse_data` instead.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        ctx : Context</span>
-<span class="sd">            Desired context.</span>
+<span class="sd">        device : Device</span>
+<span class="sd">            Desired device.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        NDArray on ctx</span>
+<span class="sd">        NDArray on device</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stype</span> <span class="o">!=</span> <span class="s1">&#39;default&#39;</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Cannot return a copy of Parameter &#39;</span><span class="si">%s</span><span class="s2">&#39; on ctx </span><span class="si">%s</span><span class="s2"> via data() &quot;</span> \
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Cannot return a copy of Parameter &#39;</span><span class="si">%s</span><span class="s2">&#39; on device </span><span class="si">%s</span><span class="s2"> via data() &quot;</span> \
                                <span class="s2">&quot;because its storage type is </span><span class="si">%s</span><span class="s2">. Please use row_sparse_data() &quot;</span> \
-                               <span class="s2">&quot;instead.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">ctx</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stype</span><span class="p">))</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_and_get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">,</span> <span class="n">ctx</span><span class="p">)</span>
+                               <span class="s2">&quot;instead.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stype</span><span class="p">))</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_and_get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
         <span class="n">dc</span><span class="o">.</span><span class="n">set_variable</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">var</span><span class="p">())</span>
         <span class="k">return</span> <span class="n">data</span></div>
 
 <div class="viewcode-block" id="Parameter.list_data"><a class="viewcode-back" href="../../../api/gluon/parameter.html#mxnet.gluon.Parameter.list_data">[docs]</a>    <span class="k">def</span> <span class="nf">list_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Returns copies of this parameter on all contexts, in the same order</span>
+        <span class="sd">&quot;&quot;&quot;Returns copies of this parameter on all devices, in the same order</span>
 <span class="sd">        as creation. For sparse parameters, use :py:meth:`Parameter.list_row_sparse_data`</span>
 <span class="sd">        instead.</span>
 
@@ -1962,27 +1973,27 @@ Edit on Github
 <span class="sd">        list of NDArrays</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stype</span> <span class="o">!=</span> <span class="s1">&#39;default&#39;</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Cannot return copies of Parameter &#39;</span><span class="si">%s</span><span class="s2">&#39; on all contexts via &quot;</span> \
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Cannot return copies of Parameter &#39;</span><span class="si">%s</span><span class="s2">&#39; on all devices via &quot;</span> \
                                <span class="s2">&quot;list_data() because its storage type is </span><span class="si">%s</span><span class="s2">. Please use &quot;</span> \
                                <span class="s2">&quot;row_sparse_data() instead.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stype</span><span class="p">))</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_and_get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Parameter.grad"><a class="viewcode-back" href="../../../api/gluon/parameter.html#mxnet.gluon.Parameter.grad">[docs]</a>    <span class="k">def</span> <span class="nf">grad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Returns a gradient buffer for this parameter on one context.</span>
+<div class="viewcode-block" id="Parameter.grad"><a class="viewcode-back" href="../../../api/gluon/parameter.html#mxnet.gluon.Parameter.grad">[docs]</a>    <span class="k">def</span> <span class="nf">grad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns a gradient buffer for this parameter on one device.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        ctx : Context</span>
-<span class="sd">            Desired context.</span>
+<span class="sd">        device : Device</span>
+<span class="sd">            Desired device.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_grad</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
                 <span class="s2">&quot;Cannot get gradient array for Parameter &#39;</span><span class="si">%s</span><span class="s2">&#39; &quot;</span> \
                 <span class="s2">&quot;because grad_req=&#39;null&#39;&quot;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_and_get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_grad</span><span class="p">,</span> <span class="n">ctx</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_and_get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_grad</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Parameter.list_grad"><a class="viewcode-back" href="../../../api/gluon/parameter.html#mxnet.gluon.Parameter.list_grad">[docs]</a>    <span class="k">def</span> <span class="nf">list_grad</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Returns gradient buffers on all contexts, in the same order</span>
+        <span class="sd">&quot;&quot;&quot;Returns gradient buffers on all devices, in the same order</span>
 <span class="sd">        as :py:meth:`values`.&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_grad</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
@@ -1991,15 +2002,21 @@ Edit on Github
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_and_get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_grad</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Parameter.list_ctx"><a class="viewcode-back" href="../../../api/gluon/parameter.html#mxnet.gluon.Parameter.list_ctx">[docs]</a>    <span class="k">def</span> <span class="nf">list_ctx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Returns a list of contexts this parameter is initialized on.&quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;This function has been deprecated. Please refer to ``Parameter.list_device``.&quot;&quot;&quot;</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Parameter.list_ctx has been renamed to&#39;</span>
+                      <span class="s1">&#39; Parameter.list_device&#39;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_device</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Parameter.list_device"><a class="viewcode-back" href="../../../api/gluon/parameter.html#mxnet.gluon.Parameter.list_device">[docs]</a>    <span class="k">def</span> <span class="nf">list_device</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns a list of devices this parameter is initialized on.&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deferred_init</span><span class="p">:</span>
                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deferred_init</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Parameter &#39;</span><span class="si">%s</span><span class="s2">&#39; has not been initialized&quot;</span><span class="o">%</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ctx_list</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_device_list</span></div>
 
 <div class="viewcode-block" id="Parameter.zero_grad"><a class="viewcode-back" href="../../../api/gluon/parameter.html#mxnet.gluon.Parameter.zero_grad">[docs]</a>    <span class="k">def</span> <span class="nf">zero_grad</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Sets gradient buffer on all contexts to 0. No action is taken if</span>
+        <span class="sd">&quot;&quot;&quot;Sets gradient buffer on all devices to 0. No action is taken if</span>
 <span class="sd">        parameter is uninitialized or doesn&#39;t require gradient.&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_grad</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span>

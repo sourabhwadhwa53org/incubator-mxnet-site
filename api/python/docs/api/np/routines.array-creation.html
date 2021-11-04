@@ -621,7 +621,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -739,7 +739,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1216,7 +1216,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1334,7 +1334,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1371,28 +1371,28 @@ Edit on Github
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/mxnet.np.eye.html#mxnet.np.eye" title="mxnet.np.eye"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eye</span></code></a>(N[, M, k, dtype])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/mxnet.np.eye.html#mxnet.np.eye" title="mxnet.np.eye"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eye</span></code></a>(N[, M, k, dtype, device])</p></td>
 <td><p>Return a 2-D array with ones on the diagonal and zeros elsewhere.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/mxnet.np.empty.html#mxnet.np.empty" title="mxnet.np.empty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">empty</span></code></a>(shape[, dtype, order, ctx])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/mxnet.np.empty.html#mxnet.np.empty" title="mxnet.np.empty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">empty</span></code></a>(shape[, dtype, order, device])</p></td>
 <td><p>Return a new array of given shape and type, without initializing entries.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/mxnet.np.full.html#mxnet.np.full" title="mxnet.np.full"><code class="xref py py-obj docutils literal notranslate"><span class="pre">full</span></code></a>(shape, fill_value[, dtype, order, ctx, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/mxnet.np.full.html#mxnet.np.full" title="mxnet.np.full"><code class="xref py py-obj docutils literal notranslate"><span class="pre">full</span></code></a>(shape, fill_value[, dtype, order, …])</p></td>
 <td><p>Return a new array of given shape and type, filled with <cite>fill_value</cite>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/mxnet.np.identity.html#mxnet.np.identity" title="mxnet.np.identity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">identity</span></code></a>(n[, dtype, ctx])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/mxnet.np.identity.html#mxnet.np.identity" title="mxnet.np.identity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">identity</span></code></a>(n[, dtype, device])</p></td>
 <td><p>Return the identity array.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/mxnet.np.ones.html#mxnet.np.ones" title="mxnet.np.ones"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ones</span></code></a>(shape[, dtype, order, ctx])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/mxnet.np.ones.html#mxnet.np.ones" title="mxnet.np.ones"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ones</span></code></a>(shape[, dtype, order, device])</p></td>
 <td><p>Return a new array of given shape and type, filled with ones.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/mxnet.np.ones_like.html#mxnet.np.ones_like" title="mxnet.np.ones_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ones_like</span></code></a>(a[, dtype, order, ctx, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/mxnet.np.ones_like.html#mxnet.np.ones_like" title="mxnet.np.ones_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ones_like</span></code></a>(a[, dtype, order, device, out])</p></td>
 <td><p>Return an array of ones with the same shape and type as a given array.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/mxnet.np.zeros.html#mxnet.np.zeros" title="mxnet.np.zeros"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zeros</span></code></a>(shape[, dtype, order, ctx])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/mxnet.np.zeros.html#mxnet.np.zeros" title="mxnet.np.zeros"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zeros</span></code></a>(shape[, dtype, order, device])</p></td>
 <td><p>Return a new array of given shape and type, filled with zeros.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/mxnet.np.zeros_like.html#mxnet.np.zeros_like" title="mxnet.np.zeros_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zeros_like</span></code></a>(a[, dtype, order, ctx, out])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/mxnet.np.zeros_like.html#mxnet.np.zeros_like" title="mxnet.np.zeros_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zeros_like</span></code></a>(a[, dtype, order, device, out])</p></td>
 <td><p>Return an array of zeros with the same shape and type as a given array.</p></td>
 </tr>
 </tbody>
@@ -1410,7 +1410,7 @@ Edit on Github
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/mxnet.np.array.html#mxnet.np.array" title="mxnet.np.array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a>(object[, dtype, ctx])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/mxnet.np.array.html#mxnet.np.array" title="mxnet.np.array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a>(object[, dtype, device])</p></td>
 <td><p>Create an array.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/mxnet.np.copy.html#mxnet.np.copy" title="mxnet.np.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>(a[, out])</p></td>
@@ -1477,7 +1477,7 @@ Edit on Github
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/mxnet.np.arange.html#mxnet.np.arange" title="mxnet.np.arange"><code class="xref py py-obj docutils literal notranslate"><span class="pre">arange</span></code></a>(start[, stop, step, dtype, ctx])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/mxnet.np.arange.html#mxnet.np.arange" title="mxnet.np.arange"><code class="xref py py-obj docutils literal notranslate"><span class="pre">arange</span></code></a>(start[, stop, step, dtype, device])</p></td>
 <td><p>Return evenly spaced values within a given interval.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/mxnet.np.linspace.html#mxnet.np.linspace" title="mxnet.np.linspace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linspace</span></code></a>(start, stop[, num, endpoint, …])</p></td>

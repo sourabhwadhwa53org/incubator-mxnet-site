@@ -618,7 +618,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -736,7 +736,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1213,7 +1213,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1331,7 +1331,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1383,11 +1383,11 @@ Edit on Github
 
 <span class="kn">import</span> <span class="nn">os</span>
 
-<span class="kn">from</span> <span class="nn">....context</span> <span class="k">import</span> <span class="n">cpu</span>
+<span class="kn">from</span> <span class="nn">....device</span> <span class="k">import</span> <span class="n">cpu</span>
 <span class="kn">from</span> <span class="nn">...block</span> <span class="k">import</span> <span class="n">HybridBlock</span>
 <span class="kn">from</span> <span class="nn">...</span> <span class="k">import</span> <span class="n">nn</span>
 <span class="kn">from</span> <span class="nn">....</span> <span class="k">import</span> <span class="n">base</span>
-<span class="kn">from</span> <span class="nn">....util</span> <span class="k">import</span> <span class="n">use_np</span>
+<span class="kn">from</span> <span class="nn">....util</span> <span class="k">import</span> <span class="n">use_np</span><span class="p">,</span> <span class="n">wrap_ctx_to_device_func</span>
 
 <span class="c1"># Helpers</span>
 <span class="k">def</span> <span class="nf">_make_fire</span><span class="p">(</span><span class="n">squeeze_channels</span><span class="p">,</span> <span class="n">expand1x1_channels</span><span class="p">,</span> <span class="n">expand3x3_channels</span><span class="p">):</span>
@@ -1471,7 +1471,8 @@ Edit on Github
         <span class="k">return</span> <span class="n">x</span></div></div>
 
 <span class="c1"># Constructor</span>
-<span class="k">def</span> <span class="nf">get_squeezenet</span><span class="p">(</span><span class="n">version</span><span class="p">,</span> <span class="n">pretrained</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">cpu</span><span class="p">(),</span>
+<span class="nd">@wrap_ctx_to_device_func</span>
+<span class="k">def</span> <span class="nf">get_squeezenet</span><span class="p">(</span><span class="n">version</span><span class="p">,</span> <span class="n">pretrained</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">cpu</span><span class="p">(),</span>
                    <span class="n">root</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">data_dir</span><span class="p">(),</span> <span class="s1">&#39;models&#39;</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;SqueezeNet model from the `&quot;SqueezeNet: AlexNet-level accuracy with 50x fewer parameters</span>
 <span class="sd">    and &lt;0.5MB model size&quot; &lt;https://arxiv.org/abs/1602.07360&gt;`_ paper.</span>
@@ -1486,18 +1487,19 @@ Edit on Github
 <span class="sd">        Version of squeezenet. Options are &#39;1.0&#39;, &#39;1.1&#39;.</span>
 <span class="sd">    pretrained : bool, default False</span>
 <span class="sd">        Whether to load the pretrained weights for model.</span>
-<span class="sd">    ctx : Context, default CPU</span>
-<span class="sd">        The context in which to load the pretrained weights.</span>
+<span class="sd">    device : Device, default CPU</span>
+<span class="sd">        The device in which to load the pretrained weights.</span>
 <span class="sd">    root : str, default $MXNET_HOME/models</span>
 <span class="sd">        Location for keeping the model parameters.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">net</span> <span class="o">=</span> <span class="n">SqueezeNet</span><span class="p">(</span><span class="n">version</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">pretrained</span><span class="p">:</span>
         <span class="kn">from</span> <span class="nn">..model_store</span> <span class="k">import</span> <span class="n">get_model_file</span>
-        <span class="n">net</span><span class="o">.</span><span class="n">load_parameters</span><span class="p">(</span><span class="n">get_model_file</span><span class="p">(</span><span class="s1">&#39;squeezenet</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">version</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="n">root</span><span class="p">),</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
+        <span class="n">net</span><span class="o">.</span><span class="n">load_parameters</span><span class="p">(</span><span class="n">get_model_file</span><span class="p">(</span><span class="s1">&#39;squeezenet</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">version</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="n">root</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">net</span>
 
-<div class="viewcode-block" id="squeezenet1_0"><a class="viewcode-back" href="../../../../../api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.squeezenet1_0">[docs]</a><span class="k">def</span> <span class="nf">squeezenet1_0</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="squeezenet1_0"><a class="viewcode-back" href="../../../../../api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.squeezenet1_0">[docs]</a><span class="nd">@wrap_ctx_to_device_func</span>
+<span class="k">def</span> <span class="nf">squeezenet1_0</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;SqueezeNet 1.0 model from the `&quot;SqueezeNet: AlexNet-level accuracy with 50x fewer parameters</span>
 <span class="sd">    and &lt;0.5MB model size&quot; &lt;https://arxiv.org/abs/1602.07360&gt;`_ paper.</span>
 
@@ -1505,14 +1507,15 @@ Edit on Github
 <span class="sd">    ----------</span>
 <span class="sd">    pretrained : bool, default False</span>
 <span class="sd">        Whether to load the pretrained weights for model.</span>
-<span class="sd">    ctx : Context, default CPU</span>
-<span class="sd">        The context in which to load the pretrained weights.</span>
+<span class="sd">    device : Device, default CPU</span>
+<span class="sd">        The device in which to load the pretrained weights.</span>
 <span class="sd">    root : str, default &#39;$MXNET_HOME/models&#39;</span>
 <span class="sd">        Location for keeping the model parameters.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">get_squeezenet</span><span class="p">(</span><span class="s1">&#39;1.0&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="squeezenet1_1"><a class="viewcode-back" href="../../../../../api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.squeezenet1_1">[docs]</a><span class="k">def</span> <span class="nf">squeezenet1_1</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="squeezenet1_1"><a class="viewcode-back" href="../../../../../api/gluon/model_zoo/index.html#mxnet.gluon.model_zoo.vision.squeezenet1_1">[docs]</a><span class="nd">@wrap_ctx_to_device_func</span>
+<span class="k">def</span> <span class="nf">squeezenet1_1</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;SqueezeNet 1.1 model from the `official SqueezeNet repo</span>
 <span class="sd">    &lt;https://github.com/DeepScale/SqueezeNet/tree/master/SqueezeNet_v1.1&gt;`_.</span>
 <span class="sd">    SqueezeNet 1.1 has 2.4x less computation and slightly fewer parameters</span>
@@ -1522,8 +1525,8 @@ Edit on Github
 <span class="sd">    ----------</span>
 <span class="sd">    pretrained : bool, default False</span>
 <span class="sd">        Whether to load the pretrained weights for model.</span>
-<span class="sd">    ctx : Context, default CPU</span>
-<span class="sd">        The context in which to load the pretrained weights.</span>
+<span class="sd">    device : Device, default CPU</span>
+<span class="sd">        The device in which to load the pretrained weights.</span>
 <span class="sd">    root : str, default &#39;$MXNET_HOME/models&#39;</span>
 <span class="sd">        Location for keeping the model parameters.</span>
 <span class="sd">    &quot;&quot;&quot;</span>

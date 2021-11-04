@@ -621,7 +621,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -739,7 +739,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1216,7 +1216,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1334,7 +1334,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1621,7 +1621,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[09:50:02] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
+[15:59:15] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 <p>You get a tuple of a data sample and its corresponding label, which makes sense because you passed the data <code class="docutils literal notranslate"><span class="pre">X</span></code> and the labels <code class="docutils literal notranslate"><span class="pre">y</span></code> in that order when you instantiated the <code class="docutils literal notranslate"><span class="pre">ArrayDataset</span></code>. You don’t usually retrieve individual samples from <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> objects though (unless you’re quality checking the output samples). Instead you use a <code class="docutils literal notranslate"><span class="pre">DataLoader</span></code>.</p>
@@ -1722,7 +1722,7 @@ Label description: Bag
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;matplotlib.image.AxesImage at 0x7fe2f8b888e0&gt;
+<span></span>&lt;matplotlib.image.AxesImage at 0x7f38617a41f0&gt;
 </pre></div>
 </div>
 </div>
@@ -1844,7 +1844,7 @@ Label description: Faces_easy
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;matplotlib.image.AxesImage at 0x7fe2b954e430&gt;
+<span></span>&lt;matplotlib.image.AxesImage at 0x7f3825e6fd00&gt;
 </pre></div>
 </div>
 </div>
@@ -1872,7 +1872,7 @@ Label description: Faces_easy
 <li><p><code class="docutils literal notranslate"><span class="pre">Transform.__call__()/forward()</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Batchify</span></code></p></li>
 <li><p>(optional communicate through shared_mem)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">split_and_load(ctxs)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">split_and_load(devices)</span></code></p></li>
 <li><p>training on GPUs</p></li>
 </ul>
 <p>Performance concerns include slow python dataset/transform functions, multithreading issues due to global interpreter lock, Python multiprocessing issues due to speed, and batchify issues due to poor memory management.</p>
@@ -1921,7 +1921,7 @@ Downloading /home/jenkins_slave/.mxnet/datasets/cifar10/cifar-10-binary.tar.gz f
 1563
 1563
 1563
-Elapsed time for backend dataloader: 8.072422504425049
+Elapsed time for backend dataloader: 8.267142057418823
 </pre></div></div>
 </div>
 </div>
@@ -1959,7 +1959,7 @@ Elapsed time for backend dataloader: 8.072422504425049
 1563
 1563
 1563
-Elapsed time for python dataloader: 8.994837999343872
+Elapsed time for python dataloader: 9.150867462158203
 </pre></div></div>
 </div>
 </div>

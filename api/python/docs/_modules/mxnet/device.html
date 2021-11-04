@@ -56,7 +56,7 @@
     }
     </style>
     
-    <title>mxnet.context &#8212; Apache MXNet  documentation</title>
+    <title>mxnet.device &#8212; Apache MXNet  documentation</title>
 
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -129,7 +129,7 @@
         
         <nav class="mdl-navigation breadcrumb">
             <a class="mdl-navigation__link" href="../index.html">Module code</a><i class="material-icons">navigate_next</i>
-            <a class="mdl-navigation__link is-active">mxnet.context</a>
+            <a class="mdl-navigation__link is-active">mxnet.device</a>
         </nav>
         <div class="mdl-layout-spacer"></div>
         <nav class="mdl-navigation">
@@ -151,7 +151,7 @@
 </form>
         
 <a id="button-show-github"
-    href="https://github.com/apache/mxnet/edit/master/docs/python_docs/python/_modules/mxnet/context" class="mdl-button mdl-js-button mdl-button--icon">
+    href="https://github.com/apache/mxnet/edit/master/docs/python_docs/python/_modules/mxnet/device" class="mdl-button mdl-js-button mdl-button--icon">
 <i class="material-icons">edit</i>
 </a>
 <div class="mdl-tooltip" data-mdl-for="button-show-github">
@@ -617,7 +617,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -735,7 +735,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1212,7 +1212,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.cpu_pinned.html">mxnet.npx.cpu_pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.gpu.html">mxnet.npx.gpu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.gpu_memory_info.html">mxnet.npx.gpu_memory_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.current_context.html">mxnet.npx.current_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.current_device.html">mxnet.npx.current_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.num_gpus.html">mxnet.npx.num_gpus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.activation.html">mxnet.npx.activation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/npx/generated/mxnet.npx.batch_norm.html">mxnet.npx.batch_norm</a></li>
@@ -1330,7 +1330,7 @@ Edit on Github
 <li class="toctree-l3"><a class="reference internal" href="../../api/legacy/visualization/index.html">mxnet.visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/context/index.html">mxnet.context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/device/index.html">mxnet.device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/engine/index.html">mxnet.engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/executor/index.html">mxnet.executor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/kvstore_server/index.html">mxnet.kvstore_server</a></li>
@@ -1357,7 +1357,7 @@ Edit on Github
     <div class="document">
         <div class="page-content" role="main">
         
-  <h1>Source code for mxnet.context</h1><div class="highlight"><pre>
+  <h1>Source code for mxnet.device</h1><div class="highlight"><pre>
 <span></span><span class="c1"># Licensed to the Apache Software Foundation (ASF) under one</span>
 <span class="c1"># or more contributor license agreements.  See the NOTICE file</span>
 <span class="c1"># distributed with this work for additional information</span>
@@ -1374,18 +1374,18 @@ Edit on Github
 <span class="c1"># KIND, either express or implied.  See the License for the</span>
 <span class="c1"># specific language governing permissions and limitations</span>
 <span class="c1"># under the License.</span>
-<span class="sd">&quot;&quot;&quot;Context management API of mxnet.&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;Device management API of mxnet.&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">contextvars</span>
 <span class="kn">import</span> <span class="nn">ctypes</span>
 <span class="kn">from</span> <span class="nn">.base</span> <span class="k">import</span> <span class="n">_LIB</span>
 <span class="kn">from</span> <span class="nn">.base</span> <span class="k">import</span> <span class="n">check_call</span>
 
 
-<div class="viewcode-block" id="Context"><a class="viewcode-back" href="../../api/context/index.html#mxnet.context.Context">[docs]</a><span class="k">class</span> <span class="nc">Context</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Constructs a context.</span>
+<div class="viewcode-block" id="Device"><a class="viewcode-back" href="../../api/device/index.html#mxnet.device.Device">[docs]</a><span class="k">class</span> <span class="nc">Device</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Constructs a device structure.</span>
 
 <span class="sd">    MXNet can run operations on CPU and different GPUs.</span>
-<span class="sd">    A context describes the device type and ID on which computation should be carried on.</span>
+<span class="sd">    A Device class describes the device type and ID on which computation should be carried on.</span>
 
 <span class="sd">    One can use mx.cpu and mx.gpu for short.</span>
 
@@ -1396,7 +1396,7 @@ Edit on Github
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    device_type : {&#39;cpu&#39;, &#39;gpu&#39;} or Context.</span>
+<span class="sd">    device_type : {&#39;cpu&#39;, &#39;gpu&#39;} or Device.</span>
 <span class="sd">        String representing the device type.</span>
 
 <span class="sd">    device_id : int (default=0)</span>
@@ -1404,61 +1404,61 @@ Edit on Github
 
 <span class="sd">    Note</span>
 <span class="sd">    ----</span>
-<span class="sd">    Context can also be used as a way to change the default context.</span>
+<span class="sd">    Device can also be used as a way to change the default device.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; # array on cpu</span>
-<span class="sd">    &gt;&gt;&gt; cpu_array = mx.nd.ones((2, 3))</span>
-<span class="sd">    &gt;&gt;&gt; # switch default context to GPU(2)</span>
-<span class="sd">    &gt;&gt;&gt; with mx.Context(mx.gpu(2)):</span>
-<span class="sd">    ...     gpu_array = mx.nd.ones((2, 3))</span>
-<span class="sd">    &gt;&gt;&gt; gpu_array.context</span>
+<span class="sd">    &gt;&gt;&gt; cpu_array = mx.np.ones((2, 3))</span>
+<span class="sd">    &gt;&gt;&gt; # switch default Device to GPU(2)</span>
+<span class="sd">    &gt;&gt;&gt; with mx.Device(mx.gpu(2)):</span>
+<span class="sd">    ...     gpu_array = mx.np.ones((2, 3))</span>
+<span class="sd">    &gt;&gt;&gt; gpu_array.device</span>
 <span class="sd">    gpu(2)</span>
 
-<span class="sd">    One can also explicitly specify the context when creating an array.</span>
+<span class="sd">    One can also explicitly specify the device when creating an array.</span>
 
-<span class="sd">    &gt;&gt;&gt; gpu_array = mx.nd.ones((2, 3), mx.gpu(1))</span>
-<span class="sd">    &gt;&gt;&gt; gpu_array.context</span>
+<span class="sd">    &gt;&gt;&gt; gpu_array = mx.np.ones((2, 3), mx.gpu(1))</span>
+<span class="sd">    &gt;&gt;&gt; gpu_array.device</span>
 <span class="sd">    gpu(1)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">devtype2str</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;cpu&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;gpu&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;cpu_pinned&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="s1">&#39;cpu_shared&#39;</span><span class="p">}</span>
     <span class="n">devstr2type</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cpu&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;gpu&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;cpu_pinned&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;cpu_shared&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_type</span><span class="p">,</span> <span class="n">device_id</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">device_type</span><span class="p">,</span> <span class="n">Context</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">device_type</span><span class="p">,</span> <span class="n">Device</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">device_typeid</span> <span class="o">=</span> <span class="n">device_type</span><span class="o">.</span><span class="n">device_typeid</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">device_id</span> <span class="o">=</span> <span class="n">device_type</span><span class="o">.</span><span class="n">device_id</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">device_typeid</span> <span class="o">=</span> <span class="n">Context</span><span class="o">.</span><span class="n">devstr2type</span><span class="p">[</span><span class="n">device_type</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">device_typeid</span> <span class="o">=</span> <span class="n">Device</span><span class="o">.</span><span class="n">devstr2type</span><span class="p">[</span><span class="n">device_type</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">device_id</span> <span class="o">=</span> <span class="n">device_id</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_old_ctx</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">device_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Returns the device type of current context.</span>
+        <span class="sd">&quot;&quot;&quot;Returns the device type of current device.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        -------</span>
-<span class="sd">        &gt;&gt;&gt; mx.context.current_context().device_type</span>
+<span class="sd">        &gt;&gt;&gt; mx.device.current_device().device_type</span>
 <span class="sd">        &#39;cpu&#39;</span>
-<span class="sd">        &gt;&gt;&gt; mx.current_context().device_type</span>
+<span class="sd">        &gt;&gt;&gt; mx.current_device().device_type</span>
 <span class="sd">        &#39;cpu&#39;</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        device_type : str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">Context</span><span class="o">.</span><span class="n">devtype2str</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">device_typeid</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">Device</span><span class="o">.</span><span class="n">devtype2str</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">device_typeid</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Compute hash value of context for dictionary lookup&quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;Compute hash value of device for dictionary lookup&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">hash</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">device_typeid</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">device_id</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Compares two contexts. Two contexts are equal if they</span>
+        <span class="sd">&quot;&quot;&quot;Compares two devices. Two devices are equal if they</span>
 <span class="sd">        have the same device type and device id.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Context</span><span class="p">)</span> <span class="ow">and</span> \
+        <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Device</span><span class="p">)</span> <span class="ow">and</span> \
             <span class="bp">self</span><span class="o">.</span><span class="n">device_typeid</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">device_typeid</span> <span class="ow">and</span> \
             <span class="bp">self</span><span class="o">.</span><span class="n">device_id</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">device_id</span>
 
@@ -1477,17 +1477,17 @@ Edit on Github
     <span class="k">def</span> <span class="nf">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ptype</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">trace</span><span class="p">):</span>
         <span class="n">_current</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_old_ctx</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Context.empty_cache"><a class="viewcode-back" href="../../api/context/index.html#mxnet.context.Context.empty_cache">[docs]</a>    <span class="k">def</span> <span class="nf">empty_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Empties the memory cache for the current contexts device.</span>
+<div class="viewcode-block" id="Device.empty_cache"><a class="viewcode-back" href="../../api/device/index.html#mxnet.device.Device.empty_cache">[docs]</a>    <span class="k">def</span> <span class="nf">empty_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Empties the memory cache for the current device.</span>
 
 <span class="sd">        MXNet utilizes a memory pool to avoid excessive allocations.</span>
-<span class="sd">        Calling empty_cache will empty the memory pool of the contexts</span>
+<span class="sd">        Calling empty_cache will empty the memory pool of the</span>
 <span class="sd">        device. This will only free the memory of the unreferenced data.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        -------</span>
 <span class="sd">        &gt;&gt;&gt; ctx = mx.gpu(0)</span>
-<span class="sd">        &gt;&gt;&gt; arr = mx.nd.ones((200,200), ctx=ctx)</span>
+<span class="sd">        &gt;&gt;&gt; arr = mx.np.ones((200,200), ctx=ctx)</span>
 <span class="sd">        &gt;&gt;&gt; del arr</span>
 <span class="sd">        &gt;&gt;&gt; ctx.empty_cache() # forces release of memory allocated for arr</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1496,20 +1496,20 @@ Edit on Github
         <span class="n">check_call</span><span class="p">(</span><span class="n">_LIB</span><span class="o">.</span><span class="n">MXStorageEmptyCache</span><span class="p">(</span><span class="n">dev_type</span><span class="p">,</span> <span class="n">dev_id</span><span class="p">))</span></div></div>
 
 
-<div class="viewcode-block" id="cpu"><a class="viewcode-back" href="../../api/context/index.html#mxnet.context.cpu">[docs]</a><span class="k">def</span> <span class="nf">cpu</span><span class="p">(</span><span class="n">device_id</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Returns a CPU context.</span>
+<div class="viewcode-block" id="cpu"><a class="viewcode-back" href="../../api/device/index.html#mxnet.device.cpu">[docs]</a><span class="k">def</span> <span class="nf">cpu</span><span class="p">(</span><span class="n">device_id</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns a CPU device.</span>
 
-<span class="sd">    This function is a short cut for ``Context(&#39;cpu&#39;, device_id)``.</span>
-<span class="sd">    For most operations, when no context is specified, the default context is `cpu()`.</span>
+<span class="sd">    This function is a short cut for ``Device(&#39;cpu&#39;, device_id)``.</span>
+<span class="sd">    For most operations, when no device is specified, the default device is `cpu()`.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    ----------</span>
 <span class="sd">    &gt;&gt;&gt; with mx.cpu():</span>
-<span class="sd">    ...     cpu_array = mx.nd.ones((2, 3))</span>
-<span class="sd">    &gt;&gt;&gt; cpu_array.context</span>
+<span class="sd">    ...     cpu_array = mx.np.ones((2, 3))</span>
+<span class="sd">    &gt;&gt;&gt; cpu_array.device</span>
 <span class="sd">    cpu(0)</span>
-<span class="sd">    &gt;&gt;&gt; cpu_array = mx.nd.ones((2, 3), ctx=mx.cpu())</span>
-<span class="sd">    &gt;&gt;&gt; cpu_array.context</span>
+<span class="sd">    &gt;&gt;&gt; cpu_array = mx.np.ones((2, 3), ctx=mx.cpu())</span>
+<span class="sd">    &gt;&gt;&gt; cpu_array.device</span>
 <span class="sd">    cpu(0)</span>
 
 <span class="sd">    Parameters</span>
@@ -1520,26 +1520,26 @@ Edit on Github
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    context : Context</span>
-<span class="sd">        The corresponding CPU context.</span>
+<span class="sd">    device : Device</span>
+<span class="sd">        The corresponding CPU device.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">Context</span><span class="p">(</span><span class="s1">&#39;cpu&#39;</span><span class="p">,</span> <span class="n">device_id</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">Device</span><span class="p">(</span><span class="s1">&#39;cpu&#39;</span><span class="p">,</span> <span class="n">device_id</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="cpu_pinned"><a class="viewcode-back" href="../../api/context/index.html#mxnet.context.cpu_pinned">[docs]</a><span class="k">def</span> <span class="nf">cpu_pinned</span><span class="p">(</span><span class="n">device_id</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Returns a CPU pinned memory context. Copying from CPU pinned memory to GPU</span>
+<div class="viewcode-block" id="cpu_pinned"><a class="viewcode-back" href="../../api/device/index.html#mxnet.device.cpu_pinned">[docs]</a><span class="k">def</span> <span class="nf">cpu_pinned</span><span class="p">(</span><span class="n">device_id</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns a CPU pinned memory device. Copying from CPU pinned memory to GPU</span>
 <span class="sd">    is faster than from normal CPU memory.</span>
 
-<span class="sd">    This function is a short cut for ``Context(&#39;cpu_pinned&#39;, device_id)``.</span>
+<span class="sd">    This function is a short cut for ``Device(&#39;cpu_pinned&#39;, device_id)``.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    ----------</span>
 <span class="sd">    &gt;&gt;&gt; with mx.cpu_pinned():</span>
-<span class="sd">    ...     cpu_array = mx.nd.ones((2, 3))</span>
-<span class="sd">    &gt;&gt;&gt; cpu_array.context</span>
+<span class="sd">    ...     cpu_array = mx.np.ones((2, 3))</span>
+<span class="sd">    &gt;&gt;&gt; cpu_array.device</span>
 <span class="sd">    cpu_pinned(0)</span>
-<span class="sd">    &gt;&gt;&gt; cpu_array = mx.nd.ones((2, 3), ctx=mx.cpu_pinned())</span>
-<span class="sd">    &gt;&gt;&gt; cpu_array.context</span>
+<span class="sd">    &gt;&gt;&gt; cpu_array = mx.np.ones((2, 3), ctx=mx.cpu_pinned())</span>
+<span class="sd">    &gt;&gt;&gt; cpu_array.device</span>
 <span class="sd">    cpu_pinned(0)</span>
 
 <span class="sd">    Parameters</span>
@@ -1550,29 +1550,29 @@ Edit on Github
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    context : Context</span>
-<span class="sd">        The corresponding CPU pinned memory context.</span>
+<span class="sd">    device : Device</span>
+<span class="sd">        The corresponding CPU pinned memory device.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">Context</span><span class="p">(</span><span class="s1">&#39;cpu_pinned&#39;</span><span class="p">,</span> <span class="n">device_id</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">Device</span><span class="p">(</span><span class="s1">&#39;cpu_pinned&#39;</span><span class="p">,</span> <span class="n">device_id</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="gpu"><a class="viewcode-back" href="../../api/context/index.html#mxnet.context.gpu">[docs]</a><span class="k">def</span> <span class="nf">gpu</span><span class="p">(</span><span class="n">device_id</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Returns a GPU context.</span>
+<div class="viewcode-block" id="gpu"><a class="viewcode-back" href="../../api/device/index.html#mxnet.device.gpu">[docs]</a><span class="k">def</span> <span class="nf">gpu</span><span class="p">(</span><span class="n">device_id</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns a GPU device.</span>
 
-<span class="sd">    This function is a short cut for Context(&#39;gpu&#39;, device_id).</span>
+<span class="sd">    This function is a short cut for Device(&#39;gpu&#39;, device_id).</span>
 <span class="sd">    The K GPUs on a node are typically numbered as 0,...,K-1.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    ----------</span>
-<span class="sd">    &gt;&gt;&gt; cpu_array = mx.nd.ones((2, 3))</span>
-<span class="sd">    &gt;&gt;&gt; cpu_array.context</span>
+<span class="sd">    &gt;&gt;&gt; cpu_array = mx.np.ones((2, 3))</span>
+<span class="sd">    &gt;&gt;&gt; cpu_array.device</span>
 <span class="sd">    cpu(0)</span>
 <span class="sd">    &gt;&gt;&gt; with mx.gpu(1):</span>
-<span class="sd">    ...     gpu_array = mx.nd.ones((2, 3))</span>
-<span class="sd">    &gt;&gt;&gt; gpu_array.context</span>
+<span class="sd">    ...     gpu_array = mx.np.ones((2, 3))</span>
+<span class="sd">    &gt;&gt;&gt; gpu_array.device</span>
 <span class="sd">    gpu(1)</span>
-<span class="sd">    &gt;&gt;&gt; gpu_array = mx.nd.ones((2, 3), ctx=mx.gpu(1))</span>
-<span class="sd">    &gt;&gt;&gt; gpu_array.context</span>
+<span class="sd">    &gt;&gt;&gt; gpu_array = mx.np.ones((2, 3), ctx=mx.gpu(1))</span>
+<span class="sd">    &gt;&gt;&gt; gpu_array.device</span>
 <span class="sd">    gpu(1)</span>
 
 <span class="sd">    Parameters</span>
@@ -1582,13 +1582,13 @@ Edit on Github
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    context : Context</span>
-<span class="sd">        The corresponding GPU context.</span>
+<span class="sd">    device : Device</span>
+<span class="sd">        The corresponding GPU device.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">Context</span><span class="p">(</span><span class="s1">&#39;gpu&#39;</span><span class="p">,</span> <span class="n">device_id</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">Device</span><span class="p">(</span><span class="s1">&#39;gpu&#39;</span><span class="p">,</span> <span class="n">device_id</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="num_gpus"><a class="viewcode-back" href="../../api/context/index.html#mxnet.context.num_gpus">[docs]</a><span class="k">def</span> <span class="nf">num_gpus</span><span class="p">():</span>
+<div class="viewcode-block" id="num_gpus"><a class="viewcode-back" href="../../api/device/index.html#mxnet.device.num_gpus">[docs]</a><span class="k">def</span> <span class="nf">num_gpus</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Query CUDA for the number of GPUs present.</span>
 
 <span class="sd">    Raises</span>
@@ -1606,7 +1606,7 @@ Edit on Github
     <span class="k">return</span> <span class="n">count</span><span class="o">.</span><span class="n">value</span></div>
 
 
-<div class="viewcode-block" id="gpu_memory_info"><a class="viewcode-back" href="../../api/context/index.html#mxnet.context.gpu_memory_info">[docs]</a><span class="k">def</span> <span class="nf">gpu_memory_info</span><span class="p">(</span><span class="n">device_id</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="gpu_memory_info"><a class="viewcode-back" href="../../api/device/index.html#mxnet.device.gpu_memory_info">[docs]</a><span class="k">def</span> <span class="nf">gpu_memory_info</span><span class="p">(</span><span class="n">device_id</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Query CUDA for the free and total bytes of GPU global memory.</span>
 
 <span class="sd">    Parameters</span>
@@ -1629,30 +1629,30 @@ Edit on Github
     <span class="k">return</span> <span class="p">(</span><span class="n">free</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">total</span><span class="o">.</span><span class="n">value</span><span class="p">)</span></div>
 
 
-<span class="n">_current</span> <span class="o">=</span> <span class="n">contextvars</span><span class="o">.</span><span class="n">ContextVar</span><span class="p">(</span><span class="s1">&#39;namemanager&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">Context</span><span class="p">(</span><span class="s1">&#39;cpu&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">_current</span> <span class="o">=</span> <span class="n">contextvars</span><span class="o">.</span><span class="n">ContextVar</span><span class="p">(</span><span class="s1">&#39;namemanager&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">Device</span><span class="p">(</span><span class="s1">&#39;cpu&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
 
 
-<div class="viewcode-block" id="current_context"><a class="viewcode-back" href="../../api/context/index.html#mxnet.context.current_context">[docs]</a><span class="k">def</span> <span class="nf">current_context</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;Returns the current context.</span>
+<div class="viewcode-block" id="current_device"><a class="viewcode-back" href="../../api/device/index.html#mxnet.device.current_device">[docs]</a><span class="k">def</span> <span class="nf">current_device</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Returns the current device.</span>
 
 <span class="sd">    By default, `mx.cpu()` is used for all the computations</span>
-<span class="sd">    and it can be overridden by using `with mx.Context(x)` statement where</span>
+<span class="sd">    and it can be overridden by using `with mx.Device(x)` statement where</span>
 <span class="sd">    x can be cpu(device_id) or gpu(device_id).</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    -------</span>
-<span class="sd">    &gt;&gt;&gt; mx.current_context()</span>
+<span class="sd">    &gt;&gt;&gt; mx.current_device()</span>
 <span class="sd">    cpu(0)</span>
-<span class="sd">    &gt;&gt;&gt; with mx.Context(&#39;gpu&#39;, 1):  # Context changed in `with` block.</span>
-<span class="sd">    ...    mx.current_context()  # Computation done here will be on gpu(1).</span>
+<span class="sd">    &gt;&gt;&gt; with mx.Device(&#39;gpu&#39;, 1):  # Device changed in `with` block.</span>
+<span class="sd">    ...    mx.current_device()  # Computation done here will be on gpu(1).</span>
 <span class="sd">    ...</span>
 <span class="sd">    gpu(1)</span>
-<span class="sd">    &gt;&gt;&gt; mx.current_context() # Back to default context.</span>
+<span class="sd">    &gt;&gt;&gt; mx.current_device() # Back to default device.</span>
 <span class="sd">    cpu(0)</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    default_ctx : Context</span>
+<span class="sd">    default_device : Device</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_current</span><span class="o">.</span><span class="n">get</span><span class="p">()</span></div>
 </pre></div>
