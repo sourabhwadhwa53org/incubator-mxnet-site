@@ -1654,7 +1654,7 @@ sudo pip3 install mxnet_cu102-1.6.0-py2.py3-none-linux_aarch64.whl
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Downloading /home/jenkins_slave/.mxnet/models/resnet50_v1-0aee57f9.zip83f082db-b232-408a-b547-5e70b9f21627 from https://apache-mxnet.s3-accelerate.dualstack.amazonaws.com/gluon/models/resnet50_v1-0aee57f9.zip...
+Downloading /home/jenkins_slave/.mxnet/models/resnet50_v1-0aee57f9.zip981e5de0-7cb0-41e0-9b7e-fbfbc20182c0 from https://apache-mxnet.s3-accelerate.dualstack.amazonaws.com/gluon/models/resnet50_v1-0aee57f9.zip...
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -1662,8 +1662,8 @@ Downloading /home/jenkins_slave/.mxnet/models/resnet50_v1-0aee57f9.zip83f082db-b
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[03:58:42] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
-[03:58:47] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for GPU
+[09:49:18] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
+[09:49:22] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for GPU
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -1680,7 +1680,7 @@ Downloading cat.jpg?raw=true from https://github.com/dmlc/web-data/blob/master/m
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[03:58:49] /work/mxnet/src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:106: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+[09:49:25] /work/mxnet/src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:106: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
