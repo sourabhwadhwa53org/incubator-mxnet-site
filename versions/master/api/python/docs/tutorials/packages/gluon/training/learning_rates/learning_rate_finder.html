@@ -1683,7 +1683,7 @@ keep your training logic for a single batch in <code class="docutils literal not
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[18:04:50] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
+[00:03:27] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for CPU
 </pre></div></div>
 </div>
 </div>
@@ -1813,8 +1813,9 @@ notice that we save the parameters and state of the optimizer before the process
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[18:04:53] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for GPU
-[18:04:55] /work/mxnet/src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:106: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+[00:03:30] /work/mxnet/src/storage/storage.cc:202: Using Pooled (Naive) StorageManager for GPU
+[00:03:32] /work/mxnet/src/operator/cudnn_ops.cc:353: Auto-tuning cuDNN op, set MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable
+[00:03:32] /work/mxnet/src/operator/cudnn_ops.cc:353: Auto-tuning cuDNN op, set MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1848,10 +1849,10 @@ idea. We save the initialized parameters for a later comparison with other learn
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Iteration: 0, Loss: 2.5891
-Iteration: 100, Loss: 1.6223
-Iteration: 200, Loss: 1.31
-Final Loss: 1.1679
+Iteration: 0, Loss: 2.8122
+Iteration: 100, Loss: 1.6168
+Iteration: 200, Loss: 1.367
+Final Loss: 1.0407
 </pre></div></div>
 </div>
 <p>Iteration: 0, Loss: 2.785</p>
@@ -1883,10 +1884,10 @@ Final Loss: 1.1679
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Iteration: 0, Loss: 2.677
-Iteration: 100, Loss: 1.7479
-Iteration: 200, Loss: 1.677
-Final Loss: 1.4907
+Iteration: 0, Loss: 2.7204
+Iteration: 100, Loss: 1.9838
+Iteration: 200, Loss: 1.7165
+Final Loss: 1.5467
 </pre></div></div>
 </div>
 <p>Iteration: 0, Loss: 2.6469</p>
@@ -1918,10 +1919,10 @@ Final Loss: 1.4907
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Iteration: 0, Loss: 2.7783
-Iteration: 100, Loss: 1.8404
-Iteration: 200, Loss: 1.5806
-Final Loss: 1.5723
+Iteration: 0, Loss: 2.6944
+Iteration: 100, Loss: 1.868
+Iteration: 200, Loss: 1.8413
+Final Loss: 1.4854
 </pre></div></div>
 </div>
 <p>Iteration: 0, Loss: 2.605</p>

@@ -33,7 +33,7 @@ var searchData=
   ['alignedmallocpitch_97',['AlignedMallocPitch',['../namespacemshadow_1_1packet.html#ae87c3ed51219b7ae4a295884bffa5d8b',1,'mshadow::packet']]],
   ['alignedmemalloc_98',['AlignedMemAlloc',['../namespacemxnet_1_1common.html#aca9c5933ce14039397a350231ffd9ae5',1,'mxnet::common']]],
   ['alignedmemfree_99',['AlignedMemFree',['../namespacemxnet_1_1common.html#a38b9b816c7daac34dbe8def182d1a482',1,'mxnet::common']]],
-  ['alloc_100',['Alloc',['../classmxnet_1_1Storage.html#a8ac978f345ba93f26b11ae4331406561',1,'mxnet::Storage::Alloc(size_t size, Context ctx)'],['../classmxnet_1_1Storage.html#a5badd0ec4eae08f2134c46436a952401',1,'mxnet::Storage::Alloc(Handle *handle)=0']]],
+  ['alloc_100',['Alloc',['../classmxnet_1_1Storage.html#afc59309d033f5c09256e042d285eb00d',1,'mxnet::Storage::Alloc(size_t size, Context ctx, bool failsafe=false)'],['../classmxnet_1_1Storage.html#a051cfe0b4dd91ea93c21b36aba7a0417',1,'mxnet::Storage::Alloc(Handle *handle, bool failsafe=false)=0']]],
   ['alloc_5farg_101',['alloc_arg',['../classmxnet_1_1ext_1_1PassResource.html#a9db8c01ef60ebd075caf275ab499a05b',1,'mxnet::ext::PassResource::alloc_arg()'],['../classmxnet_1_1ext_1_1Node.html#a391e1c2ccc10a9edc19417fa3fad3169',1,'mxnet::ext::Node::alloc_arg()']]],
   ['alloc_5faux_102',['alloc_aux',['../classmxnet_1_1ext_1_1PassResource.html#aeff45b0c181dc59ce73a4802d2c77a0e',1,'mxnet::ext::PassResource::alloc_aux()'],['../classmxnet_1_1ext_1_1Node.html#a17744ecbf554a996fe84dc5553564633',1,'mxnet::ext::Node::alloc_aux()']]],
   ['alloc_5fcpu_103',['alloc_cpu',['../classmxnet_1_1ext_1_1OpResource.html#aca8a01d001adef1481fa5506b76d117b',1,'mxnet::ext::OpResource']]],
